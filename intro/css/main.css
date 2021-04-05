@@ -1,0 +1,500 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("../images/background.jpg");
+    background-repeat: repeat;
+    padding: 10px 50px;
+}
+
+p {
+    font-size: 20px;
+}
+
+h1 {
+    font-size: 70px;
+    color: #d7542f;
+    font-style: italic;
+    text-align: center;
+    letter-spacing: 10px;
+    text-shadow: 1px 1px 3px black;
+    font-family: monospace;
+}
+
+h2 {
+    text-align: center;
+    font-family: fantasy, "Felix Titling";
+    transition-property: all;
+    transition-duration: 1s;
+    transition-timing-function: linear;
+    transition-delay: 0s;
+}
+
+h2:hover {
+    transform: scale(2);
+}
+
+h3 {
+    margin-left: 20px;
+}
+
+a {
+    cursor: pointer;
+}
+
+button {
+    transition-property: all;
+    transition-duration: 2s;
+    transition-timing-function: ease;
+    transition-delay: 1s;
+}
+
+button:hover {
+    transform: scale(3);
+}
+
+img {
+    outline: 2px dashed green;
+}
+
+th, td {
+    border: 1px solid black;
+    font-size: 20px;
+    background-color: #c5dbdb;
+    color: black;
+}
+
+table {
+    margin-bottom: 20px;
+}
+
+li {
+    font-size: 18px;
+    word-spacing: 10px;
+}
+
+p {
+    text-indent: 30px;
+}
+
+span {
+    vertical-align: super;
+}
+
+.cs {
+    text-shadow: 5px 10px 15px #9f1818;
+}
+
+.sc {
+    text-shadow: 10px 10px 10px #0e165b;
+    color: #0e165b;
+}
+
+.aom {
+    color: #ffa500;
+    text-shadow: 10px -10px 10px #d2a738;
+}
+
+.hs {
+    text-shadow: 10px 15px 15px #9d5e0b;
+}
+
+div:empty {
+    background-color: lime;
+}
+
+:checked {
+    width: 30px;
+    height: 30px;
+}
+
+:disabled {
+    background-color: #98c5f6;
+}
+
+input:not([type="text"]) {
+    background-color: #d2a738;
+}
+
+:focus {
+    background-color: antiquewhite;
+}
+
+button:hover {
+    background-color: chartreuse;
+}
+
+td:first-child {
+    background-color: #9d5e0b;
+}
+
+th:last-child {
+    background-color: violet;
+}
+
+li:nth-child(even) {
+    color: coral;
+}
+
+::placeholder {
+    color: red;
+}
+
+h1::before {
+    content: "<<<";
+    background-color: #d2a738;
+    border-radius: 25px 0 0 25px;
+    opacity: 0.7;
+}
+
+h1::after {
+    content: ">>>";
+    background-color: #d2a738;
+    border-radius: 0 25px 25px 0;
+    opacity: 0.7;
+}
+
+/*--------------------------------------------------------------header*/
+.header {
+    margin-bottom: 20px;
+}
+
+.logospicture {
+    width: 50px;
+}
+
+.logo {
+    font-size: 50px;
+    text-decoration: none;
+    color: cornflowerblue;
+}
+
+.long {
+    width: 100%;
+    margin-bottom: 25px;
+    border: 1px solid black;
+    box-shadow: 15px 15px 40px #98c5f6;
+}
+
+.navigation  {
+    width: 220px;
+    border-radius: 5px;
+    background-image: linear-gradient(95deg, white, #96b2cbc7);
+    line-height: 35px;
+    white-space: pre-line;
+    min-width: 280px;
+    max-width: 350px;
+    min-height: 300px;
+    max-height: 350px;
+}
+
+.navigation a {
+    text-decoration: none;
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+.cossacks {
+    margin-bottom: 20px;
+}
+
+.cossacks img{
+    width: 690px;
+    height: 400px;
+}
+
+/*---------------------------------------------------------content*/
+.history {
+    background-image: url("../images/index/background1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top right;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.magnavox {
+    border: 1px solid black;
+    background-color: #96b2cb;
+    margin-bottom: 20px;
+}
+
+.description {
+    font-size: 15px;
+    font-style: italic;
+}
+
+.units img {
+    opacity: 0.75;
+}
+
+.modernity {
+    background-image: url("../images/index/background2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 20px;
+    color: #c5dbdb;
+    margin-bottom: 20px;
+    background-position: top right;
+    min-height: 1100px;
+    position: relative;
+}
+
+.cat {
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    top: 900px;
+    left: 1000px;
+}
+
+.column {
+    vertical-align: top;
+    width: 49%;
+    display: inline-block;
+}
+
+.column-two img,
+.element-two img,
+.element-sandro img,
+.element-mefala img {
+    width: 95%;
+}
+
+.flex {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+}
+
+.flexsc {
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.element-one,
+.element-two {
+    width: 30%;
+}
+
+.element-sandro,
+.element-mefala {
+    width: 30%
+}
+
+.modernity b {
+    text-decoration: underline;
+}
+
+.picture {
+    background-image: url("../images/index/background3.jpg");
+    background-size: cover;
+    background-position: top right;
+    overflow: scroll;
+    max-height: 700px;
+}
+
+.pcr {
+    background-image: url("../images/index/strategy.jpg");
+}
+
+.pcr1  {
+    background-image: url("../images/index/strategy1.jpg");
+}
+
+.pcr, .pcr1 {
+    width: 700px;
+    height: 300px;
+}
+
+.knight {
+    width: 100%;
+}
+
+.game {
+    background-image: url("../images/heroes/velvet.jpg");
+    padding: 20px;
+    margin-bottom: 20px;
+    max-height: 700px;
+    overflow: scroll;
+}
+
+.oldschool,
+.units {
+    padding: 20px;
+}
+
+.oldschool {
+    background-image: url("../images/heroes/velvet.jpg");
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.heroes {
+    padding: 20px;
+    background-image: url("../images/heroes/dragon.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 20px;
+}
+
+.sandro {
+    border-radius: 90px;
+}
+
+.pchr {
+    width: 100%;
+}
+
+.ms {
+    margin-left: 25%;
+}
+
+.nation,
+.starnation,
+.weapons {
+    padding: 20px;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.weapons {
+    overflow: hidden;
+    width: 900px;
+    height: 1000px;
+}
+
+.nation {
+    background-image: url("../images/cossacks/cossacks1.jpg");
+    opacity: 0.8;
+}
+
+.starnation,
+.weapons {
+    background-image: url("../images/starcraft/spice.jpg");
+    opacity: 0.8;
+}
+
+.starnation img,
+.nation img,
+.heroes img,
+.weapons img {
+    margin: 20px;
+}
+
+.units, .age {
+    background-image: url("../images/ageofmythology/sand.jpg");
+}
+
+.game,
+.heroes,
+.nation,
+.starnation,
+.weapons,
+.units,
+.oldschool {
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.wb {
+    word-break: break-all;
+}
+
+.age {
+    opacity: 0.75;
+}
+
+.position {
+    position: relative;
+    left: 350px;
+}
+
+.empty {
+    width: 100px;
+    height: 100px;
+}
+.element-one ul {
+    list-style-type: circle;
+}
+
+.weapons ul {
+   list-style-type: lower-alpha;
+   list-style-position: inside;
+}
+
+.weapons li {
+    border: 1px solid white;
+}
+
+.nation ul {
+    list-style-type: none;
+}
+
+.column-one ul {
+    list-style-image: url("../images/icons.png");
+}
+
+.stus {
+    border-collapse: collapse;
+}
+
+.blaster {
+    transform: translate(-15px, 100px) rotate(45deg) scale(0.7);
+}
+
+/*----------------------------------------------------------footer*/
+.footer {
+    background-color: #d4deea;
+    padding: 10px 20px 20px 20px;
+    border-radius: 20px;
+}
+
+/*----------navigation-down*/
+.navigation-down a {
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.first {
+    color: #d7542f;
+}
+
+/*----------forms*/
+form {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #c5dbdb;
+}
+
+.form-column > p {
+    font-size: inherit;
+    text-indent: inherit;
+    font-weight: bold;
+}
+
+.form-column {
+    width: 25%;
+}
+
+input,
+select {
+    width: 200px;
+    margin-bottom: 5px;
+    display: block;
+}
+
+button {
+    width: 150px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+.submit {
+    color: green;
+}
+
+.submit + .reset {
+    color: red;
+}

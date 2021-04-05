@@ -1,0 +1,133 @@
+* {
+    box-sizing: border-box;
+    /*outline: 1px solid red;*/
+    font-family: Arial, sans-serif;
+}
+
+.description:hover {
+    text-decoration: underline;
+    color: #ff0000;
+}
+
+/*---------content*/
+.content {
+    padding-left: 24px;
+    padding-right: 24px;
+}
+
+.description {
+    text-decoration: none;
+    display: block;
+    height: 25%;
+    overflow: hidden;
+    font-size: 14px;
+}
+
+.category {
+    margin-bottom: 15px;
+}
+
+.category:after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+
+.good {
+    width: 16.3%;
+    height: 340px;
+    padding: 16px;
+    float: left;
+    border-right: 1px solid #e7e2e2;
+    border-bottom: 1px solid #e7e2e2;
+    position: relative;
+}
+
+.link-img {
+    position: relative;
+    height: 170px;
+    margin-bottom: 16px;
+    display: block;
+}
+
+.face {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    max-width: 100%;
+    max-height: 100%;
+    z-index: 1;
+}
+
+.price-old {
+    font-size: 14px;
+    text-decoration: line-through;
+    color: #a6a5a5;
+    visibility: hidden;
+}
+
+.price-new {
+    font-size: 24px;
+}
+
+.price-new-red {
+    color: #ff0000;
+}
+
+span {
+    font-size: 18px;
+}
+
+.heart {
+    width: 30px;
+    height: 30px;
+    background-image: url("images/button.svg");
+    background-color: #ffffff;
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    background-position: center;
+    border: none;
+    right: 0;
+    position: absolute;
+    border-radius: 4px;
+    z-index: 2;
+}
+
+.heart:hover {
+    background-color: #eeeeee;
+    cursor: pointer;
+    border: none;
+}
+
+.status {
+    font-size: 12px;
+    position: absolute;
+    left: 15px;
+    color: #ff6f00;
+    visibility: hidden;
+}
+
+.visibility {
+    visibility: visible;
+}
+
+@media screen and (max-width: 700px) {
+    .good {
+        width: 50%;
+    }
+
+    .good-two ~ .good {
+        visibility: hidden;
+    }
+
+    .good-two ~ .good .visibility {
+        visibility: hidden;
+    }
+}
