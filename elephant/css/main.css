@@ -1,6 +1,185 @@
-/*
-    Этот комментарий удалить в конце разработки
-    Семейство шрифтов используемых на сайте:
+* {
+    box-sizing: border-box;
     font: 11px Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #e7e5c8;
+    width: 706px;
+    margin: 0 auto;
+}
+
+h1 {
+    margin: 22px 0 21px 38px;
     font: 14px "Times New Roman", serif;
-*/
+    color: #6e6b3d;
+}
+
+h4 {
+    font-weight: bold;
+    font: 14px "Times New Roman", serif;
+    margin-bottom: 7px;
+    color: #6e6b3d;
+}
+
+p {
+    font: 11px Tahoma, sans-serif;
+    color: #918e75;
+}
+
+/*-----------------------------------------------------header*/
+header {
+    height: 87px;
+    border-bottom: 1px solid #c0bd9a;
+    position: relative;
+}
+
+.logo {
+    width: 81px;
+    height: 36px;
+    background-image: url("../images/logo.gif");
+    position: absolute;
+    top: 28px;
+    left: 22px;
+}
+
+.telephone {
+    position: absolute;
+    top: 0;
+    right: -26px;
+    width: 274px;
+    height: 87px;
+    background-image: url("../images/phone.png");
+    padding: 25px 0 0 109px;
+    color: #ffffff;
+}
+
+dl,
+dd {
+    font-weight: bold;
+}
+
+dd {
+    margin-left: 12px;
+}
+
+/*-----------------------------------------------------main*/
+main {
+    border-top: 1px solid #f1f0e0;
+}
+
+.our-company {
+    height: 329px;
+    border-bottom: 1px solid #c0bd9a;
+    background-image: url("../images/ho.jpg");
+    background-repeat: no-repeat;
+    background-position: left;
+    padding-left: 390px;
+}
+
+.our-company p {
+    margin-bottom: 16px;
+}
+
+.first-letter {
+    color: #90aa1f;
+}
+
+.link {
+    color: #90aa1f;
+}
+
+.link:hover {
+    text-decoration: none;
+}
+
+.services {
+    border-top: 1px solid #f1f0e0;
+    padding: 10px 0;
+    background-color: #dedbbb;
+    border-radius: 5px;
+    display: block;
+    height: 185px;
+}
+
+.gallery,
+.our-offer {
+    width: 35%;
+    height: 165px;
+    border-right: 1px solid #f1f0e0;
+    background-color: #dedbbb;
+    float: left;
+    padding-left: 16px;
+}
+
+.our-offer {
+    border-left: 1px solid #c0bd9a;
+}
+
+.tree {
+    background-image: url("../images/tree.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 5px;
+    border: 3px solid #b7b192;
+    width: 211px;
+    height: 54px;
+    margin-bottom: 15px;
+}
+
+.our-services {
+    width: 30%;
+    height: 165px;
+    border-left: 1px solid #c0bd9a;
+    float: left;
+    background-color: #dedbbb;
+    padding-left: 17px;
+    background-image: url("../images/elephant.jpg");
+    background-repeat: no-repeat;
+    background-position: right bottom;
+}
+
+.our-services::after {
+    content: "";
+    clear: both;
+}
+
+.room {
+    width: 95px;
+    height: 54px;
+    background-color: #b7b192;
+    padding: 3px 18px 3px 3px;
+    border-radius: 5px;
+    margin: 0 7px 8px 0;
+}
+
+ul {
+    margin-left: 7px;
+    color: #6e6b3d;
+    text-decoration: underline;
+    margin-bottom: 22px;
+    list-style-image: url("../images/dot.gif");
+}
+
+/*-----------------------------------------------------footer*/
+footer {
+    min-height: 179px;
+    background-image: url("../images/welcome.jpg");
+    background-repeat: no-repeat;
+    background-position: 11px 19px;
+    position: relative;
+}
+
+.road-map {
+    width: 259px;
+    height: 70px;
+    background-image: url("../images/map.jpg");
+    background-repeat: no-repeat;
+    background-position: left;
+    position: absolute;
+    right: 0;
+    top: 8px;
+    padding: 20px 0 0 65px;
+}
