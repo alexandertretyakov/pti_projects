@@ -1,16 +1,5 @@
-/*
-    TODO:
-    1. Нижний отступ у категорий
-    2. Название товара - максимум 2 строки
-    3. Цвета ссылок одинаковые
-    4. При маленькой ширине экрана скрывать элементы в категории до 2 штук (никаких огромных пустых пространств)
-        удали класс "good-two"
-    5. Кнопка Wish-list прилипает к границе блока
-*/
-
 * {
     box-sizing: border-box;
-    /*outline: 1px solid red;*/
     font-family: Arial, sans-serif;
 }
 
@@ -28,13 +17,15 @@
 .description {
     text-decoration: none;
     display: block;
-    height: 25%;
+    max-height: 35px;
     overflow: hidden;
     font-size: 14px;
+    margin-bottom: 20px;
+    color: #333;
 }
 
 .category {
-    margin-bottom: 15px;
+    margin-bottom: 64px;
 }
 
 .category:after {
@@ -51,7 +42,7 @@ h2 {
 
 .good {
     width: 16.3%;
-    height: 340px;
+    height: 100%;
     padding: 16px;
     float: left;
     border-right: 1px solid #e7e2e2;
@@ -72,19 +63,19 @@ h2 {
     left: 50%;
     transform: translate(-50%,-50%);
     max-width: 100%;
-    max-height: 100%;
+    max-height: 130px;
     z-index: 1;
 }
 
 .price-old {
-    font-size: 14px;
+    font-size: 10px;
     text-decoration: line-through;
     color: #a6a5a5;
     visibility: hidden;
 }
 
 .price-new {
-    font-size: 24px;
+    font-size: 16px;
 }
 
 .price-new-red {
@@ -104,22 +95,21 @@ span {
     background-size: 20px 20px;
     background-position: center;
     border: none;
-    right: 0;
+    right: 5px;
+    top: 5px;
     position: absolute;
     border-radius: 4px;
     z-index: 2;
 }
 
 .heart:hover {
-    background-color: #eeeeee;
+    background-color: #edf3f3;
     cursor: pointer;
-    border: none;
+    outline: none;
 }
 
 .status {
-    font-size: 12px;
-    position: absolute;
-    left: 15px;
+    font-size: 8px;
     color: #ff6f00;
     visibility: hidden;
 }
@@ -128,16 +118,13 @@ span {
     visibility: visible;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 550px) {
     .good {
         width: 50%;
     }
 
-    .good-two ~ .good {
-        visibility: hidden;
-    }
-
-    .good-two ~ .good .visibility {
-        visibility: hidden;
+    .goods {
+        overflow: hidden;
+        max-height: 316px;
     }
 }
