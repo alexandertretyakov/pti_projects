@@ -1,8 +1,15 @@
+/*
+    TODO:
+    1. Размеры цен, валюты, статуса
+    2. Что такое .face?
+*/
+
 * {
     box-sizing: border-box;
     font-family: Arial, sans-serif;
 }
 
+/* TODO: что тут делать это правило если описание description находится ниже? */
 .description:hover {
     text-decoration: underline;
     color: #ff0000;
@@ -28,12 +35,6 @@
     margin-bottom: 64px;
 }
 
-.category:after {
-    content: "";
-    clear: both;
-    display: block;
-}
-
 h2 {
     font-size: 20px;
     font-weight: normal;
@@ -48,6 +49,12 @@ h2 {
     border-right: 1px solid #e7e2e2;
     border-bottom: 1px solid #e7e2e2;
     position: relative;
+}
+
+.goods::after {
+    content: "";
+    clear: both;
+    display: block;
 }
 
 .link-img {
@@ -118,13 +125,12 @@ span {
     visibility: visible;
 }
 
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 700px) {
     .good {
         width: 50%;
     }
 
-    .goods {
-        overflow: hidden;
-        max-height: 316px;
+    .good:nth-child(2) ~ .good {
+        display: none;
     }
 }
