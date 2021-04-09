@@ -123,13 +123,8 @@ a:hover {
 }
 
 .our-offer img {
-    background-image: url("../images/tree.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
     border-radius: 5px;
     border: 3px solid #b7b192;
-    width: 211px;
-    height: 54px;
     margin-bottom: 15px;
 }
 
