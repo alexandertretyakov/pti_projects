@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/main.css">
+    <!-- TODO: добавь иконку и заголовок -->
 </head>
 
 <body>
@@ -23,15 +24,18 @@
         <div class="information-container">
             <div class="information">
                 <a class="logo" href="index.html"><img src="images/3.gif" alt="Логотип компании"></a>
-                <div class="tape">
-                    <a class="arrow-left" href="index.html"></a>
+
+                <div class="module-news">
+                    <a class="arrow-left" href="index.html"></a><!-- TODO: сделай это кнопками previous -->
                     <a class="news" href="index.html">Сегодня открылась новая версия нашего сайта...</a>
-                    <a class="arrow-right" href="index.html"></a>
+                    <a class="arrow-right" href="index.html"></a><!-- TODO: сделай это кнопками next -->
                 </div>
+
                 <a class="enter" href="index.html">Войти</a>
                 <a class="registration" href="index.html">Регистрация</a>
+
                 <div class="navigation-two">
-                    <a class="open" href="index.html">Главная</a>
+                    <a class="open" href="index.html">Главная</a><!-- TODO: класс .active -->
                     <a href="index.html">Рейтинги</a>
                     <a href="index.html">Новости</a>
                     <a href="index.html">База знаний</a>
@@ -44,7 +48,7 @@
     </header>
 
     <main>
-        <div class="tab">
+        <div class="module-banner">
             <h2>Карта рынка труда России</h2>
             <p>
                 Интернет-проект, объединяющий в рамках одного портала все самые необходимые соискателю ресурсы по поиску работы и предоставляющий прямой доступ к лучшим компаниям-работодателям, кадровым агентствам, сайтам по поиску работы, ярмаркам вакансий, газетам и журналам по карьере в любом городе России.
@@ -52,7 +56,8 @@
             <p>
                 Интернет-проект, объединяющий в рамках одного портала все самые необходимые соискателю ресурсы по поиску работы и предоставляющий прямой доступ к лучшим компаниям-работодателям, кадровым агентствам, сайтам по поиску работы, ярмаркам вакансий, газетам и журналам по карьере в любом городе России.
             </p>
-            <div class="buttons">
+
+            <div class="pagination">
                 <a class="active" href="index.html">1</a>
                 <a href="index.html">2</a>
                 <a href="index.html">3</a>
@@ -60,14 +65,14 @@
                 <a href="index.html">5</a>
             </div>
 
-            <div class="collapse"><a href="index.html"></a></div>
+            <button class="toggle"></button>
 
-            <div class="tab-back"><a href="index.html"></a></div>
+            <button class="previous"></button>
 
-            <div class="tab-forward"><a href="index.html"></a></div>
+            <button class="next"></button>
         </div>
 
-        <div class="sheet"></div>
+        <div class="module-sheet"></div>
     </main>
 
     <footer>

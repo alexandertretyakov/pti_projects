@@ -1,9 +1,15 @@
-﻿* {
+﻿/*
+    TODO:
+    1. Убрать отступ у body
+    2. Размеры шрифта не по дизайну
+*/
+
+* {
     box-sizing: border-box;
 }
 
 body {
-    font-family: Verdana;
+    font-family: Verdana, sans-serif;
     font-size: 10px;
 }
 
@@ -62,7 +68,7 @@ a:hover {
     margin-top: 4px;
 }
 
-.tape {
+.module-news {
     width: 370px;
     border: 2px solid #ffffff;
     border-radius: 5px;
@@ -73,14 +79,15 @@ a:hover {
     top: 23px;
 }
 
-.tape::after,
+/* TODO: раздели */
+.module-news::after,
 .footer::after {
     content: "";
     clear: both;
     display: block;
 }
 
-.tape a {
+.module-news a {
     display: inline-block;
     color: #ffffff;
 }
@@ -170,20 +177,21 @@ main {
     width: 1012px;
     margin: 0 auto;
     background-color: #043a4f;
-    border-radius: 0 0 10px 10px;
+    border-radius: 0 0 5px 5px;
+    padding: 6px;
 }
 
-.tab {
+.module-banner {
     min-height: 199px;
     background-color: #1f617a;
-    border: 6px solid #043a4f;
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 0 132px 0 45px;
     color: #ffffff;
     position: relative;
+    margin-bottom: 6px;
 }
 
-.collapse {
+.toggle {
     width: 28px;
     height: 23px;
     background-color: #1f617a;
@@ -194,7 +202,8 @@ main {
     right: -1px;
 }
 
-.collapse a {
+.toggle::after {
+    content: "";
     width: 0;
     height: 0;
     border: 8px solid transparent;
@@ -204,13 +213,13 @@ main {
 
 }
 
-.buttons {
+.pagination {
     position: absolute;
     top: 10px;
     right: 135px;
 }
 
-.buttons a {
+.pagination a {/* TODO: сделай кнопками */
     width: 25px;
     height: 25px;
     background-color: #218fbb;
@@ -225,20 +234,18 @@ main {
 }
 
 .active {
-    background-color: #2fbaf1!Important;
+    background-color: #2fbaf1 !important;
 }
 
-.sheet {
+/* TODO: что сдесь делает описания следующего модуля? */
+.module-sheet {
     min-height: 510px;
     background-color: #ffffff;
-    border-width: 3px 6px 6px 6px;
-    border-radius: 10px;
-    border-style: solid;
-    border-color: #043a4f;
+    border-radius: 5px;
 }
 
-.tab-back,
-.tab-forward {
+.previous,
+.next {
     width: 25px;
     height: 25px;
     background-color: #218fbb;
@@ -247,21 +254,22 @@ main {
     border-radius: 5px;
 }
 
-.tab-back {
+.previous {
     position: absolute;
     bottom: 9px;
     left: 7px;
 }
 
-.tab-forward {
+.next {
     position: absolute;
     bottom: 9px;
     right: 9px;
     padding-left: 7px;
 }
 
-.tab-forward a,
-.tab-back a {
+.previous::after,
+.next::after {
+    content: "";
     width: 0;
     height: 0;
     border-top: 10px solid transparent;
@@ -269,18 +277,18 @@ main {
     display: block;
 }
 
-.tab-back a {
+.previous::after {
     border-right: 15px solid #ffffff;
 }
 
-.tab-forward a {
+.next::after {
     border-left: 15px solid #ffffff;
 }
 
 /* --------------------------------------------- Footer */
 footer {
     padding: 25px;
-    font-family: Tahoma;
+    font-family: Tahoma, sans-serif;
     width: 1012px;
     margin: 0 auto;
 }
