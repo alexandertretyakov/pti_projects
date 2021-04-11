@@ -1,3 +1,10 @@
+/*
+    TODO:
+    1. Размеры шрифта не по дизайну
+    2. Цвет основного текста другой
+    3. Футер прижать к низу
+*/
+
 * {
     box-sizing: border-box;
 }
@@ -25,7 +32,7 @@ header::after {
 }
 
 .logo img {
-    height: 30px;
+    /*height: 30px;*/
 }
 
 .location {
@@ -88,7 +95,7 @@ main {
     font-size: 11px;
 }
 
-.navigation-two .active,
+.navigation-two a.active,
 .navigation-two a:hover {
     color: #c59e52;
 }
@@ -101,7 +108,8 @@ main {
     padding: 10px 16px;
     font-family: Tahoma, sans-serif;
     font-size: 12px;
-    min-height: 763px;
+    /*min-height: 763px;*/
+    /* TODO: изучи файл layout.html и прижми футер к низу тем способом */
 }
 
 .content img {
