@@ -1,10 +1,165 @@
-/*
-    Основной шрифт страницы
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("../images/1.gif");
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    color: #ffffff;
     font-family: Verdana, sans-serif;
+}
 
-    Для контента используется
-    font-family: Tahoma, sans-serif;
+/* --------------------------------------------- Header */
+header {
+    height: 31px;
+    background-color: #000000;
+    border-bottom: 1px solid #6a4101;
+}
 
-    Для меню выше и ниже контента используется
+header::after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+.logo img {
+    height: 30px;
+}
+
+.location {
+    float: right;
+    width: 216px;
+    font-size: 8px;
+    padding: 7px 0;
+}
+
+.location label {
+    margin-right: 20px;
+}
+
+/* --------------------------------------------- Main */
+main {
+    width: 719px;
+    margin: 0 auto;
+}
+
+.page {
+    background-color: #000000;
+    border-left: 1px solid #a36917;
+    border-right: 1px solid #a36917;
+}
+
+.navigation-one {
+    height: 30px;
+    padding: 8px 0 0 495px;
+    font-size: 8px;
+}
+
+.navigation-one a {
+    color: #ffffff;
+    text-decoration: none;
+    margin-left: 14px;
+    margin-bottom: 10px;
+    vertical-align: 5px;
+}
+
+.navigation-one a:nth-child(2) {
+    margin-left: 0;
+}
+
+.navigation-one a:hover {
+    text-decoration: underline;
+}
+
+.navigation-two {
+    padding: 12px;
     font-family: "Times New Roman", serif;
-*/
+}
+
+.navigation-two a {
+    padding: 0 40px 0 38px;
+    border-left: 1px solid #c59e52;
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 11px;
+}
+
+.navigation-two .active,
+.navigation-two a:hover {
+    color: #c59e52;
+}
+
+.navigation-two a:first-child {
+    border: none;
+}
+
+.content {
+    padding: 10px 16px;
+    font-family: Tahoma, sans-serif;
+    font-size: 12px;
+    min-height: 763px;
+}
+
+.content img {
+    float: left;
+    margin-right: 13px;
+}
+
+.content::after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+.navigation-three {
+    padding: 14px 19px;
+    font-family: "Times New Roman", serif;
+    font-size: 11px;
+}
+
+.navigation-three a {
+    text-decoration: none;
+    border-left: 1px solid #d08900;
+    padding: 0 3px;
+    color: #9f7526;
+}
+
+.navigation-three a:first-child {
+    border-left: none;
+}
+
+.navigation-three a:hover {
+    text-decoration: underline;
+}
+
+/* --------------------------------------------- Footer */
+footer {
+    font-size: 7px;
+    background-color: #000000;
+    border-top: 1px solid #6a4101;
+    padding: 10px 4px 10px 30px;
+}
+
+footer::after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+.footer-navigation {
+    float: right;
+}
+
+.footer-navigation a {
+    margin-right: 16px;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.footer-navigation a:hover {
+    text-decoration: underline;
+}

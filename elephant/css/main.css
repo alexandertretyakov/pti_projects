@@ -50,10 +50,7 @@ header {
     padding: 25px 0 0 109px;
     color: #ffffff;
     font-weight: bold;
-}
-
-.contacts {
-    margin-left: 12px;
+    text-indent: -12px;
 }
 
 /* --------------------------------------------- Main */
@@ -74,8 +71,13 @@ main {
     margin-bottom: 16px;
 }
 
-.first-letter {
+.first-letter,
+strong {
     color: #90aa1f;
+}
+
+b {
+    color: #6e6b3d;
 }
 
 a {

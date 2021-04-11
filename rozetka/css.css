@@ -1,18 +1,6 @@
-/*
-    TODO:
-    1. Размеры цен, валюты, статуса
-    2. Что такое .face?
-*/
-
 * {
     box-sizing: border-box;
     font-family: Arial, sans-serif;
-}
-
-/* TODO: что тут делать это правило если описание description находится ниже? */
-.description:hover {
-    text-decoration: underline;
-    color: #ff0000;
 }
 
 /*---------content*/
@@ -29,6 +17,11 @@
     font-size: 14px;
     margin-bottom: 20px;
     color: #333;
+}
+
+.description:hover {
+    text-decoration: underline;
+    color: #ff0000;
 }
 
 .category {
@@ -64,7 +57,7 @@ h2 {
     display: block;
 }
 
-.face {
+.link-img img {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -75,14 +68,14 @@ h2 {
 }
 
 .price-old {
-    font-size: 10px;
+    font-size: 14px;
     text-decoration: line-through;
     color: #a6a5a5;
     visibility: hidden;
 }
 
 .price-new {
-    font-size: 16px;
+    font-size: 24px;
 }
 
 .price-new-red {
@@ -90,7 +83,7 @@ h2 {
 }
 
 span {
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .heart {
@@ -116,7 +109,7 @@ span {
 }
 
 .status {
-    font-size: 8px;
+    font-size: 12px;
     color: #ff6f00;
     visibility: hidden;
 }
