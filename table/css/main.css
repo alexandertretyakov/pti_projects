@@ -1,0 +1,178 @@
+* {
+    box-sizing: border-box;
+}
+
+/* --------------------------------------------- Table-one */
+.table-one {
+    width: 783px;
+    border-top: 2px solid #cbcbcb;
+    border-right: 2px solid #7f7f7f;
+    border-bottom: 2px solid #7f7f7f;
+    border-left: 2px solid #cbcbcb;
+    border-radius: 3px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.table-one th,
+.table-one td {
+    border-top: 2px solid #7f7f7f;
+    border-right: 2px solid #cbcbcb;
+    border-bottom: 2px solid #cbcbcb;
+    border-left: 2px solid #7f7f7f;
+    border-radius: 3px;
+    padding: 9px;
+    text-align: center;
+}
+
+.table-one th:first-child {
+    width: 312px;
+    text-align: left;
+}
+
+.table-one td:first-child {
+    text-align: left;
+}
+
+/* --------------------------------------------- Table-two */
+.table-two {
+    width: 494px;
+    border-right: 1px solid #7e7f81;
+    border-bottom: 1px solid #7e7f81;
+}
+
+.table-two th,
+.table-two td {
+    border-top: 1px solid #838486;
+    border-left: 1px solid #838486;
+}
+
+.table-two th {
+    padding: 5px;
+}
+
+.table-two th:nth-child(2) {
+    width: 289px;
+}
+
+.table-two td {
+    padding: 5px 0 0 5px;
+    vertical-align: top;
+}
+
+.table-two ul {
+    margin: 0 auto 25px;
+    color: #1c0be3;
+}
+
+.table-two li {
+    color: black;
+}
+
+/* --------------------------------------------- Table-three */
+.table-three {
+    border-top: 1px solid #808080;
+    border-right: 1px solid #2c2c2c;
+    border-bottom: 1px solid #2c2c2c;
+    border-left: 1px solid #808080;
+    width: 405px;
+}
+
+.table-three th,
+.table-three td {
+    border-top: 1px solid #2c2c2c;
+    border-right: 1px solid #808080;
+    border-bottom: 1px solid #808080;
+    border-left: 1px solid #2c2c2c;
+}
+
+.table-three th {
+    width: 81px;
+    padding: 4px 0 5px 0;
+}
+
+.table-three td {
+    padding-left: 4px;
+}
+
+
+.table-three td:first-child {
+    width: 145px;
+    padding: 6px 0 5px 4px;
+}
+
+.table-three td[colspan]{
+    text-align: center;
+}
+
+/* --------------------------------------------- Table-four */
+.table-four {
+    width: 445px;
+    border: 10px solid #d3d3d3;
+}
+
+.table-four td {
+    border: 1px solid #d3d3d3;
+    padding: 10px 6px 10px 9px;
+}
+
+/* --------------------------------------------- Table-five */
+.table-five {
+    width: 540px;
+    border-spacing: 0;
+    font-family: Verdana;
+    font-size: 15px;
+}
+
+.table-five tr:nth-child(odd) {
+    background-color: #eeeeee;
+}
+
+.table-five th:last-child,
+.table-five td:last-child {
+    text-align: right;
+}
+
+.table-five th,
+.table-five td {
+    padding: 11px;
+    color: #696969;
+}
+
+.table-five th {
+    background-color: #706d97;
+    color: #ffffff;
+    text-align: left;
+}
+
+.table-five td {
+    border-bottom: 1px solid #eeeeee;
+}
+
+/* --------------------------------------------- Table-six */
+.table-six {
+    width: 660px;
+    background: radial-gradient(#fdfefe, #d6edf9);
+    border-spacing: 0;
+    font-family: Verdana;
+    font-size: 14px;
+}
+
+.table-six th,
+.table-six td {
+    border-left: 1px solid #8ce3cc;
+    border-bottom: 1px solid #8ce3cc;
+}
+
+.table-six th {
+    padding: 10px 5px 10px 5px;
+}
+
+.table-six td {
+    padding: 5px 20px 5px 5px;
+    font-size: 11px;
+}
+
+.table-six th:first-child {
+    text-align: left;
+}
