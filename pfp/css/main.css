@@ -43,7 +43,7 @@ header::after {
     margin-right: 20px;
 }
 
-#country {
+#country {/* TODO: 1) давай без # 2) прилип  */
     font-size: 12px;
 }
 
@@ -52,6 +52,8 @@ main {
     width: 719px;
     margin: 0 auto;
     flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .page {
@@ -59,24 +61,16 @@ main {
     border-left: 1px solid #a36917;
     border-right: 1px solid #a36917;
     position: relative;
-    height: 993px;
-}
-
-.page .banner {
-    position: relative;
-    height: 125px;
-}
-
-.page .banner img {
-    position: absolute;
-    left: -2px;
+    flex-grow: 1;
+    padding-bottom: 50px;
 }
 
 .navigation-one {
     height: 30px;
-    padding: 8px 0 0 470px;
+    padding: 8px 0 0 0;
+    text-align: right;
     font-size: 10px;
-    background-image: url("../images/4.gif");
+    background-image: url("../images/4.gif");/* Подправь корзинку (::before) */
     background-repeat: no-repeat;
     background-position: 458px 7px;
 }
@@ -127,8 +121,8 @@ main {
     margin-right: 13px;
 }
 
-.content p:nth-child(2) {
-    margin-top: 0;
+.content p {
+    margin: 0 0 10px 0;
 }
 
 .content::after {
