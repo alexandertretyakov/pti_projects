@@ -130,6 +130,12 @@ a:hover {
     margin-bottom: 15px;
 }
 
+.our-offer em {
+    color: #90aa1f;
+    font-weight: bold;
+    font-style: normal;
+}
+
 .our-services {
     width: 30%;
     height: 165px;
