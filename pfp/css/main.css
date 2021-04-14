@@ -1,12 +1,9 @@
-/*
-    TODO:
-    1. Размеры шрифта не по дизайну
-    2. Цвет основного текста другой
-    3. Футер прижать к низу
-*/
-
 * {
     box-sizing: border-box;
+}
+
+html {
+    height: 100%;
 }
 
 body {
@@ -16,6 +13,7 @@ body {
     margin: 0;
     color: #ffffff;
     font-family: Verdana, sans-serif;
+    height: 100%;
 }
 
 /* --------------------------------------------- Header */
@@ -32,13 +30,12 @@ header::after {
 }
 
 .logo img {
-    /*height: 30px;*/
+    margin-top: -1px;
 }
 
 .location {
     float: right;
-    width: 216px;
-    font-size: 8px;
+    font-size: 10px;
     padding: 7px 0;
 }
 
@@ -46,34 +43,48 @@ header::after {
     margin-right: 20px;
 }
 
+#country {
+    font-size: 12px;
+}
+
 /* --------------------------------------------- Main */
 main {
     width: 719px;
     margin: 0 auto;
+    flex-grow: 1;
 }
 
 .page {
     background-color: #000000;
     border-left: 1px solid #a36917;
     border-right: 1px solid #a36917;
+    position: relative;
+    height: 993px;
+}
+
+.page .banner {
+    position: relative;
+    height: 125px;
+}
+
+.page .banner img {
+    position: absolute;
+    left: -2px;
 }
 
 .navigation-one {
     height: 30px;
-    padding: 8px 0 0 495px;
-    font-size: 8px;
+    padding: 8px 0 0 470px;
+    font-size: 10px;
+    background-image: url("../images/4.gif");
+    background-repeat: no-repeat;
+    background-position: 458px 7px;
 }
 
 .navigation-one a {
     color: #ffffff;
     text-decoration: none;
-    margin-left: 14px;
-    margin-bottom: 10px;
-    vertical-align: 5px;
-}
-
-.navigation-one a:nth-child(2) {
-    margin-left: 0;
+    margin: 0 0 10px 10px;
 }
 
 .navigation-one a:hover {
@@ -81,18 +92,18 @@ main {
 }
 
 .navigation-two {
-    padding: 12px;
+    padding: 6px;
     font-family: "Times New Roman", serif;
 }
 
 .navigation-two a {
-    padding: 0 40px 0 38px;
+    padding: 0 37px 0 34px;
     border-left: 1px solid #c59e52;
     color: #ffffff;
     text-decoration: none;
     text-transform: uppercase;
     font-weight: bold;
-    font-size: 11px;
+    font-size: 12px;
 }
 
 .navigation-two a.active,
@@ -108,13 +119,16 @@ main {
     padding: 10px 16px;
     font-family: Tahoma, sans-serif;
     font-size: 12px;
-    /*min-height: 763px;*/
-    /* TODO: изучи файл layout.html и прижми футер к низу тем способом */
+    color: #cccccc;
 }
 
 .content img {
     float: left;
     margin-right: 13px;
+}
+
+.content p:nth-child(2) {
+    margin-top: 0;
 }
 
 .content::after {
@@ -124,9 +138,11 @@ main {
 }
 
 .navigation-three {
-    padding: 14px 19px;
+    padding: 14px 15px;
     font-family: "Times New Roman", serif;
-    font-size: 11px;
+    font-size: 12px;
+    position: absolute;
+    bottom: 0;
 }
 
 .navigation-three a {
@@ -146,7 +162,7 @@ main {
 
 /* --------------------------------------------- Footer */
 footer {
-    font-size: 7px;
+    font-size: 10px;
     background-color: #000000;
     border-top: 1px solid #6a4101;
     padding: 10px 4px 10px 30px;
