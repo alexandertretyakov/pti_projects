@@ -82,8 +82,7 @@ h2 {
     color: #ff0000;
 }
 
-/* TODO: вряд ли все span на проекте будут иметь такой внешний вид */
-span {
+.price-new span {
     font-size: 16px;
 }
 
