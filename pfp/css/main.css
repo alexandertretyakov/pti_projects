@@ -43,8 +43,9 @@ header::after {
     margin-right: 20px;
 }
 
-#country {/* TODO: 1) давай без # 2) прилип  */
+.location .country {
     font-size: 12px;
+    margin-right: 20px;
 }
 
 /* --------------------------------------------- Main */
@@ -70,9 +71,6 @@ main {
     padding: 8px 0 0 0;
     text-align: right;
     font-size: 10px;
-    background-image: url("../images/4.gif");/* Подправь корзинку (::before) */
-    background-repeat: no-repeat;
-    background-position: 458px 7px;
 }
 
 .navigation-one a {
@@ -83,6 +81,21 @@ main {
 
 .navigation-one a:hover {
     text-decoration: underline;
+}
+
+.navigation-one a:nth-child(1) {
+    position: relative;
+}
+
+.navigation-one a:nth-child(1)::before {
+    content: "";
+    background-image: url("../images/4.gif");
+    display: inline-block;
+    width: 19px;
+    height: 16px;
+    position: absolute;
+    left: -22px;
+    top: -1px;
 }
 
 .navigation-two {
