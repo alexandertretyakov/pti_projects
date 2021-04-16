@@ -217,8 +217,7 @@ main {
     border-top-color: #ffffff;
     border-bottom: 0;
     display: inline-block;
-
-}/* TODO: лишняя пустая строка */
+}
 
 .module-banner .pagination {
     position: absolute;
