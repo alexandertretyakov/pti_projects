@@ -1,4 +1,11 @@
-﻿* {
+﻿/*
+    TODO:
+    1. Футер прижать к низу (если контента мало)
+    2. У картинок "border"
+    3. Заголовок "Где вы сможете экономить" может быть на два слова больше
+*/
+
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -10,7 +17,7 @@ body {
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial, sans-serif;
     background: #473B38;
 }
 
@@ -22,7 +29,7 @@ body {
     position: relative;
 }
 
-@mixin apply ($margin){
+@mixin apply($margin) {
     padding: 7px 0 8px 0;
     margin: $margin;
     font-size: 16px;
@@ -45,27 +52,27 @@ body {
     position: relative;
     margin-bottom: 30px;
 
-       .module-navigation {
-            position: absolute;
-            right: 0;
-            bottom: 14px;
-            font-size: 12px;
+   .menu {
+        position: absolute;
+        right: 0;
+        bottom: 14px;
+        font-size: 12px;
 
-               a {
-                   color: #decacb;
-                   padding-top: 4px;
-                   text-decoration: none;
-                   margin-left: 20px;
-               }
+        a {
+            color: #decacb;
+            padding-top: 4px;
+            text-decoration: none;
+            margin-left: 20px;
 
-               a:hover {
-                   border-top: 8px solid #594546;
-               }
+            &:hover,
+            &.active {}/* TODO: попробуй */
+        }
 
-               .active {
-                   border-top: 8px solid #594546;
-               }
-       }
+        a:hover,
+        a.active {
+            border-top: 8px solid #594546;
+        }
+   }
 }
 
 /* ---------------------------------------- Main */
@@ -77,142 +84,144 @@ main {
 
     .column-one {
         width: 280px;
-
-        .module-advertising {
-            padding: 20px 0 23px 106px;
-            position: relative;
-            width: 402px;
-            background-color: #594546;
-            border: 1px solid #7f5e60;
-            right: 120px;
-            color: #decacb;
-            margin-bottom: 28px;
-
-            h2 {
-                font-size: 28px;
-                margin-bottom: 10px;
-            }
-
-            h3 {
-                font-size: 20px;
-            }
-
-            p {
-                font-size: 14px;
-                color: #c3c4b9;
-            }
-        }
-
-        .module-location {
-            border-radius: 10px;
-            background-color: #3c322f;
-            padding: 20px 0 0 11px;
-            color: #a28c8b;
-            font-size: 12px;
-            line-height: 20px;
-            min-height: 375px;
-
-            p {
-                margin-bottom: 25px;
-            }
-
-            em {
-                color: #ffffff;
-                font-weight: bold;
-            }
-
-            .apply {
-                @include apply (20px 0 0 4px);
-            }
-        }
     }
 
     .column-two {
         width: 670px;
         padding-left: 40px;
+    }
+}
 
-        .module-request {
-            text-align: right;
-            min-height: 221px;
-            background-image: url("../images/2.jpg");
-            background-repeat: no-repeat;
-            background-position: 0 5px;
-            padding-right: 20px;
+/* ---------------------------------------- Module: Advertising */
+.module-advertising {
+    padding: 20px 0 23px 106px;
+    position: relative;
+    width: 402px;
+    background-color: #594546;
+    border: 1px solid #7f5e60;
+    right: 120px;
+    color: #decacb;
+    margin-bottom: 28px;
 
-            h3 {
-                font-family: Verdana, Arial, Helvetica, sans-serif;
-                color: #95d0d9;
-                font-size: 15px;
-                margin: 0 20px 17px 0;
-            }
+    h2 {
+        font-size: 28px;
+        margin-bottom: 10px;
+    }
 
-            form {
-                font-size: 13px;
-                color: #bac2c2;
-                text-align: right;
+    h3 {
+        font-size: 20px;
+    }
 
-                input {
-                    width: 172px;
-                    height: 22px;
-                    border: 1px solid #95d0d9;
-                    margin: 0 0 10px 15px;
-                }
+    p {
+        font-size: 14px;
+        color: #c3c4b9;
+    }
+}
 
-                .apply {
-                    @include apply (15px 0 0 4px);
-                }
-            }
+/* ---------------------------------------- Module: Location */
+.module-location {
+    border-radius: 10px;
+    background-color: #3c322f;
+    padding: 20px 0 0 11px;
+    color: #a28c8b;
+    font-size: 12px;
+    line-height: 20px;
+    min-height: 375px;
+
+    p {
+        margin-bottom: 25px;
+    }
+
+    em {
+        color: #ffffff;
+        font-weight: bold;
+    }
+
+    .apply {
+        @include apply (20px 0 0 4px);
+    }
+}
+
+/* ---------------------------------------- Module: Request */
+.module-request {
+    text-align: right;
+    min-height: 221px;
+    background-image: url("../images/2.jpg");
+    background-repeat: no-repeat;
+    background-position: 0 5px;
+    padding-right: 20px;
+
+    h3 {
+        font-family: Verdana, sans-serif;
+        color: #95d0d9;
+        font-size: 15px;
+        margin: 0 20px 17px 0;
+    }
+
+    form {
+        font-size: 13px;
+        color: #bac2c2;
+        text-align: right;
+
+        input {
+            width: 172px;
+            height: 22px;
+            border: 1px solid #95d0d9;
+            margin: 0 0 10px 15px;
         }
 
-        .module-content {
-            font-size: 12px;
-            line-height: 20px;
-
-            p {
-                margin-bottom: 25px;
-                color: #c2c2c2;
-            }
-
-            h3 {
-                font-family: Verdana, Arial, Helvetica, sans-serif;
-                color: #95d0d9;
-                font-size: 18px;
-                margin: 0 20px 26px 0;
-            }
+        .apply {
+            @include apply (15px 0 0 4px);
         }
+    }
+}
 
-        .module-content-participants {
-            padding-top: 3px;
+/* ---------------------------------------- Module: Content */
+.module-content {
+    font-size: 12px;
+    line-height: 20px;
 
-            h4 {
-                font-size: 15px;
-                color: #ffffff;
-                display: inline-block;
-                margin: 0 295px 19px 0;
-            }
+    h3 {
+        font-family: Verdana, sans-serif;
+        color: #95d0d9;
+        font-size: 18px;
+        margin: 0 20px 26px 0;
+    }
 
-            a {
-                color: #decacb;
-                font-size: 13px;
-            }
+    p {
+        margin-bottom: 25px;
+        color: #c2c2c2;
+    }
 
-            .links-container {
-                padding-top: 2px;
+    ol {
+        color: #c2c2c2;
+        margin-bottom: 25px;
+    }
+}
 
-                a {
-                    width: 105px;
-                    display: inline-block;
-                    margin: 0 16px 16px 0;
-                }
-            }
-        }
+/* ---------------------------------------- Module: Participants */
+.module-participants {
+    padding-top: 3px;
 
-        .module-content-information {
-            color: #c2c2c2;
+    h4 {
+        font-size: 15px;
+        color: #ffffff;
+        display: inline-block;
+        margin: 0 295px 19px 0;
+    }
 
-            ol {
-                margin-bottom: 25px;
-            }
+    a {
+        color: #decacb;
+        font-size: 13px;
+    }
+
+    .links-container {
+        padding-top: 2px;
+
+        a {
+            width: 105px;
+            display: inline-block;
+            margin: 0 16px 16px 0;
         }
     }
 }
