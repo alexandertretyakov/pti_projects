@@ -1,11 +1,4 @@
-﻿/*
-    TODO:
-    1. Футер прижать к низу (если контента мало)
-    2. У картинок "border"
-    3. Заголовок "Где вы сможете экономить" может быть на два слова больше
-*/
-
-* {
+﻿* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -25,7 +18,7 @@ body {
     width: 950px;
     margin: 0 auto;
     min-height: 100%;
-    padding-bottom: 120px;
+    padding-bottom: 50px;
     position: relative;
 }
 
@@ -65,12 +58,9 @@ body {
             margin-left: 20px;
 
             &:hover,
-            &.active {}/* TODO: попробуй */
-        }
-
-        a:hover,
-        a.active {
-            border-top: 8px solid #594546;
+            &.active {
+                border-top: 8px solid #594546;
+            }
         }
    }
 }
@@ -79,7 +69,6 @@ body {
 main {
     display: flex;
     flex-direction: row;
-    min-height: 828px;
     padding-bottom: 120px;
 
     .column-one {
@@ -103,13 +92,13 @@ main {
     color: #decacb;
     margin-bottom: 28px;
 
-    h2 {
-        font-size: 28px;
+    h3 {
+        font-size: 20px;
         margin-bottom: 10px;
     }
 
-    h3 {
-        font-size: 20px;
+    .word {
+        font-size: 28px;
     }
 
     p {
@@ -203,25 +192,37 @@ main {
 .module-participants {
     padding-top: 3px;
 
+    &::after {
+        content: "";
+        clear: both;
+        display: block;
+    }
+
     h4 {
         font-size: 15px;
         color: #ffffff;
         display: inline-block;
-        margin: 0 295px 19px 0;
+        margin-bottom: 17px;
     }
 
-    a {
+    .all-businesses {
         color: #decacb;
         font-size: 13px;
+        float: right;
+        margin-right: 27px;
     }
 
     .links-container {
         padding-top: 2px;
 
         a {
-            width: 105px;
             display: inline-block;
-            margin: 0 16px 16px 0;
+            margin: 0 17px 14px 0;
+        }
+
+        img {
+            width: 105px;
+            border: 10px solid #3c312f;
         }
     }
 }
