@@ -11,19 +11,11 @@
 <body>
     <header>
         <a class="logo" href="about_us.htm"><img src="images/logo.png" alt="company logotype"></a>
-        <div class="contact-us">
-            <a href="contact_us.htm">contact us</a>
-            <div class="tip">Go to contact us</div>
-        </div>
 
-        <div class="offers">
-            <a href="offers.htm">offers</a>
-            <div class="tip">Go to offers</div>
-        </div>
-
-        <div class="about-us">
-            <a href="about_us.htm">about us</a>
-            <div class="tip">Go to about us</div>
+        <div class="menu">
+            <a href="about_us.htm">about us <span class="tip">Go to about us</span></a>
+            <a href="offers.htm">offers <span class="tip">Go to offers</span></a>
+            <a href="contact_us.htm">contact us <span class="tip">Go to contact us</span></a>
         </div>
     </header>
 
@@ -44,28 +36,32 @@
 
     <main>
         <h2>Contact us</h2>
-        <form action="#">
-            <div class="field">
-                <label for="name">Name:</label>
-                <input type="text" id="name">
-            </div>
 
-            <div class="field">
-                <label for="e-mail">E-mail:</label>
-                <input type="text" id="e-mail">
-            </div>
+        <div class="module-contact-us">
+            <form action="#">
+                <div class="field">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name">
+                </div>
 
-            <div class="field">
-                <label for="subject">Subject:</label>
-                <input type="text" id="subject">
-            </div>
+                <div class="field">
+                    <label for="e-mail">E-mail:</label>
+                    <input type="text" id="e-mail">
+                </div>
 
-            <div class="field">
-                <label for="message">Message:</label>
-                <textarea id="message"></textarea>
-            </div>
-            <button type="button">Send</button>
-        </form>
+                <div class="field">
+                    <label for="subject">Subject:</label>
+                    <input type="text" id="subject">
+                </div>
+
+                <div class="field">
+                    <label for="message">Message:</label>
+                    <textarea id="message"></textarea>
+                </div>
+
+                <button type="button">Send</button>
+            </form>
+        </div>
     </main>
 
     <footer>
