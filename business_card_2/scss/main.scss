@@ -6,7 +6,7 @@ html {
     height: 100%;
 }
 
-body {
+body {/* TODO: footer к низу */
     height: 100%;
     font-family: Tahoma, sans-serif;
     background: #535050;
@@ -22,7 +22,7 @@ body {
 }
 
 h3 {
-    color:  #efcfa5;
+    color: #efcfa5;
     font-weight: normal;
     font-size: 20px;
     margin: 13px 0 5px 4px;
@@ -42,7 +42,7 @@ a {
     }
 }
 
-/* ---------------------------------------- Header*/
+/* ---------------------------------------- Header */
 .header {
     padding-top: 72px;
 
@@ -50,7 +50,7 @@ a {
         display: flex;
         flex-direction: row;
 
-        .link {
+        .link {/* TODO: используй множественные background */
             width: 25%;
             height: 164px;
         }
@@ -77,9 +77,9 @@ a {
     }
 }
 
-/* ---------------------------------------- Main*/
+/* ---------------------------------------- Main */
 main {
-    &::after {
+    &::after {/* TODO: создай mixin clear-fix */
         content: "";
         display: block;
         clear: both;
@@ -126,180 +126,180 @@ main {
             margin-bottom: 7px;
         }
     }
+}
 
-    /*---------------------------------------- Module-Testimonials*/
-    .module-testimonials {
-        margin-bottom: -16px;
+/*---------------------------------------- Module: Testimonials */
+.module-testimonials {
+    margin-bottom: -16px;
 
-        h3 {
-            color: #90c6dd;
-        }
-
-        .content {
-            background-color: #535050;
-            padding: 13px 0 3px 15px;
-
-            h4 {
-                font-size: 14px;
-                color: #a1c6dd;
-                margin: 0 31px 13px 0;
-                text-align: right;
-            }
-
-            p {
-                font-size: 13px;
-                margin-bottom: 13px;
-            }
-        }
+    h3 {
+        color: #90c6dd;
     }
 
-    /*---------------------------------------- Module-Pricing*/
-    .module-pricing {
-        .product {
-            width: 469px;
-            height: 139px;
-            background-image: url("../images/pricing_desk.gif");
-            margin: -2px 0 12px -5px;
-            padding: 30px 0 0 27px;
-            position: relative;
+    .content {
+        background-color: #535050;
+        padding: 13px 0 3px 15px;
 
-            h2 {
-                color: #508b23;
-                margin: 0;
-                font-weight: normal;
-                font-size: 23px;
-            }
-
-            a {
-                color: #6ca83e;
-                display: block;
-                background: url("../images/dot_ok.png") 13px 3px no-repeat;
-                padding-left: 40px;
-                font-size: 17px;
-                text-decoration: none;
-
-                &:hover {
-                    text-decoration: underline;
-                }
-            }
-
-            .price {
-                position: absolute;
-                top: 22px;
-                right: 85px;
-                font-size: 18px;
-
-                span {
-                    font-size: 32px;
-                    margin: 4px 0 0 -3px;
-                    display: block;
-                }
-
-                p {
-                    color: #5a973e;
-                }
-            }
-
-            button {
-                width: 164px;
-                height: 45px;
-                background: url("../images/purchase.png") 0 0 no-repeat;
-                border: none;
-                float: right;
-                margin: -15px 32px 0 0px;
-
-                &:hover {
-                    cursor: grab;
-                }
-
-                &:focus {
-                    outline: none;
-                }
-            }
-        }
-    }
-
-    /*---------------------------------------- Module-FAQ*/
-    .module-faq {
-        .content {
+        h4 {
             font-size: 14px;
-            color: #eaf3f3;
-            line-height: 20px;
-
-            dl,
-            dd {
-                margin: 0 0 2px -10px;
-                display: inline-block;
-                padding-left: 16px;
-            }
-
-            dd {
-                background: url("../images/dot_arrow.gif") 0 4px no-repeat;
-            }
-
-            dd:nth-child(3) {
-                margin-bottom: 17px;
-            }
-
-            dt {
-                padding: 3px 10px 15px 6px;
-            }
-
-            a {
-                color: #a7a7a7;
-            }
-        }
-    }
-
-    /*---------------------------------------- Forms*/
-    form {
-        margin-left: -5px;
-
-        .field {
-            margin-bottom: 9px;
-
-            input {
-                width: 200px;
-                border: 2px solid #7e7e7e;
-                padding: 4px 10px 3px 7px;
-                font-size: 15px;
-                color: #5f5c5c;
-            }
+            color: #a1c6dd;
+            margin: 0 31px 13px 0;
+            text-align: right;
         }
 
-        input,
-        textarea {
-            &:focus {
-                outline: none;
-            }
-        }
-
-        textarea,
-        button {
-            font-family: Arial, serif;
-            margin-bottom: 6px;
-            font-size: 15px;
-        }
-
-        textarea {
-            width: 469px;
-            height: 214px;
-            border: 2px solid #7e7e7e;
-            color: #5f5c5c;
-            padding: 4px 4px 4px 7px;
-            resize: vertical;
-        }
-
-        button {
-            width: 196px;
-            border: 2px solid #ffffff;
-            background-color: #7e7e7e;
-            padding: 3px 3px 1px 3px;
+        p {
+            font-size: 13px;
+            margin-bottom: 13px;
         }
     }
 }
 
-/*---------------------------------------- Footer*/
+/*---------------------------------------- Module: Pricing */
+.module-pricing {
+    .product {
+        width: 469px;
+        height: 139px;
+        background-image: url("../images/pricing_desk.gif");
+        margin: -2px 0 12px -5px;
+        padding: 30px 0 0 27px;
+        position: relative;
+
+        h2 {
+            color: #508b23;
+            margin: 0;
+            font-weight: normal;
+            font-size: 23px;
+        }
+
+        a {/* TODO: это не ссылки */
+            color: #6ca83e;
+            display: block;
+            background: url("../images/dot_ok.png") 13px 3px no-repeat;
+            padding-left: 40px;
+            font-size: 17px;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        .price {
+            position: absolute;
+            top: 22px;
+            right: 85px;
+            font-size: 18px;
+
+            span {
+                font-size: 32px;
+                margin: 4px 0 0 -3px;
+                display: block;
+            }
+
+            p {
+                color: #5a973e;
+            }
+        }
+
+        button {/* TODO: сделай hover повеселей */
+            width: 164px;
+            height: 45px;
+            background: url("../images/purchase.png") 0 0 no-repeat;
+            border: none;
+            float: right;
+            margin: -15px 32px 0 0px;
+
+            &:hover {
+                cursor: grab;/* TODO: сделай нормальную лапку */
+            }
+
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+}
+
+/*---------------------------------------- Module: FAQ */
+.module-faq {
+    .content {
+        font-size: 14px;
+        color: #eaf3f3;
+        line-height: 20px;
+    }
+
+    dl,
+    dd {
+        margin: 0 0 2px -10px;
+        display: inline-block;
+        padding-left: 16px;
+    }
+
+    dd {
+        background: url("../images/dot_arrow.gif") 0 4px no-repeat;
+    }
+
+    dd:nth-child(3) {
+        margin-bottom: 17px;
+    }
+
+    dt {
+        padding: 3px 10px 15px 6px;
+    }
+
+    a {
+        color: #a7a7a7;
+    }
+}
+
+/*---------------------------------------- Module: Contact us */
+.module-contacts {
+    margin-left: -5px;
+
+    .field {
+        margin-bottom: 9px;
+
+        input {
+            width: 200px;
+            border: 2px solid #7e7e7e;
+            padding: 4px 10px 3px 7px;
+            font-size: 15px;
+            color: #5f5c5c;
+        }
+    }
+
+    input,
+    textarea {
+        &:focus {
+            outline: none;
+        }
+    }
+
+    textarea,
+    button {
+        font-family: Arial, serif;
+        margin-bottom: 6px;
+        font-size: 15px;
+    }
+
+    textarea {
+        width: 469px;
+        height: 214px;
+        border: 2px solid #7e7e7e;
+        color: #5f5c5c;
+        padding: 4px 4px 4px 7px;
+        resize: vertical;
+    }
+
+    button {/* TODO: сделай hover */
+        width: 196px;
+        border: 2px solid #ffffff;
+        background-color: #7e7e7e;
+        padding: 3px 3px 1px 3px;
+    }
+}
+
+/*---------------------------------------- Footer */
 footer {
     padding: 10px 10px 25px 10px;
     text-align: center;
