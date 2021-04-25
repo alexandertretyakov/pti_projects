@@ -1,0 +1,379 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    color: #d5ead2;
+    font-family: Arial, sans-serif;
+    background: #17313a;
+    height: 100%;
+    margin: 0;
+}
+
+.page {
+    width: 811px;
+    margin: 0 auto;
+    min-height: 100%;
+    position: relative;
+    padding-bottom: 100px;
+}
+
+p {
+    line-height: 22px;
+    margin: 0;
+}
+
+@mixin clear-fix {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+@mixin forms-focus {
+    background-color: #899f86;
+    border: 1px solid #ffffff;
+    outline: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+h2 {
+    font-weight: normal;
+    color: #5c9954;
+    font-size: 22px;
+    margin: 0 0 8px 0;
+}
+
+/* ---------------------------------------- Header */
+.header {
+    background: url("../images/hr.gif") 0 282px no-repeat;
+}
+
+.logo {
+    padding: 51px 0 47px 0;
+    background: url("../images/hat.jpg") 211px -1px no-repeat;
+    margin-left: 1px;
+}
+
+.menu {
+    padding: 0 15px 16px 10px;
+
+
+    .link {
+        display: inline-block;
+        color: #ffffff;
+        text-decoration: none;
+        padding: 64px 0 0 19px;
+        font-size: 12px;
+
+        &:hover {
+            background: linear-gradient(#dcdcdc, #696969);
+        }
+    }
+
+    .link-about-us,
+    .link-contact-us {
+        width: 192px;
+        height: 138px;
+    }
+
+    .link-services,
+    .link-projects {
+        width: 171px;
+        height: 138px;
+    }
+
+    .link-about-us ~ .link {
+        margin-left: 15px;
+    }
+
+    .link-about-us {
+        background: url("../images/menu_1_text.png") 19px 41px no-repeat, linear-gradient(#beebb2, #5a9752);
+        border-radius: 15px 0 0 15px;
+        margin-left: 1px;
+
+        &:hover {
+            background:  url("../images/menu_1_text.png") 19px 41px no-repeat,linear-gradient(#dcdcdc, #696969);
+        }
+    }
+
+    .link-services {
+        background: url("../images/menu_2_text.png") 19px 41px no-repeat, linear-gradient(#b3e9eb, #237e83);
+
+        &:hover {
+            background:  url("../images/menu_2_text.png") 19px 41px no-repeat,linear-gradient(#dcdcdc, #696969);
+        }
+    }
+
+    .link-projects {
+        background: url("../images/menu_3_text.png") 19px 41px no-repeat, linear-gradient(#eacfb2, #c35838);
+
+        &:hover {
+            background:  url("../images/menu_3_text.png") 19px 41px no-repeat,linear-gradient(#dcdcdc, #696969);
+        }
+    }
+
+    .link-contact-us {
+        background: url("../images/menu_4_text.png") 19px 41px no-repeat, linear-gradient(#d4e392, #666f16);
+        border-radius: 0 15px 15px 0;
+
+        &:hover {
+            background:  url("../images/menu_4_text.png") 19px 41px no-repeat,linear-gradient(#dcdcdc, #696969);
+        }
+    }
+}
+
+/* ---------------------------------------- Content */
+.content-about-us {
+    &:after {
+        @include clear-fix;
+    }
+
+    .column {
+        width: 49%;
+        float: left;
+    }
+}
+
+.content-services {
+    display: flex;
+    flex-direction: row;
+    padding: 8px 14px;
+
+    .column {
+        width: 33%;
+        border-left: 1px dashed #757b82;
+        padding: 8px 0 0 13px;
+        color: #beebb3;
+
+        &:last-child {
+            border-right: 1px dashed #757b82;
+        }
+
+        .heading {
+            margin: 0 0 16px 0;
+            font-weight: normal;
+            font-size: 23px;
+        }
+
+        ul {
+            margin: 12px 0 0 -3px;
+            padding-bottom: 65px;
+        }
+
+        li {
+            font-size: 18px;
+            list-style-image: url("../images/dot2.gif");
+            line-height: 41px;
+        }
+    }
+}
+
+.content-project {
+    display: flex;
+    flex-direction: row;
+
+    .column-left {
+        width: 70%;
+    }
+
+    .column-right {
+        width: 30%;
+        padding-left: 2px;
+    }
+}
+
+.content-news {
+    display: flex;
+    flex-direction: row;
+
+    .column {
+        width: 50%;
+    }
+}
+
+/* ---------------------------------------- Module: About-Company */
+.module-about-company {
+    padding: 11px 1px 15px 1px;
+    background: url("../images/hr.gif") 0 125px no-repeat;
+}
+
+/* ---------------------------------------- Module: Testimonials */
+.module-testimonials {
+    padding: 21px 0 0 0;
+
+    ul {
+        padding: 2px 0 0 20px;
+        list-style-image: url("../images/dot.gif");
+        margin-top: 0;
+        font-size: 17px;
+
+        li {
+            margin: 0 0 14px 0;
+        }
+
+        a {
+            color: #30b0e0;
+            margin-left: 3px;
+        }
+    }
+}
+
+/* ---------------------------------------- Module: Key Feature */
+.module-key-feature {
+    padding: 21px 0 0 14px;
+
+    .features {
+        width: 325px;
+        height: 229px;
+        background: linear-gradient(#d3f3ca, #5c9954);
+        border-radius: 15px;
+    }
+}
+/* ---------------------------------------- Module: Contact Us */
+.module-contact-us {
+    padding: 21px 0 0 0;
+
+    form {
+        text-align: right;
+        padding: 6px 142px 6px 0;
+        width: 690px;
+
+        .field {
+            margin-bottom: 12px;
+        }
+
+        label {
+            margin-right: 15px;
+            font-size: 17px;
+            color: #beebb3;
+        }
+
+        input {
+            width: 252px;
+            height: 24px;
+            background-color: #beebb3;
+            border: none;
+            margin-right: 166px;
+
+            &:focus {
+                @include forms-focus;
+            }
+        }
+
+        textarea {
+            width: 419px;
+            min-height: 151px;
+            vertical-align: top;
+            background-color: #beebb3;
+            resize: vertical;
+
+            &:focus {
+                @include forms-focus;
+            }
+        }
+
+        button {
+            width: 122px;
+            height: 26px;
+            margin-right: 297px;
+            background-color: #5b9854;
+            border: 1px solid #beebb3;
+            color: #beebb3;
+
+            &:hover {
+                background-color: #6dab66;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+/* ---------------------------------------- Module: Module Projects */
+.module-projects {
+    padding: 21px 0 0 1px;
+
+    &:after {
+        @include clear-fix;
+    }
+
+    .project {
+        float: left;
+        margin: 15px 15px 10px 15px;
+        color: #30b0e0;
+        text-align: right;
+        font-size: 17px;
+
+        img {
+            width: 229px;
+            height: 145px;
+            border: 9px solid #254f5e;
+            display: block;
+
+            &:hover {
+                opacity: 0.5;
+            }
+        }
+
+        a {
+            color: #30b0e0;
+        }
+
+        & a:last-child {
+            float: left;
+        }
+    }
+}
+
+/* ---------------------------------------- Module: News Service Tested */
+.module-news-service-tested {
+    padding: 21px 13px 0 1px;
+
+    p {
+        margin-bottom: 10px;
+    }
+}
+
+/* ---------------------------------------- Module: Other News */
+.module-other-news {
+    padding: 21px 0 0 4px;
+
+    ul {
+        padding: 1px 0 0 20px;
+        list-style-image: url("../images/dot.gif");
+        margin-top: 0;
+        font-size: 17px;
+
+        li {
+            margin: 0 0 14px 0;
+        }
+
+        a {
+            color: #30b0e0;
+            margin-left: 3px;
+        }
+    }
+}
+
+/* ---------------------------------------- Footer */
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color: #fffff3;
+    text-align: center;
+    font-size: 17px;
+    padding-bottom: 10px;
+    background: url("../images/hr.gif") 0 0 no-repeat;
+
+    a {
+        color: #fffff3;
+        line-height: 28px;
+    }
+}
