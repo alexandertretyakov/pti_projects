@@ -44,9 +44,11 @@ a {
 }
 
 @mixin clear-fix {
-    content: "";
-    display: block;
-    clear: both;
+    &::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
 }
 
 /* ---------------------------------------- Header */
@@ -60,7 +62,7 @@ a {
         .link {
             width: 25%;
             height: 164px;
-            text-indent: 5000px;
+            text-indent: 5000px;/* TODO: скрол горизонтальный */
         }
 
         .link-home {
@@ -83,9 +85,7 @@ a {
 
 /* ---------------------------------------- Main */
 main {
-    &::after {
-        @include clear-fix;
-    }
+    @include clear-fix;
 
     .content-box {
         &:nth-child(odd) {
@@ -144,10 +144,7 @@ main {
 
     .project {
         padding-right: 10px;
-
-        &::after {
-            @include clear-fix;
-        }
+        @include clear-fix;
 
         p:first-child {
             margin-bottom: 7px;
