@@ -27,10 +27,12 @@ p {
     margin: 0;
 }
 
-@mixin clear-fix {/* TODO: давай как в business_card_2 */
-    content: "";
-    display: block;
-    clear: both;
+@mixin clear-fix {
+    &:after {
+        content: "";
+        display: block;
+        clear: both;
+    }
 }
 
 @mixin forms-focus {
@@ -52,13 +54,13 @@ h2 {
 
 /* ---------------------------------------- Header */
 .header {
-    background: url("../images/hr.gif") 0 282px no-repeat;
+    background: url("../images/hr.gif") 0 282px no-repeat, url("../images/hat.jpg") 211px -1px no-repeat;
+    padding-top: 51px;
 }
 
-.logo {/* TODO: а избався от этого div'а */
-    padding: 51px 0 47px 0;
-    background: url("../images/hat.jpg") 211px -1px no-repeat;
-    margin-left: 1px;
+.logo {
+    margin: 0 0 47px 1px;
+    display: block;
 }
 
 .menu {
@@ -130,47 +132,11 @@ h2 {
 
 /* ---------------------------------------- Content */
 .content-about-us {
-    &:after {
         @include clear-fix;
-    }
 
     .column {
         width: 49%;
         float: left;
-    }
-}
-
-.content-services {
-    display: flex;
-    flex-direction: row;
-    padding: 8px 14px;
-
-    .column {
-        width: 33%;
-        border-left: 1px dashed #757b82;
-        padding: 8px 0 0 13px;
-        color: #beebb3;
-
-        &:last-child {
-            border-right: 1px dashed #757b82;
-        }
-
-        .heading {
-            margin: 0 0 16px 0;
-            font-weight: normal;
-            font-size: 23px;
-        }
-
-        ul {
-            margin: 12px 0 0 -3px;
-            padding-bottom: 65px;
-        }
-
-        li {
-            font-size: 18px;
-            list-style-image: url("../images/dot2.gif");
-            line-height: 41px;
-        }
     }
 }
 
@@ -188,6 +154,10 @@ h2 {
     }
 }
 
+.content-contact {
+    padding-top: 21px;
+}
+
 .content-news {
     display: flex;
     flex-direction: row;
@@ -195,6 +165,10 @@ h2 {
     .column {
         width: 50%;
     }
+}
+
+.column {
+    padding-top: 21px;
 }
 
 /* ---------------------------------------- Module: About-Company */
@@ -205,8 +179,6 @@ h2 {
 
 /* ---------------------------------------- Module: Testimonials */
 .module-testimonials {
-    padding: 21px 0 0 0;
-
     ul {
         padding: 2px 0 0 20px;
         list-style-image: url("../images/dot.gif");
@@ -224,10 +196,43 @@ h2 {
     }
 }
 
+/* ---------------------------------------- Module: Services */
+.module-services {
+    display: flex;
+    flex-direction: row;
+    padding: 8px 14px;
+
+    .item {
+        width: 33%;
+        border-left: 1px dashed #757b82;
+        padding: 8px 0 0 13px;
+        color: #beebb3;
+
+        &:last-child {
+            border-right: 1px dashed #757b82;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #beeba3;
+            margin-left: -1px;
+        }
+
+        ul {
+            margin: 12px 0 0 -3px;
+            padding-bottom: 65px;
+        }
+
+        li {
+            font-size: 18px;
+            list-style-image: url("../images/dot2.gif");
+            line-height: 41px;
+        }
+    }
+}
+
 /* ---------------------------------------- Module: Key Feature */
 .module-key-feature {
-    padding: 21px 0 0 14px;
-
     .features {
         width: 325px;
         height: 229px;
@@ -237,8 +242,6 @@ h2 {
 }
 /* ---------------------------------------- Module: Contact Us */
 .module-contact-us {
-    padding: 21px 0 0 0;
-
     form {
         padding: 6px 0 0 0;
 
@@ -279,11 +282,12 @@ h2 {
         }
 
         button {
-            width: 122px;/* TODO: тект может быть больше */
-            height: 26px;
+            padding: 3px 35px;
             background-color: #5b9854;
             border: 1px solid #beebb3;
             color: #beebb3;
+            font-size: 16px;
+            margin-left: 130px;
 
             &:hover {
                 background-color: #6dab66;
@@ -295,11 +299,7 @@ h2 {
 
 /* ---------------------------------------- Module: Module Projects */
 .module-projects {
-    padding: 21px 0 0 1px;
-
-    &:after {
-        @include clear-fix;
-    }
+    @include clear-fix;
 
     .project {
         float: left;
@@ -331,7 +331,7 @@ h2 {
 
 /* ---------------------------------------- Module: News */
 .module-news {
-    padding: 21px 13px 0 1px;
+    padding: 0 13px 0 1px;
 
     p {
         margin-bottom: 10px;
@@ -340,7 +340,7 @@ h2 {
 
 /* ---------------------------------------- Module: Other News */
 .module-other-news {
-    padding: 21px 0 0 4px;
+    padding: 0 0 0 4px;
 
     ul {
         padding: 1px 0 0 20px;
