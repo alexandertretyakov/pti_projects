@@ -27,7 +27,7 @@ p {
     margin: 0;
 }
 
-@mixin clear-fix {
+@mixin clear-fix {/* TODO: давай как в business_card_2 */
     content: "";
     display: block;
     clear: both;
@@ -55,7 +55,7 @@ h2 {
     background: url("../images/hr.gif") 0 282px no-repeat;
 }
 
-.logo {
+.logo {/* TODO: а избався от этого div'а */
     padding: 51px 0 47px 0;
     background: url("../images/hat.jpg") 211px -1px no-repeat;
     margin-left: 1px;
@@ -63,7 +63,6 @@ h2 {
 
 .menu {
     padding: 0 15px 16px 10px;
-
 
     .link {
         display: inline-block;
@@ -241,9 +240,7 @@ h2 {
     padding: 21px 0 0 0;
 
     form {
-        text-align: right;
-        padding: 6px 142px 6px 0;
-        width: 690px;
+        padding: 6px 0 0 0;
 
         .field {
             margin-bottom: 12px;
@@ -253,6 +250,9 @@ h2 {
             margin-right: 15px;
             font-size: 17px;
             color: #beebb3;
+            width: 110px;
+            text-align: right;
+            display: inline-block;
         }
 
         input {
@@ -260,7 +260,6 @@ h2 {
             height: 24px;
             background-color: #beebb3;
             border: none;
-            margin-right: 166px;
 
             &:focus {
                 @include forms-focus;
@@ -280,9 +279,8 @@ h2 {
         }
 
         button {
-            width: 122px;
+            width: 122px;/* TODO: тект может быть больше */
             height: 26px;
-            margin-right: 297px;
             background-color: #5b9854;
             border: 1px solid #beebb3;
             color: #beebb3;
@@ -331,8 +329,8 @@ h2 {
     }
 }
 
-/* ---------------------------------------- Module: News Service Tested */
-.module-news-service-tested {
+/* ---------------------------------------- Module: News */
+.module-news {
     padding: 21px 13px 0 1px;
 
     p {
