@@ -28,7 +28,7 @@ p {
 }
 
 @mixin clear-fix {
-    &:after {
+    &:after {/* TODO: псевдо-элементы с :: а псевдо-классы с : */
         content: "";
         display: block;
         clear: both;
@@ -60,7 +60,7 @@ h2 {
 
 .logo {
     margin: 0 0 47px 1px;
-    display: block;
+    display: block;/* TODO: на всю ширину */
 }
 
 .menu {
@@ -132,7 +132,7 @@ h2 {
 
 /* ---------------------------------------- Content */
 .content-about-us {
-        @include clear-fix;
+        @include clear-fix;/* TODO: что за отступ в 4 пробела? */
 
     .column {
         width: 49%;
