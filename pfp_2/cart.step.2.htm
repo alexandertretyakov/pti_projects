@@ -5,71 +5,142 @@
     <meta charset="utf-8">
     <title>PassionForPaintings — Oil Paintings and Portraits</title>
     <link rel="stylesheet" href="css/main.css">
+    <link rel="icon" href="images/favicon.ico">
 </head>
 
 <body>
-    - oil paintings, reproductions and portraits. Since 1997.
+    <div class="header">
+        <a class="logo" href="cart.step.1.htm"><img src="images/logotype.jpg" alt="logotype company"></a>
+        <span>- oil paintings, reproductions and portraits. Since 1997.</span>
+        <div class="location">
+            <a href="#">Tell a Friend</a>
+            <span>Add</span>
+            <button>to bookmarks</button>
+            <span>Current language:</span>
+            <button>English</button>
+            <span>Your location:</span>
+            <button>Nederland</button>
+        </div>
+    </div>
 
-    Tell a Friend
+    <div class="page">
+        <div class="content">
+            <div class="module-banner">
+                <div class="portrait"></div>
+            </div>
 
-    Add
-    to bookmarks
+            <div class="module-navigation module-navigation-2">
+                <a class="step step-1" href="cart.step.1.htm">Your details</a>
+                <a class="step step-active-2" href="cart.step.2.htm">Payment type</a>
+                <a class="step step-3" href="cart.step.3.htm">Payment</a>
+                <a class="step step-4" href="cart.step.4.htm">Finished</a>
+            </div>
 
-    Current language:
-    English
+            <div class="module-payment">
+                <p>Ik wil graag betalen via:</p>
+                <form action="#">
+                    <div class="field">
+                        <input type="radio" name="payment">
+                        <label>VISA</label>
+                    </div>
 
-    Italian
-    Nederlands
-    Russian
-    Ukrainian
-    * English
+                    <div class="field">
+                        <input type="radio" name="payment">
+                        <label>MasterCard</label>
+                    </div>
 
-    Your location:
-    Nederland
+                    <div class="field">
+                        <input type="radio" name="payment">
+                        <label>American Express</label>
+                    </div>
 
-    Your details
-    Payment type
-    Payment
-    Finished
+                    <div class="field">
+                        <input type="radio" name="payment">
+                        <label>Diners Club</label>
+                    </div>
 
-    Ik wil graag betalen via:
-    VISA
-    MasterCard
-    American Express
-    Diners Club
-    PayPal
+                    <div class="field">
+                        <input type="radio" name="payment">
+                        <label>PayPal</label>
+                    </div>
+                    <button class="proceed" type="submit">GA DOOR NAAR KASSA &gt; BETALING</button>
+                </form>
+            </div>
 
-    GA DOOR NAAR KASSA > BETALING
+            <div class="module-items">
+                <h3>The items</h3>
+                <div class="items">
+                    <div class="items-ribbon">
+                        <span>ITEM</span><span>OMSCHRIJVING</span><span>AANT.</span><span>PRIJS</span>
+                    </div>
 
-    The items
-    ITEM
-    OMSCHRIJVING
-    AANT.
-    PRIJS
+                    <div class="item">
+                        <div class="item-element">
+                            <img src="images/placeholder.jpg" alt="placeholder">
+                            <p>The wave</p>
+                            <p>Albert Bierstadt</p>
+                            <p>Reproduction 24x36<br> inches</p>
+                        </div>
 
-    The wave
-    1
-    $249
-    Albert Bierstadt
-    Reproduction 24x36 inches
-    Gratis thuisbezorgd
+                        <div class="item-element">
+                            <span class="quantity">1</span>
+                            <span class="price">$249</span>
+                            <div class="delivery">
+                                <a href="#">Gratis thuisbezorgd</a>
+                            </div>
+                        </div>
+                    </div>
 
-    The wave
-    1
-    $249
-    Albert Bierstadt
-    Reproduction 24x36 inches
-    Gratis thuisbezorgd
+                    <div class="item">
+                        <div class="item-element">
+                            <img src="images/placeholder.jpg" alt="placeholder">
+                            <p>The wave</p>
+                            <p>Albert Bierstadt</p>
+                            <p>Reproduction 24x36<br> inches</p>
+                        </div>
 
-    All rights reserved. &copy; 1997-2007 My Passion For ltd.
-    Terms of use
-    Company information
-    Contact us
+                        <div class="item-element">
+                            <span class="quantity">1</span>
+                            <span class="price">$249</span>
+                            <div class="delivery">
+                                <a href="#">Gratis thuisbezorgd</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-    My Wishlist
-    Login name:
-    Password:
-    Log in
-    Maximize
+            <div class="module-guarantee">
+                <a href="#"><img src="images/guarantor-partners1.gif" alt="visa"></a>
+                <a href="#"><img src="images/guarantor-partners2.gif" alt="ogon"></a>
+                <a href="#"><img src="images/guarantor-partners3.gif" alt="hacker proof"></a>
+                <div class="seal"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <span>All rights reserved. &copy; 1997-2007 My Passion For ltd.</span>
+        <div class="navigation">
+            <a href="#">Terms of use</a>
+            <a href="#">Company information</a>
+            <a href="#">Contact us</a>
+        </div>
+
+        <div class="module-wishlist">
+            <h3>My Wishlist</h3>
+            <form action="#">
+                <label for="login-name">Login name:</label><input  id="login-name" type="text">
+                <label for="password">Password:</label><input  id="password" type="text">
+                <button>Log in</button>
+            </form>
+            <div class="folding">
+                <button>Maximize</button>
+                <div class="wrapper-arrow">
+                    <div class="arrow"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
