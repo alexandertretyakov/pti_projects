@@ -12,14 +12,18 @@
     <div class="header">
         <a class="logo" href="cart.step.1.htm"><img src="images/logotype.jpg" alt="logotype company"></a>
         <span>- oil paintings, reproductions and portraits. Since 1997.</span>
-        <div class="location">
-        <a href="#">Tell a Friend</a>
-        <span>Add</span>
-        <button>to bookmarks</button>
-        <span>Current language:</span>
-        <button>English</button>
-        <span>Your location:</span>
-        <button>Nederland</button>
+
+        <div class="settings">
+            <a href="#">Tell a Friend</a>
+            <span class="separator"></span>
+
+            Add <button>to bookmarks</button>
+            <span class="separator"></span>
+
+            Current language: <button>English</button>
+            <span class="separator"></span>
+
+            Your location: <button>Nederland</button>
         </div>
     </div>
 
@@ -29,8 +33,8 @@
                 <div class="portrait"></div>
             </div>
 
-            <div class="module-navigation module-navigation-1">
-                <a class="step step-active-1" href="cart.step.1.htm">Your details</a>
+            <div class="module-navigation module-navigation-1"><!-- TODO: были обрезаны номера и не по центру -->
+                <a class="step step-1 active" href="cart.step.1.htm">Your details</a>
                 <a class="step step-2" href="cart.step.2.htm">Payment type</a>
                 <a class="step step-3" href="cart.step.3.htm">Payment</a>
                 <a class="step step-4" href="cart.step.4.htm">Finished</a>
@@ -40,9 +44,10 @@
                 <h3>Already a customer?</h3>
                 <a class="enter" href="#">SIGN IN</a>
                 <h4>Persoonlijke Gegevens</h4>
+
                 <form action="#">
-                    <div class="field">
-                        <label for="product">Productnaam <span class="star">*</span></label>
+                    <div class="field required">
+                        <label for="product">Productnaam</label>
                         <select id="product">
                             <option>Mr.</option>
                             <option>Mrs.</option>
@@ -50,13 +55,13 @@
                         </select>
                     </div>
 
-                    <div class="field">
-                        <label for="name">Voornaam <span class="star">*</span></label>
+                    <div class="field required">
+                        <label for="name">Voornaam</label>
                         <input id="name" type="text">
                     </div>
 
-                    <div class="field">
-                        <label for="lastname">Achternaam <span class="star">*</span></label>
+                    <div class="field required">
+                        <label for="lastname">Achternaam</label>
                         <input id="lastname" type="text">
                     </div>
 
@@ -65,13 +70,13 @@
                         <input id="company" type="text">
                     </div>
 
-                    <div class="field">
-                        <label for="telephone">Telefoon nr. <span class="star">*</span></label>
+                    <div class="field required">
+                        <label for="telephone">Telefoon nr.</label>
                         <input id="telephone" type="text">
                     </div>
 
-                    <div class="field">
-                        <label for="mail">E-mail <span class="star">*</span></label>
+                    <div class="field required">
+                        <label for="mail">E-mail</label>
                         <input id="mail" type="text">
                     </div>
 
@@ -85,18 +90,18 @@
                         <input id="web" type="text">
                     </div>
 
-                    <div class="field">
-                        <label for="address">Adres <span class="star">*</span></label>
+                    <div class="field required">
+                        <label for="address">Adres</label>
                         <input id="address" type="text">
                     </div>
 
-                    <div class="field">
-                        <label for="city">Stad <span class="star">*</span></label>
+                    <div class="field required">
+                        <label for="city">Stad</label>
                         <input id="city" type="text">
                     </div>
 
-                    <div class="field">
-                        <label for="district">Provincie <span class="star">*</span></label>
+                    <div class="field required">
+                        <label for="district">Provincie</label>
                         <select id="district">
                             <option value="Other">Other</option>
                             <option value="AK">Alaska</option>
@@ -111,8 +116,8 @@
                         </select>
                     </div>
 
-                    <div class="field">
-                        <label for="country">Land <span class="star">*</span></label>
+                    <div class="field required">
+                        <label for="country">Land</label>
                         <select  id="country">
                             <option value="AF">Afghanistan</option>
                             <option value="AL">Albania</option>
@@ -126,19 +131,37 @@
                         </select>
                     </div>
 
-                    <div class="field">
-                        <label for="postcode">Postcode <span class="star">*</span></label>
+                    <div class="field required">
+                        <label for="postcode">Postcode</label>
                         <input id="postcode" type="text">
                     </div>
+
                     <button class="proceed" type="submit">GA DOOR NAAR KASSA &gt; BETALING</button>
                 </form>
             </div>
 
-            <div class="module-guarantee">
+            <div class="module-guarantee"><!-- TODO: все 5 ссылок -->
                 <a href="#"><img src="images/guarantor-partners1.gif" alt="visa"></a>
                 <a href="#"><img src="images/guarantor-partners2.gif" alt="ogon"></a>
                 <a href="#"><img src="images/guarantor-partners3.gif" alt="hacker proof"></a>
                 <div class="seal"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="module-wishlist">
+        <h3>My Wishlist</h3>
+
+        <form action="#">
+            <label for="login-name">Login name:</label><input id="login-name" type="text">
+            <label for="password">Password:</label><input id="password" type="text">
+            <button>Log in</button>
+        </form>
+
+        <div class="folding">
+            <button>Maximize</button>
+            <div class="wrapper-arrow"><!-- TODO: давай кнопкой -->
+                <div class="arrow"></div>
             </div>
         </div>
     </div>
@@ -149,21 +172,6 @@
             <a href="#">Terms of use</a>
             <a href="#">Company information</a>
             <a href="#">Contact us</a>
-        </div>
-
-        <div class="module-wishlist">
-            <h3>My Wishlist</h3>
-            <form action="#">
-                <label for="login-name">Login name:</label><input  id="login-name" type="text">
-                <label for="password">Password:</label><input  id="password" type="text">
-                <button>Log in</button>
-            </form>
-            <div class="folding">
-                <button>Maximize</button>
-                <div class="wrapper-arrow">
-                    <div class="arrow"></div>
-                </div>
-            </div>
         </div>
     </div>
 </body>
