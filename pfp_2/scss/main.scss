@@ -22,19 +22,6 @@ body {
     padding: 20px 0 69px 0;
 }
 
-.header,/* TODO: не группируй такое */
-.footer {
-    color: #c69b3c;
-    background-color: #200004;
-    width: 100%;
-    font-size: 14px;
-    margin: 0;
-
-    a {
-        color: #c69b3c;
-    }
- }
-
 a:hover {
     text-decoration: none;
 }
@@ -55,7 +42,7 @@ button {
     font-size: 14px;
 }
 
-@mixin after {
+@mixin clear-fix {
     &::after {
         content: "";
         display: block;
@@ -73,8 +60,16 @@ select:focus {
     border-bottom: 1px solid #6a4101;
     font-family: Verdana, sans-serif;
     font-size: 11px;
+    color: #c69b3c;
+    background-color: #200004;
+    width: 100%;
+    margin: 0;
 
-    @include after;
+    a {
+        color: #c69b3c;
+    }
+
+    @include clear-fix;
 
     .logo {
         float: left;
@@ -86,10 +81,12 @@ select:focus {
 
     .settings {
         float: right;
+        margin-top: 8px;
 
         span {
             padding-left: 6px;
             border-left: 1px solid #c69b3c;
+            display: inline-block;
         }
 
         a {
@@ -141,7 +138,7 @@ select:focus {
     padding: 28px 0 0 121px;
     height: 92px;
 
-    @include after;/* TODO: называй по смыслу, например clear-fix */
+    @include clear-fix;
 
     .step {
         color: #fff8b7;
@@ -165,35 +162,35 @@ select:focus {
     }
 
     .step-1 {
-        background: url("../images/step1.gif") 0 0 no-repeat;
+        background: url("../images/step1.gif") 8px 0 no-repeat;
 
         &.active {
-            background: url("../images/step-active1.gif") 9px 0 no-repeat;
+            background: url("../images/step-active1.gif") 8px 0 no-repeat;
         }
     }
 
     .step-2 {
-        background: url("../images/step2.gif") 14px 0 no-repeat;
+        background: url("../images/step2.gif") 13px 0 no-repeat;
 
         &.active {
-            background: url("../images/step-active2.gif") 0 0 no-repeat;
+            background: url("../images/step-active2.gif") 13px 0 no-repeat;
         }
     }
 
     .step-3 {
         background: url("../images/step3.gif") 0 0 no-repeat;
+
+        &.active {
+            background: url("../images/step-active3.gif") 0 0 no-repeat;
+        }
     }
 
     .step-4 {
-        background: url("../images/step4.gif") -1px 0 no-repeat;
-    }
+        background: url("../images/step4.gif") 0 0 no-repeat;
 
-    .step-3.active {
-        background: url("../images/step-active3.gif") 0 0 no-repeat;
-    }
-
-    .step-4.active {
-        background: url("../images/step-active4.gif") 0 0 no-repeat;
+        &.active {
+            background: url("../images/step-active4.gif") 0 0 no-repeat;
+        }
     }
 }
 
@@ -306,27 +303,36 @@ select:focus {
 
 /* ---------------------------------------- Module: Guarantee */
 .module-guarantee {
-    padding: 5px 0 1px 0;
-    text-align: center;
-    background: #e7e8b0 url("../images/guarantee1.gif") 25px 8px no-repeat;
+    padding: 5px 0 1px 25px;
+    background-color: #e7e8b0;
     position: relative;
 
+    @include clear-fix;
+
     a {
-        display: inline-block;
+        float: left;
+    }
+
+    & a:nth-child(1) {
+        margin-right: 26px;
+        margin-top: 3px;
     }
 
     & a:nth-child(2) {
-        vertical-align: 5px;
-        margin: 0 10px;
+        margin-top: 1px;
+        margin-right: 14px;
+    }
+
+    & a:nth-child(3) {
+        margin: 6px 14px 0 0;
     }
 
     .seal {
-        width: 99px;
-        height: 101px;
-        background-image: url("../images/seal.png");
         position: absolute;
         right: 14px;
-        top: -33px;
+        top: -36px;
+        width: 99px;
+        height: 101px;
     }
 }
 
@@ -341,8 +347,9 @@ select:focus {
     height: 32px;
     padding: 8px 5px 0 5px;
     font-size: 12px;
+    color: #c69b3c;
 
-    @include after;
+    @include clear-fix;
 
     h3 {
         margin: -3px 60px 0 0;
@@ -387,6 +394,10 @@ select:focus {
             display: inline-block;
             padding: 6px;
             background-color: #550000;
+
+            &:hover {
+                background-color: #704141;
+            }
         }
 
         .arrow {
@@ -405,7 +416,7 @@ select:focus {
     padding: 51px 0 0 37px;
     margin-bottom: 17px;
 
-    @include after;
+    @include clear-fix;
 
     p {
         color: #370000;
@@ -480,6 +491,7 @@ select:focus {
             color: #fff1e1;
             font-size: 12px;
             padding: 3px 24px 1px 15px;
+            font-family: "Times New Roman", serif;
 
             & :nth-child(2) {
                 margin-left: 56px;
@@ -554,11 +566,12 @@ select:focus {
 /* ---------------------------------------- Module: Your Contact */
 .module-your-contact {
     padding: 15px 0 0 20px;
+    font-size: 15px;
+    color: #550000;
 
-    p {
+    h3 {
         margin: 0;
         font-size: 15px;
-        color: #550000;
     }
 
     a {
@@ -582,7 +595,7 @@ select:focus {
     font-weight: bold;
     color: #370000;
 
-    @include after;
+    @include clear-fix;
 
     h3 {
         font-size: 16px;
@@ -729,8 +742,12 @@ select:focus {
     padding: 8px 0 39px 0;
     border-top: 1px solid #6a4101;
     font-size: 11px;
+    color: #c69b3c;
+    background-color: #200004;
+    width: 100%;
+    margin: 0;
 
-    @include after;
+    @include clear-fix;
 
     span {
         margin-left: 36px;
@@ -742,6 +759,7 @@ select:focus {
         a {
             padding: 0 10px 0 10px;
             border-left: 1px solid #965909;
+            color: #c69b3c;
         }
 
         & a:first-child {
