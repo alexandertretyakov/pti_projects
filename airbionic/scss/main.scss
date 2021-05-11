@@ -52,7 +52,7 @@ body {
         text-align: right;
         padding-top: 0.75rem;
 
-        & a:first-child {
+        & a:first-child {/* TODO: что тут делает & */
             @include a (0 3.56rem 0 0);
             background: url("../images/sprite2.gif") 1.12rem 0.18rem no-repeat;
 
@@ -62,7 +62,7 @@ body {
             }
         }
 
-        & a:last-child {
+        & a:last-child {/* TODO: что тут делает & */
             @include a (0 3.81rem 0 0);
             background: url("../images/sprite1.gif") 0.12rem 0.31rem no-repeat;
 
@@ -113,7 +113,7 @@ body {
         }
     }
 
-    .action {
+    .action {/* TODO: action? */
         background-color: #ffffff;
         color: #2faed8;
         border-bottom: none;
@@ -291,7 +291,7 @@ body {
     font: 0.81rem Tahoma, sans-serif;
     padding: 0.68rem 0 0 0.81rem;
 
-    & a:nth-child(2) {
+    & a:nth-child(2) {/* TODO: что тут делает & */
         background: url("../images/sprite4.gif") 0 -0.75rem no-repeat;
 
         &:hover {
@@ -299,7 +299,7 @@ body {
         }
     }
 
-    & a:nth-child(3) {
+    & a:nth-child(3) {/* TODO: что тут делает & */
         background: url("../images/sprite5.gif") 0 -1.68rem no-repeat;
         padding-bottom: 0.56rem;
 
@@ -423,7 +423,7 @@ body {
             margin-bottom: 0.37rem;
         }
 
-        .field-textarea {
+        .field-textarea {/* TODO: намути resize */
             margin-bottom: 0.43rem;
         }
 
@@ -443,7 +443,7 @@ body {
             margin-bottom: 0.68rem;
         }
 
-        #file {
+        #file {/* TODO: давай другой селектор */
             height: 1.37rem;
             font-size: 0.75rem;
         }
