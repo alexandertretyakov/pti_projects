@@ -64,12 +64,11 @@ select:focus {
     background-color: #200004;
     width: 100%;
     margin: 0;
+    @include clear-fix;
 
     a {
         color: #c69b3c;
     }
-
-    @include clear-fix;
 
     .logo {
         float: left;
@@ -137,10 +136,9 @@ select:focus {
 .module-navigation {
     padding: 28px 0 0 121px;
     height: 92px;
-
     @include clear-fix;
 
-    .step {
+    .step {/* TODO: текст может меняться */
         color: #fff8b7;
         text-decoration: none;
         padding: 28px 0 20px 0;
@@ -162,26 +160,26 @@ select:focus {
     }
 
     .step-1 {
-        background: url("../images/step1.gif") 8px 0 no-repeat;
+        background: url("../images/step1.gif") center 0 no-repeat;
 
         &.active {
-            background: url("../images/step-active1.gif") 8px 0 no-repeat;
+            background-image: url("../images/step-active1.gif");
         }
     }
 
     .step-2 {
-        background: url("../images/step2.gif") 13px 0 no-repeat;
+        background: url("../images/step2.gif") center 0 no-repeat;
 
         &.active {
-            background: url("../images/step-active2.gif") 13px 0 no-repeat;
+            background-image: url("../images/step-active2.gif");
         }
     }
 
     .step-3 {
-        background: url("../images/step3.gif") 0 0 no-repeat;
+        background: url("../images/step3.gif") center 0 no-repeat;
 
         &.active {
-            background: url("../images/step-active3.gif") 0 0 no-repeat;
+            background-image: url("../images/step-active3.gif");
         }
     }
 
@@ -306,7 +304,6 @@ select:focus {
     padding: 5px 0 1px 25px;
     background-color: #e7e8b0;
     position: relative;
-
     @include clear-fix;
 
     a {
@@ -348,7 +345,6 @@ select:focus {
     padding: 8px 5px 0 5px;
     font-size: 12px;
     color: #c69b3c;
-
     @include clear-fix;
 
     h3 {
@@ -415,7 +411,6 @@ select:focus {
     width: 551px;
     padding: 51px 0 0 37px;
     margin-bottom: 17px;
-
     @include clear-fix;
 
     p {
@@ -594,7 +589,6 @@ select:focus {
     margin: 0 auto 21px auto;
     font-weight: bold;
     color: #370000;
-
     @include clear-fix;
 
     h3 {
@@ -746,7 +740,6 @@ select:focus {
     background-color: #200004;
     width: 100%;
     margin: 0;
-
     @include clear-fix;
 
     span {

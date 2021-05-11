@@ -15,7 +15,7 @@
 
         <div class="settings">
             <a href="#">Tell a Friend</a>
-            <span class="separator"></span>
+            <span class="separator"></span><!-- TODO: CSS -->
 
             Add <button>to bookmarks</button>
             <span class="separator"></span>
@@ -47,7 +47,7 @@
 
                 <form action="#">
                     <div class="field required">
-                        <label for="product">Productnaam <span class="star">*</span></label>
+                        <label for="product">Productnaam</label><!-- TODO: добавь звездочки для полей с классом required -->
                         <select id="product">
                             <option>Mr.</option>
                             <option>Mrs.</option>
@@ -56,12 +56,12 @@
                     </div>
 
                     <div class="field required">
-                        <label for="name">Voornaam <span class="star">*</span></label>
+                        <label for="name">Voornaam</label>
                         <input id="name" type="text">
                     </div>
 
                     <div class="field required">
-                        <label for="lastname">Achternaam <span class="star">*</span></label>
+                        <label for="lastname">Achternaam</label>
                         <input id="lastname" type="text">
                     </div>
 
@@ -71,12 +71,12 @@
                     </div>
 
                     <div class="field required">
-                        <label for="telephone">Telefoon nr. <span class="star">*</span></label>
+                        <label for="telephone">Telefoon nr.</label>
                         <input id="telephone" type="text">
                     </div>
 
                     <div class="field required">
-                        <label for="mail">E-mail <span class="star">*</span></label>
+                        <label for="mail">E-mail</label>
                         <input id="mail" type="text">
                     </div>
 
@@ -91,17 +91,17 @@
                     </div>
 
                     <div class="field required">
-                        <label for="address">Adres <span class="star">*</span></label>
+                        <label for="address">Adres</label>
                         <input id="address" type="text">
                     </div>
 
                     <div class="field required">
-                        <label for="city">Stad <span class="star">*</span></label>
+                        <label for="city">Stad</label>
                         <input id="city" type="text">
                     </div>
 
                     <div class="field required">
-                        <label for="district">Provincie <span class="star">*</span></label>
+                        <label for="district">Provincie</label>
                         <select id="district">
                             <option value="Other">Other</option>
                             <option value="AK">Alaska</option>
@@ -117,7 +117,7 @@
                     </div>
 
                     <div class="field required">
-                        <label for="country">Land <span class="star">*</span></label>
+                        <label for="country">Land</label>
                         <select  id="country">
                             <option value="AF">Afghanistan</option>
                             <option value="AL">Albania</option>
@@ -132,7 +132,7 @@
                     </div>
 
                     <div class="field required">
-                        <label for="postcode">Postcode <span class="star">*</span></label>
+                        <label for="postcode">Postcode</label>
                         <input id="postcode" type="text">
                     </div>
 
@@ -145,9 +145,7 @@
                 <a href="#"><img src="images/guarantor-partners1.gif" alt="visa"></a>
                 <a href="#"><img src="images/guarantor-partners2.gif" alt="ogone"></a>
                 <a href="#"><img src="images/guarantor-partners3.gif" alt="hacker proof"></a>
-                <div class="seal">
-                    <a href="#"><img src="images/seal.png" alt="seal"></a>
-                </div>
+                <a href="#" class="seal"><img src="images/seal.png" alt="seal"></a><!-- TODO: проверь -->
             </div>
         </div>
     </div>
@@ -164,7 +162,7 @@
         <div class="folding">
             <button>Maximize</button>
             <button class="wrapper-arrow">
-                <div class="arrow"></div>
+                <div class="arrow"></div><!-- TODO: давай через ::after -->
             </button>
         </div>
     </div>
