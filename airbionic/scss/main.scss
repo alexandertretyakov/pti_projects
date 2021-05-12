@@ -32,12 +32,6 @@ body {
     margin: $margin;
 }
 
-@mixin faq {
-    background-color: #f2f2f2;
-    padding-left: 1.68rem;
-    margin-left: -1.68rem;
-}
-
 /* ---------------------------------------- Header */
 .header {
     padding-top: 1.84rem;
@@ -52,7 +46,7 @@ body {
         text-align: right;
         padding-top: 0.75rem;
 
-        & a:first-child {/* TODO: что тут делает & */
+        a:first-child {
             @include a (0 3.56rem 0 0);
             background: url("../images/sprite2.gif") 1.12rem 0.18rem no-repeat;
 
@@ -62,7 +56,7 @@ body {
             }
         }
 
-        & a:last-child {/* TODO: что тут делает & */
+        a:last-child {
             @include a (0 3.81rem 0 0);
             background: url("../images/sprite1.gif") 0.12rem 0.31rem no-repeat;
 
@@ -103,7 +97,7 @@ body {
         padding: 0.25rem 1rem 0.25rem 0.93rem;
         display: block;
         background-color: #2faed8;
-        border: 1px solid #afafaf;
+        border: 0.06rem solid #afafaf;
         border-radius: 0.31rem 0.31rem 0 0;
         font-weight: bold;
 
@@ -113,37 +107,45 @@ body {
         }
     }
 
-    .action {/* TODO: action? */
+    a.active {
         background-color: #ffffff;
         color: #2faed8;
         border-bottom: none;
     }
 }
 
-.content-box {
-    width: 35.43rem;
-    margin-left: 0.56rem;
+.column-center {
+    width: 35.93rem;
 }
 
-/* ---------------------------------------- Box Container-1 */
-.box-container-1 {
+/* ---------------------------------------- Module: Items */
+.module-items {
     font: 0.93rem Tahoma, sans-serif;
-    padding: 0.56rem 0 0 0.56rem;
-    margin-bottom: 1.25rem;
+    padding-left: 0.56rem;
+
+    &::after {
+        content: "";
+        clear: both;
+        display: block;
+    }
 
     p {
-        margin: 0;
+        margin: 0 0 1.25rem 0;
+        padding: 0.56rem 0 0 0.56rem;
     }
 
-    a {
-        text-decoration: dashed;
+    .dashed {
         color: #2faed8;
+        border-bottom: 0.06rem dashed #0b6588;
+        text-decoration: none;
+
+        &:hover {
+            border-bottom: none;
+        }
     }
 }
 
-/* ---------------------------------------- Box Container-2,3 */
-.box-container-2,
-.box-container-3 {
+.item {
     width: 17.31rem;
     padding-left: 0.56rem;
     margin-bottom: 1.25rem;
@@ -167,6 +169,7 @@ body {
             line-height: 1.32rem;
             margin-top: 0;
             color: #6b6b6b;
+            padding: 0;
         }
     }
 
@@ -185,19 +188,20 @@ body {
     }
 }
 
-.box-container-2 {
+.item:nth-child(2) {
     float: left;
 }
 
-.box-container-3 {
+.item:last-child {
     float: right;
 }
 
-/* ---------------------------------------- Box Container-4 */
-.box-container-4 {
+/* ---------------------------------------- Module: Featured Project */
+.module-featured-projects {
     border-top: 0.06rem dotted #a1a1a1;
     clear: both;
     font: 0.81rem Tahoma, sans-serif;
+    padding-left: 0.62rem;
 
     &::after {
         clear: both;
@@ -291,7 +295,7 @@ body {
     font: 0.81rem Tahoma, sans-serif;
     padding: 0.68rem 0 0 0.81rem;
 
-    & a:nth-child(2) {/* TODO: что тут делает & */
+    a:nth-child(2) {
         background: url("../images/sprite4.gif") 0 -0.75rem no-repeat;
 
         &:hover {
@@ -299,7 +303,7 @@ body {
         }
     }
 
-    & a:nth-child(3) {/* TODO: что тут делает & */
+    a:nth-child(3) {
         background: url("../images/sprite5.gif") 0 -1.68rem no-repeat;
         padding-bottom: 0.56rem;
 
@@ -323,36 +327,30 @@ body {
 }
 
 /* ---------------------------------------- Module: Advantages */
-.module-advantages,
-.module-faq {
+.module-advantages {
     font-family: Tahoma, sans-serif;
-    padding-top: 0.81rem;
-    line-height: 1.31rem;
+    padding-top: 0.91rem;
+    line-height: 1.35rem;
+    padding-left: 0.68rem;
 
     h3 {
         font-size: 1rem;
         color: #6b6b6b;
         border-bottom: 0.06rem solid #6b6b6b;
         padding-bottom: 0.25rem;
-        margin: 0 0 0 0.75rem;
+        margin: 0 0 1.06rem 0.75rem;
     }
 
-    dl {
-        margin: 0;
-        padding: 1rem 0.06rem 0 1.68rem;
-    }
-
-    dt {
+    h6 {
         color: #2faed8;
         font-size: 0.81rem;
         font-family: Tahoma, sans-serif;
         font-weight: bold;
-        margin: 0;
+        margin: 0 0 -0.06rem 1.68rem;
     }
 
-    dd {
-        margin: 0;
-        padding-bottom: 0.5rem;
+    p {
+        margin: 0 0 0.5rem 1.68rem;
     }
 
     a {
@@ -366,23 +364,60 @@ body {
 
 /* ---------------------------------------- Module: FAQ */
 .module-faq {
-    .open-dt {
-        @include faq;
-        margin-top: -0.31rem;
+    font-family: Tahoma, sans-serif;
+    padding-top: 0.70rem;
+    line-height: 1.35rem;
+    padding-left: 0.68rem;
+
+    h3 {
+        font-size: 1rem;
+        color: #6b6b6b;
+        border-bottom: 0.06rem solid #6b6b6b;
         padding-bottom: 0.25rem;
+        margin: 0 0 0 0.75rem;
     }
 
-    .open-dd {
-        @include faq;
-        margin-top: -0.43rem;
-        padding-bottom: 0.68rem;
+    dt {
+        color: #2faed8;
+        font-size: 0.81rem;
+        font-family: Tahoma, sans-serif;
+        font-weight: bold;
+        margin: 0;
+        padding-left: 1.68rem;
+    }
+
+    dd {
+        margin: 0;
+        padding-bottom: 0.5rem;
+        padding-left: 1.68rem;
+        display: none;
+    }
+
+    a {
+        color: #6baeda;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    .open {
+        background-color: #f2f2f2;
+        padding-left: 1.68rem;
+
+        & + dd {
+            background-color: #f2f2f2;
+            padding-left: 1.68rem;
+            display: block;
+        }
     }
 }
 
 /* ---------------------------------------- Module: Forms */
 .module-forms {
     font-family: Tahoma, sans-serif;
-    padding-top: 0.87rem;
+    padding-top: 1rem;
+    padding-left: 0.5rem;
 
     h3 {
         font-size: 1rem;
@@ -406,6 +441,10 @@ body {
             height: 1.12rem;
             border: 0.06rem solid #9b9b9b;
             margin-top: 0.12rem;
+
+            &:focus {
+                outline: none;
+            }
         }
 
         label {
@@ -417,13 +456,18 @@ body {
             min-height: 9.12rem;
             border: 0.06rem solid #9b9b9b;
             margin-top: 0.12rem;
+            resize: vertical;
+
+            &:focus {
+                outline: none;
+            }
         }
 
         .field {
             margin-bottom: 0.37rem;
         }
 
-        .field-textarea {/* TODO: намути resize */
+        .field-textarea {
             margin-bottom: 0.43rem;
         }
 
@@ -437,15 +481,15 @@ body {
 
         .field-file {
             margin-bottom: 0.62rem;
+
+            input {
+                height: 1.37rem;
+                font-size: 0.75rem;
+            }
         }
 
         .field-code {
             margin-bottom: 0.68rem;
-        }
-
-        #file {/* TODO: давай другой селектор */
-            height: 1.37rem;
-            font-size: 0.75rem;
         }
 
         button {
