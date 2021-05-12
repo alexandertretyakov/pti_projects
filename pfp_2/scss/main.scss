@@ -78,14 +78,17 @@ select:focus {
         }
     }
 
+    span {
+        display: inline-block;
+        margin-top: 8px;
+    }
+
     .settings {
         float: right;
-        margin-top: 8px;
 
-        span {
+        .separator {
             padding-left: 6px;
             border-left: 1px solid #c69b3c;
-            display: inline-block;
         }
 
         a {
@@ -101,11 +104,6 @@ select:focus {
             margin-right: 10px;
             padding: 0;
         }
-    }
-
-    span {
-        display: inline-block;
-        margin-top: 8px;
     }
 }
 
@@ -134,29 +132,21 @@ select:focus {
 
 /* ---------------------------------------- Module: Navigation */
 .module-navigation {
-    padding: 28px 0 0 121px;
+    padding: 30px 0 0 0;
     height: 92px;
     @include clear-fix;
 
-    .step {/* TODO: текст может меняться */
+    .step {
         color: #fff8b7;
         text-decoration: none;
         padding: 28px 0 20px 0;
         font-size: 14px;
         font-weight: bold;
-        float: left;
-
-        &:nth-child(1) {
-            margin-right: 75px;
-        }
-
-        &:nth-child(2) {
-            margin-right: 84px;
-        }
-
-        &:nth-child(3) {
-            margin-right: 100px;
-        }
+        text-align: center;
+        display: inline-block;
+        position: center;
+        width: 125px;
+        margin-left: 50px;
     }
 
     .step-1 {
@@ -184,10 +174,10 @@ select:focus {
     }
 
     .step-4 {
-        background: url("../images/step4.gif") 0 0 no-repeat;
+        background: url("../images/step4.gif") center 0 no-repeat;
 
         &.active {
-            background: url("../images/step-active4.gif") 0 0 no-repeat;
+            background-image: url("../images/step-active4.gif");
         }
     }
 }
@@ -257,6 +247,14 @@ select:focus {
             margin-bottom: 10px;
         }
 
+        .field.required {
+            label::after {
+                content: "*";
+                position: relative;
+                left: 15px;
+            }
+        }
+
         label {
             margin-right: 29px;
             font-size: 12px;
@@ -274,10 +272,6 @@ select:focus {
             color: #814040;
         }
 
-        .star {
-            position: relative;
-            left: 15px;
-        }
 
         #product {
             margin-right: 205px;
@@ -394,14 +388,16 @@ select:focus {
             &:hover {
                 background-color: #704141;
             }
-        }
 
-        .arrow {
-            width: 0;
-            height: 0;
-            border: 4px solid transparent;
-            border-bottom-color: #ffffff;
-            border-top: 0;
+            &::after {
+                content: "";
+                width: 0;
+                height: 0;
+                border: 4px solid transparent;
+                border-bottom-color: #ffffff;
+                border-top: 0;
+                display: block;
+            }
         }
     }
 }
@@ -567,6 +563,10 @@ select:focus {
     h3 {
         margin: 0;
         font-size: 15px;
+    }
+
+    p {
+        margin: 0;
     }
 
     a {
