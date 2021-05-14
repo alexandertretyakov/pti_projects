@@ -23,72 +23,72 @@
 "Paris"
 
 // 3. Создать 10 объектов представляющих объекты реального мира. В каждом объекте должно быть не меньше 4 свойств.
-{
-    Name: "Lamp",
+var motorcycle = {
+    brand: "Yamaha",
     color: "red",
-    age: 20,
-    lumin: 2100
+    model: "XVS",
+    year: 1999
 }
 
-{
-    Name: "Monitor",
-    model: "LG Flatron",
+var monitor = {
+    brand: "LG",
+    model: "Flatron",
     color: "black",
-    age: 10
+    year: 2013
 }
 
-{
-    Имя: "Саша",
-    Работа: "Студент",
-    Возраст: 35,
-    Город: "Кривой Рог"
+var krivbass = {
+    city: "Кривой Рог",
+    district: "Днепропетровская",
+    age: 246,
+    length: "126 км"
 }
 
-{
-    Name: "Telephone",
-    company: "Siemens",
+var telephone = {
+    brand: "Siemens",
     model: "M55",
-    year: 2000
+    year: 2002,
+    standart: "GSM"
 }
 
-{
-    Name: "Bike",
-    mark: "Crossride",
-    age: 3,
-    wheel: 29
+var bike = {
+    model: "Crossride",
+    year: 2019,
+    wheel: 29,
+    frame: 21
 }
 
-{
-    Name: "Kiev",
-    country: "Ukraine",
-    metro: true,
-    speedTrain: false
+var capitals = {
+    ukraine: "Kiev",
+    italy: "Rome",
+    france: "Paris",
+    germany: "Berlin"
 }
 
-{
-    Name: "weapon",
-    model: "Rifle Sniper",
-    kaliber: 7.62,
+var weapon = {
+    view: "Rifle Sniper",
+    model: "AR-15",
+    caliber: 7.62,
     SightingRange: 3000
 }
 
-{
-    Name: "cap",
-    color: "grey",
-    volume: 0.5,
-    opasity: true
+var car = {
+    model: "Skoda",
+    color: "black",
+    body: "sedan",
+    class: "hybrid"
 }
 
-{
-    Name: "Pen",
-    color: "blue",
-    material: "plastic",
-    height: 20
+var game = {
+    name: "crossout",
+    developer: "Targem Games",
+    release: 2017,
+    genre: "action"
 }
 
-{
-    Name: "Tigr",
-    Class: "Heavy Tank",
+var tank = {
+    name: "Tiger",
+    class: "Heavy Tank",
     caliberSM: 8.8,
     country: "Germany"
 }
@@ -109,32 +109,32 @@
 var a;
 var b;
 var c;
-var object;
-var array;
+var d;
+var e;
 
 // 6. Объявить еще 5 переменных и в момент объявления присвоить им значения произвольных типов данных.
 var a = 5;
 var b = 5.5;
 var c = "PlayTech";
-var object = {};
-var array = []
+var d = {};
+var e = [];
 
 // 7. Создать массив из элементов, значения которых представлены всеми изученными типами данных в JavaScript.
-var type = [1,"row", true, false, {},[],null,undefined]
+var mix = [1,"row", true, false, {},[],null,undefined]
 
 // 8. Создать объект из четырех свойств. Три свойства должны иметь значения простых типов данных. Два остальных свойства должны иметь значения составного (объектного) типа данных.
 var pocket = {
-    ключи: true,
-    жевачка: "Орбит",
-    кирпич: "Красный и тяжёлый",
+    key: true,
+    gum: "Орбит",
+    brick: "Красный и тяжёлый",
     wallet: {
-        купюры: true,
-        мелочуга: true,
-        билетыНаМоргенштерна: false
+        bills: true,
+        smallChange: true,
+        ticketsOnMorgenshtern: false
     },
     cigarettes: {
-        количество: 20,
-        фильтр: false,
+        quantity: 20,
+        filter: false,
         mark: "Прима"
     }
 }
@@ -174,14 +174,14 @@ a += 20;
 a -= 5;
 a *= 5;
 a /= 5;
-a %= 5;//-----------------?
+a %= 5;
 
 // 14. Создать массив из 10 элементов (чисел) и написать выражения возвращающие значение первого, третьего, пятого и восьмого элемента
 var a = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
-a[1];
-a[3];
-a[5];
-a[8];
+a[0];
+a[2];
+a[4];
+a[7];
 // 15. Создать массив и написать 3 выражения меняющие значения его элементов
 var a = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
 a[1]=20;
@@ -192,27 +192,25 @@ a[i]=20;
 a[a.length]=110;
 
 // 16. Создать объект из 5 свойств и написать 3 выражения возвращающие значения произвольных свойств
-var a = {
-    Name: "Lamp",
-    color: "red",
-    age: 20,
-    lumin: 2100,
-    switch: true
+var car = {
+    model: "Skoda",
+    color: "black",
+    body: "sedan",
+    class: "hybrid"
 }
 
-a.age;
-a.color;
-a.switch;
+car.model;
+car.color;
+car.class;
 
 // 17. Создать объект и написать 3 выражения меняющие значения его свойств
-var a = {
-    Name: "Lamp",
-    color: "red",
-    age: 20,
-    lumin: 2100,
-    switch: true
+var car = {
+    model: "Skoda",
+    color: "black",
+    body: "sedan",
+    class: "hybrid"
 }
 
-a.age = 30;
-a["Name"] = "Sun";
-a.lumin: 3000;
+a.model = "Audi";
+a.color = "red";
+a.body = "cabriolet";
