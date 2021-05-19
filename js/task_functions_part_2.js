@@ -10,25 +10,37 @@
 // Пример работы:
 // keys({one: 1, two: 2, three: 3});
 // => ["one", "two", "three"]
-
-
-
+function keys (obj) {
+    var key = [];
+    for (prop in obj) {
+        key[key.length] = prop;
+    }
+    return key;
+}
 
 // Создать функцию values которая возвращает массив значений всех свойств принимаемого объекта.
 // Пример работы:
 // values({one: 1, two: 2, three: 3});
 // => [1, 2, 3]
-
-
-
+function values (obj) {
+    var key = [];
+    for (prop in obj) {
+        key[key.length] = obj[prop];
+    }
+    return key;
+}
 
 // Создать функцию pairs которая возвращает список пар [свойство, значение] входящего объекта.
 // Пример работы:
 // pairs({one: 1, two: 2, three: 3});
 // => [["one", 1], ["two", 2], ["three", 3]]
-
-
-
+function pairs (obj) {
+    var list = [];
+    for (prop in obj) {
+        list[list.length] = [obj[prop], obj.prop];
+    }
+    return list;
+}//------?
 
 // Создать функцию invert которая возвращает копию входящего объекта где свойства - значения, а значения - свойства.
 // Чтобы это заработало, нужно, чтобы все значения свойств объекта могли быть уникально преобразованы в строки.
@@ -38,12 +50,19 @@
 
 
 
-
 // Создать функцию omit которая возвращает копию объекта без указанного свойства.
 // Пример работы:
 // omit({name: 'moe', age: 50, userid: 'moe1'}, 'userid');
 // => {name: 'moe', age: 50}
-
+function omit (obj, property) {
+    var copyObj = {};
+    for (prop in obj) {
+        if (obj[prop] !== property) {
+            copyObj[prop] = obj[prop];
+        }
+    }
+    return copyObj;
+}//-------------------?
 
 
 
@@ -51,14 +70,22 @@
 // Пример работы:
 // has({a: 1, b: 2, c: 3}, 'b');
 // => true
-
-
-
+function has (obj, property) {
+    for (prop in obj) {
+        if (obj[prop] === property) {
+            return true;
+        }
+    }
+    return false;
+}
 
 // Создать функцию isMatch которая проверяет, содержатся ли ключ-значене в объекте. Если да, то возвращает true иначе false.
 // Пример работы:
 // isMatch({name: 'moe', age: 32}, {age: 32});
 // => true
+
+
+
 
 
 
