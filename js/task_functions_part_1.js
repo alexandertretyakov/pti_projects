@@ -15,9 +15,9 @@
 // => false
 function isUndefined (value) {
     if (value === undefined) {
-    return true;
+        return true;
     } else {
-    return false;
+        return false;
     }
 }
 

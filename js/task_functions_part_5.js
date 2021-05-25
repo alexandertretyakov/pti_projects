@@ -9,9 +9,16 @@
 // а getX и changeX это методы которые манипулируют значением этого свойства "x".
 // getX возвращает значение свойства "x", а changeX принимает в качестве аргумента число
 // и результатом работы этого метода является присваивание этого числа свойству "x" объекта.
-
-
-
+var obj = {
+    x: 100,
+    getX: function () {
+        return this.x;
+    },
+    changeX: function (value) {
+        this.x = value;
+        return this.x;
+    }
+}
 
 // Создать функцию-конструктор Circle которая принимает 3 параметра:
 // координаты центра окружности (x, y) и ее радиус (radius).
@@ -27,14 +34,40 @@
 // => 31.41592653589793
 // circle.getSquare();
 // => 78.53981633974483
-
-
-
+var Circle = function (x, y, radius) {
+    var obj = {
+        x: 0,
+        y: 0,
+        radius: 0,
+        getDiameter: function () {
+            var diameter = 2 * this.radius;
+            return diameter;
+        },
+        getPerimeter: function () {
+            var perimeter = 3.14 * diameter;
+            return perimeter;
+        },
+        getSquare: function () {
+            var square = 3.14 * this.radius * this.radius;
+            return square;
+        },
+    }
+}
+new Circle();
 
 // Создать такие структуры данных чтобы выражение
 // dro[1]().bro вернуло в качестве результата значение true,
+var dro = [0, function () { return { bro: true }}];
+
 // выражение a[4][1][1].y вернуло строку 'Север',
+var a = [0, 0, 0, 0, [0, [0, { y: 'Север'}]]];
+
 // выражение b.y().y.z()[3].autor вернуло строку 'Дима'.
+var b = { y: function () { return var y = { z: function() { return [{}, {}, {}, {autor: 'Дима'}]}}}};
+
+
+
+
 
 
 
