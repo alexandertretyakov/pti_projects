@@ -123,7 +123,7 @@ function isEmpty (obj) {
 // Пример работы:
 // extend({name: 'moe'}, {age: 50});
 // => {name: 'moe', age: 50}
-function extend(source) {
+function extend(source) {//TODO
     var prop;
     for (prop in source) {
         this[prop] = source[prop]

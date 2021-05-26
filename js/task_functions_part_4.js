@@ -95,6 +95,7 @@ Object.prototype.isEmpty = function () {
     return false;
 }
 
+// TODO
 Object.prototype.extend = function (destination, source) {
     var prop;
     for (prop in source) {
