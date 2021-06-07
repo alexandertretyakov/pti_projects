@@ -336,21 +336,6 @@
             '    XX        XX    ',
             '   XXXXXXXXXXXXXX   '
         ];
-
-        var i = 0;
-        while (i < mikki.length) {
-            var j = 0;
-            while (j < mikki[i].length) {
-                var pazl = document.createElement('div');
-                pazl.classList.add('mikki_tile');
-                if (mikki[i][j] === 'X') {
-                    pazl.style.backgroundColor = 'black';
-                }
-                document.querySelector('.mikki_tiles').appendChild(pazl);
-                j++;
-            }
-            i++;
-        }
     </script>
 
     <p class="z">Создать мир Марио <img src="images/mario.png"></p>
@@ -434,46 +419,6 @@
             'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz',
             'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz'
         ];
-
-        document.querySelector('.b18').addEventListener('click', function () {
-            var i = 0;
-            while (i < map.length) {
-                var j = 0;
-                while (j < map[i].length) {
-                    var tile = document.createElement('div');
-                    tile.classList.add('tile');
-                    tile.style.top = i * 16 + 'px';
-                    tile.style.left = j * 16 + 'px';
-                    if (map[i][j] === 'w') {
-                        tile.classList.add('x_w');
-                    }
-                    if (map[i][j] === 'c') {
-                        tile.classList.add('x_c');
-                    }
-                    if (map[i][j] === 'k') {
-                        tile.classList.add('x_k');
-                    }
-                    if (map[i][j] === 'd') {
-                        tile.classList.add('x_d');
-                    }
-                    if (map[i][j] === 't') {
-                        tile.classList.add('x_t');
-                    }
-                    if (map[i][j] === 'g') {
-                        tile.classList.add('x_g');
-                    }
-                    if (map[i][j] === 'b') {
-                        tile.classList.add('x_b');
-                    }
-                    if (map[i][j] === 'z') {
-                        tile.classList.add('x_z');
-                    }
-                    document.querySelector('.scene').appendChild(tile);
-                    j++;
-                }
-                i++;
-            }
-        });
     </script>
 
     <p class="z">Кликая по кнопкам "предыдущая" и "следующая" я хочу чтобы менялись соответственно слайды</p>

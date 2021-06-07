@@ -257,10 +257,20 @@ main {
         background: url("../images/dot_arrow.gif") 0 4px no-repeat;
         text-decoration: underline;
         color: #a7a7a7;
+
+        &:hover {
+            cursor: pointer;
+            text-decoration: none;
+        }
     }
 
     dd {
         margin: 0 10px 15px 13px;
+        display: none;
+    }
+
+    .open + dd {
+        display: block;
     }
 }
 
@@ -303,7 +313,7 @@ main {
         resize: vertical;
     }
 
-    button {
+    .submitting {
         width: 196px;
         border: 2px solid #ffffff;
         background-color: #7e7e7e;

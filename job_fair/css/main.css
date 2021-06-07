@@ -193,6 +193,14 @@ main {
     margin-bottom: 6px;
 }
 
+.banner-text {
+    display: none;
+}
+
+.banner-text.active {
+    display: block;
+}
+
 .module-banner p {
     font-size: 12px;
 }
@@ -237,6 +245,11 @@ main {
     font-size: 14px;
     border: none;
     font-family: "Verdana", serif;
+}
+
+.module-banner .pagination button:hover {
+    cursor: pointer;
+    background-color: #2fbaf1;
 }
 
 .module-banner .pagination .active {

@@ -16,7 +16,6 @@ var obj = {
     },
     changeX: function (value) {
         this.x = value;
-        return this.x;
     }
 }
 
@@ -38,15 +37,15 @@ function Circle(x, y, radius) {
     this.x = x;
     this.y = y;
     this.radius = radius;
-    var getDiameter = function () {
+    this.getDiameter = function () {
         var diameter = 2 * this.radius;
         return diameter;
     };
-    var getPerimeter = function () {
+    this.getPerimeter = function () {
         var perimeter = 3.14 * diameter;
         return perimeter;
     };
-    var getSquare = function () {
+    this.getSquare = function () {
         var square = 3.14 * this.radius * this.radius;
         return square;
     };
@@ -60,7 +59,7 @@ var dro = [0, function () { return { bro: true }}];
 var a = [0, 0, 0, 0, [0, [0, { y: 'Север'}]]];
 
 // выражение b.y().y.z()[3].autor вернуло строку 'Дима'.
-var b = { y: function () { return var y = { z: function() { return [{}, {}, {}, {autor: 'Дима'}]}}}};
+var b = { y: function () { return { y : { z: function() { return [{}, {}, {}, {autor: 'Дима'}]}}}}};
 
 
 

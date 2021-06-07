@@ -123,12 +123,12 @@ function isEmpty (obj) {
 // Пример работы:
 // extend({name: 'moe'}, {age: 50});
 // => {name: 'moe', age: 50}
-function extend(source) {//TODO
+function extend(destination, source) {
     var prop;
     for (prop in source) {
-        this[prop] = source[prop]
+        destination[prop] = source[prop]
     }
-    return this;
+    return destination;
 }
 
 // Создать функцию defaults с двумя входными параметрами (объект object и объект default). Функция defaults проинициализирует неопределённые (undefined) свойства объета значениями одноимённых свойств из default. Если же какие-то свойства объекта уже определены, то они не будут изменены.

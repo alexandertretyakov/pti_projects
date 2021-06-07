@@ -32,7 +32,7 @@ Array.prototype.without = function (value) {
     var result = [];
     while (i < this.length) {
         if (this[i] !== value ) {
-            result[result.length] = this[i]
+            result[result.length] = this[i];
         }
         i++;
     }
@@ -43,7 +43,7 @@ Array.prototype.min = function () {
     var i = 0;
     var result = this[0];
     while (i < this.length) {
-        if (result > this[i]) {
+        if (this[i] < result) {
             result = this[i];
         }
         i++
@@ -95,13 +95,12 @@ Object.prototype.isEmpty = function () {
     return false;
 }
 
-// TODO
-Object.prototype.extend = function (destination, source) {
+Object.prototype.extend = function (source) {
     var prop;
     for (prop in source) {
-        destination[prop] = source[prop]
+        this[prop] = source[prop]
     }
-    return destination;
+    return this;
 }
 
 
@@ -109,36 +108,9 @@ Object.prototype.extend = function (destination, source) {
 // Познакомиться с работой следующих втроенных свойств, функций и методов
 // Number
 //     Number.prototype: toFixed
-23.4567.toFixed(2)
-    //==>"23.46"
-
-
 // String
 //     String.prototype: charAt, concat, includes, indexOf, lastIndexOf, repeat, replace, slice, split,
 //         substr, substring, toLowerCase, toUpperCase, trim
-"Интерпретация".charAt(3)
-    //==>"е"
-
-
-"Интерпретация".concat(" выражения");
-    //===>"Интерпретация выражения"
-
-
-"Интерпретация собственного выражения".includes("собственного");
-    //===> true
-"Интерпретация собственного выражения".includes("Собственного");
-    //===> false
-
-
-"Интерпретация собственного выражения".indexOf("с", 10);
-    //===> 14
-"Интерпретация собственного выражения".indexOf("я", 15);
-    //===> -1
-
-
-"Интерпретация собственного выражения".lastIndexOf("в");
-//===> 27------?
-
 // Array
 //     Array.prototype: concat, forEach, includes, indexOf, join, lastIndexOf, pop, push, reverse,
 //         shift, slice, splice, unshift, sort, map, filter, every, some, reduce, reduceRight

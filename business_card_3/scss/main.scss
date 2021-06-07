@@ -132,7 +132,7 @@ h2 {
 
 /* ---------------------------------------- Content */
 .content-about-us {
-        @include clear-fix;/* TODO: что за отступ в 4 пробела? */
+    @include clear-fix;
 
     .column {
         width: 49%;
@@ -281,7 +281,7 @@ h2 {
             }
         }
 
-        button {
+        .submitting {
             padding: 3px 35px;
             background-color: #5b9854;
             border: 1px solid #beebb3;
@@ -326,6 +326,28 @@ h2 {
         & a:last-child {
             float: left;
         }
+    }
+
+    .newImage {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 999;
+    }
+
+    .overlay {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: black;
+        opacity: 0.8;
+    }
+
+    .hidden {
+        display: none;
     }
 }
 
