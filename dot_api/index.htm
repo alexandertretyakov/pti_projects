@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>DoT API</title>
+    <script src="js/dot.js"></script>
+    <script src="js/jquery.js"></script>
+</head>
+
+<body>
+    <style>
+        body {
+            padding-bottom: 200px;
+        }
+
+        .z {
+            color: red;
+            margin: 1em 0;
+        }
+    </style>
+
+    <div class="games"><div class="game"><div class="game-flags"><span class="item item-hot">Hot</span></div><img src="images/Batman-v-Superman-Dawn-of-Justice-290x180.jpg"><h6>Batman v Superman Dawn of Justice</h6></div><div class="game"><div class="game-flags">   </div><img src="images/Batman-Begins-290x180.jpg"><h6>Batman Begins</h6></div><div class="game"><div class="game-flags"><span class="item item-new">New</span></div><img src="images/jackpot-giant-290x180.jpg"><h6>Jackpot Giant</h6></div><div class="game"><div class="game-flags"><span class="item item-hot">Hot</span><span class="item item-new">New</span></div><img src="images/european-roulette-290x180.jpg"><h6>Premium European Roulette</h6></div><div class="game"><div class="game-flags">   </div><img src="images/Da-vinci-Vault-290x180.jpg"><h6>Da Vinci’s Vault</h6></div><div class="game"><div class="game-flags">   </div><img src="images/Murder-Mystery-290x180.jpg"><h6>Murder Mystery</h6></div><div class="game"><div class="game-flags"><span class="item item-new">New</span></div><img src="images/PremiumBlackjack-290x180.jpg"><h6>Premium Blackjack</h6></div><div class="game"><div class="game-flags"><span class="item item-hot">Hot</span></div><img src="images/Gladiator-road-to-rome-290x180.jpg"><h6>Gladiator 2</h6></div></div>
+
+    <p class="z">Используй переменную games и шаблонизатор doT.js чтобы добавить игры в контейнер #games</p>
+
+    <div class="games" id="games"></div>
+
+    <p>
+        <button class="add-games">Добавить игры</button>
+    </p>
+
+    <script>
+        var games = [
+            {
+                name: 'Batman v Superman Dawn of Justice',
+                imageURL: 'images/Batman-v-Superman-Dawn-of-Justice-290x180.jpg',
+                flagHot: true
+            },
+            {
+                name: 'Batman Begins',
+                imageURL: 'images/Batman-Begins-290x180.jpg'
+            },
+            {
+                name: 'Jackpot Giant',
+                imageURL: 'images/jackpot-giant-290x180.jpg',
+                flagNew: true
+            },
+            {
+                name: 'Premium European Roulette',
+                imageURL: 'images/european-roulette-290x180.jpg',
+                flagHot: true,
+                flagNew: true
+            },
+            {
+                name: 'Da Vinci’s Vault',
+                imageURL: 'images/Da-vinci-Vault-290x180.jpg'
+            },
+            {
+                name: 'Murder Mystery',
+                imageURL: 'images/Murder-Mystery-290x180.jpg'
+            },
+            {
+                name: 'Premium Blackjack',
+                imageURL: 'images/PremiumBlackjack-290x180.jpg',
+                flagNew: true
+            },
+            {
+                name: 'Gladiator 2',
+                imageURL: 'images/Gladiator-road-to-rome-290x180.jpg',
+                flagHot: true
+            }
+        ];
+    </script>
+
+    <script type="text/template" id="game-template">
+        Write your code here
+    </script>
+
+    <style>
+        .games {
+            background: #212324;
+            padding: 0.5%;
+            border-radius: 3px;
+            margin-bottom: 0.5%;
+        }
+
+        .games:empty {
+            display: none;
+        }
+
+        .games::after {
+            content: '';
+            clear: both;
+            display: block;
+        }
+
+        .game {
+            background: #353638;
+            padding: 12px;
+            border-radius: 3px;
+            border: 1px solid transparent;
+            float: left;
+            width: 24%;
+            box-sizing: border-box;
+            margin: 0.5%;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .game-flags {
+            position: absolute;
+            top: 18px;
+            left: 18px;
+        }
+
+        .game-flags .item {
+            background: magenta;
+            color: #fff;
+            margin-right: 2px;
+            padding: 4px;
+            border-radius: 2px;
+            font-size: 9px;
+            text-transform: uppercase;
+            font-family: sans-serif;
+        }
+
+        .game-flags .item-new {
+            background: #14b1a4;
+        }
+
+        .game-flags .item-hot {
+            background: #d5341a;
+        }
+
+        .game:hover {
+            border: 1px solid white;
+        }
+
+        .game img {
+            display: block;
+            border-radius: 3px;
+            box-shadow: 0 0 2px #a4a4a4;
+            width: 100%;
+            margin-bottom: 12px;
+        }
+
+        .game h6 {
+            color: #b1b1b1;
+            font-family: Helvetica, sans-serif;
+            font-size: 15px;
+            font-weight: normal;
+            margin: 0;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .game:hover h6 {
+            color: #ffcb05;
+        }
+    </style>
+
+    <div class="nav"><ul class="nav-level-first"><li><a href="#">Фрукты</a><ul class="nav-level-second"><li><a href="#">Апельсин</a></li><li><a href="#">Киви</a></li><li><a href="#">Вишня</a></li><li><a href="#">Банан</a></li></ul></li><li><a href="#">Овощи</a><ul class="nav-level-second"><li><a href="#">Капуста</a></li><li><a href="#">Огурец</a></li></ul></li><li><a href="#">Рыба</a><ul class="nav-level-second"><li><a href="#">Лосось</a></li><li><a href="#">Щука</a></li></ul></li><li><a href="#">Орехи</a><ul class="nav-level-second"><li><a href="#">Арахис</a></li><li><a href="#">Кешью</a></li><li><a href="#">Фундук</a></li><li><a href="#">Миндаль</a></li></ul></li><li><a href="#">Мясо</a></li></ul></div>
+
+    <p class="z">Используй переменные navRu или navEn и шаблонизатор doT.js чтобы вывести меню в контейнер #nav</p>
+
+    <div class="nav" id="nav"></div>
+
+    <p>
+        <button type="button" class="btn-nav-en">En</button>
+        <button type="button" class="btn-nav-ru">Ru</button>
+    </p>
+
+    <script>
+        var navRu = [
+            {
+                title: 'Фрукты',
+                url: '#',
+                children: [
+                    {
+                        title: 'Апельсин',
+                        url: '#'
+                    },
+                    {
+                        title: 'Киви',
+                        url: '#'
+                    },
+                    {
+                        title: 'Вишня',
+                        url: '#'
+                    },
+                    {
+                        title: 'Банан',
+                        url: '#'
+                    }
+                ]
+            },
+            {
+                title: 'Овощи',
+                url: '#',
+                children: [
+                    {
+                        title: 'Капуста',
+                        url: '#'
+                    },
+                    {
+                        title: 'Огурец',
+                        url: '#'
+                    }
+                ]
+            },
+            {
+                title: 'Рыба',
+                url: '#',
+                children: [
+                    {
+                        title: 'Лосось',
+                        url: '#'
+                    },
+                    {
+                        title: 'Щука',
+                        url: '#'
+                    }
+                ]
+            },
+            {
+                title: 'Орехи',
+                url: '#',
+                children: [
+                    {
+                        title: 'Арахис',
+                        url: '#'
+                    },
+                    {
+                        title: 'Кешью',
+                        url: '#'
+                    },
+                    {
+                        title: 'Фундук',
+                        url: '#'
+                    },
+                    {
+                        title: 'Миндаль',
+                        url: '#'
+                    }
+                ]
+            },
+            {
+                title: 'Мясо',
+                url: '#'
+            }
+        ];
+        var navEn = [
+            {
+                title: 'Fruits',
+                url: '#',
+                children: [
+                    {
+                        title: 'Orange',
+                        url: '#'
+                    },
+                    {
+                        title: 'Kiwi',
+                        url: '#'
+                    },
+                    {
+                        title: 'Cherry',
+                        url: '#'
+                    },
+                    {
+                        title: 'Banana',
+                        url: '#'
+                    }
+                ]
+            },
+            {
+                title: 'Vegetables',
+                url: '#',
+                children: [
+                    {
+                        title: 'Cabbage',
+                        url: '#'
+                    },
+                    {
+                        title: 'Cucumber',
+                        url: '#'
+                    }
+                ]
+            },
+            {
+                title: 'Fish',
+                url: '#',
+                children: [
+                    {
+                        title: 'Salmon',
+                        url: '#'
+                    },
+                    {
+                        title: 'Pike',
+                        url: '#'
+                    }
+                ]
+            },
+            {
+                title: 'Nuts',
+                url: '#',
+                children: [
+                    {
+                        title: 'Peanut',
+                        url: '#'
+                    },
+                    {
+                        title: 'Cashew',
+                        url: '#'
+                    },
+                    {
+                        title: 'Hazelnut',
+                        url: '#'
+                    },
+                    {
+                        title: 'Almond',
+                        url: '#'
+                    }
+                ]
+            },
+            {
+                title: 'Meat',
+                url: '#'
+            }
+        ];
+    </script>
+
+    <script type="text/template" id="nav-template">
+        Write your code here
+    </script>
+
+    <style>
+        .nav {
+            background: #151618;
+        }
+
+        .nav:empty {
+            display: none;
+        }
+
+        .nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav a {
+            display: block;
+            height: 42px;
+            color: #fff;
+            padding: 0 12px;
+            line-height: 42px;
+            font-size: 13px;
+            font-family: sans-serif;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .nav a:hover {
+            color: #ffcb05;
+        }
+
+        .nav-level-first::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        .nav-level-first > li {
+            float: left;
+            position: relative;
+        }
+
+        .nav-level-second {
+            position: absolute;
+            background: #151618;
+            z-index: 999;
+        }
+
+        .nav-level-first > li:not(:hover) .nav-level-second {
+            display: none;
+        }
+    </style>
+
+    <p class="z">Используй переменную whores и шаблонизатор doT.js чтобы добавить девочек в контейнер #whores (HTML как в browser_api)</p>
+
+    <div class="whores" id="whores"></div>
+
+    <p>
+        <button class="add-whores">Добавить девочек</button>
+    </p>
+
+    <script>
+        var whores = [
+            {
+                name: 'Сильвия',
+                photo: 'images/silvia.jpg',
+                age: '18',
+                boobs: '4',
+                weight: '50',
+                height: '168',
+                phone: '+380960000001',
+                can_come: true,
+                teaser: 'Очень нежная девчонка доставит Вам удовольствие по полной программе! Каждый мужчина ищет идеальную женщину - попробуй, может быть я именно та которая тебе нужна... Фото мои 1000%!!! Выезда НЕТ!!! Квартира для встреч ЕСТЬ, 5 мин от ст. метро \"Дворец Украина\"'
+            },
+            {
+                name: 'Белла',
+                photo: 'images/bella.jpg',
+                age: '21',
+                boobs: '3',
+                weight: '65',
+                height: '172',
+                phone: '+380960000002',
+                can_come: false,
+                teaser: 'Я - барышня абсолютно особенная! Я яркая и стильная, веселая и заводная, сексуальная и конечно же очень красивая! Для тех, кто способен оценить по достоинству настоящую женщину, для тех, кто любит в постели задор и изобретательность, для тех прекрасных и щедрых мужчин, которые хотят провести незабываемый досуг в объятиях умелой красотки! Я вся для вас, дорогие мои. Да, да! Именно для тебя, милый! ФОТО МОИ!!!'
+            },
+            {
+                name: 'Марта',
+                photo: 'images/marta.jpg',
+                age: '23',
+                boobs: '2',
+                weight: '54',
+                height: '163',
+                phone: '+380960000003',
+                can_come: false,
+                teaser: 'Я - симпатичная девочка экзотической внешности без комплексов и с огромной любовью к сексу! Я непревзойденная любовница, страстная, доступная и яркая! Я невероятно сексуальна и изобретательна, мила и непосредственна. Не теряй времени, звони мне, мой друг! Я скрашу твоё одиночество :)'
+            },
+            {
+                name: 'Жасмин',
+                photo: 'images/zhasmin.jpg',
+                age: '32',
+                boobs: '1',
+                weight: '45',
+                height: '151',
+                phone: '+380960000004',
+                can_come: true,
+                teaser: 'Еще не распустившаяся розочка ждет своего воздыхателя! Чарующий аромат, тонкий силуэт. Раскрой мой бутончик и покажи свою силу! Я храню свою свежесть, чтоб ты мог вкусить первым тот первозданный нектар, что приготовлен для тебя! Мои упругие девичьи грудки покрываются росой вожделения, когда я думаю о сексе с тобой, мое лоно наполняется жаркой страстью и желаниями.'
+            }
+        ];
+    </script>
+
+    <script type="text/template" id="whore-template">
+        Write your code here
+    </script>
+
+    <style>
+        .whores {
+            background: #751a1a;
+            width: 910px;
+            height:  474px;
+            padding: 10px;
+            overflow: hidden;
+            margin-bottom: 1em;
+        }
+
+        .whore {
+            background: white;
+            padding: 10px;
+            width: 200px;
+            position: relative;
+            font-family: Arial, sans-serif;
+            font-size: 15px;
+            cursor: pointer;
+            float: left;
+            margin: 0 0 10px 10px;
+        }
+
+        .whore:first-child {
+            margin-left: 0;
+        }
+
+        .whore-name {
+            font-size: 22px;
+            font-family: Tahoma, sans-serif;
+            margin-bottom: 5px;
+            color: #7b1e1e;
+        }
+
+        .whore img {
+            margin-bottom: 10px;
+        }
+
+        .whore-teaser {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            box-sizing: border-box;
+            padding: 10px;
+            display: none;
+        }
+
+        .whore:hover .whore-teaser {
+            display: block;
+        }
+
+        .whore-phone {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 5px 0 1px;
+        }
+    </style>
+
+    <script src="js/task_dot_api.js"></script>
+</body>
+</html>
