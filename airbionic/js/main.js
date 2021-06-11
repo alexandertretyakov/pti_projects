@@ -1,3 +1,9 @@
-document.querySelector('.module-faq').addEventListener('click', function (e) {
-    e.target.classList.toggle('open');
-});
+//---Module: FAQ
+var questions = document.querySelectorAll('dt');
+var i = 0;
+while (i < questions.length) {
+    questions[i].addEventListener('click', function () {
+        this.classList.toggle('active');
+    });
+    i++;
+}

@@ -269,7 +269,7 @@ main {
         display: none;
     }
 
-    .open + dd {
+    .active + dd {
         display: block;
     }
 }

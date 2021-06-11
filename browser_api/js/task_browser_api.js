@@ -268,9 +268,14 @@ document.querySelector('.previous').addEventListener('click', function () {
 });
 
 //Кликая вопросам я хочу видеть ответы на них.
-document.querySelector('.faq').addEventListener('click', function (e) {
-    e.target.classList.toggle('active');
-});
+var questions = document.querySelectorAll('.question');
+var i = 0;
+while (i < questions.length) {
+    questions[i].addEventListener('click', function () {
+        this.classList.toggle('active');
+    });
+    i++;
+};
 
 //Кликая по вкладкам я хочу видеть связанное содержимое
 var deleteClassActive = function () {

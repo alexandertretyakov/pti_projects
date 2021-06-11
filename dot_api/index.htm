@@ -74,7 +74,15 @@
     </script>
 
     <script type="text/template" id="game-template">
-        Write your code here
+        <!--Write your code here-->
+        {{~ it :game :index}}
+        <div class="game">
+            <div class="h6">{{= game.name}}</div>
+            <img src="{{= game.imageURL}}">
+            <div class="item-hot">{{= game.flagHot}}</div>
+            <div class="item-new">{{= game.flagNew}}</div>
+        </div>
+        {{~}}
     </script>
 
     <style>
@@ -332,7 +340,8 @@
     </script>
 
     <script type="text/template" id="nav-template">
-        Write your code here
+        <!--Write your code here-->
+
     </script>
 
     <style>
@@ -446,7 +455,20 @@
     </script>
 
     <script type="text/template" id="whore-template">
-        Write your code here
+        <!--Write your code here-->
+        {{~ it :whore :index}}
+        <div class="whore">
+            <div class="whore-name">{{= whore.name}}</div>
+            <img src="{{= whore.photo}}">
+            <div class="whore-age">Возраст: {{= whore.age}}</div>
+            <div class="whore-boobs">Размер груди: {{= whore.boobs}}</div>
+            <div class="whore-height">Рост: {{= whore.height}}</div>
+            <div class="whore-weight">Вес: {{= whore.weight}}</div>
+            <div class="whore-phone">Вес: {{= whore.phone}}</div>
+            <div class="whore-can-come">Выезд: - </div>
+            <div class="whore-teaser">Вес: {{= whore.teaser}}</div>
+        </div>
+        {{~}}
     </script>
 
     <style>

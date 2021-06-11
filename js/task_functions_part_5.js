@@ -37,15 +37,15 @@ function Circle(x, y, radius) {
     this.x = x;
     this.y = y;
     this.radius = radius;
-    this.getDiameter = function () {
+    Circle.prototype.getDiameter = function () {
         var diameter = 2 * this.radius;
         return diameter;
     };
-    this.getPerimeter = function () {
+    Circle.prototype.getPerimeter = function () {
         var perimeter = 3.14 * diameter;
         return perimeter;
     };
-    this.getSquare = function () {
+    Circle.prototype.getSquare = function () {
         var square = 3.14 * this.radius * this.radius;
         return square;
     };
@@ -61,20 +61,13 @@ var a = [0, 0, 0, 0, [0, [0, { y: 'Север'}]]];
 // выражение b.y().y.z()[3].autor вернуло строку 'Дима'.
 var b = { y: function () { return { y : { z: function() { return [{}, {}, {}, {autor: 'Дима'}]}}}}};
 
-
-
-
-
-
-
-
 // Создать функцию charAt которая принимает строку и индекс и возвращает указанный символ из строки.
 // Пример работы:
 // charAt('March', 0);
 // => 'M'
-
-
-
+var charAt = function (string, index) {
+    return string[index];
+}
 
 // Создать функцию trim которая удаляет пробельные символы с начала и конца строки.
 // Пример работы:
