@@ -157,12 +157,13 @@ $('.b16').on('click', function() {
 $('.b17').on('click', function() {
     var skier = $('.skier');
     var x = 0;
-    var interval = setInterval(function() {
+    var intervalId = setInterval(function() {
         x = x + 5;
         skier.css('left', x + 'px');
-    },16)
+    }, 16);
+
     $('.b17-2').on('click', function() {
-        clearInterval(interval);
+        clearInterval(intervalId);
     });
 });
 
