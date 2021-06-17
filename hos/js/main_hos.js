@@ -1,4 +1,4 @@
-var whores = JSON.parse(localStorage.getItem('whores'));
+var whores = JSON.parse(localStorage.getItem('whores')) || [];
 
 //Подстановка данных в шаблон и вставка в контейнер
 var whoreTemplate = $('#whore-template').html();
@@ -12,9 +12,7 @@ $('.button-add').on('click', function () {
     $('.button-save').css('display', 'block');
 });
 
-var button = document.querySelector('.button-save');
-
-button.addEventListener('click', function () {
+$('.button-save').on('click', function () {
     //Подсветка пустых полей формы
     var inputs = document.querySelectorAll('input[type="text"]');
     var i = 0;
@@ -79,14 +77,14 @@ $('.button-delete').on('click', function () {
 
     //Кликаем на шлюху
     $('.whore').on('click', handleWhoreClick);
-})
+});
 
 var handleWhoreClick = function () {
     //Поиск шлюхи в массиве шлюх по ID
     var whore = _.findWhere(whores, {id: this.id});
 
     //Заполняем поля формы данными шлюхи
-    $('.id').val(whore.id)
+    $('.id').val(whore.id);
     $('.name').val(whore.name);
     $('.lastName').val(whore.lastName);
     $('.alias').val(whore.alias);
@@ -120,4 +118,4 @@ $('.button-update').on('click', function () {
 
     //Кликаем на шлюху
     $('.whore').on('click', handleWhoreClick);
-})
+});
