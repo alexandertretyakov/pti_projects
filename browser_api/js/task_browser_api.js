@@ -269,36 +269,22 @@ document.querySelector('.previous').addEventListener('click', function () {
 
 //Кликая вопросам я хочу видеть ответы на них.
 var questions = document.querySelectorAll('.question');
-var i = 0;
-while (i < questions.length) {
-    questions[i].addEventListener('click', function () {
+questions.forEach(function (element) {
+    element.addEventListener('click', function () {
         this.classList.toggle('active');
     });
-    i++;
-};
+});
 
 //Кликая по вкладкам я хочу видеть связанное содержимое
-var deleteClassActive = function () {
-    var arr = document.querySelectorAll('.x-tab, .x-item');
-    var i = 0;
-    while (i < arr.length) {
-        arr[i].classList.remove('active');
-        i++;
-    }
-};
-
-document.querySelector('.x-tabs').addEventListener('click', function (e) {
-    if (! e.target.classList.contains('active')) {
-        deleteClassActive();
-        e.target.classList.add('active');
-        var i = 0;
-        while (i < document.querySelectorAll('.x-item').length) {
-            if (e.target.dataset.tab === document.querySelectorAll('.x-item')[i].dataset.section) {
-                document.querySelectorAll('.x-item')[i].classList.add('active');
-            }
-            i++;
-        }
-    }
+var xTabs = document.querySelector('.x-tabs');
+var xItems = document.querySelector('.x-items');
+xTabs.querySelectorAll('.x-tab').forEach(function(tab) {
+    tab.addEventListener('click', function () {
+        xTabs.querySelector('.active').classList.remove('active');
+        xItems.querySelector('.active').classList.remove('active');
+        this.classList.add('active');
+        xItems.querySelector('[data-section="'+ this.dataset.tab +'"]').classList.add('active');
+    });
 });
 
 //Кликая на кнопку Login я хочу чтобы затенялся экран и по середине экрана появлялось окошко

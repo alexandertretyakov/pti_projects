@@ -255,29 +255,14 @@ $('.question').on('click', function () {
 });
 
 //Кликая по вкладкам я хочу видеть связанное содержимое
-// var deleteClassActive = function () {
-//     var arr = document.querySelectorAll('.x-tab, .x-item');
-//     var i = 0;
-//     while (i < arr.length) {
-//         arr[i].classList.remove('active');
-//         i++;
-//     }
-// };
-
-// $('.x-tabs').on('click', function (e) {
-//     console.log(e.target)
-//     if (! e.target.hasClass('active')) {
-//         $('.x-tab, .x-item').removeClass('active')
-        //e.target.addClass('active');
-        // var i = 0;
-        // while (i < document.querySelectorAll('.x-item').length) {
-        //     if (e.target.dataset.tab === document.querySelectorAll('.x-item')[i].dataset.section) {
-        //         document.querySelectorAll('.x-item')[i].classList.add('active');
-        //     }
-        //     i++;
-        // }
-//     }
-// });
+var xTabs = $('.x-tabs');
+var xItems = $('.x-items');
+xTabs.find('.x-tab').on('click', function () {
+    xTabs.find('.active').removeClass('active');
+    xItems.find('.active').removeClass('active');
+    $(this).addClass('active');
+    xItems.find('[data-section="'+ $(this).data('tab') +'"]').addClass('active');
+});
 
 //Кликая на кнопку Login я хочу чтобы затенялся экран и по середине экрана появлялось окошко
 // для авторизации закрыть которое можно кликнув по кнопке с крестиком

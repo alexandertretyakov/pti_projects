@@ -1,16 +1,23 @@
-// Write your code here
-console.log('Hello world!');
 //Games
-document.querySelector('.add-games').addEventListener('click', function()  {
-    var gameTemplate = document.querySelector('#game-template').innerHTML;
-    document.querySelector('#games').innerHTML += doT.template(gameTemplate)(games)
-    document.querySelector('#games').css('display', 'block')
-})
+$('.add-games').on('click', function()  {
+    var gameTemplate = $('#game-template').html();
+    $('#games').html(doT.template(gameTemplate)(games));
+});
 
+
+//Foods
+var navTmplFn = doT.template($('#nav-template').html());
+$('.btn-nav-ru').on('click', function()  {
+    $('#nav').html(navTmplFn(navRu));
+});
+
+$('.btn-nav-en').on('click', function()  {
+    $('#nav').html(navTmplFn(navEn));
+});
 
 
 //Whores
-document.querySelector('.add-whores').addEventListener('click', function()  {
-    var whoreTemplate = document.querySelector('#whore-template').innerHTML;
-    document.querySelector('#whores').innerHTML += doT.template(whoreTemplate)(whores)
-})
+$('.add-whores').on('click', function()  {
+    var whoreTemplate = $('#whore-template').html();
+    $('#whores').html(doT.template(whoreTemplate)(whores));
+});

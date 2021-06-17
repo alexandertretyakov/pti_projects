@@ -74,14 +74,15 @@
     </script>
 
     <script type="text/template" id="game-template">
-        <!--Write your code here-->
-        {{~ it :game :index}}
-        <div class="game">
-            <div class="h6">{{= game.name}}</div>
-            <img src="{{= game.imageURL}}">
-            <div class="item-hot">{{= game.flagHot}}</div>
-            <div class="item-new">{{= game.flagNew}}</div>
-        </div>
+        {{~ it :game:index}}
+            <div class="game">
+                <div class="game-flags">
+                    {{? game.flagNew}}<span class="item item-new">New</span>{{?}}
+                    {{? game.flagHot}}<span class="item item-hot">Hot</span>{{?}}
+                </div>
+                <img src="{{= game.imageURL}}">
+                <h6>{{= game.name}}</h6>
+            </div>
         {{~}}
     </script>
 
@@ -98,7 +99,7 @@
         }
 
         .games::after {
-            content: '';
+            content: "";
             clear: both;
             display: block;
         }
@@ -340,8 +341,19 @@
     </script>
 
     <script type="text/template" id="nav-template">
-        <!--Write your code here-->
-
+        <ul class="nav-level-first">
+            {{~ it :menuItem:index}}
+                <li><a href="{{= menuItem.url}}">{{= menuItem.title}}</a>
+                    {{? menuItem.children}}
+                        <ul class="nav-level-second">
+                            {{~ menuItem.children :subMenu:j}}
+                                <li><a href="{{= subMenu.url}}">{{= subMenu.title}}</a></li>
+                            {{~}}
+                        </ul>
+                    {{?}}
+                </li>
+            {{~}}
+        </ul>
     </script>
 
     <style>
@@ -455,19 +467,18 @@
     </script>
 
     <script type="text/template" id="whore-template">
-        <!--Write your code here-->
-        {{~ it :whore :index}}
-        <div class="whore">
-            <div class="whore-name">{{= whore.name}}</div>
-            <img src="{{= whore.photo}}">
-            <div class="whore-age">Возраст: {{= whore.age}}</div>
-            <div class="whore-boobs">Размер груди: {{= whore.boobs}}</div>
-            <div class="whore-height">Рост: {{= whore.height}}</div>
-            <div class="whore-weight">Вес: {{= whore.weight}}</div>
-            <div class="whore-phone">Вес: {{= whore.phone}}</div>
-            <div class="whore-can-come">Выезд: - </div>
-            <div class="whore-teaser">Вес: {{= whore.teaser}}</div>
-        </div>
+        {{~ it :whore:index}}
+            <div class="whore">
+                <div class="whore-name">{{= whore.name}}</div>
+                <img src="{{= whore.photo}}" width="200">
+                <div class="whore-age">Возраст: {{= whore.age}}</div>
+                <div class="whore-boobs">Размер груди: {{= whore.boobs}}</div>
+                <div class="whore-height">Рост: {{= whore.height}}</div>
+                <div class="whore-weight">Вес: {{= whore.weight}}</div>
+                <div class="whore-phone">Вес: {{= whore.phone}}</div>
+                <div class="whore-can-come">Выезд: {{? whore.can_come}}+{{??}}-{{?}}</div>
+                <div class="whore-teaser">Вес: {{= whore.teaser}}</div>
+            </div>
         {{~}}
     </script>
 

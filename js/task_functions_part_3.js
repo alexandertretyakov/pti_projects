@@ -14,8 +14,7 @@
 function each (list, iteratee) {
     var i = 0;
     while (i < list.length) {
-        iteratee(list[i], i)
-        console.log(list[i], i)
+        iteratee(list[i], i);
         i++;
     }
 }
