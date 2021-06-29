@@ -35,7 +35,8 @@
             {
                 name: 'Batman v Superman Dawn of Justice',
                 imageURL: 'images/Batman-v-Superman-Dawn-of-Justice-290x180.jpg',
-                flagHot: true
+                flagHot: true,
+                flagExclusive: true
             },
             {
                 name: 'Batman Begins',
@@ -54,7 +55,8 @@
             },
             {
                 name: 'Da Vinci’s Vault',
-                imageURL: 'images/Da-vinci-Vault-290x180.jpg'
+                imageURL: 'images/Da-vinci-Vault-290x180.jpg',
+                flagExclusive: true
             },
             {
                 name: 'Murder Mystery',
@@ -79,6 +81,7 @@
                 <div class="game-flags">
                     {{? game.flagNew}}<span class="item item-new">New</span>{{?}}
                     {{? game.flagHot}}<span class="item item-hot">Hot</span>{{?}}
+                    {{? game.flagExclusive}}<span class="item item-exclusive">Exclusive</span>{{?}}
                 </div>
                 <img src="{{= game.imageURL}}">
                 <h6>{{= game.name}}</h6>
@@ -258,6 +261,23 @@
             {
                 title: 'Мясо',
                 url: '#'
+            },
+            {
+                title: 'Монетки',
+                children: [
+                    {
+                        title: 'Золото',
+                        url: '#'
+                    },
+                    {
+                        title: 'Серебро',
+                        url: '#'
+                    },
+                    {
+                        title: 'Бронза',
+                        url: '#'
+                    }
+                ]
             }
         ];
         var navEn = [
@@ -336,6 +356,23 @@
             {
                 title: 'Meat',
                 url: '#'
+            },
+            {
+                title: 'Coins',
+                children: [
+                    {
+                        title: 'Gold',
+                        url: '#'
+                    },
+                    {
+                        title: 'Silver',
+                        url: '#'
+                    },
+                    {
+                        title: 'Bronze',
+                        url: '#'
+                    }
+                ]
             }
         ];
     </script>
@@ -423,6 +460,7 @@
                 name: 'Сильвия',
                 photo: 'images/silvia.jpg',
                 age: '18',
+                hair: 'блондинка',
                 boobs: '4',
                 weight: '50',
                 height: '168',
@@ -434,6 +472,7 @@
                 name: 'Белла',
                 photo: 'images/bella.jpg',
                 age: '21',
+                hair: 'брюнетка',
                 boobs: '3',
                 weight: '65',
                 height: '172',
@@ -445,6 +484,7 @@
                 name: 'Марта',
                 photo: 'images/marta.jpg',
                 age: '23',
+                hair: 'брюнетка',
                 boobs: '2',
                 weight: '54',
                 height: '163',
@@ -456,6 +496,7 @@
                 name: 'Жасмин',
                 photo: 'images/zhasmin.jpg',
                 age: '32',
+                hair: 'блондинка',
                 boobs: '1',
                 weight: '45',
                 height: '151',
@@ -472,6 +513,7 @@
                 <div class="whore-name">{{= whore.name}}</div>
                 <img src="{{= whore.photo}}" width="200">
                 <div class="whore-age">Возраст: {{= whore.age}}</div>
+                <div class="whore-hair">Цвет волос: {{= whore.hair}}</div>
                 <div class="whore-boobs">Размер груди: {{= whore.boobs}}</div>
                 <div class="whore-height">Рост: {{= whore.height}}</div>
                 <div class="whore-weight">Вес: {{= whore.weight}}</div>
@@ -486,7 +528,7 @@
         .whores {
             background: #751a1a;
             width: 910px;
-            height:  474px;
+            min-height:  474px;
             padding: 10px;
             overflow: hidden;
             margin-bottom: 1em;

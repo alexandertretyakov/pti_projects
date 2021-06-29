@@ -224,31 +224,31 @@ $('.b18').on('click', function () {
     }
 });
 
-// //Кликая по кнопкам "предыдущая" и "следующая" я хочу чтобы менялись соответственно слайды
-// var moving = function (direction) {
-//     var slides = $('.slide');
-//     var activeSlide = $('.slide.active');
-//     var activeSlideIndex = [].indexOf.call(slides, activeSlide);
-//     var slidesLength = slides.length;
-//     var nextSlideIndex;
-//     if (direction === 'next') {
-//         nextSlideIndex = activeSlideIndex === slidesLength - 1 ? 0 : activeSlideIndex + 1;
-//     } else {
-//         nextSlideIndex = activeSlideIndex === 0 ? slidesLength - 1 : activeSlideIndex - 1;
-//     }
-//     var next = slides[nextSlideIndex];
-//
-//     activeSlide.removeClass('active');
-//     next.addClass('active');
-//
-//     $('.next').on('click', function () {
-//         moving('next');
-//     });
-//
-//     $('.previous').on('click', function () {
-//         moving('previous');
-//     });
-// }
+//Кликая по кнопкам "предыдущая" и "следующая" я хочу чтобы менялись соответственно слайды
+var goTo = function (direction) {
+    var slides = $('.slide');
+    var activeSlide = $('.slide.active');
+    var activeSlideIndex = slides.index(activeSlide);
+    var slidesLength = slides.length;
+    var nextSlideIndex;
+    if (direction === 'next') {
+        nextSlideIndex = activeSlideIndex === slidesLength - 1 ? 0 : activeSlideIndex + 1;
+    } else {
+        nextSlideIndex = activeSlideIndex === 0 ? slidesLength - 1 : activeSlideIndex - 1;
+    }
+    var next = slides[nextSlideIndex];
+
+    activeSlide.removeClass('active');
+    $(next).addClass('active');
+}
+
+$('.next').on('click', function () {
+    goTo('next');
+});
+
+$('.previous').on('click', function () {
+    goTo('previous');
+});
 
 // //Кликая вопросам я хочу видеть ответы на них.
 $('.question').on('click', function () {

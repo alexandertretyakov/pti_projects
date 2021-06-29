@@ -126,6 +126,7 @@ var formView = {
 
     resetForm: function() {
         $('input').val('');
+        $('.column-right').remove();
     },
 
     init: function () {

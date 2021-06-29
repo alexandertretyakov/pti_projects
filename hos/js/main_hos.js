@@ -6,6 +6,7 @@ $('.whore-list').html(doT.template(whoreTemplate)(whores));
 
 //Отображаем форму
 $('.button-add').on('click', function () {
+    $('.column-right').css('display', 'block');
     $('form').css('display', 'block');
     $('.button-delete').css('display', 'none');
     $('.button-update').css('display', 'none');
@@ -53,6 +54,9 @@ $('.button-save').on('click', function () {
 
     //Очистка полей формы
     $('input').val('');
+
+    //Скрываем колонку с формами
+    $('.column-right').css('display', 'none');
 
     //Кликаем на шлюху
     $('.whore').on('click', handleWhoreClick);
