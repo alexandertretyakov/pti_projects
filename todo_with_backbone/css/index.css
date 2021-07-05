@@ -1,0 +1,62 @@
+body {
+    box-sizing: border-box;
+    outline: none;
+}
+
+.app {
+    width: 600px;
+}
+
+.filters {
+    margin-bottom: 20px;
+}
+
+.filters .active {
+    background: #93eeed;
+}
+
+.source {
+    margin-bottom: 20px;
+}
+
+.source input {
+    padding: 10px;
+    width: 60%;
+    font-size: 20px;
+    font-family: sans-serif;
+    border: 1px solid #767676;
+    box-sizing: border-box;
+}
+
+.items {
+    border: 1px solid #eceaec;
+}
+
+.item {
+    padding: 15px;
+    border-top: 1px solid #eceaec;
+    font-size: 20px;
+    font-family: sans-serif;
+    display: flex;
+}
+
+.item:first-child {
+    border-top: none;
+}
+
+.item .title {
+    width: 90%;
+}
+
+.item .delete {
+    margin-right: 10px;
+}
+
+.item.complete .title {
+    text-decoration: line-through;
+}
+
+.item.important .title {
+    font-weight: bold;
+    color: #326893;
+}
