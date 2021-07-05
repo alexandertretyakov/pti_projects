@@ -31,7 +31,17 @@
     </p>
 
     <script type="text/template" id="game-template">
-        Write your code here
+        {{~ it :game:index}}
+        <div class="game">
+            <div class="game-flags">
+                {{? game.flagNew}}<span class="item item-new">New</span>{{?}}
+                {{? game.flagHot}}<span class="item item-hot">Hot</span>{{?}}
+                {{? game.flagExclusive}}<span class="item item-exclusive">Exclusive</span>{{?}}
+            </div>
+            <img src="{{= game.imageURL}}">
+            <h6>{{= game.name}}</h6>
+        </div>
+        {{~}}
     </script>
 
     <style>
@@ -130,7 +140,19 @@
     </p>
 
     <script type="text/template" id="nav-template">
-        Write your code here
+        <ul class="nav-level-first">
+            {{~ it :menuItem:index}}
+            <li><a href="{{= menuItem.url}}">{{= menuItem.title}}</a>
+                {{? menuItem.children}}
+                <ul class="nav-level-second">
+                    {{~ menuItem.children :subMenu:j}}
+                    <li><a href="{{= subMenu.url}}">{{= subMenu.title}}</a></li>
+                    {{~}}
+                </ul>
+                {{?}}
+            </li>
+            {{~}}
+        </ul>
     </script>
 
     <style>
@@ -195,7 +217,20 @@
     </p>
 
     <script type="text/template" id="whore-template">
-        Write your code here
+        {{~ it :whore:index}}
+        <div class="whore">
+            <div class="whore-name">{{= whore.name}}</div>
+            <img src="{{= whore.photo}}" width="200">
+            <div class="whore-age">Возраст: {{= whore.age}}</div>
+            <div class="whore-hair">Цвет волос: {{= whore.hair}}</div>
+            <div class="whore-boobs">Размер груди: {{= whore.boobs}}</div>
+            <div class="whore-height">Рост: {{= whore.height}}</div>
+            <div class="whore-weight">Вес: {{= whore.weight}}</div>
+            <div class="whore-phone">Вес: {{= whore.phone}}</div>
+            <div class="whore-can-come">Выезд: {{? whore.can_come}}+{{??}}-{{?}}</div>
+            <div class="whore-teaser">Вес: {{= whore.teaser}}</div>
+        </div>
+        {{~}}
     </script>
 
     <style>
@@ -269,7 +304,17 @@
     </p>
 
     <script type="text/template" id="movie-template">
-        Write your code here
+        {{~ it :movie:index}}
+        <div class="movie">
+            <div class="movie-image-container">
+                <a href="#"><img src="images/movies/{{= movie.id}}.jpg"></a>
+            </div>
+            <a class="movie-title" href="#">{{= movie.title}}</a>
+            <div class="movie-details">
+                <span>{{= movie.year}}</span>
+            </div>
+        </div>
+        {{~}}
     </script>
 
     <style>
