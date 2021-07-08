@@ -232,8 +232,9 @@ var navRu = [
 var whores = [
     {
         name: 'Сильвия',
-        photo: 'images/whores/silvia.jpg',
+        photo: 'images/silvia.jpg',
         age: '18',
+        hair: 'блондинка',
         boobs: '4',
         weight: '50',
         height: '168',
@@ -243,8 +244,9 @@ var whores = [
     },
     {
         name: 'Белла',
-        photo: 'images/whores/bella.jpg',
+        photo: 'images/bella.jpg',
         age: '21',
+        hair: 'брюнетка',
         boobs: '3',
         weight: '65',
         height: '172',
@@ -254,8 +256,9 @@ var whores = [
     },
     {
         name: 'Марта',
-        photo: 'images/whores/marta.jpg',
+        photo: 'images/marta.jpg',
         age: '23',
+        hair: 'брюнетка',
         boobs: '2',
         weight: '54',
         height: '163',
@@ -265,8 +268,9 @@ var whores = [
     },
     {
         name: 'Жасмин',
-        photo: 'images/whores/zhasmin.jpg',
+        photo: 'images/zhasmin.jpg',
         age: '32',
+        hair: 'блондинка',
         boobs: '1',
         weight: '45',
         height: '151',
