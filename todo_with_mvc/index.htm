@@ -13,19 +13,23 @@
 
 <body>
     <div class="app">
-        <h1>Список дел</h1>
-        <h4>Осталось 5, готово 4</h4>
+        <div class="heading">
+            <h1>Список дел</h1>
+            <h4 class="stats">Осталось <span class="item-incompleted"></span>, готово <span class="item-completed"></span></h4>
+        </div>
 
         <div class="filters">
-            <input type="text" placeholder="Поиск" class="filter-input">
+            <input type="text" placeholder="Что будем искать?" id="needle">
 
-            <button class="all active">Все</button>
-            <button class="incomplete">Незавершенные</button>
-            <button class="complete">Завершенные</button>
+            <div class="actions">
+                <button class="active" data-filter="all">Все</button>
+                <button data-filter="incompleted">Незавершенные</button>
+                <button data-filter="completed">Завершенные</button>
+            </div>
         </div>
 
         <div class="source">
-            <input class="title" type="text" placeholder="Что надо сделать?">
+            <input class="title" type="text" placeholder="Что нужно сделать?">
         </div>
 
         <div class="items" id="tasks"></div>
@@ -34,11 +38,11 @@
     <script type="text/template" id="tasks-template">
         {{? it.length }}
             {{~ it :task:index }}
-                <div class="item {{? task.complete}}complete{{?}} {{? task.important}}important{{?}}">
+                <div data-id="{{= task.id}}" class="item {{? task.completed}}completed{{?}} {{? task.important}}important{{?}}">
                     <span class="title">{{= task.title}}</span>
                     <div>
-                        <button class="delete">Удалить</button>
-                        <button class="important">Важное</button>
+                        <button class="delete">&#10060;</button>
+                        <button class="important">&#128276;</button>
                     </div>
                 </div>
             {{~}}

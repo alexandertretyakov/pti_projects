@@ -1,9 +1,21 @@
 var tasks = {
     models: [],
 
+    filters: {
+        filter: 'all',
+        needle: ''
+    },
+
+    // task syntax {
+    //     id: '',
+    //     title: '',
+    //     complete: false,
+    //     important: false
+    // }
+
     // C => add
     // R => get
-    // U => updtae
+    // U => update
     // D => remove
 
     add: function(task) {
@@ -26,6 +38,26 @@ var tasks = {
             return task.id === id;
         });
         $(this).trigger('change');
+    },
+
+    getCompleted: function() {
+        return _.filter(this.models, function(task) {
+            return task.completed === true;
+        });
+    },
+
+    getIncompleted: function() {
+        return _.filter(this.models, function(task) {
+            return task.completed === false;
+        });
+    },
+
+    getCompletedCount: function() {
+        return this.getCompleted().length;
+    },
+
+    getIncompletedCount: function() {
+        return this.getIncompleted().length;
     }
 };
 
@@ -34,38 +66,64 @@ var listView = {
 
     collection: tasks,
 
+    getFilteredModels: function() {
+        var collection = this.collection;
+        var models = this.collection.models;
+        var filter = this.collection.filters.filter;
+        var needle = this.collection.filters.needle;
+
+        return models.filter(function(task) {
+            return task.title.toLowerCase().indexOf(needle.toLowerCase()) !== -1;
+        }).filter(function(task) {
+            switch (filter) {
+                case 'completed':
+                    return task.completed === true;
+                case 'incompleted':
+                    return task.completed === false;
+                default:
+                    return models;
+            }
+        });
+    },
+
     render: function() {
-        $('#tasks').html(this.tmplFn(this.collection.models));
+        $('#tasks').html(this.tmplFn(this.getFilteredModels()));
+        this.updateStats();
         this.subscribe();
     },
 
-    subscribe: function () {
-        $(this.collection).on('change', function() {
-            this.render();
-        }.bind(this));
+    updateStats: function() {
+        $('.stats .item-incompleted').text(this.collection.getIncompletedCount());
+        $('.stats .item-completed').text(this.collection.getCompletedCount());
+    },
 
+    subscribe: function () {
         $('.items .important').on('click', function(e) {
-            // TODO
-            console.log('Пометить как важное');
-            $(e.target.parentNode.parentNode).toggleClass('important')
+            var id = $(e.target).closest('.item').get(0).dataset.id;
+            var task = this.collection.get(id);
+            task.important = !task.important;
+            this.collection.update(task);
         }.bind(this));
 
         $('.items .delete').on('click', function(e) {
-            // TODO
-            console.log('Удалить');
-            $(e.target.parentNode.parentNode).remove()
+            var id = $(e.target).closest('.item').get(0).dataset.id;
+            this.collection.remove(id);
         }.bind(this));
 
         $('.items .title').on('dblclick', function(e) {
-            // TODO
-            console.log('Пометить как завершенное');
-            if (e.target.classList.contains('title')) {
-                e.target.parentNode.classList.toggle('complete');
-            }
+            var id = $(e.target).closest('.item').get(0).dataset.id;
+            var task = this.collection.get(id);
+            task.completed = !task.completed;
+            this.collection.update(task);
         }.bind(this));
     },
 
     init: function () {
+        $(this.collection).on('change', function() {
+            console.log('change');
+            this.render();
+        }.bind(this));
+
         this.render();
     }
 };
@@ -85,76 +143,25 @@ var appView = {
                 this.collection.add({
                     id: this.getUniqId(),
                     title: e.target.value,
-                    complete: false,
+                    completed: false,
                     important: false
                 });
                 e.target.value = '';
             }
         }.bind(this));
+
+        $('.filters .actions button').on('click', function(e) {
+            $('.filters .actions button').removeClass('active');
+            $(e.target).addClass('active');
+            this.collection.filters.filter = e.target.dataset.filter;
+            listView.render();
+        }.bind(this));
+
+        $('.filters input').on('keyup', function(e) {
+            this.collection.filters.needle = e.target.value;
+            listView.render();
+        }.bind(this));
     }
 };
 
 appView.init();
-
-
-//Поисковая строка
-var filter = function () {
-    var input = document.querySelector('.filter-input');
-    input.addEventListener('keyup', function () {
-        var filter = input.value.toLowerCase();
-        var filterElements = document.querySelectorAll('.item');
-
-        filterElements.forEach(item => {
-            if (item.innerHTML.toLowerCase().indexOf(filter) > -1) {
-                item.style.display = '';
-            } else {
-                item.style.display = 'none';
-            }
-        });
-    });
-};
-
-filter();
-
-//Кнопка-фильтр "Все"
-$('.all').on('click', function () {
-    var items = $('.item');
-    var incomplete = _.filter(items, function(element){
-        console.log(element)
-        console.log($(element).hasClass('complete'))
-        if ($(element).hasClass('complete')) {
-            $(element).remove()
-        }
-    });
-});
-
-
-//Кнопка-фильтр "Незавершённые"
-$('.incomplete').on('click', function () {
-    var items = $('.item');
-    var incomplete = _.filter(items, function(element){
-        console.log(element)
-        console.log($(element).hasClass('complete'))
-        if ($(element).hasClass('complete')) {
-            $(element).remove()
-        }
-    });
-});
-
-
-//Кнопка-фильтр "Завершённые"
-$('.complete').on('click', function () {
-    var items = $('.item');
-    var complete = _.filter(items, function(element){
-        if ($(element).hasClass('complete')) {
-            null
-        } else {
-            $(element).remove()
-        }
-    });
-});
-
-
-
-
-
