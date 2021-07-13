@@ -37,7 +37,8 @@ var games = [
     {
         name: 'Batman v Superman Dawn of Justice',
         imageURL: 'images/games/Batman-v-Superman-Dawn-of-Justice-290x180.jpg',
-        flagHot: true
+        flagHot: true,
+        flagExclusive: true
     },
     {
         name: 'Batman Begins',
@@ -60,7 +61,8 @@ var games = [
     },
     {
         name: 'Murder Mystery',
-        imageURL: 'images/games/Murder-Mystery-290x180.jpg'
+        imageURL: 'images/games/Murder-Mystery-290x180.jpg',
+        flagExclusive: true
     },
     {
         name: 'Premium Blackjack',
@@ -232,7 +234,7 @@ var navRu = [
 var whores = [
     {
         name: 'Сильвия',
-        photo: 'images/silvia.jpg',
+        photo: 'images/whores/silvia.jpg',
         age: '18',
         hair: 'блондинка',
         boobs: '4',
@@ -244,7 +246,7 @@ var whores = [
     },
     {
         name: 'Белла',
-        photo: 'images/bella.jpg',
+        photo: 'images/whores/bella.jpg',
         age: '21',
         hair: 'брюнетка',
         boobs: '3',
@@ -256,7 +258,7 @@ var whores = [
     },
     {
         name: 'Марта',
-        photo: 'images/marta.jpg',
+        photo: 'images/whores/marta.jpg',
         age: '23',
         hair: 'брюнетка',
         boobs: '2',
@@ -268,7 +270,7 @@ var whores = [
     },
     {
         name: 'Жасмин',
-        photo: 'images/zhasmin.jpg',
+        photo: 'images/whores/zhasmin.jpg',
         age: '32',
         hair: 'блондинка',
         boobs: '1',
