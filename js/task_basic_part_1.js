@@ -100,7 +100,7 @@ var tank = {
 ["HTML","CSS","JavaScript","SCSS"]
 ["object","array","function",null,"null"]
 ["бампер","колесо","руль","фара","двигатель"]
-["Ford","Mersedes" "Mitsubishi" "Opel"]
+["Ford","Mersedes", "Mitsubishi", "Opel"]
 ["Ukraine", "Germany", "Islandy", "Italy"]
 [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
 ["Гильза", "Порох", "Пуля", "Капсуль"]

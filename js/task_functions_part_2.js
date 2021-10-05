@@ -16,6 +16,7 @@ var keys = function (obj) {
     for (prop in obj) {
         list[list.length] = prop;
     }
+    return list; // Cтыдота 4. 10. 2021 =)
 }
 
 // Создать функцию values которая возвращает массив значений всех свойств принимаемого объекта.
@@ -114,9 +115,9 @@ function isMatch (obj, object) {
 // => false
 function isEmpty (obj) {
     for (prop in obj) {
-        return true;
+        return false;
     }
-    return false;
+    return true;
 }
 
 // Создать функцию extend с двумя входными параметрами (объект destination и объект source). Скопирует все свойства из объекта source в объект destination. Если объект source имеет одноименные свойства с объектом destination, то значения destination будут затёрты значениями из source.
@@ -135,3 +136,12 @@ function extend(destination, source) {
 // Пример работы:
 // defaults({flavor: "chocolate"}, {flavor: "vanilla", sprinkles: "lots"});
 // => {flavor: "chocolate", sprinkles: "lots"}
+var defaults = function (obj, def) {
+    var prop;
+    for (prop in def) {
+        if (obj[prop] === undefined) {
+            obj[prop] = def[prop];
+        }
+    }
+    return obj;
+};
