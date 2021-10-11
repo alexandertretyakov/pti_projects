@@ -1,0 +1,401 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>React State</title>
+
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone@7.15.7/babel.min.js"></script>
+
+    <script src="js/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <style>
+        body {
+            padding-top: 50px;
+        }
+
+        .z {
+            color: red;
+            margin: 1em 0;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .t {
+            font-style: italic;
+        }
+
+        .t99 {
+            padding: 10px;
+            background: #8fff00;
+        }
+
+        .t97 {
+            color: #fff;
+            background: #144d74;
+            padding: 15px;
+            margin: 0;
+            font-style: normal;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+        }
+
+        .t97 a {
+            color: #ffd600;
+        }
+
+        .t97 button {
+            float: right;
+        }
+
+        #ab {
+            border: 1px dashed orange;
+        }
+
+        .hi {
+            background: yellow;
+        }
+    </style>
+
+    <div id="app"></div>
+
+    <script type="text/babel">
+
+        class ChangeTextColor extends React.Component {
+            state = {
+                click: false
+            }
+            handleClick = () => {
+                this.setState({click: true});
+            }
+            render () {
+                let style = null;
+                if (this.state.click) {
+                    style = {
+                        color: 'red'
+                    };
+                }
+                return (
+                    <div>
+                        <p className="z">При клике на кнопку изменить цвет текста</p>
+                        <p className="t t1" style={style}>Тест</p>
+                        <button className="b b1" onClick={this.handleClick}>Изменить цвет текста</button>
+                    </div>
+                );
+            }
+        }
+
+        class ChangeBackgroundColor extends React.Component {
+            state = {
+                click: false
+            }
+            handleClick = () => {
+                this.setState({click: true});
+            }
+            render () {
+                let style = null;
+                if (this.state.click) {
+                    style = {
+                        backgroundColor: '#BCE8E8'
+                    };
+                }
+                return (
+                    <div>
+                        <p className="z">При клике на кнопку изменить цвет фона</p>
+                        <p className="t t2" style={style}>Тест</p>
+                        <button className="b b2" onClick={this.handleClick}>Изменить цвет фона</button>
+                    </div>
+                );
+            }
+        }
+
+        class ChangeLinkPath extends React.Component {
+            state = {
+                href: "https://habrahabr.ru/"
+            }
+            handleClick = () => {
+                this.setState({href: "https://www.youtube.com/watch?v=47tWcmDtG6U"});
+            }
+            render () {
+                return (
+                    <div>
+                        <p className="z">При клике на кнопку изменить путь ссылки</p>
+                        <p className="t t3"><a href={this.state.href}>Тест</a></p>
+                        <button className="b b3" onClick={this.handleClick}>Изменить путь ссылки</button>
+                    </div>
+                );
+            }
+        }
+
+        class ChangeLinkImage extends React.Component {
+            state = {
+                src: "images/kaktus.jpg"
+            }
+            handleClick = () => {
+                this.setState({src: "images/Batman-Begins-290x180.jpg"});
+            }
+            render () {
+                return (
+                    <div>
+                        <p className="z">При клике на кнопку изменить путь к картинке</p>
+                        <p className="t t4">Тест <img src={this.state.src} width="100" /></p>
+                        <button className="b b4" onClick={this.handleClick}>Изменить путь к картинке</button>
+                    </div>
+                );
+            }
+        }
+
+        class ChangeIdElement extends React.Component {
+            state = {
+                id: "ab"
+            }
+            handleClick = () => {
+                this.setState({id: "abc"});
+            }
+            render () {
+                return (
+                    <div>
+                        <p className="z">При клике на кнопку изменить id элемента</p>
+                        <p className="t t5" id={this.state.id}>Тест</p>
+                        <button className="b b5" onClick={this.handleClick}>Изменить id элемента</button>
+                    </div>
+                );
+            }
+        }
+
+        class ChangeText extends React.Component {
+            state = {
+                text: "Тест"
+            }
+            handleClick = () => {
+                this.setState({text: "Hello world!"});
+            }
+            render () {
+                return (
+                    <div>
+                        <p className="z">При клике на кнопку изменить текст</p>
+                        <p className="t t6">{this.state.text}</p>
+                        <button className="b b6" onClick={this.handleClick}>Изменить текст</button>
+                    </div>
+                );
+            }
+        }
+
+        class ChangeHTML extends React.Component {
+            state = {
+                click: false
+            }
+            handleClick = () => {
+                this.setState({click: true});
+            }
+            render () {
+                let html = <b>Цветы</b>;
+                if (this.state.click) {
+                    html = <i>Цветы</i>;
+                }
+                return (
+                    <div>
+                        <p className="z">При клике на кнопку изменить HTML</p>
+                        <p className="t t7">Тест {html}</p>
+                        <button className="b b7" onClick={this.handleClick}>Изменить HTML</button>
+                    </div>
+                );
+            }
+        }
+
+        class ChangeFontSize extends React.Component {
+            state = {
+                fontSize: '16px'
+            }
+            handleClick = () => {
+                this.setState({fontSize: '30px'});
+            }
+            render () {
+                return (
+                    <div>
+                        <p className="z">При клике на кнопку изменить размер шрифта</p>
+                        <p className="t t8" style={this.state}>Тест</p>
+                        <button className="b b8" onClick={this.handleClick}>Изменить размер шрифта</button>
+                    </div>
+                );
+            }
+        }
+
+        class AddClass extends React.Component {
+            state = {
+                class: "t t9"
+            }
+            handleClick = () => {
+                this.setState({class: "t t9 hi"});
+            }
+            render () {
+                return (
+                    <div>
+                        <p className="z">При клике на кнопку добавить класс 'hi'</p>
+                        <p className={this.state.class}>Тест</p>
+                        <button className="b b9" onClick={this.handleClick}>Добавить класс 'hi'</button>
+                    </div>
+                );
+            }
+        }
+
+        class DeleteClass extends React.Component {
+            state = {
+                deleteClass: "t t10 hi"
+            }
+            handleClick = () => {
+                this.setState({deleteClass: "t t10"});
+            }
+            render () {
+                return (
+                    <div>
+                        <p className="z">При клике на кнопку удалить класс 'hi'</p>
+                        <p className={this.state.deleteClass}>Тест</p>
+                        <button className="b b10" onClick={this.handleClick}>Удалить класс 'hi'</button>
+                    </div>
+                );
+            }
+        }
+
+        class AddDeleteClass extends React.Component {
+            state = {
+                click: false
+            }
+            handleClick = () => {
+                if (this.state.click === false) {
+                    this.setState({click: true});
+                } else {
+                    this.setState({click: false});
+                }
+            }
+            render () {
+                let switchClass;
+                if (this.state.click) {
+                    switchClass = "t t11";
+                } else {
+                    switchClass = "t t11 hi";
+                }
+                return (
+                    <div>
+                        <p className="z">При клике на кнопку добавлять/удалять (в зависимости от наличия) класс 'hi'</p>
+                        <p className={switchClass}>Тест</p>
+                        <button className="b b11" onClick={this.handleClick}>Добавить/удалить (в зависимости от наличия) класс 'hi'</button>
+                    </div>
+                );
+            }
+        }
+
+        class ValueAttrClassElement extends React.Component {
+            state = {
+                text: null
+            }
+            handleClickSomewhere = (e) => {
+                this.setState({
+                    text: e.target.className
+                });
+            }
+            render () {
+                return (
+                    <div onClick={this.handleClickSomewhere}>
+                        <p className="z">При клике на любом эелементе страницы выводить значение атрибута class
+                            элемента</p>
+                        <p className="t t12">{this.state.text}</p>
+                    </div>
+                );
+            }
+        }
+
+        class TranslationText extends React.Component {
+            state = {
+                text: "Солнце"
+            }
+            textLanguage = {
+                text: "sun"
+            }
+            handleClick = () => {
+                this.setState(this.textLanguage);
+            }
+            render () {
+                return (
+                    <div>
+                        <p className="z">При клике на кнопку перевести текст на английский язык (перевод хранится в
+                            атрибуте data-en элемента)</p>
+                        <p className="t t13">{this.state.text}</p>
+                        <button className="b b13" onClick={this.handleClick}>Перевести</button>
+                    </div>
+                );
+            }
+        }
+
+        class ChangeWindow extends React.Component {
+            render () {
+                return (
+                    <div>
+                        <p className="z">При изменении размеров окна вкладки или браузера изменять фоновый цвет абзаца
+                            (использовать RGB и Math.random)</p>
+                        <p className="t t99">Drugs are bad, m'kay, so, if you do drugs, you're bad, m'kay, because
+                        drugs are bad.</p>
+                    </div>
+                );
+            }
+        }
+
+        class ChangeValueExitCharacters extends React.Component {
+            state = {
+                text: 'Я не касался писи козла!'
+            };
+            onChange(e) {
+                this.setState({
+                    text: e.target.value
+                });
+            };
+            render () {
+                return (
+                    <div>
+                        <p className="z">При изменении значения элемента формы выводить количество символов которое оно
+                            содержит</p>
+                        <p className="t t98"><input type="text" onChange={this.onChange.bind(this)} defaultValue={this.state.text} />
+                        <span className="t98-2">{this.state.text.length}</span></p>
+                    </div>
+                );
+            }
+        }
+
+        class App extends React.Component {
+            render () {
+                return (
+                    <div>
+                        <ChangeTextColor />
+                        <ChangeBackgroundColor />
+                        <ChangeLinkPath />
+                        <ChangeLinkImage />
+                        <ChangeIdElement />
+                        <ChangeText />
+                        <ChangeHTML />
+                        <ChangeFontSize />
+                        <AddClass />
+                        <DeleteClass />
+                        <AddDeleteClass />
+                        <ValueAttrClassElement />
+                        <TranslationText />
+                        <ChangeWindow />
+                        <ChangeValueExitCharacters />
+                    </div>
+                )
+            }
+        }
+
+    ReactDOM.render(<App />, document.querySelector('#app'));
+
+    </script>
+</body>
+</html>
