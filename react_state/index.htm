@@ -13,6 +13,7 @@
 </head>
 
 <body>
+    <div id="app"></div>
     <style>
         body {
             padding-top: 50px;
@@ -66,10 +67,332 @@
         }
     </style>
 
-    <div id="app"></div>
+    <style>
+        .whores-container {
+            background: #751a1a;
+            width: 910px;
+            min-height:  474px;
+            padding: 10px;
+            overflow: hidden;
+            margin-bottom: 1em;
+        }
+
+        .whore {
+            background: white;
+            padding: 10px;
+            width: 200px;
+            position: relative;
+            font-family: Arial, sans-serif;
+            font-size: 15px;
+            cursor: pointer;
+            float: left;
+            margin: 0 0 10px 10px;
+        }
+
+        .whore:first-child {
+            margin-left: 0;
+        }
+
+        .whore-name {
+            font-size: 22px;
+            font-family: Tahoma, sans-serif;
+            margin-bottom: 5px;
+            color: #7b1e1e;
+        }
+
+        .whore img {
+            margin-bottom: 10px;
+        }
+
+        .whore-teaser {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            box-sizing: border-box;
+            padding: 10px;
+            display: none;
+        }
+
+        .whore:hover .whore-teaser {
+            display: block;
+        }
+
+        .whore-phone {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 5px 0 1px;
+        }
+    </style>
+
+    <style>
+        .cats-container {
+            width: 600px;
+            height: 200px;
+            margin-bottom: 1em;
+        }
+
+        .cat-container-1,
+        .cat-container-2 {
+            float: left;
+            width: 49%;
+            height: 200px;
+            box-sizing: border-box;
+            padding: 10px;
+            border: 1px dashed #000;
+            margin-left: 0.5%;
+        }
+    </style>
+
+    <style>
+        .tooth-container {
+            width: 600px;
+            height: 266px;
+            padding: 5px;
+            border: 1px solid black;
+            margin-bottom: 1em;
+        }
+
+        .tooth + .boy {
+            display: none;
+        }
+    </style>
+
+    <style>
+        .ski-resort {
+            width: 600px;
+            height: 170px;
+            border: 1px solid #000;
+            position: relative;
+            overflow-x: auto;
+            overflow-y: hidden;
+            margin-bottom: 1em;
+        }
+
+        .skier {
+            width: 150px;
+            transform: scale(-1, 1);
+            position: absolute;
+            top: 85px;
+            left: 0;
+        }
+    </style>
+
+    <style>
+        .mikki_tiles {
+            width: 400px;
+            height: 400px;
+            border: 1px solid black;
+        }
+
+        .mikki_tile {
+            width: 20px;
+            height: 20px;
+            float: left;
+        }
+    </style>
+
+    <style>
+        .question {
+            color: #0078d7;
+            padding: 10px 20px 10px;
+            border-top: 1px solid #d2d2d2;
+            cursor: pointer;
+        }
+
+        .question:hover {
+            background: #e6e6e6;
+        }
+
+        .answer {
+            padding: 10px 20px 10px;
+            margin: 0;
+            display: none;
+        }
+
+        .question.active + .answer {
+            display: block;
+        }
+    </style>
+
+    <style>
+        .scene {
+            width: 800px;
+            height: 272px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid black;
+            margin-bottom: 1em;
+        }
+
+        .tile {
+            width: 16px;
+            height: 16px;
+            position: absolute;
+            background-image: url('images/mario_tileset.png');
+            background-repeat: no-repeat;
+            background-position: 16px 16px;
+        }
+
+        .tile.x_z {
+            background-position: -96px -112px;
+        }
+        .tile.x_k {
+            background-position: -144px -112px;
+        }
+        .tile.x_c {
+            background-position: -128px -112px;
+        }
+        .tile.x_t {
+            background-position: 0 -48px;
+            width: 32px;
+            height: 48px;
+        }
+        .tile.x_g {
+            background-position: 0 -128px;
+            width: 48px;
+            height: 32px;
+        }
+        .tile.x_b {
+            background-position: -144px -208px;
+            width: 80px;
+            height: 48px;
+        }
+        .tile.x_d {
+            background-position: 0 -96px;
+            width: 80px;
+            height: 32px;
+        }
+        .tile.x_w {
+            background-position: -96px -224px;
+            width: 48px;
+            height: 32px;
+        }
+    </style>
+
+    <style>
+        .slide {
+            width: 302px;
+            height: 347px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: none;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        .slide1 {
+            background-image: url('images/slide1.jpg');
+        }
+
+        .slide2 {
+            background-image: url('images/slide2.jpg');
+        }
+
+        .slide3 {
+            background-image: url('images/slide3.jpg');
+        }
+
+        .slide4 {
+            background-image: url('images/slide4.jpg');
+        }
+
+        .slide5 {
+            background-image: url('images/slide5.jpg');
+        }
+
+        .pagination {
+            margin: 1em 0;
+        }
+    </style>
+
+    <style>
+        .x-tabs {
+            border-bottom: 1px solid black;
+            width: 400px;
+        }
+
+        .x-tab {
+            background: grey;
+            border: 1px solid black;
+            border-radius: 10px 10px 0 0;
+            display: inline-block;
+            margin-bottom: -1px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .x-tab:hover,
+        .x-tab.active {
+            background: lightgray;
+        }
+
+        .x-item {
+            display: none;
+        }
+
+        .x-item.active {
+            display: block;
+        }
+    </style>
+
+    <style>
+        .overlay {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: black;
+            opacity: 0.8;
+        }
+
+        .pop-up {
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            margin-top: -200px;
+            margin-left: -150px;
+            background: white;
+            border-radius: 10px;
+            width: 300px;
+            height: 400px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .pop-up input {
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .pop-up .close {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            background: black;
+            color: white;
+            border-radius: 50%;
+            right: -15px;
+            top: -15px;
+            cursor: pointer;
+            font-family: Tahoma, sans-serif;
+            border: none;
+        }
+
+        .pop-up .close:hover {
+            background: #912626;
+        }
+    </style>
 
     <script type="text/babel">
-
         class ChangeTextColor extends React.Component {
             state = {
                 click: false
@@ -192,20 +515,16 @@
 
         class ChangeHTML extends React.Component {
             state = {
-                click: false
+                html: <b>Цветы</b>
             }
             handleClick = () => {
-                this.setState({click: true});
+                this.setState({html: <i>Цветы</i>});
             }
             render () {
-                let html = <b>Цветы</b>;
-                if (this.state.click) {
-                    html = <i>Цветы</i>;
-                }
                 return (
                     <div>
                         <p className="z">При клике на кнопку изменить HTML</p>
-                        <p className="t t7">Тест {html}</p>
+                        <p className="t t7">Тест {this.state.html}</p>
                         <button className="b b7" onClick={this.handleClick}>Изменить HTML</button>
                     </div>
                 );
@@ -214,16 +533,22 @@
 
         class ChangeFontSize extends React.Component {
             state = {
-                fontSize: '16px'
+                style: {
+                    fontSize: '16px'
+                }
             }
             handleClick = () => {
-                this.setState({fontSize: '30px'});
+                this.setState({
+                    style: {
+                        fontSize: '30px'
+                    }
+                });
             }
             render () {
                 return (
                     <div>
                         <p className="z">При клике на кнопку изменить размер шрифта</p>
-                        <p className="t t8" style={this.state}>Тест</p>
+                        <p className="t t8" style={this.state.style}>Тест</p>
                         <button className="b b8" onClick={this.handleClick}>Изменить размер шрифта</button>
                     </div>
                 );
@@ -232,16 +557,18 @@
 
         class AddClass extends React.Component {
             state = {
-                class: "t t9"
+                className: "t t9"
             }
             handleClick = () => {
-                this.setState({class: "t t9 hi"});
+                this.setState({
+                    className: "t t9 hi"
+                });
             }
             render () {
                 return (
                     <div>
                         <p className="z">При клике на кнопку добавить класс 'hi'</p>
-                        <p className={this.state.class}>Тест</p>
+                        <p className={this.state.className}>Тест</p>
                         <button className="b b9" onClick={this.handleClick}>Добавить класс 'hi'</button>
                     </div>
                 );
@@ -250,16 +577,18 @@
 
         class DeleteClass extends React.Component {
             state = {
-                deleteClass: "t t10 hi"
+                className: "t t10 hi"
             }
             handleClick = () => {
-                this.setState({deleteClass: "t t10"});
+                this.setState({
+                    className: "t t10"
+                });
             }
             render () {
                 return (
                     <div>
                         <p className="z">При клике на кнопку удалить класс 'hi'</p>
-                        <p className={this.state.deleteClass}>Тест</p>
+                        <p className={this.state.className}>Тест</p>
                         <button className="b b10" onClick={this.handleClick}>Удалить класс 'hi'</button>
                     </div>
                 );
@@ -271,23 +600,14 @@
                 click: false
             }
             handleClick = () => {
-                if (this.state.click === false) {
-                    this.setState({click: true});
-                } else {
-                    this.setState({click: false});
-                }
+                this.state.click === false ? this.setState({click: true}) : this.setState({click: false});
             }
             render () {
-                let switchClass;
-                if (this.state.click) {
-                    switchClass = "t t11";
-                } else {
-                    switchClass = "t t11 hi";
-                }
+                let className = this.state.click ? "t t11" : "t t11 hi";
                 return (
                     <div>
                         <p className="z">При клике на кнопку добавлять/удалять (в зависимости от наличия) класс 'hi'</p>
-                        <p className={switchClass}>Тест</p>
+                        <p className={className}>Тест</p>
                         <button className="b b11" onClick={this.handleClick}>Добавить/удалить (в зависимости от наличия) класс 'hi'</button>
                     </div>
                 );
@@ -318,11 +638,10 @@
             state = {
                 text: "Солнце"
             }
-            textLanguage = {
-                text: "sun"
-            }
             handleClick = () => {
-                this.setState(this.textLanguage);
+                this.setState({
+                    text: "sun"
+                });
             }
             render () {
                 return (
@@ -337,12 +656,32 @@
         }
 
         class ChangeWindow extends React.Component {
+            constructor() {
+                super();
+                window.addEventListener('resize', function () {
+                    var r = (Math.round(Math.random() * 255));
+                    var g = (Math.round(Math.random() * 255));
+                    var b = (Math.round(Math.random() * 255));
+                    this.setState({
+                        backgroundColor: 'rgb(' + r + ',' +  g + ',' + b + ')'
+                    })
+                }.bind(this));
+            }
+
+            state = {
+               backgroundColor: '#8fff00'
+            };
+
             render () {
+                var style = {
+                    backgroundColor: this.state.backgroundColor
+                };
+
                 return (
                     <div>
                         <p className="z">При изменении размеров окна вкладки или браузера изменять фоновый цвет абзаца
                             (использовать RGB и Math.random)</p>
-                        <p className="t t99">Drugs are bad, m'kay, so, if you do drugs, you're bad, m'kay, because
+                        <p className="t t99" style={style}>Drugs are bad, m'kay, so, if you do drugs, you're bad, m'kay, because
                         drugs are bad.</p>
                     </div>
                 );
@@ -370,32 +709,585 @@
             }
         }
 
+        class Girl extends React.Component {
+            render () {
+                return (
+                    <div className="whore">
+                        <div className="whore-name">{this.props.name}</div>
+                        <img src={this.props.photo} width="200" />
+                        <div className="whore-age">Возраст: {this.props.age}</div>
+                        <div className="whore-hair">Цвет волос: {this.props.hair}</div>
+                        <div className="whore-boobs">Размер груди: {this.props.boobs}</div>
+                        <div className="whore-height">Рост: {this.props.height}</div>
+                        <div className="whore-weight">Вес: {this.props.weight}</div>
+                        <div className="whore-phone">{this.props.phone}</div>
+                        <div className="whore-can-come">Выезд: {this.props.can_come ? '+' : '-'}</div>
+                        <div className="whore-teaser">{this.props.teaser}</div>
+                    </div>
+                )
+            }
+        }
+
+        class WhoresContainer extends React.Component {
+            state = {
+                whores: [
+                    {
+                        name: 'Сильвия',
+                        photo: 'images/silvia.jpg',
+                        age: '18',
+                        hair: 'блондинка',
+                        boobs: '4',
+                        weight: '50',
+                        height: '168',
+                        phone: '+380960000001',
+                        can_come: true,
+                        teaser: 'Очень нежная девчонка доставит Вам удовольствие по полной программе! Каждый мужчина ищет идеальную женщину - попробуй, может быть я именно та которая тебе нужна... Фото мои 1000%!!! Выезда НЕТ!!! Квартира для встреч ЕСТЬ, 5 мин от ст. метро \"Дворец Украина\"',
+                    }
+                ]
+            }
+            handleClick = () => {
+                var jasmine = {
+                    name: 'Жасмин',
+                    photo: 'images/zhasmin.jpg',
+                    age: '18',
+                    boobs: '3',
+                    weight: '50',
+                    height: '168',
+                    phone: '+380960000000',
+                    can_come: true,
+                    teaser: 'Очень нежная девчонка доставит Вам удовольствие по полной программе! Каждый мужчина ищет идеальную женщину - попробуй, может быть я именно та которая тебе нужна... Фото мои 1000%!!! Выезда НЕТ!!! Квартира для встреч ЕСТЬ, 5 мин от ст. метро \"Дворец Украина\"'
+                };
+
+                this.setState({
+                    whores: [
+                        ...this.state.whores,
+                        jasmine
+                    ]
+                });
+            }
+            render() {
+                var girls = <div>
+                    {
+                        this.state.whores.map(function (whore, idx) {
+                            return <Girl {...whore} key={idx} />
+                        })
+                    }
+                </div>;
+
+                return (
+                    <div>
+                        <div className="whores-container">
+                            {girls}
+                        </div>
+
+                        <button className="b b14" onClick={this.handleClick}>Добавить анкету</button>
+                    </div>
+                )
+            }
+        }
+
+        class Fish extends React.Component {
+            state = {
+                fishInContainer: 1
+            }
+            handleClick = () => {
+                this.state.fishInContainer === 1 ? this.setState({fishInContainer: 2}) : this.setState({fishInContainer: 1})
+            }
+            render () {
+                var fish = <img className="fish" src="images/fish.jpg" width="100" />;
+                return (
+                    <div>
+                        <p className="z">Переместить рыбу из первого контейнера во второй
+                            (при повторном клике из второго в
+                            первый и т.д.)
+                        </p>
+                        <div className="cats-container">
+                            <div className="cat-container-1">
+                                <img className="cat" src="images/kat.png" width="100" />
+                                {this.state.fishInContainer === 1 ? fish : null}
+                            </div>
+
+                            <div className="cat-container-2">
+                                <img className="cat" src="images/kat.png" width="100" />
+                                {this.state.fishInContainer === 2 ? fish : null}
+                            </div>
+                        </div>
+                        <button className="b b15" onClick={this.handleClick}>Переместить рыбу</button>
+                    </div>
+                )
+            }
+        }
+
+        class Tooth extends React.Component {
+            state = {
+                hasTooth: true
+            }
+            handleClick = () => {
+                this.setState({hasTooth: false})
+            }
+            render () {
+                var tooth = <img className="tooth" src="images/tooth.jpg" width="200" />;
+                return (
+                    <div>
+                        <p className="z">Удалить зуб</p>
+                        <div className="tooth-container">
+                            {this.state.hasTooth ? tooth : null}
+                            <img className="boy" src="images/bro.jpg" width="600" />
+                        </div>
+                        <button className="b b16" onClick={this.handleClick}>Удалить зуб</button>
+                    </div>
+                )
+            }
+        }
+
+        class Skier extends React.Component {
+            state = {
+                x: 0
+            }
+
+            // interval = null;
+
+            start = () => {
+                this.interval = setInterval(function() {
+                    this.setState({
+                        x: this.state.x + 5
+                    });
+                }.bind(this), 16);
+            }
+
+            stop = () => {
+                clearInterval(this.interval);
+            }
+
+            render () {
+                var style = {
+                    left: this.state.x + 'px'
+                };
+                return(
+                    <div>
+                        <p className="z">Хочу чтоб лыжник бесконечно ехал вправо (сдвиг на 5px каждые 16ms). При нажатии на
+                            кнопку "Стоп!" останавливался.
+                        </p>
+
+                        <div className="ski-resort">
+                            <img className="skier" src="images/skier.gif" style={style} />
+                        </div>
+
+                        <button className="b b17" onClick={this.start}>Поехали!</button>
+                        <button className="b b17-2" onClick={this.stop}>Стоп!</button>
+                    </div>
+                )
+            }
+        }
+
+        class Mikki extends React.Component {
+            render () {
+                var mikki = [
+                    '  XXXX        XXXX  ',
+                    ' XXXXXX      XXXXXX ',
+                    'XXXX XX XXXX XX XXXX',
+                    'XXX  XXXXXXXXXX  XXX',
+                    'XXXXXXXXXXXXXXXXXXXX',
+                    'XXXXXXX      XXXXXXX',
+                    ' XXXXX        XXXXX ',
+                    '   XXX  XX XX XXX   ',
+                    '    XX  XX XX XX    ',
+                    '    XXX X  X  XX    ',
+                    '    X         XX    ',
+                    '    X    XXX  XX    ',
+                    '    XX   XXX  XX    ',
+                    '     XX      XX     ',
+                    '      X  XX  X      ',
+                    '       X    X       ',
+                    '     XX XXXX XX     ',
+                    '     XX      XX     ',
+                    '    XX        XX    ',
+                    '   XXXXXXXXXXXXXX   '
+                ];
+
+                var tiles = [];
+
+                var i = 0;
+                while (i < mikki.length) {
+                    var j = 0;
+                    while (j < mikki[i].length) {
+                        var style = mikki[i][j] === 'X' ? {backgroundColor: 'black'} : null;
+                        var tile = <div className="mikki_tile" style={style}></div>;
+                        tiles.push(tile);
+                        j++;
+                    }
+                    i++;
+                }
+
+                return (
+                    <div>
+                        <p className="z">Хочу такое (смотри исходный код) <img src="images/mikki.png" /></p>
+                        <div className="mikki_tiles">{tiles}</div>
+                    </div>
+                )
+            }
+        }
+
+        class Mario extends React.Component {
+            render () {
+                var map = [
+                    '                                                  ',
+                    '                                                  ',
+                    '                                                  ',
+                    '                    w                             ',
+                    '                                       w          ',
+                    '                                                  ',
+                    '                       c                          ',
+                    '                                                  ',
+                    '                                        c         ',
+                    '                                                  ',
+                    '                c    kkkkk                        ',
+                    ' b                                     t        c ',
+                    '            d    g       d                        ',
+                    '                                                  ',
+                    'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz',
+                    'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz',
+                    'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz'
+                ];
+                var tiles = [];
+                var i = 0;
+                while (i < map.length) {
+                    var j = 0;
+                    while (j < map[i].length) {
+                        var style = {
+                            top: i * 16 + 'px',
+                            left: j * 16 + 'px'
+                        };
+                        var className = "tile ";
+                        if (map[i][j] === 'w') {
+                            className += "x_w";
+                        }
+                        if (map[i][j] === 'c') {
+                            className += "x_c";
+                        }
+                        if (map[i][j] === 'k') {
+                            className += "x_k";
+                        }
+                        if (map[i][j] === 'd') {
+                            className += "x_d";
+                        }
+                        if (map[i][j] === 't') {
+                            className += "x_t";
+                        }
+                        if (map[i][j] === 'g') {
+                            className += "x_g";
+                        }
+                        if (map[i][j] === 'b') {
+                            className += "x_b";
+                        }
+                        if (map[i][j] === 'z') {
+                            className += "x_z";
+                        }
+                        var tile = <div className={className} style={style}></div>;
+                        tiles.push(tile);
+                        j++;
+                    }
+                    i++;
+                }
+                return (
+                    <div>
+                        <p className="z">Создать мир Марио <img src="images/mario.png" /></p>
+                        <div className="scene">{tiles}</div>
+                        <button className="b b18">Создать мир</button>
+                    </div>
+                )
+            }
+        }
+
+        class Slides extends React.Component {
+            state = {
+                activeSlideIndex: 0,
+                slidesLength: 5
+            }
+
+            next = () => {
+                var { slidesLength, activeSlideIndex } = this.state;
+                var nextSlideIndex = activeSlideIndex === slidesLength - 1 ? 0 : activeSlideIndex + 1;
+                this.setState({
+                    activeSlideIndex: nextSlideIndex
+                });
+            }
+
+            previous = () => {
+                var { slidesLength, activeSlideIndex } = this.state;
+                // var slidesLength = this.state.slideLength;
+                // var activeSlideIndex = this.state.activeSlideIndex;
+                var previousSlideIndex = activeSlideIndex === 0 ? slidesLength - 1 : activeSlideIndex - 1;
+                this.setState({
+                    activeSlideIndex: previousSlideIndex
+                });
+            }
+
+            render () {
+                var { activeSlideIndex } = this.state;
+                var slides = [];
+                for (let i = 0; i < 5; i++) {
+                    let className = `slide slide${i+1} ${i === activeSlideIndex ? 'active' : ''}`;
+                    slides.push(<div className={className}></div>);
+                }
+                return (
+                    <div>
+                        <p className="z">Кликая по кнопкам "предыдущая" и "следующая" я хочу чтобы менялись
+                            соответственно слайды
+                        </p>
+                        <div className="slider">
+                            {slides}
+                        </div>
+
+                        <div className="pagination">
+                            <button className="previous" onClick={this.previous}>Previous</button>
+                            <button className="next" onClick={this.next}>Next</button>
+                        </div>
+                    </div>
+                )
+            }
+        }
+
+        class Questions extends React.Component {
+            state = {
+                items: [
+                    {
+                        question: 'В чем разница между 32-разрядной и 64-разрядной версиями Windows?',
+                        answer: `Термины "32-разрядный" и "64-разрядный" описывают, каким образом процессор компьютера (он также
+                                называется ЦП) обрабатывает информацию. 64-разрядная версия Windows обрабатывает большие объемы
+                                оперативной памяти (ОЗУ) более эффективно по сравнению с 32-разрядной версией. Не все устройства
+                                могут работать под управлением 64-разрядных версий Windows.`
+                    },
+                    {
+                        question: `Моя копия Windows приобретена через учебное заведение. Можно ли скачать ее
+                                здесь?`,
+                        answer: `Да, но вам потребуется ключ продукта. Перейдите на страницу загрузок <b>Академические
+                                продукты</b> и выберите версию Windows, чтобы начать.`
+                    },
+                    {
+                        question: `Что делать после создания носителя с помощью средства создания носителя?`,
+                        answer: `<p>Чтобы установить Windows, после создания установочного носителя выполните одно из следующих
+                                    действий:</p>
+                                <ul>
+                                    <li>
+                                        Подключите USB-устройство флэш-памяти к компьютеру, на который необходимо установить
+                                        Windows, найдите его в проводнике и откройте файл setup.exe. Выполняйте инструкции,
+                                        отображаемые в ходе установки.
+                                    </li>
+                                    <li>
+                                        Если ваш компьютер настроен на загрузку с USB-накопителя, подключите USB-устройство
+                                        флэш-памяти к компьютеру, на который необходимо установить Windows, перезагрузите его, а
+                                        затем следуйте инструкциям по установке.
+                                    </li>
+                                    <li>
+                                        Если компьютер настроен на загрузку с DVD-дисковода, вставьте DVD-диск в компьютер,
+                                        перезагрузите компьютер, а затем следуйте инструкциям по установке.
+                                    </li>
+                                </ul>`
+                    },
+                    {
+                        question: `Этот образ диска загрузочный?`,
+                        answer: `Образ диска с этого сайта можно использовать для создания загрузочных USB-носителей и
+                                DVD-дисков, которые предоставляют доступ к средствам восстановления.`
+                    }
+                ]
+            }
+
+            handleClick = (index) => {
+                var items = this.state.items.map(function(item, idx) {
+                    return idx !== index ?
+                        item :
+                        {
+                            ...item,
+                            active: !item.active
+                        }
+                });
+
+                this.setState({
+                    items
+                });
+            }
+
+            render() {
+                var { items } = this.state;
+
+                return (
+                    <div>
+                        <p className="z">Кликая вопросам я хочу видеть ответы на них</p>
+                        <dl className="faq">
+                            {
+                                items.map((item, index) => {
+                                    return (
+                                        <>
+                                            <dt className={`question ${ item.active ? 'active' : ''}`} onClick={() => { this.handleClick(index) }}>{item.question}</dt>
+                                            <dd className="answer" dangerouslySetInnerHTML={{ __html: item.answer }} />
+                                        </>
+                                    );
+                                })
+                            }
+                        </dl>
+                    </div>
+                )
+            }
+        }
+
+        class Sessions extends React.Component {
+            state = {
+                activeTabIndex: 2,
+                items: [
+                    {
+                        tab: `Сегодня`,
+                        tabDescription: `<ul>
+                                    <li>Звёздные войны: Последние джедаи</li>
+                                    <li>Счастливый день смерти</li>
+                                    <li>Дыши</li>
+                                </ul>`
+                    },
+                    {
+                        tab: `Завтра`,
+                        tabDescription: `<ul>
+                                    <li>Киборги</li>
+                                    <li>Земля троллей</li>
+                                    <li>За пропастью во ржи</li>
+                                </ul>`
+                    },
+                    {
+                        tab: `23 декабря`,
+                        tabDescription: `<ul>
+                                    <li>Мой любимый динозавр</li>
+                                    <li>Фердинанд</li>
+                                    <li>Джуманджи: Зов джунглей</li>
+                                </ul>`
+                    }
+                ]
+            };
+
+            handleClick = (index) => {
+                this.setState({
+                    activeTabIndex: index
+                });
+            };
+
+            render () {
+                var { items, activeTabIndex } = this.state;
+
+                return (
+                    <div>
+                        <p className="z">Кликая по вкладкам я хочу видеть связанное содержимое</p>
+                        <h2>Сеансы</h2>
+                        <div className="x-tabs">
+                            {
+                                items.map((item, index) => <div className={`x-tab ${index === activeTabIndex ? 'active' : ''}`} onClick={() => { this.handleClick(index) }}>{item.tab}</div>)
+                            }
+                        </div>
+
+                        <div className="x-items">
+                            {
+                                items.map((item, index) => <div className={`x-item ${index === activeTabIndex ? 'active' : ''}`} dangerouslySetInnerHTML={{ __html: item.tabDescription }}></div>)
+                            }
+                        </div>
+                    </div>
+                )
+            }
+        }
+
+        class Login extends React.Component {
+            render () {
+                return (
+                    <div>
+                        <p className="z">Кликая на кнопку Login я хочу чтобы затенялся экран и по середине
+                            экрана появлялось окошко для авторизации закрыть которое можно кликнув по кнопке
+                            с крестиком
+                        </p>
+                        <div className="overlay hidden"></div>
+                        <div className="pop-up pop-up--login hidden">
+                            <button className="close">x</button>
+                            <input type="text" placeholder="Username" />
+                            <input type="password" placeholder="Password" />
+                            <button className="login">Login</button>
+                        </div>
+                        <button className="show-login-pop-up">Login</button>
+                    </div>
+                )
+            }
+        }
+
+        class PreventDefault extends React.Component {
+            state = {
+                href: "https://ebanoe.it/"
+            }
+            handleClick = () => {
+                this.setState({href: null})
+            }
+            render () {
+                return (
+                    <div>
+                        <p className="z">Отменить действие по-умолчанию при клике на ссылку</p>
+                        <p><a href={this.state.href} className="link-ebanoe" target="_blank" onClick={this.handleClick}>Ebanoe.IT — голая правда
+                            о нашем айти</a>
+                        </p>
+                    </div>
+                )
+            }
+        }
+
+        class Advertising extends React.Component {
+            render () {
+                return (
+                    <div>
+                        <p className="z">Надоела реклама про увеличение члена? При клике на кнопку "Больше не
+                            показывать" заноси в localStorage значение которое будешь проверять при загрузке
+                            страницы
+                        </p>
+                        <p className="t t97">Хочешь увеличить член? Заходи <a href="http://pornhub.com" target="_blank">сюда</a>! <button className="b97">Больше не показывать</button></p>
+                    </div>
+                )
+            }
+        }
+
         class App extends React.Component {
             render () {
                 return (
                     <div>
-                        <ChangeTextColor />
-                        <ChangeBackgroundColor />
-                        <ChangeLinkPath />
-                        <ChangeLinkImage />
-                        <ChangeIdElement />
-                        <ChangeText />
-                        <ChangeHTML />
-                        <ChangeFontSize />
-                        <AddClass />
-                        <DeleteClass />
-                        <AddDeleteClass />
-                        <ValueAttrClassElement />
-                        <TranslationText />
-                        <ChangeWindow />
-                        <ChangeValueExitCharacters />
+                        <div>
+                            <ChangeTextColor />
+                            <ChangeBackgroundColor />
+                            <ChangeLinkPath />
+                            <ChangeLinkImage />
+                            <ChangeIdElement />
+                            <ChangeText />
+                            <ChangeHTML />
+                            <ChangeFontSize />
+                            <AddClass />
+                            <DeleteClass />
+                            <AddDeleteClass />
+                            <ValueAttrClassElement />
+                            <TranslationText />
+                            <ChangeWindow />
+                            <ChangeValueExitCharacters />
+                        </div>
+                        <div>
+                            <WhoresContainer />
+                            <Fish />
+                            <Tooth />
+                        </div>
+                        <div>
+                            <Skier />
+                            <Mikki />
+                            <Mario />
+                            <Slides />
+                            <Questions />
+                            <Sessions />
+                            <Login />
+                            <PreventDefault />
+                            <Advertising />
+                        </div>
                     </div>
                 )
             }
         }
 
     ReactDOM.render(<App />, document.querySelector('#app'));
-
     </script>
 </body>
 </html>
