@@ -17,6 +17,9 @@
 // => false
 // isUndefined(5);
 // => false
+var isUndefined = function(value) {
+    return value === undefined;
+};
 
 
 
@@ -30,7 +33,9 @@
 // => false
 // isNull(5);
 // => false
-
+var isNull = function(value) {
+    return value === null;
+};
 
 
 
@@ -45,7 +50,9 @@
 // => true
 // isBoolean(true);
 // => true
-
+var isBoolean = function(value) {
+    return value === true || value === false;
+};
 
 
 
@@ -55,7 +62,9 @@
 // => 3
 // size([7, 2, 3, 5, 1]);
 // => 5
-
+var size = function(array) {
+    return array.length;
+};
 
 
 
@@ -65,7 +74,9 @@
 // => 5
 // first([9, 0, 4, 7, 2]);
 // => 9
-
+var first = function(array) {
+    return array[0];
+};
 
 
 
@@ -75,7 +86,9 @@
 // => 1
 // last([8, 2, 1, 7, 3]);
 // => 3
-
+var last = function(array) {
+    return array[array.length-1];
+};
 
 
 
@@ -87,7 +100,9 @@
 // => true
 // isEven(7);
 // => false
-
+var isEven = function(number) {
+    return number % 2 === 0;
+};
 
 
 
@@ -99,7 +114,14 @@
 // => 0
 // indexOf([7, 2, 3], 5);
 // => -1
-
+var indexOf = function(array, value) {
+    for (var i = 0; i < array.length; i++) {
+        if (array[i] === value) {
+            return i;
+        }
+    }
+    return -1;
+};
 
 
 
@@ -110,7 +132,14 @@
 // => 4
 // lastIndexOf([1, 2, 3, 1, 2, 3], 3);
 // => 5
-
+var lastIndexOf = function(array, value) {
+    for (var i = array.length-1; i >= 0; i--) {
+        if (array[i] === value) {
+            return i;
+        }
+    }
+    return -1;
+};
 
 
 
@@ -118,7 +147,14 @@
 // Пример работы:
 // push([1, 2, 3, 4], 5);
 // => [1, 2, 3, 4, 5]
-
+var push = function(array, value) {
+    var list = [];
+    for (var i = 0; i < array.length; i++) {
+        list[i] = array[i];
+    }
+    list[list.length] = value;
+    return list;
+};
 
 
 
@@ -126,7 +162,13 @@
 // Пример работы:
 // unshift([1, 2, 3, 4], 5);
 // => [5, 1, 2, 3, 4]
-
+var unshift = function(array, value) {
+    var list = [value];
+    for (var i = 0; i < array.length; i++) {
+        list[list.length] = array[i];
+    }
+    return list;
+};
 
 
 
@@ -134,7 +176,13 @@
 // Пример работы:
 // pop([1, 2, 3, 4]);
 // => [1, 2, 3]
-
+var pop = function(array) {
+    var list = [];
+    for (var i = 0; i < array.length-1; i++) {
+        list[i] = array[i];
+    }
+    return list;
+};
 
 
 
@@ -142,6 +190,13 @@
 // Пример работы:
 // shift([1, 2, 3, 4]);
 // => [2, 3, 4]
+var shift = function(array) {
+    var list = [];
+    for (var i = 1; i < array.length; i++) {
+        list[list.length] = array[i];
+    }
+    return list;
+};
 
 
 
@@ -150,7 +205,15 @@
 // Пример работы:
 // getPositiveNumbers([10, -5, 100, -2, 1000]);
 // => [10, 100, 1000]
-
+var getPositiveNumbers = function(array) {
+    var list = [];
+    for (var i = 0; i < array.length; i++) {
+        if (array[i] >= 0) {
+            list[list.length] = array[i];
+        }
+    }
+    return list;
+};
 
 
 
@@ -158,6 +221,13 @@
 // Пример работы:
 // reverse([1, 'lol', 5, {}, []]);
 // => [[], {}, 5, "lol", 1]
+var reverse = function(array) {
+    var list = [];
+    for (var i = array.length-1; i >= 0; i--) {
+        list[list.length] = array[i];
+    }
+    return list;
+};
 
 
 
@@ -166,6 +236,15 @@
 // Пример работы:
 // compact([10, 1, 4, 2, undefined, 3, null]);
 // => [10, 1, 4, 2, 3, null]
+var compact = (array) => {
+    var list = [];
+    for (var i = 0; i < array.length; i++) {
+        if (array[i] !== undefined) {
+            list[list.length] = array[i];
+        }
+    }
+    return list;
+};
 
 
 
@@ -175,7 +254,14 @@
 // Пример работы:
 // contains([1, 2, 3], 3);
 // => true
-
+var contains = (array, value) => {
+    for (var i = 0; i < array.length; i++) {
+        if (array[i] === value) {
+            return true;
+        }
+    }
+    return false;
+};
 
 
 
@@ -183,7 +269,15 @@
 // Пример работы:
 // without([3, 6, 7, 'rere'], 6);
 // => [3, 7, 'rere']
-
+var without = (array, value) => {
+    var list = [];
+    for (var i = 0; i < array.length; i++) {
+        if (array[i] !== value) {
+            list[list.length] = array[i];
+        }
+    }
+    return list;
+};
 
 
 
@@ -191,7 +285,16 @@
 // Пример работы:
 // concat(['a', 'b', 'c'], ['d', 'e', 'f']);
 // => [ "a", "b", "c", "d", "e", "f" ]
-
+var concat = (array, list) => {
+    var result = [];
+    for (var i = 0; i < array.length; i++) {
+        result[result.length] = array[i];
+    }
+    for (var j = 0; j < list.length; j++) {
+        result[result.length] = list[j];
+    }
+    return result;
+};
 
 
 
@@ -199,7 +302,14 @@
 // Пример работы:
 // slice(['ant', 'bison', 'camel', 'duck', 'elephant'], 2, 3);
 // => ['camel', 'duck']
-
+const slice = (array, begin, end) => {
+    end = end !== undefined ? end : array.length-1;
+    let list = [];
+    for (let i = begin; i <= end; i++) {
+        list[list.length] = array[i];
+    }
+    return list;
+};
 
 
 
@@ -207,7 +317,15 @@
 // Пример работы:
 // getMatrixSum([[1, 2], [0, 4], [1, 2]]);
 // => 10
-
+var getMatrixSum = (array) => {
+    var sum = 0;
+    for (var i = 0; i < array.length; i++) {
+        for (var j = 0; j < array[i].length; j++) {
+           sum += array[i][j];
+        }
+    }
+    return sum;
+};
 
 
 
@@ -220,7 +338,13 @@
 // ];
 // getMatrixSumByDiagonal(matrix);
 // => 3 (1 + 0 + 2)
-
+var getMatrixSumByDiagonal = (array) => {
+    var sum = 0;
+    for (var i = 0; i < array.length; i++) {
+        sum += array[i][i];
+    }
+    return sum;
+};
 
 
 
@@ -228,7 +352,15 @@
 // Пример работы:
 // min([10, 5, 100, 2, 1000]);
 // => 2
-
+var min = (array) => {
+    var min = array[0];
+    for (var i = 1; i < array.length; i++) {
+        if (array[i] < min) {
+            min = array[i];
+        }
+    }
+    return min;
+}
 
 
 
@@ -236,7 +368,15 @@
 // Пример работы:
 // max([10, 5, 100, 2, 1000]);
 // => 1000
-
+var max = (array) => {
+    var max = array[0];
+    for (var i = 1; i < array.length; i++) {
+        if (array[i] > max) {
+            max = array[i];
+        }
+    }
+    return max;
+};
 
 
 
@@ -244,7 +384,13 @@
 // Пример работы:
 // repeat('Work', 6);
 // => 'WorkWorkWorkWorkWorkWork'
-
+var repeat = (string, number) => {
+    var newString = '';
+    for (var i = 0; i < number; i++) {
+        newString += string;
+    }
+    return newString;
+};
 
 
 
@@ -252,6 +398,13 @@
 // Пример работы:
 // sum([2, 2, 3]);
 // => 7
+var sum = (array) => {
+    var sum = 0;
+    for (var i = 0; i < array.length; i++) {
+        sum += array[i];
+    }
+    return sum;
+};
 
 
 
@@ -260,7 +413,13 @@
 // Пример работы:
 // multiply([2, 2, 3]);
 // => 12
-
+var multiply = (array) => {
+    var multiply = 1;
+    for (var i = 0; i < array.length; i++) {
+        multiply *= array[i];
+    }
+    return multiply;
+};
 
 
 
@@ -268,7 +427,9 @@
 // Пример работы:
 // abs(-4);
 // => 4
-
+var abs = (number) => {
+    return number < 0 ? -number : number;
+};
 
 
 
@@ -278,11 +439,22 @@
 // => 4
 // pow(3, 3);
 // => 27
-
+var pow = (number, extent) => {
+    var result = number;
+    for (var i = 1; i < extent; i++) {
+        result *= number;
+    }
+    return result;
+};
 
 
 
 // Создать такие структуры данных чтобы выражение
 // dro[1]().bro вернуло в качестве результата значение true,
+var dro = ['', () => {return {bro: true}}];
+
 // выражение a[4][1][1].y вернуло строку 'Север',
+var a = ['', '', '', '',['', ['', {y: 'Север'}]]];
+
 // выражение b.y().y.z()[3].autor вернуло строку 'Дима'.
+var b = {y: () => {return {y: {z: () => {return ['', '', '', {autor: 'Дима'}]}}}}};

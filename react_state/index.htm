@@ -419,22 +419,22 @@
 
         class ChangeBackgroundColor extends React.Component {
             state = {
-                click: false
+                style: null
             }
+
             handleClick = () => {
-                this.setState({click: true});
-            }
-            render () {
-                let style = null;
-                if (this.state.click) {
-                    style = {
+                this.setState({
+                    style: {
                         backgroundColor: '#BCE8E8'
-                    };
-                }
+                    }
+                });
+            }
+
+            render () {
                 return (
                     <div>
                         <p className="z">При клике на кнопку изменить цвет фона</p>
-                        <p className="t t2" style={style}>Тест</p>
+                        <p className="t t2" style={this.state.style}>Тест</p>
                         <button className="b b2" onClick={this.handleClick}>Изменить цвет фона</button>
                     </div>
                 );

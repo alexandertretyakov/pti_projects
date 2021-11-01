@@ -1,0 +1,139 @@
+﻿* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+    background-color: #000000;
+    font-family: "Franklin Gothic Book", serif;
+}
+
+.page {
+    width: 1014px;
+    margin: 0 auto;
+}
+
+p {
+    font: 12px "Tahoma";
+    color: #e5e5e5;
+}
+
+h2 {
+    font-size: 16px;
+    letter-spacing: 1px;
+    line-height: 41px;
+    color: #fd6703;
+    font-weight: bold;
+    font-family: "Verdana";
+}
+
+/* ---------------------------------------- Header */
+.header {
+    margin-bottom: 25px;
+}
+
+.header-top {
+    background: linear-gradient(to top, #17181b, #303339);
+    height: 80px;
+}
+
+.header-center {
+    height: 153px;
+    padding-left: 95px;
+    color: #a8aebe;
+    font-size: 18px;
+    letter-spacing: 1px;
+
+    .logo {
+        text-decoration: none;
+        color: #fd7a05;
+        font: 36px "Arial Narrow";
+    }
+}
+
+.header-buttom {
+    height: 88px;
+    background: linear-gradient(to top, #17181b, #303339);
+    position: relative;
+
+    .car {
+        width: 504px;
+        height: 240px;
+        background-image: url("../images/car.png");
+        position: absolute;
+        top: -220px;
+        right: 100px;
+    }
+
+    .header-menu {
+        background: linear-gradient(to top, #fd5003, #fd6d03);
+        height: 37px;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        border: 1px solid #000000;
+
+        a {
+            font: bold 20px "Verdana";
+            text-decoration: none;
+            color: #000000;
+            letter-spacing: 2px;
+            line-height: 41px;
+            padding: 9px 25px 2px 25px;
+            margin-left: 23px;
+            border-radius: 0 0 10px 10px;
+
+            &:hover {
+                color: #fd5f03;
+                background: linear-gradient(to top, #16171a, #222429);
+            }
+        }
+
+        .active {
+            color: #fd5f03;
+            background: linear-gradient(to top, #16171a, #222429);
+        }
+    }
+}
+
+/* ---------------------------------------- Footer */
+.content {
+    min-height: 381px;
+    background-color: #2f3239;
+    display: flex;
+    flex-direction: row;
+    padding: 0 22px 0 22px;
+
+    .column {
+        border-left: 1px dashed #a9a9a9;
+        width: 33.3%;
+        padding: 0 35px 0 22px;
+    }
+
+    .column-one {
+        p {
+            margin-bottom: 12px;
+        }
+    }
+
+    .column-three {
+        border-right: 1px dashed #a9a9a9;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ---------------------------------------- Footer */

@@ -2,7 +2,7 @@
 console.log('Hello world!');
 
 //При клике на кнопку изменить цвет текста
-$('.b1').on('click', function() {
+$('.b.b1').on('click', function() {
     $('.t1').css('color', 'red');
 });
 

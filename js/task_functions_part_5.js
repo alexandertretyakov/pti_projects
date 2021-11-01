@@ -33,23 +33,33 @@ var obj = {
 // => 31.41592653589793
 // circle.getSquare();
 // => 78.53981633974483
-function Circle(x, y, radius) {
+var Circle = function(x, y, radius) {
     this.x = x;
     this.y = y;
     this.radius = radius;
-    Circle.prototype.getDiameter = function () {
-        var diameter = 2 * this.radius;
-        return diameter;
-    };
-    Circle.prototype.getPerimeter = function () {
-        var perimeter = 3.14 * diameter;
-        return perimeter;
-    };
-    Circle.prototype.getSquare = function () {
-        var square = 3.14 * this.radius * this.radius;
-        return square;
-    };
 };
+
+Circle.prototype.getDiameter = function() {
+    var diameter = 2 * this.radius;
+    return diameter;
+};
+
+Circle.prototype.getPerimeter = function() {
+    var diameter = 2 * this.radius;
+    var perimeter = 3.14 * diameter;
+    return perimeter;
+};
+
+Circle.prototype.getSquare = function() {
+    var square = 3.14 * this.radius * this.radius;
+    return square;
+};
+
+var circle = new Circle(5, 5, 5);
+console.log(circle.getDiameter());
+console.log(circle.getPerimeter());
+console.log(circle.getSquare());
+
 
 // Создать такие структуры данных чтобы выражение
 // dro[1]().bro вернуло в качестве результата значение true,

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Слон</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone@7.15.7/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script type="text/babel">
+        var app =
+            <div>
+                <header>
+                    <a className="logo" href="index.htm"><img src="images/logo.gif" alt="Логотип компании" /></a>
+                    <div className="telephone">
+                        Позвоните нам<br />
+                        (312) 65-33-22<br />
+                        (312) 65-33-11
+                    </div>
+                </header>
+
+                <main>
+                    <div className="our-company">
+                        <h1><span className="first-letter">О</span> нашей <span className="first-letter">К</span>омпании</h1>
+                        <p>
+                            Totam rem aperiam ase eaque ab illo <a href="index.htm">inve ntore</a> ativert artasert architeo
+                            bamolu bertas ptatem, quia voluptas sit aspernater ur aut odit aut fugit sed equuntur magni dolore.
+                        </p>
+                        <p>Do you have a decorating idea you would love to share with the world? TELL US ABOUT IT!</p>
+                        <p>Do you have a decorating idea you would love to share with the world? TELL US ABOUT IT!</p>
+                        <p>
+                            Totam rem aperiam ase eaque ab illo <a href="index.htm">inve ntore</a> ativert artasert architeo
+                            bamolu bertas ptatem, quia voluptas sit aspernater ur aut odit aut fugit sed equuntur magni dolore.
+                        </p>
+                    </div>
+
+                    <div className="services">
+                        <div className="gallery">
+                            <h4><span className="first-letter">Г</span>алерея</h4>
+                            <img src="images/room_1.jpg" alt="Комната 1" />
+                            <img src="images/room_2.jpg" alt="Комната 2" />
+                            <img src="images/room_3.jpg" alt="Комната 3" />
+                            <img src="images/room_4.jpg" alt="Комната 4" />
+                        </div>
+
+                        <div className="our-offer">
+                            <h4><span className="first-letter">Н</span>аше предложение</h4>
+                            <img src="images/tree.jpg" alt="Деревья" />
+                                <p><em>Ante</em> <b>ipsum</b> prkisn faucibus orci luctus<br /> etas ultrices posuere cubili
+                                    Curae;<br /> Suspendisse sollicitudin velit sed leo.</p>
+                        </div>
+
+                        <div className="our-services">
+                            <h4><span className="first-letter">Н</span>аши услуги</h4>
+                            <ul>
+                                <li>dolore sit aas<br /> jertasero</li>
+                                <li>avertas jase ferase</li>
+                                <li>taserto yaretker pertas</li>
+                            </ul>
+                            <p><a href="index.htm">Adipiing eraes entstas<br /> iuamagnis</a> tristique orci<br /> acse uis
+                                ultriciet mag<br /> accumsan.</p>
+                        </div>
+                    </div>
+                </main>
+
+                <footer>
+                    <div className="road-map">
+                        <h4><span className="first-letter">К</span>арта проезда</h4>
+                        <p>
+                            Улица Королева Д.45 Главный корпус<br />
+                            Вход со стороны метро.
+                        </p>
+                    </div>
+                </footer>
+            </div>
+
+    ReactDOM.render(app, document.querySelector('#app'));
+
+    </script>
+</body>
+</html>
