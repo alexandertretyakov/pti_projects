@@ -181,71 +181,37 @@ a:hover {
     .active {
         background-color: #043a4f;
     }
-
-    .button-expand{
-        width: 30px;
-        height: 25px;
-        background-color: #1f617a;
-        padding: 5px;
-        border-radius: 5px 5px 0 0;
-        border: none;
-        position: absolute;
-        top: 15px;
-        right: -55px;
-        display: none;
-
-        &::after {
-            content: "";
-            width: 0;
-            height: 0;
-            border: 7px solid transparent;
-            border-top-color: #ffffff;
-            border-bottom: 0;
-            display: inline-block;
-        }
-    }
-
-    .button-turn {
-        width: 30px;
-        height: 25px;
-        background-color: #1f617a;
-        padding: 5px;
-        border-radius: 5px 5px 0 0;
-        border: none;
-        position: absolute;
-        top: 15px;
-        right: -55px;
-
-        &::after {
-            content: "";
-            width: 0;
-            height: 0;
-            border: 7px solid transparent;
-            border-bottom-color: #ffffff;
-            border-top: 0;
-            display: inline-block;
-        }
-    }
-
-    .button-turn,
-    .button-expand {
-        &:hover {
-            cursor: pointer;
-        }
-    }
 }
 
+/* --------------------------------------------- Banner */
+
 .module-banner {
-    min-height: 200px;
-    color: #ffffff;
-    background-color: #1f617a;
-    padding: 10px 130px 0 45px;
-    border-radius: 5px;
-    margin-bottom: 5px;
     position: relative;
 
-    .banner-text {
+    &:not(.state--open) {
+        .slides,
+        .pagination,
+        .previous,
+        .next {
+            display: none;
+        }
+    }
+
+    .slides {
+        min-height: 200px;
+        color: #ffffff;
+        background-color: #1f617a;
+        padding: 10px 130px 0 45px;
+        border-radius: 5px;
+        margin-bottom: 5px;
+    }
+
+    .slide {
         display: none;
+
+        &.active {
+            display: block;
+        }
 
         h2 {
             font-size: 24px;
@@ -254,16 +220,12 @@ a:hover {
         }
     }
 
-    .banner-text.active {
-        display: block;
-    }
-
     .pagination {
         position: absolute;
         top: 10px;
         right: 130px;
 
-        .button-pagination {
+        button {
             width: 25px;
             height: 25px;
             background-color: #218fbb;
@@ -284,6 +246,7 @@ a:hover {
             background-color: #043a4f;
         }
     }
+
     .previous,
     .next {
         width: 25px;
@@ -292,6 +255,10 @@ a:hover {
         padding: 3px;
         border-radius: 5px;
         border: none;
+
+        &:hover {
+            background: #043a4f;
+        }
     }
 
     .previous {
@@ -330,6 +297,36 @@ a:hover {
         &:hover {
             cursor: pointer;
         }
+    }
+
+    .toggler {
+        width: 30px;
+        height: 25px;
+        background-color: #1f617a;
+        padding: 5px;
+        border-radius: 5px 5px 0 0;
+        border: none;
+        position: absolute;
+        top: -30px;
+        right: 0;
+
+        &::after {
+            content: "";
+            width: 0;
+            height: 0;
+            border: 7px solid transparent;
+            border-top-color: #ffffff;
+            border-bottom: 0;
+            display: inline-block;
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &.state--open .toggler::after {
+        transform: rotate(180deg);
     }
 }
 
