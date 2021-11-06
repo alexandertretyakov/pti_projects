@@ -75,26 +75,26 @@ a:hover {
                 color: #ffffff;
             }
 
-            .previous {
+            .previous-news {
                 display: inline-block;
                 border: none;
                 background-color: #1f6987;
             }
 
-            .next {
+            .next-news {
                 border: none;
                 float: right;
                 display: inline-block;
                 background-color: #1f6987;
             }
 
-            .previous:hover,
-            .next:hover {
+            .previous-news:hover,
+            .next-news:hover {
                 cursor: pointer;
             }
 
-            .previous::after,
-            .next::after {
+            .previous-news::after,
+            .next-news::after {
                 content: "";
                 width: 0;
                 height: 0;
@@ -103,11 +103,11 @@ a:hover {
                 display: block;
             }
 
-            .previous::after {
+            .previous-news::after {
                 border-right: 6px solid #ffffff;
             }
 
-            .next::after {
+            .next-news::after {
                 border-left: 6px solid #ffffff;
             }
         }
@@ -242,7 +242,7 @@ a:hover {
             }
         }
 
-        .button-pagination.active {
+        button.active {
             background-color: #043a4f;
         }
     }

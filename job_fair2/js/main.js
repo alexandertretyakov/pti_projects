@@ -17,125 +17,34 @@ var banner = {
     },
 
     render: function() {
-        // внесет изменения в DOM
-        // 1. Показать нужный слайд
-        // 2. Подсветить нужный pagination button
+        this.slides.forEach(function(slide) {
+            slide.classList.remove('active');
+        });
+        this.slides[this.activeSlideIndex].classList.add('active');
+
+        this.paginationButtons.forEach(function(button) {
+            button.classList.remove('active');
+        });
+        this.paginationButtons[this.activeSlideIndex].classList.add('active');
     },
 
-    handleClickOnNext: function(e) {
-        // write your code here
+    handleClickOnNext: function() {
+        this.activeSlideIndex = this.activeSlideIndex === this.slides.length - 1 ? 0 : this.activeSlideIndex + 1;
+        this.render();
     },
 
-    handleClickOnPrevious: function(e) {
-        // write your code here
+    handleClickOnPrevious: function() {
+        this.activeSlideIndex = this.activeSlideIndex === 0 ? this.slides.length - 1 : this.activeSlideIndex - 1;
+        this.render();
     },
 
-    handleClickOnToggler: function(e) {
-        // write your code here
+    handleClickOnToggler: function() {
+        this.el.classList.toggle('state--open');
     },
 
     handleClickOnPaginationButton: function(e) {
-        // write your code here
+        this.activeSlideIndex = Number(e.target.dataset.number);
+        this.render();
     }
 };
-banner2.subscribe();
-
-// var banner = {
-//     slides: document.querySelectorAll('.slide'),
-//     slidesLength: document.querySelectorAll('.slide').length,
-//     activeSlideIndex: 0,
-//     next: document.querySelector('.next'),
-//     previous: document.querySelector('.previous'),
-//
-//     init: function() {
-//         this.next.addEventListener('click', function() {
-//             console.log(banner.activeSlideIndex)
-//             this.activeSlideIndex = this.activeSlideIndex === this.slidesLength - 1 ? 0 : this.activeSlideIndex + 1;
-//             this.showSlide();
-//         }.bind(this));
-//
-//         this.previous.addEventListener('click', function() {
-//             this.activeSlideIndex = this.activeSlideIndex === 0 ? this.slidesLength - 1 : this.activeSlideIndex - 1;
-//             this.showSlide();
-//         }.bind(this));
-//     },
-//
-//     showSlide: function() {
-//         this.slides.forEach(function(e) {
-//             e.classList.remove('active');
-//         });
-//         this.slides[this.activeSlideIndex].classList.add('active');
-//     }
-// };
-// banner.init();
-
-
-
-// var pagination = {
-//     buttons: document.querySelectorAll('.pagination button'),
-//     slides: document.querySelectorAll('.slide'),
-//
-//     init: function () {
-//         this.buttons.forEach(function(el) {
-//             el.addEventListener('click', function(e) {
-//                 this.buttonsDeleteClass();
-//                 this.buttonAddActive(e);
-//                 this.findIndex();
-//                 this.showSlide();
-//             }.bind(this))
-//         }.bind(this));
-//     },
-//
-//     buttonsDeleteClass: function() {
-//         this.buttons.forEach(function(e) {
-//             e.classList.remove('active');
-//         });
-//     },
-//
-//     buttonAddActive: function(e) {
-//         e.target.classList.add('active');
-//     },
-//
-//     findIndex: function() {
-//         banner.activeSlideIndex = Number(document.querySelector('.button-pagination.active').dataset.number);
-//     },
-//
-//     showSlide: function() {
-//         this.slides.forEach(function(e) {
-//             e.classList.remove('active');
-//         });
-//         this.slides[banner.activeSlideIndex].classList.add('active');
-//     }
-// };
-// pagination.init();
-
-
-
-// var switchButton = {
-//     buttonTurn: document.querySelector('.button-turn'),
-//     buttonExpand: document.querySelector('.button-expand'),
-//     moduleBanner: document.querySelector('.module-banner'),
-//
-//     init: function() {
-//         this.buttonExpand.addEventListener('click', function() {
-//             this.showBanner();
-//         }.bind(this));
-//
-//         this.buttonTurn.addEventListener('click', function() {
-//             this.hideBanner();
-//         }.bind(this));
-//     },
-//
-//     showBanner: function() {
-//         this.moduleBanner.style.display = 'block';
-//         this.buttonExpand.style.display = 'none';
-//         this.buttonTurn.style.display = 'block';
-//     },
-//
-//     hideBanner: function() {
-//         this.moduleBanner.style.display = 'none';
-//         this.buttonTurn.style.display = 'none';
-//         this.buttonExpand.style.display = 'block';
-//     }
-// };
-// switchButton.init();
+banner.subscribe();
