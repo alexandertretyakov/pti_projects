@@ -48,3 +48,33 @@ var banner = {
     }
 };
 banner.subscribe();
+
+var news = {
+    slides: document.querySelectorAll('.news-panel a'),
+    activeSlideIndex: 0,
+    nextBtn: document.querySelector('.next-news'),
+    previousBtn: document.querySelector('.previous-news'),
+
+    subscribe: function() {
+        this.nextBtn.addEventListener('click', this.handleClickOnNext.bind(this));
+        this.previousBtn.addEventListener('click', this.handleClickOnPrevious.bind(this));
+    },
+
+    handleClickOnNext: function() {
+        this.activeSlideIndex = this.activeSlideIndex === this.slides.length - 1 ? 0 : this.activeSlideIndex + 1;
+        this.render();
+    },
+
+    handleClickOnPrevious: function() {
+        this.activeSlideIndex = this.activeSlideIndex === 0 ? this.slides.length - 1 : this.activeSlideIndex - 1;
+        this.render();
+    },
+
+    render: function() {
+        this.slides.forEach(function(slide) {
+            slide.classList.remove('active');
+        });
+        this.slides[this.activeSlideIndex].classList.add('active');
+    }
+};
+news.subscribe();

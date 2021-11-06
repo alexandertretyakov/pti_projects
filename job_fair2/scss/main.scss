@@ -60,7 +60,7 @@ a:hover {
             background-color: #1f6987;
             border: 2px solid #ffffff;
             border-radius: 5px;
-            padding: 5px 3px;
+            padding: 5px 1px;
             position: absolute;
             left: 330px;
             top: 25px;
@@ -73,6 +73,11 @@ a:hover {
 
             a {
                 color: #ffffff;
+                display: none;
+            }
+
+            a.active {
+                display: inline;
             }
 
             .previous-news {
