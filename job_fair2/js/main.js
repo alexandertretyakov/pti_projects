@@ -155,3 +155,19 @@ var news = new Slider({
     nextBtn: document.querySelector('.next-news'),
     previousBtn: document.querySelector('.previous-news')
 });
+
+class Faq {
+    constructor(options) {
+        // write your code here
+    }
+
+    subscribe() {
+        // write your code here
+    }
+}
+
+// Может иметь несколько открытых вопросов
+var faq1 = new Faq();
+
+// Только один вопрос может быть открыт в моменте
+var faq2 = new Faq();
