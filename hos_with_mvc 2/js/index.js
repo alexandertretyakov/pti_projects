@@ -2,114 +2,80 @@ var whores = {
     models: [],
 
     add: function(whore) {
-        this.models.push(whore);
-        this.setModelsToStorage();
+        // добавить модель в массив моделей
+        // синхронизировать массив моделей с localStorage
     },
 
     update: function(updatedWhore) {
-        this.models.forEach(function(whore) {
-            if (whore.id === updatedWhore.id) {
-                _.extend(whore, updatedWhore);
-            }
-        });
-        this.setModelsToStorage();
+        // обновить модель в массиве моделей
+        // синхронизировать массив моделей с localStorage
     },
 
     remove: function(whoreId) {
-        this.models = this.models.filter(function(whore) {
-            return whore.id !== whoreId;
-        });
-        this.setModelsToStorage();
+        // удалить модель в массиве моделей
+        // синхронизировать массив моделей с localStorage
     },
 
     get: function(whoreId) {
-        return _.findWhere(this.models, {id: whoreId});
+        // вернуть модель из массива моделей
     },
 
     setModelsToStorage: function() {
-        localStorage.setItem('whores', JSON.stringify(this.models));
+        // сохранить массив моделей в localStorage
     },
 
     getModelsFromStorage: function() {
-        return JSON.parse(localStorage.getItem('whores')) || [];
+        // вернуть массив моделей из localStorage или [] если такой записи нет
     },
 
     init: function() {
-        this.models = this.getModelsFromStorage();
+        // проинизиализировать this.models значением из localStorage
     }
 };
 whores.init();
 
 var listView = {
-    // шаблон списка
-    tmplFn: doT.template($('#whore-template').html()),
+    // шаблонная функция из шаблонной строки
+    tmplFn: null,
 
-    // коллекция моделей
-    collection: whores,
+    // коллекция
+    collection: null,
 
     subscribeAddClick: function() {
-        $('.button-add').on('click', function() {
-            formView.showAddForm();
-        });
+        // write your code here
     },
 
     subscribeWhoreClick: function() {
-        $('.whore').on('click', function(e) {
-            formView.showEditRemoveForm(this.collection.get(e.target.id));
-        }.bind(this));
+        // write your code here
     },
 
     render: function() {
-        $('.whore-list').html(this.tmplFn(this.collection.models));
-        this.subscribeWhoreClick();
+        // write your code here
     },
 
     init: function() {
-        this.subscribeAddClick();
-        this.render();
+        // write your code here
     }
 };
 listView.init();
 
 var formView = {
     // поля формы
-    $fields: $('input[type="text"]'),
+    $fields: null,
 
-    // коллекция моделей
-    collection: whores,
+    // коллекция
+    collection: null,
 
     showAddForm: function() {
-        $('form').addClass('visible');
-        $('.button-update').removeClass('visible');
-        $('.button-delete').removeClass('visible');
-        $('.button-save').addClass('visible');
-
-        this.resetForm();
+        // write your code here
     },
 
     showEditRemoveForm: function(whore) {
-        $('form').addClass('visible');
-        $('.button-save').removeClass('visible');
-        $('.button-update').addClass('visible');
-        $('.button-delete').addClass('visible');
-
-        $('.id').val(whore.id);
-        $('.name').val(whore.name);
-        $('.lastName').val(whore.lastName);
-        $('.alias').val(whore.alias);
-        $('.age').val(whore.age);
-        $('.price').val(whore.price);
+        // write your code here
     },
 
     getFormData: function() {
-        return {
-            id: $('.id').val() !== '' ? $('.id').val() : this.getUniqId(),
-            name: $('.name').val(),
-            lastName: $('.lastName').val(),
-            alias: $('.alias').val(),
-            age: $('.age').val(),
-            price: $('.price').val()
-        };
+        // write your code here
     },
 
     getUniqId: function() {
@@ -117,66 +83,35 @@ var formView = {
     },
 
     isFormDataValid: function() {
-        return this.$fields.toArray().every(function(field) {
-            return field.value !== '';
-        });
+        // write your code here
     },
 
     highlightFields: function() {
-        this.$fields.each(function(index, field) {
-            $(field).val() === '' ? $(field).addClass('invalid') : $(field).removeClass('invalid');
-        });
+        // write your code here
     },
 
     resetForm: function() {
-        this.$fields.val('');
-        $('.id').val('');
-        this.$fields.removeClass('invalid');
+        // write your code here
     },
 
     subscribe: function() {
-        $('.button-save').on('click', this.handleSave.bind(this));
-        $('.button-update').on('click', this.handleUpdate.bind(this));
-        $('.button-delete').on('click', this.handleDelete.bind(this));
+        // write your code here
     },
 
     handleUpdate: function() {
-        if (this.isFormDataValid()) {
-            let updatedWhore = this.getFormData();
-            this.collection.update(updatedWhore);
-            listView.render();
-            this.resetForm();
-            $('form').removeClass('visible');
-        } else {
-            this.highlightFields();
-        }
+        // write your code here
     },
 
     handleDelete: function() {
-        if (this.isFormDataValid()) {
-            let whoreId = $('.id').val();
-            this.collection.remove(whoreId)
-            listView.render();
-            this.resetForm();
-            $('form').removeClass('visible');
-        } else {
-            this.highlightFields();
-        }
+        // write your code here
     },
 
     handleSave: function() {
-        if (this.isFormDataValid()) {
-            this.collection.add(this.getFormData());
-            listView.render();
-            this.resetForm();
-            $('form').removeClass('visible');
-        } else {
-            this.highlightFields();
-        }
+        // write your code here
     },
 
     init: function() {
-        this.subscribe();
+        // write your code here
     }
 };
 formView.init();
