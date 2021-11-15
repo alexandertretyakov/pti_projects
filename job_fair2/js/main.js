@@ -156,18 +156,44 @@ var news = new Slider({
     previousBtn: document.querySelector('.previous-news')
 });
 
-class Faq {
+
+class Accordion {
     constructor(options) {
-        // write your code here
-    }
+        Object.assign(this, options);
+        this.subscribe();
+    };
 
     subscribe() {
-        // write your code here
-    }
+        if(this.questions) {
+            this.questions.forEach(function(question) {
+                question.addEventListener('click', this.handleClickOnToggler.bind(this));
+            }.bind(this))
+        }
+    };
+
+    handleClickOnToggler(e) {
+        if (this.single) {
+            if (e.target.classList.contains('active')) {
+                e.target.classList.toggle('active');
+            } else {
+                this.questions.forEach(function(question) {
+                    question.classList.remove('active');
+                });
+                e.target.classList.add('active');
+            }
+        } else {
+            e.target.classList.toggle('active');
+        }
+    };
 }
 
 // Может иметь несколько открытых вопросов
-var faq1 = new Faq();
+var faq1 = new Accordion({
+    questions: document.querySelectorAll('.module-faq dt')
+});
 
 // Только один вопрос может быть открыт в моменте
-var faq2 = new Faq();
+var faq2 = new Accordion({
+    questions: document.querySelectorAll('.module-faq-2 dt'),
+    single: true
+});
