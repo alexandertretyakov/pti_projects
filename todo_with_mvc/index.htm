@@ -15,7 +15,7 @@
     <div class="app">
         <div class="heading">
             <h1>Список дел</h1>
-            <h4 class="stats">Осталось <span class="item-incompleted"></span>, готово <span class="item-completed"></span></h4>
+            <h4 class="stats">Осталось <span class="item-incompleted">0</span>, готово <span class="item-completed">0</span></h4>
         </div>
 
         <div class="filters">
@@ -36,9 +36,19 @@
     </div>
 
     <script type="text/template" id="tasks-template">
-        // Write your code here
-        // &#10060;
-        // &#128276;
+        {{? it.length === 0}}
+            <p>Дел пока нет.</p>
+        {{??}}
+            {{~ it :task:index }}
+            <div data-id="{{= task.id}}" class="item {{? task.completed}}completed{{?}} {{? task.important}}important{{?}}">
+                <span class="title">{{= task.title}}</span>
+                <div>
+                    <button class="delete">&#10060;</button>
+                    <button class="important">&#128276;</button>
+                </div>
+            </div>
+            {{~}}
+        {{?}}
     </script>
 
     <script src="js/index.js"></script>
