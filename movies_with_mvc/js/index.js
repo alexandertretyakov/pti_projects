@@ -242,303 +242,212 @@ var movies = {
         }
     ],
 
-    filters: {
-        checkbox: [],
-        needle: ''
+    getItemsByItemsPerPage: function(models, itemsPerPage) {
+        if (itemsPerPage === 'default') {
+            return models;
+        } else {
+            return _.first(models, itemsPerPage);
+        }
+    },
+
+    getSearchedItems: function(models, needle) {
+        if (needle === '') {
+            return models;
+        } else {
+            return models.filter(function(movie) {
+                return movie.title.toLowerCase().includes(needle.toLowerCase());
+            });
+        }
+    },
+
+    getItemsSortedBy: function(models, sortBy) {
+        if (sortBy === 'default') {
+            return models;
+        } else {
+            var [direction, field] = sortBy.split('_');
+            // direction: ascending descending
+            // field: title rating year time
+
+            return direction === 'ascending' ?
+                _.sortBy(models, field) :
+                _.sortBy(models, field).reverse();
+        }
+    },
+
+    getListOfCountries: function() {
+        return _.countBy(_.flatten(_.pluck(movies.models, 'countries')));
+    },
+
+    getListOfGenres: function() {
+        return _.countBy(_.flatten(_.pluck(movies.models, 'genre')));
+    },
+
+    getItemsFilteredBy: function(models, field, filter) {
+        return models.filter(function(movie) {
+            return filter.every(function(item) {
+                return movie[field].includes(item);
+            });
+        });
+    },
+
+    convertMinutesToHours: function(minutes) {
+        var _hours = Math.trunc(minutes / 60);
+        var _minutes = minutes % 60;
+        return `${_hours}:${_minutes}`;
+    },
+
+    transformModels: function() {
+        this.models.forEach(function(movie) {
+            _.extend(movie, {
+                hours: this.convertMinutesToHours(movie.time)
+            });
+        }.bind(this));
+    },
+
+    getItemsByPage: function(models, itemsPerPage, page) {
+        // TODO:
+        // 0-9
+        // 10-19
+        // 20-29
+        // 30-39
+    },
+
+    init: function() {
+        this.transformModels();
     }
 };
+movies.init();
 
-var appSort = {
+var appModel = {
+    viewType: 'tiles',       // tiles list
+    itemsPerPage: 'default', // default 6 12 18
+    searchText: '',
+    sortBy: 'default',       // default ascending_title descending_title...
+    filters: {
+        countries: [],       // ['СССР', 'Мальта']
+        genres: []           // ['комедия', 'ужасы']
+    },
+    page: 1                  // 1,2,3
+};
+
+var listView = {
     collection: movies,
 
-    getTimeFromMins: function (mins) {
-        var hours = Math.trunc(mins/60);
-        var minutes = mins % 60;
-        return hours + ':' + minutes;
+    appModel: appModel,
+
+    tmplFnMovieTiles: $('#movie-template-tiles').html(),
+    tmplFnMovieList: $('#movie-template-list').html(),
+
+    render: function() {
+        var {viewType, itemsPerPage, searchText, sortBy, filters: {countries, genres}, page} = appModel;
+
+        var tmplFn = viewType === 'tiles' ? this.tmplFnMovieTiles : this.tmplFnMovieList;
+        var viewTypeStateClass = viewType === 'tiles' ? 'state-tiles' : 'state-list';
+
+        var models = [...this.collection.models];
+        models = this.collection.getSearchedItems(models, searchText);
+        models = this.collection.getItemsSortedBy(models, sortBy);
+        models = this.collection.getItemsFilteredBy(models, 'countries', countries);
+        models = this.collection.getItemsFilteredBy(models, 'genre', genres);
+
+        //models = this.collection.getItemsByItemsPerPage(models, itemsPerPage);
+        models = this.collection.getItemsByPage(models, itemsPerPage, page);
+
+        $('.movies')
+            .html(doT.template(tmplFn)(models))
+            .removeClass('state-tiles state-list')
+            .addClass(viewTypeStateClass);
+
+        this.renderPagination(models, itemsPerPage, page);
     },
 
-    addKeysInModels: function() {
-        this.collection.models.forEach(function(movie) {
-            _.extend(movie, {hours : appSort.getTimeFromMins(movie.time)});
-        })
+    renderPagination: function(models, itemsPerPage, page) {
+        //TODO:
     },
 
-    numberOfFilmsByCountry: function() {
+    init: function() {
+        this.render();
+    }
+};
+listView.init();
 
-    },
+var appView = {
+
+    collection: movies,
+
+    appModel: appModel,
+
+    tmplFnCountries: $('#filter-countries-template').html(),
+    tmplFnGenres: $('#filter-genre-template').html(),
 
     subscribe: function() {
         $('.top-bar .button-list').on('click', this.handleButtonList.bind(this));
         $('.top-bar .button-tiles').on('click', this.handleButtonTiles.bind(this));
-        $('.filters').on('click', 'input', this.handleCheckbox.bind(this));
+        $('.display-quantity select').on('change', this.handleChangeItemsPerPage.bind(this));
         $('.top-bar .search').on('keyup', this.handleSearch.bind(this));
+        $('.sorting select').on('change', this.handleSort.bind(this));
+        $('.filters input').on('change', this.handleCheckboxes.bind(this));
+    },
+
+    render: function() {
+        var listOfCountries = this.collection.getListOfCountries();
+        var listOfGenres = this.collection.getListOfGenres();
+
+        $('.filter-countries').html(doT.template(this.tmplFnCountries)({
+            countries: Object.keys(listOfCountries),
+            counts: Object.values(listOfCountries)
+        }));
+        $('.filter-genre').html(doT.template(this.tmplFnGenres)({
+            genres: Object.keys(listOfGenres),
+            counts: Object.values(listOfGenres)
+        }));
     },
 
     handleButtonList: function() {
-        $('.state-list').addClass('visible');
-        $('.state-tiles').removeClass('visible');
+        this.appModel.viewType = 'list';
+        listView.render();
+
         $('.top-bar .button-list').addClass('active');
         $('.top-bar .button-tiles').removeClass('active');
     },
 
     handleButtonTiles: function() {
-        $('.state-tiles').addClass('visible');
-        $('.state-list').removeClass('visible');
+        this.appModel.viewType = 'tiles';
+        listView.render();
+
         $('.top-bar .button-tiles').addClass('active');
         $('.top-bar .button-list').removeClass('active');
     },
 
+    handleChangeItemsPerPage: function(e) {
+        this.appModel.itemsPerPage = e.target.value;
+        listView.render();
+    },
+
     handleSearch: function(e) {
-        this.collection.filters.needle = $(e.target).val();
-        listViewFilms.render();
+        this.appModel.searchText = e.target.value;
+        listView.render();
     },
 
-    handleCheckbox: function(e) {
-        var text = $(e.target).next('label').text();
-        if (e.target.checked) {
-            this.collection.filters.checkbox = _.union(this.collection.filters.checkbox, [text]);
-        } else {
-            this.collection.filters.checkbox = _.without(this.collection.filters.checkbox, text);
-        }
+    handleSort: function(e) {
+        this.appModel.sortBy = e.target.value;
+        listView.render();
     },
 
-    getFiltredCountries: function() {
-        return this.collection.models.filter(function(film) {
-            return _.intersection(film.countries, this.collection.filters.checkbox).length !== [].length;
-        }.bind(this));
-    },
-
-    getFiltredGenre: function() {
-        return this.collection.models.filter(function(film) {
-            return _.intersection(film.genre, this.collection.filters.checkbox).length !== [].length;
-        }.bind(this));
-    },
-
-    combineFilteredItems: function() {
-        return _.union(this.getFiltredCountries(), this.getFiltredGenre());
-    },
-
-    getTrueSortSelected: function() {
-        return _.find($('.sorting option'), function(option){
-            return option.selected === true;
-        })
-    },
-
-    getTrueDisplaySelected: function() {
-        return _.find($('.display-quantity option'), function(option){
-            return option.selected === true;
-        })
-    },
-
-    predicateForCheckbox: function() {
-        return $('input[type=checkbox]').toArray().some(function(el, index) {
-            return $('input[type=checkbox]').toArray()[index].checked === true;
+    handleCheckboxes: function(e) {
+        this.appModel.filters.countries = $('.filter-countries input:checked').toArray().map(function(input) {
+            return input.value;
         });
-    },
-
-    getSortModels: function() {
-        var needle = this.collection.filters.needle;
-
-        if (this.predicateForCheckbox()) {
-            return this.combineFilteredItems();
-        }
-
-        if (this.collection.filters.needle !== '') {
-            return this.collection.models.filter(function(movie) {
-                return movie.title.toLowerCase().includes(needle.toLowerCase());
-            })
-        }
-
-        if (this.getTrueSortSelected().value === 'default') {
-            return this.collection.models;
-        }
-
-        if (this.getTrueSortSelected().value === 'ascending_title') {
-            function SortArray(x, y){
-                if (x.title < y.title) {return -1;}
-                if (x.title > y.title) {return 1;}
-                return 0;
-            }
-            return this.collection.models.sort(SortArray);
-        }
-
-        if (this.getTrueSortSelected().value === 'descending_title') {
-            function SortArray(x, y){
-                if (x.title > y.title) {return -1;}
-                if (x.title < y.title) {return 1;}
-                return 0;
-            }
-            return this.collection.models.sort(SortArray);
-        }
-
-        if (this.getTrueSortSelected().value === 'ascending_rating') {
-            function SortArray(x, y){
-                if (x.rating > y.rating) {return -1;}
-                if (x.rating < y.rating) {return 1;}
-                return 0;
-            }
-            return this.collection.models.sort(SortArray);
-        }
-
-        if (this.getTrueSortSelected().value === 'descending_rating') {
-            function SortArray(x, y){
-                if (x.rating < y.rating) {return -1;}
-                if (x.rating > y.rating) {return 1;}
-                return 0;
-            }
-            return this.collection.models.sort(SortArray);
-        }
-
-        if (this.getTrueSortSelected().value === 'ascending_year') {
-            function SortArray(x, y){
-                if (x.year > y.year) {return -1;}
-                if (x.year < y.year) {return 1;}
-                return 0;
-            }
-            return this.collection.models.sort(SortArray);
-        }
-
-        if (this.getTrueSortSelected().value === 'descending_year') {
-            function SortArray(x, y){
-                if (x.year < y.year) {return -1;}
-                if (x.year > y.year) {return 1;}
-                return 0;
-            }
-            return this.collection.models.sort(SortArray);
-        }
-
-        if (this.getTrueSortSelected().value === 'ascending_time') {
-            function SortArray(x, y){
-                if (x.time > y.time) {return -1;}
-                if (x.time < y.time) {return 1;}
-                return 0;
-            }
-            return this.collection.models.sort(SortArray);
-        }
-
-        if (this.getTrueSortSelected().value === 'descending_time') {
-            function SortArray(x, y){
-                if (x.time < y.time) {return -1;}
-                if (x.time > y.time) {return 1;}
-                return 0;
-            }
-            return this.collection.models.sort(SortArray);
-        }
-    },
-
-    filterCheckboxesOfCountries: function() {
-        var result=[];
-        this.collection.models.forEach(function(film) {
-            result = _.union(result, film.countries);
+        this.appModel.filters.genres = $('.filter-genre input:checked').toArray().map(function(input) {
+            return input.value;
         });
-        return result;
-    },
 
-    filterCheckboxesOfGenre: function() {
-        var result=[];
-        this.collection.models.forEach(function(film) {
-            result = _.union(result, film.genre);
-        });
-        return result;
+        listView.render();
     },
 
     init: function() {
+        this.render();
         this.subscribe();
-        this.addKeysInModels();
-
-        $('.top-bar select').on('change', function() {
-            listViewFilms.render();
-        });
-
-        $('.filters').on('change', function() {
-            listViewFilms.render();
-            this.predicateForCheckbox();
-        }.bind(this));
     }
 };
-appSort.init();
-
-var listViewFilms = {
-    collection: movies,
-
-    // $moviesTiles: $('.state-tiles .movie'),
-    // $moviesList: $('.state-list .movie'),
-
-    tmplFnTiles: $('#movie-template-tiles').html(),
-    tmplFnStripes: $('#movie-template-list').html(),
-
-    myFunc: function(array, index) {
-        console.log(array)
-        var j = 0;
-        while(j <= index) {
-            array[j].classList.remove('invisible');
-            array[j].classList.add('visible');
-            j++;
-        }
-
-        while(index < array.length) {
-            array[index].classList.remove('visible');
-            array[index].classList.add('invisible');
-            index++;
-        }
-    },
-
-    visibleMovies: function() {
-        if (appSort.getTrueDisplaySelected().value === 'default') {
-            $('.state-tiles .movie').toArray().forEach(function(movie) {
-                movie.classList.remove('invisible');
-                movie.classList.add('visible');
-            });
-
-            $('.state-list .movie').toArray().forEach(function(movie) {
-                movie.classList.remove('invisible');
-                movie.classList.add('visible');
-            });
-        }
-
-        if (appSort.getTrueDisplaySelected().value === 'six') {
-            this.myFunc($('.state-tiles .movie').toArray(), 6);
-            this.myFunc($('.state-list .movie').toArray(), 6);
-        }
-
-        if (appSort.getTrueDisplaySelected().value === 'twelve') {
-            this.myFunc($('.state-tiles .movie').toArray(), 12);
-            this.myFunc($('.state-list .movie').toArray(), 12);
-        }
-
-        if (appSort.getTrueDisplaySelected().value === 'eighteen') {
-            this.myFunc($('.state-tiles .movie').toArray(), 18);
-            this.myFunc($('.state-list .movie').toArray(), 18);
-        }
-    },
-
-    render: function() {
-        $('.state-tiles').html(doT.template(this.tmplFnTiles)(appSort.getSortModels()));
-        $('.state-list').html(doT.template(this.tmplFnStripes)(appSort.getSortModels()));
-        this.visibleMovies();
-    },
-
-    init: function() {
-        this.render();
-    }
-};
-listViewFilms.init();
-
-var listViewFilters = {
-    collection: movies,
-
-    tmplFnCountries: $('#filter-countries-template').html(),
-    tmplFnGenre: $('#filter-genre-template').html(),
-
-    render: function() {
-        $('.filter-countries').html(doT.template(this.tmplFnCountries)(appSort.filterCheckboxesOfCountries()));
-        $('.filter-genre').html(doT.template(this.tmplFnGenre)(appSort.filterCheckboxesOfGenre()));
-    },
-
-    init: function() {
-        this.render();
-    }
-};
-listViewFilters.init();
-
-
+appView.init();

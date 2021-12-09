@@ -62,21 +62,16 @@ body {
     display: none;
 }
 /* --------------------------------------------- Movies: State => tiles */
-.movies.state-tiles {
-    display: none;
-}
-
-.movies.state-tiles.visible {
-    display: block;
-}
-
 .movies.state-tiles .movie {
     float: left;
     margin: 0 7px;
-    position: relative;
     width: 152px;
     height: 280px;
     font-family: 'Trebuchet MS', sans-serif;
+}
+
+.movies.state-tiles .movie:hover {
+    transform: scale(1.1);
 }
 
 .movies.state-tiles .movie-image-container {
@@ -121,14 +116,6 @@ body {
 }
 
 /* --------------------------------------------- Movies: State => list */
-.movies.state-list {
-    display: none;
-}
-
-.movies.state-list.visible {
-    display: block;
-}
-
 .movies.state-list .movie {
     margin-bottom: 20px;
     box-shadow: 0 -30px 94px -8px rgba(0, 0, 0, 0.1) inset;
