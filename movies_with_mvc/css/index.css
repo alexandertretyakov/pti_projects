@@ -30,7 +30,8 @@ body {
     font-weight: bold;
 }
 
-.top-bar select {
+.top-bar select,
+.top-bar input {
     margin-right: 10px;
 }
 
@@ -39,7 +40,35 @@ body {
     padding: 57px 50px;
 }
 
+.top-bar button:hover {
+    cursor: pointer;
+    background-color: #bce7fb;
+}
+
+.top-bar .display-quantity,
+.top-bar .sorting {
+    display: inline-block;
+}
+
+.active {
+    background-color: #bce7fb;
+}
+
+.visible {
+    display: inline-block;
+}
+
+.invisible {
+    display: none;
+}
 /* --------------------------------------------- Movies: State => tiles */
+.movies.state-tiles {
+    display: none;
+}
+
+.movies.state-tiles.visible {
+    display: block;
+}
 
 .movies.state-tiles .movie {
     float: left;
@@ -92,6 +121,13 @@ body {
 }
 
 /* --------------------------------------------- Movies: State => list */
+.movies.state-list {
+    display: none;
+}
+
+.movies.state-list.visible {
+    display: block;
+}
 
 .movies.state-list .movie {
     margin-bottom: 20px;

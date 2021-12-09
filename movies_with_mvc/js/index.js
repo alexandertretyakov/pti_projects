@@ -35,7 +35,7 @@ var movies = {
             id: '1538682174_690d454',
             year: 2018,
             countries: ['США'],
-            genre: ['ужасы', 'фантастика', 'боевик, "триллер'],
+            genre: ['ужасы', 'фантастика', 'боевик', 'триллер'],
             time: 112,
             rating: 6.8,
             plot: 'Что если в один прекрасный день в тебя вселяется существо-симбиот, которое наделяет тебя сверхчеловеческими способностями? Вот только Веном — симбиот совсем недобрый, и договориться с ним невозможно. Хотя нужно ли договариваться?.. Ведь в какой-то момент ты понимаешь, что быть плохим вовсе не так уж и плохо. Так даже веселее. В мире и так слишком много супергероев! Мы — Веном!'
@@ -55,7 +55,7 @@ var movies = {
             id: '1479633673_69883a3',
             year: 2016,
             countries: ['Великобритания', 'США'],
-            genre: ['фэнтези, приключения, семейный'],
+            genre: ['фэнтези', 'приключения', 'семейный'],
             time: 133,
             rating: 7.5,
             plot: 'Поиск и изучение необычайных волшебных существ приводят магозоолога Ньюта Саламандера в Нью-Йорк. Скорее всего, он отбыл бы на поезде дальше, если бы не не маг (так в Америке называют магглов) по имени Якоб, оставленный в неположенном месте магический чемодан и побег из него фантастических животных Ньюта.'
@@ -125,7 +125,7 @@ var movies = {
             id: '1576196432_0fa6ac8',
             year: 2019,
             countries: ['США'],
-            genre: ['детектив', 'комедия, "драма, "криминал'],
+            genre: ['детектив', 'комедия', 'драма', 'криминал'],
             time: 130,
             rating: 7.8,
             plot: 'Когда сразу после празднования 85-летия известного автора криминальных романов Харлана Тромби виновника торжества находят мёртвым, за расследование берётся обаятельный и дотошный детектив Бенуа Блан. Ему предстоит распутать тугую сеть уловок и корыстной лжи, которой его опутывают члены неблагополучной семьи Харлана и преданный ему персонал.'
@@ -240,7 +240,305 @@ var movies = {
             rating: 8.1,
             plot: 'В недалёком будущем раса инопланетян вторгается на Землю. Никакая армия в мире не может противостоять им. Майор Уильям Кейдж умирает в бою, но случается невозможное — он оказывается во временной петле. Раз за разом он попадает в один и тот же бой, сражается и умирает... снова и снова. И каждое повторяющееся сражение приближает его к разгадке того, как победить врага.'
         }
-    ]
+    ],
+
+    filters: {
+        checkbox: [],
+        needle: ''
+    }
 };
 
-// Write your code here
+var appSort = {
+    collection: movies,
+
+    getTimeFromMins: function (mins) {
+        var hours = Math.trunc(mins/60);
+        var minutes = mins % 60;
+        return hours + ':' + minutes;
+    },
+
+    addKeysInModels: function() {
+        this.collection.models.forEach(function(movie) {
+            _.extend(movie, {hours : appSort.getTimeFromMins(movie.time)});
+        })
+    },
+
+    numberOfFilmsByCountry: function() {
+
+    },
+
+    subscribe: function() {
+        $('.top-bar .button-list').on('click', this.handleButtonList.bind(this));
+        $('.top-bar .button-tiles').on('click', this.handleButtonTiles.bind(this));
+        $('.filters').on('click', 'input', this.handleCheckbox.bind(this));
+        $('.top-bar .search').on('keyup', this.handleSearch.bind(this));
+    },
+
+    handleButtonList: function() {
+        $('.state-list').addClass('visible');
+        $('.state-tiles').removeClass('visible');
+        $('.top-bar .button-list').addClass('active');
+        $('.top-bar .button-tiles').removeClass('active');
+    },
+
+    handleButtonTiles: function() {
+        $('.state-tiles').addClass('visible');
+        $('.state-list').removeClass('visible');
+        $('.top-bar .button-tiles').addClass('active');
+        $('.top-bar .button-list').removeClass('active');
+    },
+
+    handleSearch: function(e) {
+        this.collection.filters.needle = $(e.target).val();
+        listViewFilms.render();
+    },
+
+    handleCheckbox: function(e) {
+        var text = $(e.target).next('label').text();
+        if (e.target.checked) {
+            this.collection.filters.checkbox = _.union(this.collection.filters.checkbox, [text]);
+        } else {
+            this.collection.filters.checkbox = _.without(this.collection.filters.checkbox, text);
+        }
+    },
+
+    getFiltredCountries: function() {
+        return this.collection.models.filter(function(film) {
+            return _.intersection(film.countries, this.collection.filters.checkbox).length !== [].length;
+        }.bind(this));
+    },
+
+    getFiltredGenre: function() {
+        return this.collection.models.filter(function(film) {
+            return _.intersection(film.genre, this.collection.filters.checkbox).length !== [].length;
+        }.bind(this));
+    },
+
+    combineFilteredItems: function() {
+        return _.union(this.getFiltredCountries(), this.getFiltredGenre());
+    },
+
+    getTrueSortSelected: function() {
+        return _.find($('.sorting option'), function(option){
+            return option.selected === true;
+        })
+    },
+
+    getTrueDisplaySelected: function() {
+        return _.find($('.display-quantity option'), function(option){
+            return option.selected === true;
+        })
+    },
+
+    predicateForCheckbox: function() {
+        return $('input[type=checkbox]').toArray().some(function(el, index) {
+            return $('input[type=checkbox]').toArray()[index].checked === true;
+        });
+    },
+
+    getSortModels: function() {
+        var needle = this.collection.filters.needle;
+
+        if (this.predicateForCheckbox()) {
+            return this.combineFilteredItems();
+        }
+
+        if (this.collection.filters.needle !== '') {
+            return this.collection.models.filter(function(movie) {
+                return movie.title.toLowerCase().includes(needle.toLowerCase());
+            })
+        }
+
+        if (this.getTrueSortSelected().value === 'default') {
+            return this.collection.models;
+        }
+
+        if (this.getTrueSortSelected().value === 'ascending_title') {
+            function SortArray(x, y){
+                if (x.title < y.title) {return -1;}
+                if (x.title > y.title) {return 1;}
+                return 0;
+            }
+            return this.collection.models.sort(SortArray);
+        }
+
+        if (this.getTrueSortSelected().value === 'descending_title') {
+            function SortArray(x, y){
+                if (x.title > y.title) {return -1;}
+                if (x.title < y.title) {return 1;}
+                return 0;
+            }
+            return this.collection.models.sort(SortArray);
+        }
+
+        if (this.getTrueSortSelected().value === 'ascending_rating') {
+            function SortArray(x, y){
+                if (x.rating > y.rating) {return -1;}
+                if (x.rating < y.rating) {return 1;}
+                return 0;
+            }
+            return this.collection.models.sort(SortArray);
+        }
+
+        if (this.getTrueSortSelected().value === 'descending_rating') {
+            function SortArray(x, y){
+                if (x.rating < y.rating) {return -1;}
+                if (x.rating > y.rating) {return 1;}
+                return 0;
+            }
+            return this.collection.models.sort(SortArray);
+        }
+
+        if (this.getTrueSortSelected().value === 'ascending_year') {
+            function SortArray(x, y){
+                if (x.year > y.year) {return -1;}
+                if (x.year < y.year) {return 1;}
+                return 0;
+            }
+            return this.collection.models.sort(SortArray);
+        }
+
+        if (this.getTrueSortSelected().value === 'descending_year') {
+            function SortArray(x, y){
+                if (x.year < y.year) {return -1;}
+                if (x.year > y.year) {return 1;}
+                return 0;
+            }
+            return this.collection.models.sort(SortArray);
+        }
+
+        if (this.getTrueSortSelected().value === 'ascending_time') {
+            function SortArray(x, y){
+                if (x.time > y.time) {return -1;}
+                if (x.time < y.time) {return 1;}
+                return 0;
+            }
+            return this.collection.models.sort(SortArray);
+        }
+
+        if (this.getTrueSortSelected().value === 'descending_time') {
+            function SortArray(x, y){
+                if (x.time < y.time) {return -1;}
+                if (x.time > y.time) {return 1;}
+                return 0;
+            }
+            return this.collection.models.sort(SortArray);
+        }
+    },
+
+    filterCheckboxesOfCountries: function() {
+        var result=[];
+        this.collection.models.forEach(function(film) {
+            result = _.union(result, film.countries);
+        });
+        return result;
+    },
+
+    filterCheckboxesOfGenre: function() {
+        var result=[];
+        this.collection.models.forEach(function(film) {
+            result = _.union(result, film.genre);
+        });
+        return result;
+    },
+
+    init: function() {
+        this.subscribe();
+        this.addKeysInModels();
+
+        $('.top-bar select').on('change', function() {
+            listViewFilms.render();
+        });
+
+        $('.filters').on('change', function() {
+            listViewFilms.render();
+            this.predicateForCheckbox();
+        }.bind(this));
+    }
+};
+appSort.init();
+
+var listViewFilms = {
+    collection: movies,
+
+    // $moviesTiles: $('.state-tiles .movie'),
+    // $moviesList: $('.state-list .movie'),
+
+    tmplFnTiles: $('#movie-template-tiles').html(),
+    tmplFnStripes: $('#movie-template-list').html(),
+
+    myFunc: function(array, index) {
+        console.log(array)
+        var j = 0;
+        while(j <= index) {
+            array[j].classList.remove('invisible');
+            array[j].classList.add('visible');
+            j++;
+        }
+
+        while(index < array.length) {
+            array[index].classList.remove('visible');
+            array[index].classList.add('invisible');
+            index++;
+        }
+    },
+
+    visibleMovies: function() {
+        if (appSort.getTrueDisplaySelected().value === 'default') {
+            $('.state-tiles .movie').toArray().forEach(function(movie) {
+                movie.classList.remove('invisible');
+                movie.classList.add('visible');
+            });
+
+            $('.state-list .movie').toArray().forEach(function(movie) {
+                movie.classList.remove('invisible');
+                movie.classList.add('visible');
+            });
+        }
+
+        if (appSort.getTrueDisplaySelected().value === 'six') {
+            this.myFunc($('.state-tiles .movie').toArray(), 6);
+            this.myFunc($('.state-list .movie').toArray(), 6);
+        }
+
+        if (appSort.getTrueDisplaySelected().value === 'twelve') {
+            this.myFunc($('.state-tiles .movie').toArray(), 12);
+            this.myFunc($('.state-list .movie').toArray(), 12);
+        }
+
+        if (appSort.getTrueDisplaySelected().value === 'eighteen') {
+            this.myFunc($('.state-tiles .movie').toArray(), 18);
+            this.myFunc($('.state-list .movie').toArray(), 18);
+        }
+    },
+
+    render: function() {
+        $('.state-tiles').html(doT.template(this.tmplFnTiles)(appSort.getSortModels()));
+        $('.state-list').html(doT.template(this.tmplFnStripes)(appSort.getSortModels()));
+        this.visibleMovies();
+    },
+
+    init: function() {
+        this.render();
+    }
+};
+listViewFilms.init();
+
+var listViewFilters = {
+    collection: movies,
+
+    tmplFnCountries: $('#filter-countries-template').html(),
+    tmplFnGenre: $('#filter-genre-template').html(),
+
+    render: function() {
+        $('.filter-countries').html(doT.template(this.tmplFnCountries)(appSort.filterCheckboxesOfCountries()));
+        $('.filter-genre').html(doT.template(this.tmplFnGenre)(appSort.filterCheckboxesOfGenre()));
+    },
+
+    init: function() {
+        this.render();
+    }
+};
+listViewFilters.init();
+
+
