@@ -182,13 +182,3 @@ var appView = {
     }
 };
 appView.init();
-
-
-
-
-// task {
-//     id: '',
-//     completed: false,
-//     important: false,
-//     title: ''
-// }
