@@ -246,11 +246,11 @@ var movies = {
         if (itemsPerPage === 'default') {
             return models;
         } else {
-            return _.first(models, itemsPerPage);
+            return _.first(models, itemsPerPage);//-----  itemsPerPage - число. сколько эл с начала массива вернёт
         }
     },
 
-    getSearchedItems: function(models, needle) {
+    getSearchedItems: function(models, needle) {   //---------------  Поиск
         if (needle === '') {
             return models;
         } else {
@@ -260,7 +260,7 @@ var movies = {
         }
     },
 
-    getItemsSortedBy: function(models, sortBy) {
+    getItemsSortedBy: function(models, sortBy) { // --- сортировка год\ алфавиту\ рейтинг
         if (sortBy === 'default') {
             return models;
         } else {
@@ -350,8 +350,8 @@ var listView = {
         models = this.collection.getItemsFilteredBy(models, 'countries', countries);
         models = this.collection.getItemsFilteredBy(models, 'genre', genres);
 
-        //models = this.collection.getItemsByItemsPerPage(models, itemsPerPage);
-        models = this.collection.getItemsByPage(models, itemsPerPage, page);
+        models = this.collection.getItemsByItemsPerPage(models, itemsPerPage);
+        // models = this.collection.getItemsByPage(models, itemsPerPage, page);
 
         $('.movies')
             .html(doT.template(tmplFn)(models))
@@ -363,6 +363,14 @@ var listView = {
 
     renderPagination: function(models, itemsPerPage, page) {
         //TODO:
+        $('.pagination').on('click', function(e) {
+            $('.pagination button').removeClass('active');
+            $(e.target).addClass('active');
+            console.log($(e.target).text())
+            if ($(e.target).text() === 1) {
+
+            }
+        })
     },
 
     init: function() {
