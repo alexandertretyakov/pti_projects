@@ -305,6 +305,7 @@ var movies = {
     },
 
     getItemsByPage: function(models, itemsPerPage, page) {
+        return models;
         // TODO:
         // 0-9
         // 10-19
@@ -335,8 +336,9 @@ var listView = {
 
     appModel: appModel,
 
-    tmplFnMovieTiles: $('#movie-template-tiles').html(),
-    tmplFnMovieList: $('#movie-template-list').html(),
+    tmplFnMovieTiles: $('#movie-tiles-template').html(),
+    tmplFnMovieList: $('#movie-list-template').html(),
+    tmplFnPagination: $('#pagination-template').html(),
 
     render: function() {
         var {viewType, itemsPerPage, searchText, sortBy, filters: {countries, genres}, page} = appModel;
@@ -350,8 +352,8 @@ var listView = {
         models = this.collection.getItemsFilteredBy(models, 'countries', countries);
         models = this.collection.getItemsFilteredBy(models, 'genre', genres);
 
-        models = this.collection.getItemsByItemsPerPage(models, itemsPerPage);
-        // models = this.collection.getItemsByPage(models, itemsPerPage, page);
+        //models = this.collection.getItemsByItemsPerPage(models, itemsPerPage);
+        models = this.collection.getItemsByPage(models, itemsPerPage, page);
 
         $('.movies')
             .html(doT.template(tmplFn)(models))
@@ -362,15 +364,15 @@ var listView = {
     },
 
     renderPagination: function(models, itemsPerPage, page) {
-        //TODO:
-        $('.pagination').on('click', function(e) {
-            $('.pagination button').removeClass('active');
-            $(e.target).addClass('active');
-            console.log($(e.target).text())
-            if ($(e.target).text() === 1) {
+        if (itemsPerPage === 'default') {
+            return;
+        }
 
-            }
-        })
+        var pagesCount = Math.ceil(models.length / itemsPerPage);
+        $('.pagination').html(doT.template(this.tmplFnPagination)({
+            buttons: Array.from({ length: pagesCount }, (v, i) => i+1),
+            page: page
+        }));
     },
 
     init: function() {
@@ -395,6 +397,7 @@ var appView = {
         $('.top-bar .search').on('keyup', this.handleSearch.bind(this));
         $('.sorting select').on('change', this.handleSort.bind(this));
         $('.filters input').on('change', this.handleCheckboxes.bind(this));
+        $('.pagination').on('click', this.handlePagination.bind(this));
     },
 
     render: function() {
@@ -409,6 +412,13 @@ var appView = {
             genres: Object.keys(listOfGenres),
             counts: Object.values(listOfGenres)
         }));
+    },
+
+    handlePagination: function() {
+        console.log($(e.target).text());
+        if ($(e.target).text() === 1) {
+            //
+        }
     },
 
     handleButtonList: function() {

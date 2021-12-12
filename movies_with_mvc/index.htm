@@ -58,14 +58,9 @@
             </div>
         </div>
 
-        <div class="movies"></div>
+        <div class="pagination"></div>
 
-        <div class="pagination">
-            <button class="active">1</button>
-            <button>2</button>
-            <button>3</button>
-            <button>4</button>
-        </div>
+        <div class="movies"></div>
 
         <script type="text/template" id="filter-countries-template">
             {{~ it.countries :country:idx}}
@@ -81,7 +76,7 @@
             {{~}}
         </script>
 
-        <script type="text/template" id="movie-template-tiles">
+        <script type="text/template" id="movie-tiles-template">
             {{~ it :movie:index}}
                 <div class="movie">
                     <div class="movie-image-container">
@@ -97,7 +92,7 @@
             {{~}}
         </script>
 
-        <script type="text/template" id="movie-template-list">
+        <script type="text/template" id="movie-list-template">
             {{~ it :movie:index}}
                 <div class="movie">
                     <div class="movie-image-container">
@@ -134,6 +129,12 @@
             {{~}}
         </script>
     </div>
+
+    <script type="text/template" id="pagination-template">
+        {{~ it.buttons :number:idx}}
+            <button {{? number === it.page}}class="active"{{?}}>{{= number}}</button>
+        {{~}}
+    </script>
 
     <script src="js/index.js"></script>
 </body>

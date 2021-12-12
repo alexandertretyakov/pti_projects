@@ -177,3 +177,13 @@ body {
     font-size: 11px;
     color: #848484;
 }
+
+/* --------------------------------------------- Pagination */
+.pagination {
+    text-align: center;
+    padding: 57px 0 0 0;
+}
+
+.pagination:empty {
+    display: none;
+}
