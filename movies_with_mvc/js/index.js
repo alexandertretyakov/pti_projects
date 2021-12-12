@@ -398,6 +398,8 @@ var appView = {
         $('.sorting select').on('change', this.handleSort.bind(this));
         $('.filters input').on('change', this.handleCheckboxes.bind(this));
         $('.pagination').on('click', this.handlePagination.bind(this));
+        $('.movies').on('click', this.handleClickOnMovie.bind(this));
+        $(document).on('keyup', this.hideMoviePopUp.bind(this));
     },
 
     render: function() {
@@ -412,6 +414,37 @@ var appView = {
             genres: Object.keys(listOfGenres),
             counts: Object.values(listOfGenres)
         }));
+    },
+
+    handleClickOnMovie: function(e) {
+        if (this.appModel.viewType === 'list') {
+            return;
+        }
+
+        var $movie = $(e.target).closest('.movie');
+
+        if (!$movie.length) {
+            return;
+        }
+
+        var movieId = $movie.data('id');
+
+        //TODO:
+        console.log('movieId=', movieId);
+        this.showMoviePopUp();
+    },
+
+    showMoviePopUp: function() {
+        $('<div class="overlay">').appendTo('body');
+        $('<div class="popup">').appendTo('body');
+        //TODO:
+    },
+
+    hideMoviePopUp: function(e) {
+        if (e.keyCode === 27) {
+            $('.overlay').remove();
+            $('.popup').remove();
+        }
     },
 
     handlePagination: function() {

@@ -78,7 +78,7 @@
 
         <script type="text/template" id="movie-tiles-template">
             {{~ it :movie:index}}
-                <div class="movie">
+                <div class="movie" data-id="{{= movie.id}}">
                     <div class="movie-image-container">
                         <a href="#"><img src="images/movies/{{= movie.id}}.jpg"></a>
                     </div>
