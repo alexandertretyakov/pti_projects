@@ -242,15 +242,15 @@ var movies = {
         }
     ],
 
-    getItemsByItemsPerPage: function(models, itemsPerPage) {
+    getItemsByItemsPerPage: function(models, itemsPerPage) {//++++++++по сколько фильмов отображать
         if (itemsPerPage === 'default') {
             return models;
         } else {
-            return _.first(models, itemsPerPage);//-----  itemsPerPage - число. сколько эл с начала массива вернёт
+            return _.first(models, itemsPerPage);
         }
     },
 
-    getSearchedItems: function(models, needle) {   //---------------  Поиск
+    getSearchedItems: function(models, needle) {
         if (needle === '') {
             return models;
         } else {
@@ -260,7 +260,7 @@ var movies = {
         }
     },
 
-    getItemsSortedBy: function(models, sortBy) { // --- сортировка год\ алфавиту\ рейтинг
+    getItemsSortedBy: function(models, sortBy) {
         if (sortBy === 'default') {
             return models;
         } else {
@@ -305,12 +305,24 @@ var movies = {
     },
 
     getItemsByPage: function(models, itemsPerPage, page) {
-        return models;
+        console.log(models, itemsPerPage, page)
+        if (itemsPerPage === 'default') {
+            return models;
+        }
+
+        if (itemsPerPage === '6' && page === 1) {
+            return models.slice(0, 6);
+        }
+
+        if (itemsPerPage === '6' && page === 2) {
+            return models.slice(7, 12);
+        }
         // TODO:
         // 0-9
         // 10-19
         // 20-29
         // 30-39
+
     },
 
     init: function() {
@@ -328,7 +340,7 @@ var appModel = {
         countries: [],       // ['СССР', 'Мальта']
         genres: []           // ['комедия', 'ужасы']
     },
-    page: 1                  // 1,2,3
+    page: 1 // 1,2,3
 };
 
 var listView = {
@@ -352,7 +364,7 @@ var listView = {
         models = this.collection.getItemsFilteredBy(models, 'countries', countries);
         models = this.collection.getItemsFilteredBy(models, 'genre', genres);
 
-        //models = this.collection.getItemsByItemsPerPage(models, itemsPerPage);
+        // models = this.collection.getItemsByItemsPerPage(models, itemsPerPage);
         models = this.collection.getItemsByPage(models, itemsPerPage, page);
 
         $('.movies')
@@ -364,14 +376,15 @@ var listView = {
     },
 
     renderPagination: function(models, itemsPerPage, page) {
+        var pagesCount = Math.ceil(this.collection.models.length / Number(itemsPerPage));
+
         if (itemsPerPage === 'default') {
-            return;
+            pagesCount = 0;
         }
 
-        var pagesCount = Math.ceil(models.length / itemsPerPage);
         $('.pagination').html(doT.template(this.tmplFnPagination)({
-            buttons: Array.from({ length: pagesCount }, (v, i) => i+1),
-            page: page
+            buttons: Array.from({ length: pagesCount }, (v, i) => i+1),//++++++++++++ сколько кнопок отображать
+            page: appModel.page
         }));
     },
 
@@ -389,6 +402,7 @@ var appView = {
 
     tmplFnCountries: $('#filter-countries-template').html(),
     tmplFnGenres: $('#filter-genre-template').html(),
+    tmplFnPopUp: listView.tmplFnMovieList,//-------------------------------------------
 
     subscribe: function() {
         $('.top-bar .button-list').on('click', this.handleButtonList.bind(this));
@@ -422,22 +436,24 @@ var appView = {
         }
 
         var $movie = $(e.target).closest('.movie');
-
         if (!$movie.length) {
             return;
         }
 
         var movieId = $movie.data('id');
-
-        //TODO:
-        console.log('movieId=', movieId);
-        this.showMoviePopUp();
+        this.showMoviePopUp(movieId);
     },
 
-    showMoviePopUp: function() {
+    findMovieById: function(movieId) {//------------------------------------------
+        return this.collection.models.filter(function(movie) {
+            return movie.id === movieId;
+        });
+    },
+
+    showMoviePopUp: function(movieId) {
         $('<div class="overlay">').appendTo('body');
         $('<div class="popup">').appendTo('body');
-        //TODO:
+        $('.popup').html(doT.template(this.tmplFnPopUp)(this.findMovieById(movieId)))//-----------------
     },
 
     hideMoviePopUp: function(e) {
@@ -447,11 +463,15 @@ var appView = {
         }
     },
 
-    handlePagination: function() {
-        console.log($(e.target).text());
-        if ($(e.target).text() === 1) {
-            //
+    handlePagination: function(e) {//---------------------------------------------------
+        if ($(e.target)[0].localName !== 'button') {
+            return;
         }
+
+        appModel.page = Number($(e.target).text());
+
+        $('.pagination button').removeClass('active');
+        $(e.target).addClass('active');
     },
 
     handleButtonList: function() {
