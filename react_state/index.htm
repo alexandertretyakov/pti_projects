@@ -1,19 +1,15 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="utf-8">
     <title>React State</title>
-
     <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/@babel/standalone@7.15.7/babel.min.js"></script>
-
-    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
 
 <body>
-    <div id="app"></div>
     <style>
         body {
             padding-top: 50px;
@@ -71,7 +67,7 @@
         .whores-container {
             background: #751a1a;
             width: 910px;
-            min-height:  474px;
+            height:  474px;
             padding: 10px;
             overflow: hidden;
             margin-bottom: 1em;
@@ -126,6 +122,20 @@
             margin: 5px 0 1px;
         }
     </style>
+
+    <script>
+        var jasmine = {
+            name: 'Жасмин',
+            photo: 'images/zhasmin.jpg',
+            age: '18',
+            boobs: '3',
+            weight: '50',
+            height: '168',
+            phone: '+380960000000',
+            can_come: true,
+            teaser: 'Очень нежная девчонка доставит Вам удовольствие по полной программе! Каждый мужчина ищет идеальную женщину - попробуй, может быть я именно та которая тебе нужна... Фото мои 1000%!!! Выезда НЕТ!!! Квартира для встреч ЕСТЬ, 5 мин от ст. метро \"Дворец Украина\"'
+        };
+    </script>
 
     <style>
         .cats-container {
@@ -194,28 +204,30 @@
         }
     </style>
 
-    <style>
-        .question {
-            color: #0078d7;
-            padding: 10px 20px 10px;
-            border-top: 1px solid #d2d2d2;
-            cursor: pointer;
-        }
-
-        .question:hover {
-            background: #e6e6e6;
-        }
-
-        .answer {
-            padding: 10px 20px 10px;
-            margin: 0;
-            display: none;
-        }
-
-        .question.active + .answer {
-            display: block;
-        }
-    </style>
+    <script>
+        var mikki = [
+            '  XXXX        XXXX  ',
+            ' XXXXXX      XXXXXX ',
+            'XXXX XX XXXX XX XXXX',
+            'XXX  XXXXXXXXXX  XXX',
+            'XXXXXXXXXXXXXXXXXXXX',
+            'XXXXXXX      XXXXXXX',
+            ' XXXXX        XXXXX ',
+            '   XXX  XX XX XXX   ',
+            '    XX  XX XX XX    ',
+            '    XXX X  X  XX    ',
+            '    X         XX    ',
+            '    X    XXX  XX    ',
+            '    XX   XXX  XX    ',
+            '     XX      XX     ',
+            '      X  XX  X      ',
+            '       X    X       ',
+            '     XX XXXX XX     ',
+            '     XX      XX     ',
+            '    XX        XX    ',
+            '   XXXXXXXXXXXXXX   '
+        ];
+    </script>
 
     <style>
         .scene {
@@ -272,6 +284,28 @@
         }
     </style>
 
+    <script>
+        var map = [
+            '                                                  ',
+            '                                                  ',
+            '                                                  ',
+            '                    w                             ',
+            '                                       w          ',
+            '                                                  ',
+            '                       c                          ',
+            '                                                  ',
+            '                                        c         ',
+            '                                                  ',
+            '                c    kkkkk                        ',
+            ' b                                     t        c ',
+            '            d    g       d                        ',
+            '                                                  ',
+            'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz',
+            'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz',
+            'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz'
+        ];
+    </script>
+
     <style>
         .slide {
             width: 302px;
@@ -286,38 +320,41 @@
             display: block;
         }
 
-        .slide1 {
-            background-image: url('images/slide1.jpg');
-        }
-
-        .slide2 {
-            background-image: url('images/slide2.jpg');
-        }
-
-        .slide3 {
-            background-image: url('images/slide3.jpg');
-        }
-
-        .slide4 {
-            background-image: url('images/slide4.jpg');
-        }
-
-        .slide5 {
-            background-image: url('images/slide5.jpg');
-        }
-
         .pagination {
             margin: 1em 0;
         }
     </style>
 
     <style>
-        .x-tabs {
+        .question {
+            color: #0078d7;
+            padding: 10px 20px 10px;
+            border-top: 1px solid #d2d2d2;
+            cursor: pointer;
+        }
+
+        .question:hover {
+            background: #e6e6e6;
+        }
+
+        .answer {
+            padding: 10px 20px 10px;
+            margin: 0;
+            display: none;
+        }
+
+        .question.active + .answer {
+            display: block;
+        }
+    </style>
+
+    <style>
+        .tabs {
             border-bottom: 1px solid black;
             width: 400px;
         }
 
-        .x-tab {
+        .tabs .item {
             background: grey;
             border: 1px solid black;
             border-radius: 10px 10px 0 0;
@@ -327,16 +364,16 @@
             cursor: pointer;
         }
 
-        .x-tab:hover,
-        .x-tab.active {
+        .tabs .item:hover,
+        .tabs .item.active {
             background: lightgray;
         }
 
-        .x-item {
+        .tabs-content .item {
             display: none;
         }
 
-        .x-item.active {
+        .tabs-content .item.active {
             display: block;
         }
     </style>
@@ -392,813 +429,426 @@
         }
     </style>
 
+    <div id="app"></div>
+
     <script type="text/babel">
-        class ChangeTextColor extends React.Component {
-            state = {
-                click: false
-            }
-            handleClick = () => {
-                this.setState({click: true});
-            }
-            render () {
-                let style = null;
-                if (this.state.click) {
-                    style = {
-                        color: 'red'
-                    };
-                }
-                return (
-                    <div>
-                        <p className="z">При клике на кнопку изменить цвет текста</p>
-                        <p className="t t1" style={style}>Тест</p>
-                        <button className="b b1" onClick={this.handleClick}>Изменить цвет текста</button>
-                    </div>
-                );
-            }
-        }
-
-        class ChangeBackgroundColor extends React.Component {
-            state = {
-                style: null
-            }
-
-            handleClick = () => {
-                this.setState({
-                    style: {
-                        backgroundColor: '#BCE8E8'
-                    }
-                });
-            }
-
-            render () {
-                return (
-                    <div>
-                        <p className="z">При клике на кнопку изменить цвет фона</p>
-                        <p className="t t2" style={this.state.style}>Тест</p>
-                        <button className="b b2" onClick={this.handleClick}>Изменить цвет фона</button>
-                    </div>
-                );
-            }
-        }
-
-        class ChangeLinkPath extends React.Component {
-            state = {
-                href: "https://habrahabr.ru/"
-            }
-            handleClick = () => {
-                this.setState({href: "https://www.youtube.com/watch?v=47tWcmDtG6U"});
-            }
-            render () {
-                return (
-                    <div>
-                        <p className="z">При клике на кнопку изменить путь ссылки</p>
-                        <p className="t t3"><a href={this.state.href}>Тест</a></p>
-                        <button className="b b3" onClick={this.handleClick}>Изменить путь ссылки</button>
-                    </div>
-                );
-            }
-        }
-
-        class ChangeLinkImage extends React.Component {
-            state = {
-                src: "images/kaktus.jpg"
-            }
-            handleClick = () => {
-                this.setState({src: "images/Batman-Begins-290x180.jpg"});
-            }
-            render () {
-                return (
-                    <div>
-                        <p className="z">При клике на кнопку изменить путь к картинке</p>
-                        <p className="t t4">Тест <img src={this.state.src} width="100" /></p>
-                        <button className="b b4" onClick={this.handleClick}>Изменить путь к картинке</button>
-                    </div>
-                );
-            }
-        }
-
-        class ChangeIdElement extends React.Component {
-            state = {
-                id: "ab"
-            }
-            handleClick = () => {
-                this.setState({id: "abc"});
-            }
-            render () {
-                return (
-                    <div>
-                        <p className="z">При клике на кнопку изменить id элемента</p>
-                        <p className="t t5" id={this.state.id}>Тест</p>
-                        <button className="b b5" onClick={this.handleClick}>Изменить id элемента</button>
-                    </div>
-                );
-            }
-        }
-
-        class ChangeText extends React.Component {
-            state = {
-                text: "Тест"
-            }
-            handleClick = () => {
-                this.setState({text: "Hello world!"});
-            }
-            render () {
-                return (
-                    <div>
-                        <p className="z">При клике на кнопку изменить текст</p>
-                        <p className="t t6">{this.state.text}</p>
-                        <button className="b b6" onClick={this.handleClick}>Изменить текст</button>
-                    </div>
-                );
-            }
-        }
-
-        class ChangeHTML extends React.Component {
-            state = {
-                html: <b>Цветы</b>
-            }
-            handleClick = () => {
-                this.setState({html: <i>Цветы</i>});
-            }
-            render () {
-                return (
-                    <div>
-                        <p className="z">При клике на кнопку изменить HTML</p>
-                        <p className="t t7">Тест {this.state.html}</p>
-                        <button className="b b7" onClick={this.handleClick}>Изменить HTML</button>
-                    </div>
-                );
-            }
-        }
-
-        class ChangeFontSize extends React.Component {
-            state = {
-                style: {
-                    fontSize: '16px'
-                }
-            }
-            handleClick = () => {
-                this.setState({
-                    style: {
-                        fontSize: '30px'
-                    }
-                });
-            }
-            render () {
-                return (
-                    <div>
-                        <p className="z">При клике на кнопку изменить размер шрифта</p>
-                        <p className="t t8" style={this.state.style}>Тест</p>
-                        <button className="b b8" onClick={this.handleClick}>Изменить размер шрифта</button>
-                    </div>
-                );
-            }
-        }
-
-        class AddClass extends React.Component {
-            state = {
-                className: "t t9"
-            }
-            handleClick = () => {
-                this.setState({
-                    className: "t t9 hi"
-                });
-            }
-            render () {
-                return (
-                    <div>
-                        <p className="z">При клике на кнопку добавить класс 'hi'</p>
-                        <p className={this.state.className}>Тест</p>
-                        <button className="b b9" onClick={this.handleClick}>Добавить класс 'hi'</button>
-                    </div>
-                );
-            }
-        }
-
-        class DeleteClass extends React.Component {
-            state = {
-                className: "t t10 hi"
-            }
-            handleClick = () => {
-                this.setState({
-                    className: "t t10"
-                });
-            }
-            render () {
-                return (
-                    <div>
-                        <p className="z">При клике на кнопку удалить класс 'hi'</p>
-                        <p className={this.state.className}>Тест</p>
-                        <button className="b b10" onClick={this.handleClick}>Удалить класс 'hi'</button>
-                    </div>
-                );
-            }
-        }
-
-        class AddDeleteClass extends React.Component {
-            state = {
-                click: false
-            }
-            handleClick = () => {
-                this.state.click === false ? this.setState({click: true}) : this.setState({click: false});
-            }
-            render () {
-                let className = this.state.click ? "t t11" : "t t11 hi";
-                return (
-                    <div>
-                        <p className="z">При клике на кнопку добавлять/удалять (в зависимости от наличия) класс 'hi'</p>
-                        <p className={className}>Тест</p>
-                        <button className="b b11" onClick={this.handleClick}>Добавить/удалить (в зависимости от наличия) класс 'hi'</button>
-                    </div>
-                );
-            }
-        }
-
-        class ValueAttrClassElement extends React.Component {
-            state = {
-                text: null
-            }
-            handleClickSomewhere = (e) => {
-                this.setState({
-                    text: e.target.className
-                });
-            }
-            render () {
-                return (
-                    <div onClick={this.handleClickSomewhere}>
-                        <p className="z">При клике на любом эелементе страницы выводить значение атрибута class
-                            элемента</p>
-                        <p className="t t12">{this.state.text}</p>
-                    </div>
-                );
-            }
-        }
-
-        class TranslationText extends React.Component {
-            state = {
-                text: "Солнце"
-            }
-            handleClick = () => {
-                this.setState({
-                    text: "sun"
-                });
-            }
-            render () {
-                return (
-                    <div>
-                        <p className="z">При клике на кнопку перевести текст на английский язык (перевод хранится в
-                            атрибуте data-en элемента)</p>
-                        <p className="t t13">{this.state.text}</p>
-                        <button className="b b13" onClick={this.handleClick}>Перевести</button>
-                    </div>
-                );
-            }
-        }
-
-        class ChangeWindow extends React.Component {
-            constructor() {
-                super();
-                window.addEventListener('resize', function () {
-                    var r = (Math.round(Math.random() * 255));
-                    var g = (Math.round(Math.random() * 255));
-                    var b = (Math.round(Math.random() * 255));
-                    this.setState({
-                        backgroundColor: 'rgb(' + r + ',' +  g + ',' + b + ')'
-                    })
-                }.bind(this));
-            }
-
-            state = {
-               backgroundColor: '#8fff00'
-            };
-
-            render () {
-                var style = {
-                    backgroundColor: this.state.backgroundColor
-                };
-
-                return (
-                    <div>
-                        <p className="z">При изменении размеров окна вкладки или браузера изменять фоновый цвет абзаца
-                            (использовать RGB и Math.random)</p>
-                        <p className="t t99" style={style}>Drugs are bad, m'kay, so, if you do drugs, you're bad, m'kay, because
-                        drugs are bad.</p>
-                    </div>
-                );
-            }
-        }
-
-        class ChangeValueExitCharacters extends React.Component {
-            state = {
-                text: 'Я не касался писи козла!'
-            };
-            onChange(e) {
-                this.setState({
-                    text: e.target.value
-                });
-            };
-            render () {
-                return (
-                    <div>
-                        <p className="z">При изменении значения элемента формы выводить количество символов которое оно
-                            содержит</p>
-                        <p className="t t98"><input type="text" onChange={this.onChange.bind(this)} defaultValue={this.state.text} />
-                        <span className="t98-2">{this.state.text.length}</span></p>
-                    </div>
-                );
-            }
-        }
-
-        class Girl extends React.Component {
-            render () {
-                return (
-                    <div className="whore">
-                        <div className="whore-name">{this.props.name}</div>
-                        <img src={this.props.photo} width="200" />
-                        <div className="whore-age">Возраст: {this.props.age}</div>
-                        <div className="whore-hair">Цвет волос: {this.props.hair}</div>
-                        <div className="whore-boobs">Размер груди: {this.props.boobs}</div>
-                        <div className="whore-height">Рост: {this.props.height}</div>
-                        <div className="whore-weight">Вес: {this.props.weight}</div>
-                        <div className="whore-phone">{this.props.phone}</div>
-                        <div className="whore-can-come">Выезд: {this.props.can_come ? '+' : '-'}</div>
-                        <div className="whore-teaser">{this.props.teaser}</div>
-                    </div>
-                )
-            }
-        }
-
-        class WhoresContainer extends React.Component {
-            state = {
-                whores: [
-                    {
-                        name: 'Сильвия',
-                        photo: 'images/silvia.jpg',
-                        age: '18',
-                        hair: 'блондинка',
-                        boobs: '4',
-                        weight: '50',
-                        height: '168',
-                        phone: '+380960000001',
-                        can_come: true,
-                        teaser: 'Очень нежная девчонка доставит Вам удовольствие по полной программе! Каждый мужчина ищет идеальную женщину - попробуй, может быть я именно та которая тебе нужна... Фото мои 1000%!!! Выезда НЕТ!!! Квартира для встреч ЕСТЬ, 5 мин от ст. метро \"Дворец Украина\"',
-                    }
-                ]
-            }
-            handleClick = () => {
-                var jasmine = {
-                    name: 'Жасмин',
-                    photo: 'images/zhasmin.jpg',
-                    age: '18',
-                    boobs: '3',
-                    weight: '50',
-                    height: '168',
-                    phone: '+380960000000',
-                    can_come: true,
-                    teaser: 'Очень нежная девчонка доставит Вам удовольствие по полной программе! Каждый мужчина ищет идеальную женщину - попробуй, может быть я именно та которая тебе нужна... Фото мои 1000%!!! Выезда НЕТ!!! Квартира для встреч ЕСТЬ, 5 мин от ст. метро \"Дворец Украина\"'
-                };
-
-                this.setState({
-                    whores: [
-                        ...this.state.whores,
-                        jasmine
-                    ]
-                });
-            }
+        class TaskChangeColor extends React.Component {
             render() {
-                var girls = <div>
-                    {
-                        this.state.whores.map(function (whore, idx) {
-                            return <Girl {...whore} key={idx} />
-                        })
-                    }
-                </div>;
-
                 return (
-                    <div>
+                    <>
+                        <p className="z">При клике на кнопку изменить цвет текста</p>
+                        <p className="t t1">Тест</p>
+                        <button className="b b1">Изменить цвет текста</button>
+                    </>
+                );
+            }
+        }
+
+        class TaskChangeBackgroundColor extends React.Component {
+            render() {
+                return (
+                    <>
+                        <p className="z">При клике на кнопку изменить цвет фона</p>
+                        <p className="t t2">Тест</p>
+                        <button className="b b2">Изменить цвет фона</button>
+                    </>
+                );
+            }
+        }
+
+        class TaskChangeHref extends React.Component {
+            render() {
+                return (
+                    <>
+                        <p className="z">При клике на кнопку изменить путь ссылки</p>
+                        <p className="t t3"><a href="https://habrahabr.ru/">Тест</a></p>
+                        <button className="b b3">Изменить путь ссылки</button>
+                    </>
+                );
+            }
+        }
+
+        class TaskChangeSrc extends React.Component {
+            render() {
+                return (
+                    <>
+                        <p className="z">При клике на кнопку изменить путь к картинке</p>
+                        <p className="t t4">Тест <img src="images/kaktus.jpg" width="100" /></p>
+                        <button className="b b4">Изменить путь к картинке</button>
+                    </>
+                );
+            }
+        }
+
+        class TaskChangeId extends React.Component {
+            render() {
+                return (
+                    <>
+                        <p className="z">При клике на кнопку изменить id элемента</p>
+                        <p className="t t5" id="ab">Тест</p>
+                        <button className="b b5">Изменить id элемента</button>
+                    </>
+                );
+            }
+        }
+
+        class TaskChangeText extends React.Component {
+            render() {
+                return (
+                    <>
+                        <p className="z">При клике на кнопку изменить текст</p>
+                        <p className="t t6">Тест</p>
+                        <button className="b b6">Изменить текст</button>
+                    </>
+                );
+            }
+        }
+
+        class TaskChangeHtml extends React.Component {
+            render() {
+                return (
+                    <>
+                        <p className="z">При клике на кнопку изменить HTML</p>
+                        <p className="t t7">Тест <b>Цветы</b></p>
+                        <button className="b b7">Изменить HTML</button>
+                    </>
+                );
+            }
+        }
+
+        class TaskChangeFontSize extends React.Component {
+            render() {
+                return (
+                    <>
+                        <p className="z">При клике на кнопку изменить размер шрифта</p>
+                        <p className="t t8">Тест</p>
+                        <button className="b b8">Изменить размер шрифта</button>
+                    </>
+                );
+            }
+        }
+
+        class TaskChangeAddClass extends React.Component {
+            render() {
+                return (
+                    <>
+                        <p className="z">При клике на кнопку добавить класс 'hi'</p>
+                        <p className="t t9">Тест</p>
+                        <button className="b b9">Добавить класс 'hi'</button>
+                    </>
+                );
+            }
+        }
+
+        class TaskChangeRemoveClass extends React.Component {
+            render() {
+                return (
+                    <>
+                        <p className="z">При клике на кнопку удалить класс 'hi'</p>
+                        <p className="t t10 hi">Тест</p>
+                        <button className="b b10">Удалить класс 'hi'</button>
+                    </>
+                );
+            }
+        }
+
+        class TaskChangeToggleClass extends React.Component {
+            render() {
+                return (
+                    <>
+                        <p className="z">При клике на кнопку добавлять/удалять (в зависимости от наличия) класс 'hi'</p>
+                        <p className="t t11">Тест</p>
+                        <button className="b b11">Добавить/удалить (в зависимости от наличия) класс 'hi'</button>
+                    </>
+                );
+            }
+        }
+
+        // Пропускаем!
+        class TaskTodo1 extends React.Component {
+            render() {
+                return (
+                    <>
+                        <p className="z">При клике на любом элементе страницы выводить значение атрибута class элемента</p>
+                        <p className="t t12">Тест</p>
+                    </>
+                );
+            }
+        }
+
+        // Пропускаем!
+        class TaskTodo2 extends React.Component {
+            render() {
+                return (
+                    <>
+                        <p className="z">При клике на кнопку перевести текст на английский язык (перевод хранится в атрибуте data-en элемента)</p>
+                        <p className="t t13" data-en="sun">Солнце</p>
+                        <button className="b b13">Перевести</button>
+                    </>
+                );
+            }
+        }
+
+        class TaskChangeBackgroundColorOnResize extends React.Component {
+            render() {
+                return (
+                    <>
+                        <p className="z">При изменении размеров окна вкладки или браузера изменять фоновый цвет абзаца (использовать RGB и Math.random)</p>
+                        <p className="t t99">Drugs are bad, m'kay, so, if you do drugs, you're bad, m'kay, because drugs are bad.</p>
+                    </>
+                );
+            }
+        }
+
+        class TaskInputWithCounter extends React.Component {
+            render() {
+                return (
+                    <>
+                        <p className="z">При изменении значения элемента формы выводить количество символов которое оно содержит</p>
+                        <p className="t t98"><input type="text" defaultValue="Я не касался писи козла!" /> <span className="t98-2">24</span></p>
+                    </>
+                );
+            }
+        }
+
+        class TaskWhores extends React.Component {
+            render() {
+                return (
+                    <>
+                        <p className="z">Вывести на экран анкету Жасмин используя переменную jasmine (смотри исходный код) двумя способами (созданием элементов, конкатенацией)</p>
+
                         <div className="whores-container">
-                            {girls}
+                            <div className="whore">
+                                <div className="whore-name">Сильвия</div>
+                                <img src="images/silvia.jpg" width="200" />
+                                <div className="whore-age">Возраст: 32</div>
+                                <div className="whore-boobs">Размер груди: 3</div>
+                                <div className="whore-height">Рост: 170</div>
+                                <div className="whore-weight">Вес: 60</div>
+                                <div className="whore-phone">+380960000000</div>
+                                <div className="whore-can-come">Выезд: -</div>
+                                <div className="whore-teaser">Я - симпатичная девочка экзотической внешности без
+                                    комплексов и с огромной любовью к сексу! Я непревзойденная любовница, страстная,
+                                    доступная и яркая! Я невероятно сексуальна и изобретательна, мила и
+                                    непосредственна. Не теряй времени, звони мне, мой друг! Я скрашу твоё
+                                    одиночество :)
+                                </div>
+                            </div>
                         </div>
 
-                        <button className="b b14" onClick={this.handleClick}>Добавить анкету</button>
-                    </div>
-                )
+                        <button className="b b14">Добавить анкету</button>
+                    </>
+                );
             }
         }
 
-        class Fish extends React.Component {
-            state = {
-                fishInContainer: 1
-            }
-            handleClick = () => {
-                this.state.fishInContainer === 1 ? this.setState({fishInContainer: 2}) : this.setState({fishInContainer: 1})
-            }
-            render () {
-                var fish = <img className="fish" src="images/fish.jpg" width="100" />;
+        class TaskFish extends React.Component {
+            render() {
                 return (
-                    <div>
-                        <p className="z">Переместить рыбу из первого контейнера во второй
-                            (при повторном клике из второго в
-                            первый и т.д.)
-                        </p>
+                    <>
+                        <p className="z">Переместить рыбу из первого контейнера во второй (при повторном клике из второго в первый и т.д.)</p>
+
                         <div className="cats-container">
                             <div className="cat-container-1">
                                 <img className="cat" src="images/kat.png" width="100" />
-                                {this.state.fishInContainer === 1 ? fish : null}
+                                <img className="fish" src="images/fish.jpg" width="100" />
                             </div>
 
                             <div className="cat-container-2">
                                 <img className="cat" src="images/kat.png" width="100" />
-                                {this.state.fishInContainer === 2 ? fish : null}
                             </div>
                         </div>
-                        <button className="b b15" onClick={this.handleClick}>Переместить рыбу</button>
-                    </div>
-                )
+
+                        <button className="b b15">Переместить рыбу</button>
+                    </>
+                );
             }
         }
 
-        class Tooth extends React.Component {
-            state = {
-                hasTooth: true
-            }
-            handleClick = () => {
-                this.setState({hasTooth: false})
-            }
-            render () {
-                var tooth = <img className="tooth" src="images/tooth.jpg" width="200" />;
+        class TaskTooth extends React.Component {
+            render() {
                 return (
-                    <div>
+                    <>
                         <p className="z">Удалить зуб</p>
+
                         <div className="tooth-container">
-                            {this.state.hasTooth ? tooth : null}
+                            <img className="tooth" src="images/tooth.jpg" width="200" />
                             <img className="boy" src="images/bro.jpg" width="600" />
                         </div>
-                        <button className="b b16" onClick={this.handleClick}>Удалить зуб</button>
-                    </div>
-                )
+
+                        <button className="b b16">Удалить зуб</button>
+                    </>
+                );
             }
         }
 
-        class Skier extends React.Component {
-            state = {
-                x: 0
-            }
-
-            // interval = null;
-
-            start = () => {
-                this.interval = setInterval(function() {
-                    this.setState({
-                        x: this.state.x + 5
-                    });
-                }.bind(this), 16);
-            }
-
-            stop = () => {
-                clearInterval(this.interval);
-            }
-
-            render () {
-                var style = {
-                    left: this.state.x + 'px'
-                };
-                return(
-                    <div>
-                        <p className="z">Хочу чтоб лыжник бесконечно ехал вправо (сдвиг на 5px каждые 16ms). При нажатии на
-                            кнопку "Стоп!" останавливался.
-                        </p>
+        class TaskSkier extends React.Component {
+            render() {
+                return (
+                    <>
+                        <p className="z">Хочу чтоб лыжник бесконечно ехал вправо (сдвиг на 5px каждые 16ms). При нажатии на кнопку "Стоп!" останавливался.</p>
 
                         <div className="ski-resort">
-                            <img className="skier" src="images/skier.gif" style={style} />
+                            <img className="skier" src="images/skier.gif" />
                         </div>
 
-                        <button className="b b17" onClick={this.start}>Поехали!</button>
-                        <button className="b b17-2" onClick={this.stop}>Стоп!</button>
-                    </div>
-                )
+                        <button className="b b17">Поехали!</button>
+                        <button className="b b17-2">Стоп!</button>
+                    </>
+                );
             }
         }
 
-        class Mikki extends React.Component {
-            render () {
-                var mikki = [
-                    '  XXXX        XXXX  ',
-                    ' XXXXXX      XXXXXX ',
-                    'XXXX XX XXXX XX XXXX',
-                    'XXX  XXXXXXXXXX  XXX',
-                    'XXXXXXXXXXXXXXXXXXXX',
-                    'XXXXXXX      XXXXXXX',
-                    ' XXXXX        XXXXX ',
-                    '   XXX  XX XX XXX   ',
-                    '    XX  XX XX XX    ',
-                    '    XXX X  X  XX    ',
-                    '    X         XX    ',
-                    '    X    XXX  XX    ',
-                    '    XX   XXX  XX    ',
-                    '     XX      XX     ',
-                    '      X  XX  X      ',
-                    '       X    X       ',
-                    '     XX XXXX XX     ',
-                    '     XX      XX     ',
-                    '    XX        XX    ',
-                    '   XXXXXXXXXXXXXX   '
-                ];
-
-                var tiles = [];
-
-                var i = 0;
-                while (i < mikki.length) {
-                    var j = 0;
-                    while (j < mikki[i].length) {
-                        var style = mikki[i][j] === 'X' ? {backgroundColor: 'black'} : null;
-                        var tile = <div className="mikki_tile" style={style}></div>;
-                        tiles.push(tile);
-                        j++;
-                    }
-                    i++;
-                }
-
+        class TaskMikki extends React.Component {
+            render() {
                 return (
-                    <div>
+                    <>
                         <p className="z">Хочу такое (смотри исходный код) <img src="images/mikki.png" /></p>
-                        <div className="mikki_tiles">{tiles}</div>
-                    </div>
-                )
+
+                        <div className="mikki_tiles"></div>
+                    </>
+                );
             }
         }
 
-        class Mario extends React.Component {
-            render () {
-                var map = [
-                    '                                                  ',
-                    '                                                  ',
-                    '                                                  ',
-                    '                    w                             ',
-                    '                                       w          ',
-                    '                                                  ',
-                    '                       c                          ',
-                    '                                                  ',
-                    '                                        c         ',
-                    '                                                  ',
-                    '                c    kkkkk                        ',
-                    ' b                                     t        c ',
-                    '            d    g       d                        ',
-                    '                                                  ',
-                    'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz',
-                    'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz',
-                    'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz'
-                ];
-                var tiles = [];
-                var i = 0;
-                while (i < map.length) {
-                    var j = 0;
-                    while (j < map[i].length) {
-                        var style = {
-                            top: i * 16 + 'px',
-                            left: j * 16 + 'px'
-                        };
-                        var className = "tile ";
-                        if (map[i][j] === 'w') {
-                            className += "x_w";
-                        }
-                        if (map[i][j] === 'c') {
-                            className += "x_c";
-                        }
-                        if (map[i][j] === 'k') {
-                            className += "x_k";
-                        }
-                        if (map[i][j] === 'd') {
-                            className += "x_d";
-                        }
-                        if (map[i][j] === 't') {
-                            className += "x_t";
-                        }
-                        if (map[i][j] === 'g') {
-                            className += "x_g";
-                        }
-                        if (map[i][j] === 'b') {
-                            className += "x_b";
-                        }
-                        if (map[i][j] === 'z') {
-                            className += "x_z";
-                        }
-                        var tile = <div className={className} style={style}></div>;
-                        tiles.push(tile);
-                        j++;
-                    }
-                    i++;
-                }
+        class TaskMario extends React.Component {
+            render() {
                 return (
-                    <div>
+                    <>
                         <p className="z">Создать мир Марио <img src="images/mario.png" /></p>
-                        <div className="scene">{tiles}</div>
+
+                        <div className="scene"></div>
+
                         <button className="b b18">Создать мир</button>
-                    </div>
-                )
+                    </>
+                );
             }
         }
 
-        class Slides extends React.Component {
-            state = {
-                activeSlideIndex: 0,
-                slidesLength: 5
-            }
-
-            next = () => {
-                var { slidesLength, activeSlideIndex } = this.state;
-                var nextSlideIndex = activeSlideIndex === slidesLength - 1 ? 0 : activeSlideIndex + 1;
-                this.setState({
-                    activeSlideIndex: nextSlideIndex
-                });
-            }
-
-            previous = () => {
-                var { slidesLength, activeSlideIndex } = this.state;
-                // var slidesLength = this.state.slideLength;
-                // var activeSlideIndex = this.state.activeSlideIndex;
-                var previousSlideIndex = activeSlideIndex === 0 ? slidesLength - 1 : activeSlideIndex - 1;
-                this.setState({
-                    activeSlideIndex: previousSlideIndex
-                });
-            }
-
-            render () {
-                var { activeSlideIndex } = this.state;
-                var slides = [];
-                for (let i = 0; i < 5; i++) {
-                    let className = `slide slide${i+1} ${i === activeSlideIndex ? 'active' : ''}`;
-                    slides.push(<div className={className}></div>);
-                }
+        class TaskSlider extends React.Component {
+            render() {
                 return (
-                    <div>
-                        <p className="z">Кликая по кнопкам "предыдущая" и "следующая" я хочу чтобы менялись
-                            соответственно слайды
-                        </p>
+                    <>
+                        <p className="z">Кликая по кнопкам "предыдущая" и "следующая" я хочу чтобы менялись соответственно слайды</p>
+
                         <div className="slider">
-                            {slides}
+                            <img src="images/slide1.jpg" className="slide active" />
+                            <img src="images/slide2.jpg" className="slide" />
+                            <img src="images/slide3.jpg" className="slide" />
+                            <img src="images/slide4.jpg" className="slide" />
+                            <img src="images/slide5.jpg" className="slide" />
                         </div>
 
                         <div className="pagination">
-                            <button className="previous" onClick={this.previous}>Previous</button>
-                            <button className="next" onClick={this.next}>Next</button>
+                            <button className="previous">Previous</button>
+                            <button className="next">Next</button>
                         </div>
-                    </div>
-                )
+                    </>
+                );
             }
         }
 
-        class Questions extends React.Component {
-            state = {
-                items: [
-                    {
-                        question: 'В чем разница между 32-разрядной и 64-разрядной версиями Windows?',
-                        answer: `Термины "32-разрядный" и "64-разрядный" описывают, каким образом процессор компьютера (он также
-                                называется ЦП) обрабатывает информацию. 64-разрядная версия Windows обрабатывает большие объемы
-                                оперативной памяти (ОЗУ) более эффективно по сравнению с 32-разрядной версией. Не все устройства
-                                могут работать под управлением 64-разрядных версий Windows.`
-                    },
-                    {
-                        question: `Моя копия Windows приобретена через учебное заведение. Можно ли скачать ее
-                                здесь?`,
-                        answer: `Да, но вам потребуется ключ продукта. Перейдите на страницу загрузок <b>Академические
-                                продукты</b> и выберите версию Windows, чтобы начать.`
-                    },
-                    {
-                        question: `Что делать после создания носителя с помощью средства создания носителя?`,
-                        answer: `<p>Чтобы установить Windows, после создания установочного носителя выполните одно из следующих
-                                    действий:</p>
+        class TaskFaq extends React.Component {
+            render() {
+                return (
+                    <>
+                        <p className="z">Кликая вопросам я хочу видеть ответы на них</p>
+
+                        <dl className="faq">
+                            <dt className="question active">В чем разница между 32-разрядной и 64-разрядной версиями Windows?</dt>
+                            <dd className="answer">
+                                Термины "32-разрядный" и "64-разрядный" описывают, каким образом процессор компьютера
+                                (он также называется ЦП) обрабатывает информацию. 64-разрядная версия Windows
+                                обрабатывает большие объемы оперативной памяти (ОЗУ) более эффективно по сравнению с
+                                32-разрядной версией. Не все устройства могут работать под управлением 64-разрядных
+                                версий Windows.
+                            </dd>
+                            <dt className="question">Моя копия Windows приобретена через учебное заведение. Можно ли скачать ее здесь?</dt>
+                            <dd className="answer">
+                                Да, но вам потребуется ключ продукта. Перейдите на страницу загрузок <b>Академические
+                                продукты</b> и выберите версию Windows, чтобы начать.
+                            </dd>
+                            <dt className="question">Что делать после создания носителя с помощью средства создания носителя?</dt>
+                            <dd className="answer">
+                                <p>Чтобы установить Windows, после создания установочного носителя выполните одно из следующих действий:</p>
+
                                 <ul>
                                     <li>
-                                        Подключите USB-устройство флэш-памяти к компьютеру, на который необходимо установить
-                                        Windows, найдите его в проводнике и откройте файл setup.exe. Выполняйте инструкции,
-                                        отображаемые в ходе установки.
+                                        Подключите USB-устройство флэш-памяти к компьютеру, на который необходимо
+                                        установить Windows, найдите его в проводнике и откройте файл setup.exe.
+                                        Выполняйте инструкции, отображаемые в ходе установки.
                                     </li>
                                     <li>
-                                        Если ваш компьютер настроен на загрузку с USB-накопителя, подключите USB-устройство
-                                        флэш-памяти к компьютеру, на который необходимо установить Windows, перезагрузите его, а
-                                        затем следуйте инструкциям по установке.
+                                        Если ваш компьютер настроен на загрузку с USB-накопителя, подключите
+                                        USB-устройство флэш-памяти к компьютеру, на который необходимо установить
+                                        Windows, перезагрузите его, а затем следуйте инструкциям по установке.
                                     </li>
                                     <li>
-                                        Если компьютер настроен на загрузку с DVD-дисковода, вставьте DVD-диск в компьютер,
-                                        перезагрузите компьютер, а затем следуйте инструкциям по установке.
+                                        Если компьютер настроен на загрузку с DVD-дисковода, вставьте DVD-диск в
+                                        компьютер, перезагрузите компьютер, а затем следуйте инструкциям по установке.
                                     </li>
-                                </ul>`
-                    },
-                    {
-                        question: `Этот образ диска загрузочный?`,
-                        answer: `Образ диска с этого сайта можно использовать для создания загрузочных USB-носителей и
-                                DVD-дисков, которые предоставляют доступ к средствам восстановления.`
-                    }
-                ]
-            }
-
-            handleClick = (index) => {
-                var items = this.state.items.map(function(item, idx) {
-                    return idx !== index ?
-                        item :
-                        {
-                            ...item,
-                            active: !item.active
-                        }
-                });
-
-                this.setState({
-                    items
-                });
-            }
-
-            render() {
-                var { items } = this.state;
-
-                return (
-                    <div>
-                        <p className="z">Кликая вопросам я хочу видеть ответы на них</p>
-                        <dl className="faq">
-                            {
-                                items.map((item, index) => {
-                                    return (
-                                        <>
-                                            <dt className={`question ${ item.active ? 'active' : ''}`} onClick={() => { this.handleClick(index) }}>{item.question}</dt>
-                                            <dd className="answer" dangerouslySetInnerHTML={{ __html: item.answer }} />
-                                        </>
-                                    );
-                                })
-                            }
+                                </ul>
+                            </dd>
+                            <dt className="question">Этот образ диска загрузочный?</dt>
+                            <dd className="answer">
+                                Образ диска с этого сайта можно использовать для создания загрузочных USB-носителей и
+                                DVD-дисков, которые предоставляют доступ к средствам восстановления.
+                            </dd>
                         </dl>
-                    </div>
-                )
+                    </>
+                );
             }
         }
 
-        class Sessions extends React.Component {
-            state = {
-                activeTabIndex: 2,
-                items: [
-                    {
-                        tab: `Сегодня`,
-                        tabDescription: `<ul>
+        class TaskTabs extends React.Component {
+            render() {
+                return (
+                    <>
+                        <p className="z">Кликая по вкладкам я хочу видеть связанное содержимое</p>
+
+                        <h2>Сеансы</h2>
+
+                        <div className="tabs">
+                            <div className="item active" data-tab="today">Сегодня</div>
+                            <div className="item" data-tab="tomorrow">Завтра</div>
+                            <div className="item" data-tab="23d">23 декабря</div>
+                        </div>
+
+                        <div className="tabs-content">
+                            <div className="item active" data-tab="today">
+                                <ul>
                                     <li>Звёздные войны: Последние джедаи</li>
                                     <li>Счастливый день смерти</li>
                                     <li>Дыши</li>
-                                </ul>`
-                    },
-                    {
-                        tab: `Завтра`,
-                        tabDescription: `<ul>
+                                </ul>
+                            </div>
+                            <div className="item" data-tab="tomorrow">
+                                <ul>
                                     <li>Киборги</li>
                                     <li>Земля троллей</li>
                                     <li>За пропастью во ржи</li>
-                                </ul>`
-                    },
-                    {
-                        tab: `23 декабря`,
-                        tabDescription: `<ul>
+                                </ul>
+                            </div>
+                            <div className="item" data-tab="23d">
+                                <ul>
                                     <li>Мой любимый динозавр</li>
                                     <li>Фердинанд</li>
                                     <li>Джуманджи: Зов джунглей</li>
-                                </ul>`
-                    }
-                ]
-            };
-
-            handleClick = (index) => {
-                this.setState({
-                    activeTabIndex: index
-                });
-            };
-
-            render () {
-                var { items, activeTabIndex } = this.state;
-
-                return (
-                    <div>
-                        <p className="z">Кликая по вкладкам я хочу видеть связанное содержимое</p>
-                        <h2>Сеансы</h2>
-                        <div className="x-tabs">
-                            {
-                                items.map((item, index) => <div className={`x-tab ${index === activeTabIndex ? 'active' : ''}`} onClick={() => { this.handleClick(index) }}>{item.tab}</div>)
-                            }
+                                </ul>
+                            </div>
                         </div>
-
-                        <div className="x-items">
-                            {
-                                items.map((item, index) => <div className={`x-item ${index === activeTabIndex ? 'active' : ''}`} dangerouslySetInnerHTML={{ __html: item.tabDescription }}></div>)
-                            }
-                        </div>
-                    </div>
-                )
+                    </>
+                );
             }
         }
 
-        class Login extends React.Component {
-            render () {
+        // Пропускаем!
+        class TaskTodo3 extends React.Component {
+            render() {
                 return (
-                    <div>
-                        <p className="z">Кликая на кнопку Login я хочу чтобы затенялся экран и по середине
-                            экрана появлялось окошко для авторизации закрыть которое можно кликнув по кнопке
-                            с крестиком
-                        </p>
+                    <>
+                        <p className="z">Кликая на кнопку Login я хочу чтобы затенялся экран и по середине экрана появлялось окошко для авторизации закрыть которое можно кликнув по кнопке с крестиком</p>
+
                         <div className="overlay hidden"></div>
                         <div className="pop-up pop-up--login hidden">
                             <button className="close">x</button>
@@ -1206,88 +856,68 @@
                             <input type="password" placeholder="Password" />
                             <button className="login">Login</button>
                         </div>
+
                         <button className="show-login-pop-up">Login</button>
-                    </div>
-                )
+                    </>
+                );
             }
         }
 
-        class PreventDefault extends React.Component {
-            state = {
-                href: "https://ebanoe.it/"
-            }
-            handleClick = () => {
-                this.setState({href: null})
-            }
-            render () {
+        // Пропускаем!
+        class TaskTodo4 extends React.Component {
+            render() {
                 return (
-                    <div>
+                    <>
                         <p className="z">Отменить действие по-умолчанию при клике на ссылку</p>
-                        <p><a href={this.state.href} className="link-ebanoe" target="_blank" onClick={this.handleClick}>Ebanoe.IT — голая правда
-                            о нашем айти</a>
-                        </p>
-                    </div>
-                )
+
+                        <p><a href="https://ebanoe.it/" className="link-ebanoe" target="_blank">Ebanoe.IT — голая правда о нашем айти</a></p>
+                    </>
+                );
             }
         }
 
-        class Advertising extends React.Component {
-            render () {
+        // Пропускаем!
+        class TaskTodo5 extends React.Component {
+            render() {
                 return (
-                    <div>
-                        <p className="z">Надоела реклама про увеличение члена? При клике на кнопку "Больше не
-                            показывать" заноси в localStorage значение которое будешь проверять при загрузке
-                            страницы
-                        </p>
+                    <>
+                        <p className="z">Надоела реклама про увеличение члена? При клике на кнопку "Больше не показывать" заноси в localStorage значение которое будешь проверять при загрузке страницы</p>
                         <p className="t t97">Хочешь увеличить член? Заходи <a href="http://pornhub.com" target="_blank">сюда</a>! <button className="b97">Больше не показывать</button></p>
-                    </div>
-                )
+                    </>
+                );
             }
         }
 
-        class App extends React.Component {
-            render () {
-                return (
-                    <div>
-                        <div>
-                            <ChangeTextColor />
-                            <ChangeBackgroundColor />
-                            <ChangeLinkPath />
-                            <ChangeLinkImage />
-                            <ChangeIdElement />
-                            <ChangeText />
-                            <ChangeHTML />
-                            <ChangeFontSize />
-                            <AddClass />
-                            <DeleteClass />
-                            <AddDeleteClass />
-                            <ValueAttrClassElement />
-                            <TranslationText />
-                            <ChangeWindow />
-                            <ChangeValueExitCharacters />
-                        </div>
-                        <div>
-                            <WhoresContainer />
-                            <Fish />
-                            <Tooth />
-                        </div>
-                        <div>
-                            <Skier />
-                            <Mikki />
-                            <Mario />
-                            <Slides />
-                            <Questions />
-                            <Sessions />
-                            <Login />
-                            <PreventDefault />
-                            <Advertising />
-                        </div>
-                    </div>
-                )
-            }
-        }
+        var App = function() {
+            return (
+                <>
+                    <TaskChangeColor />
+                    <TaskChangeBackgroundColor />
+                    <TaskChangeHref />
+                    <TaskChangeSrc />
+                    <TaskChangeId />
+                    <TaskChangeText />
+                    <TaskChangeHtml />
+                    <TaskChangeFontSize />
+                    <TaskChangeAddClass />
+                    <TaskChangeRemoveClass />
+                    <TaskChangeToggleClass />
+                    <TaskChangeBackgroundColorOnResize />
+                    <TaskInputWithCounter />
+                    <TaskWhores />
+                    <TaskFish />
+                    <TaskTooth />
+                    <TaskSkier />
+                    <TaskMikki />
+                    <TaskMario />
+                    <TaskSlider />
+                    <TaskFaq />
+                    <TaskTabs />
+                </>
+            );
+        };
 
-    ReactDOM.render(<App />, document.querySelector('#app'));
+        ReactDOM.render(<App />, document.querySelector('#app'));
     </script>
 </body>
 </html>
