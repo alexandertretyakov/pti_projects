@@ -67,7 +67,62 @@
     </p>
 
     <script type="text/babel">
-        // Write your code here
+        //------------------------Без компонентов------------------------
+        var ul1 = React.createElement('ul', {
+                className: 'nuts'
+            },
+            React.createElement('li', null, 'Арахис'),
+            React.createElement('li', null, 'Кешью'),
+            React.createElement('li', null, 'Фундук'),
+            React.createElement('li', null, 'Миндаль')
+        );
+
+        $('.add-list-1').on('click', function() {
+            ReactDOM.render(ul1, document.querySelector('#list-1'));
+        });
+
+        //------------------------Функциональный компонент------------------------
+        var Ul2 = function(props) {
+            return(
+                React.createElement('ul', props,
+                    React.createElement('li', null, 'Арахис'),
+                    React.createElement('li', null, 'Кешью'),
+                    React.createElement('li', null, 'Фундук'),
+                    React.createElement('li', null, 'Миндаль')
+                )
+            );
+        };
+
+        var ul2 = React.createElement(Ul2, {
+            className: 'nuts'
+        });
+
+
+        $('.add-list-2').on('click', function() {
+            ReactDOM.render(ul2, document.querySelector('#list-2'));
+        });
+
+        //------------------------Классовый компонент------------------------
+        class Ul3 extends React.Component {
+            render() {
+                return (
+                    React.createElement('ul', this.props,
+                        React.createElement('li', null, 'Арахис'),
+                        React.createElement('li', null, 'Кешью'),
+                        React.createElement('li', null, 'Фундук'),
+                        React.createElement('li', null, 'Миндаль')
+                    )
+                );
+            };
+        }
+
+        var ul3 = React.createElement(Ul3, {
+            className: 'nuts'
+        });
+
+        $('.add-list-3').on('click', function() {
+            ReactDOM.render(ul3, document.querySelector('#list-3'));
+        });
     </script>
 
     <p class="z">
@@ -93,7 +148,66 @@
     </p>
 
     <script type="text/babel">
-        // Write your code here
+        //------------------------Без компонентов------------------------
+        var ul4 = React.createElement('ul', {
+                className: 'nuts'
+            }, nuts.map(function(item, idx) {
+                return React.createElement('li', {key: idx}, item);
+            })
+        );
+        $('.add-list-4').on('click', function() {
+            ReactDOM.render(ul4, document.querySelector('#list-4'));
+        });
+
+        //------------------------Функциональный компонент------------------------
+        var Ul5 = function(props) {
+            var {className} = props;
+
+            return (
+                React.createElement('ul', {
+                        className: className
+                    },
+                    props.items.map(function(item, idx) {
+                        return React.createElement('li', {key: idx}, item);
+                    })
+                )
+            );
+        };
+
+        var ul5 = React.createElement(Ul5, {
+            className: 'nuts',
+            items: nuts
+        });
+
+        $('.add-list-5').on('click', function() {
+            ReactDOM.render(ul5, document.querySelector('#list-5'));
+        });
+
+        //------------------------Классовый компонент------------------------
+        class Ul6 extends React.Component{
+            render() {
+                var {className} = this.props;
+
+                return (
+                    React.createElement('ul', {
+                            className: className
+                        },
+                        this.props.items.map(function(item, idx) {
+                            return React.createElement('li', {key: idx}, item);
+                        })
+                    )
+                )
+            }
+        }
+
+        var ul6 = React.createElement(Ul6, {
+            className: 'nuts',
+            items: nuts
+        });
+
+        $('.add-list-6').on('click', function() {
+            ReactDOM.render(ul6, document.querySelector('#list-6'))
+        });
     </script>
 
     <p class="z">
@@ -119,7 +233,51 @@
     </p>
 
     <script type="text/babel">
-        // Write your code here
+        //------------------------Без компонентов------------------------
+        var ul7 = <ul className="nuts">
+            <li>Арахис</li>
+            <li>Кешью</li>
+            <li>Фундук</li>
+            <li>Миндаль</li>
+        </ul>;
+
+        $('.add-list-7').on('click', function() {
+            ReactDOM.render(ul7, document.querySelector('#list-7'));
+        });
+
+        //------------------------Функциональный компонент------------------------
+        var Ul8 = function() {
+            return (
+                <ul className="nuts">
+                    <li>Арахис</li>
+                    <li>Кешью</li>
+                    <li>Фундук</li>
+                    <li>Миндаль</li>
+                </ul>
+            );
+        };
+
+        $('.add-list-8').on('click', function() {
+            ReactDOM.render(<Ul8 />, document.querySelector('#list-8'));
+        });
+
+        //------------------------Классовый компонент------------------------
+        class Ul9 extends React.Component {
+            render() {
+                return(
+                    <ul className="nuts">
+                        <li>Арахис</li>
+                        <li>Кешью</li>
+                        <li>Фундук</li>
+                        <li>Миндаль</li>
+                    </ul>
+                );
+            };
+        }
+
+        $('.add-list-9').on('click', function() {
+            ReactDOM.render(<Ul9 />, document.querySelector('#list-9'));
+        });
     </script>
 
     <p class="z">
@@ -132,6 +290,12 @@
         <li>Классовый компонент</li>
     </ul>
 
+    <div class="lists">
+        <div id="list-10"></div>
+        <div id="list-11"></div>
+        <div id="list-12"></div>
+    </div>
+
     <p>
         <button class="add-list-10">Без компонентов</button>
         <button class="add-list-11">Функциональный компонент</button>
@@ -139,7 +303,48 @@
     </p>
 
     <script type="text/babel">
-        // Write your code here
+        //------------------------Без компонентов------------------------
+        var ul10 = <ul className="nuts">
+            {
+                nuts.map((el, idx) => <li>{el}</li>)
+            }
+        </ul>
+
+        $('.add-list-10').on('click', function() {
+            ReactDOM.render(ul10, document.querySelector('#list-10'));
+        });
+
+        //------------------------Функциональный компонент------------------------
+        var Ul11 = function() {
+            return (
+                <ul className="nuts">
+                    {
+                        nuts.map((el, idx) => <li>{el}</li>)
+                    }
+                </ul>
+            );
+        };
+
+        $('.add-list-11').on('click', function() {
+            ReactDOM.render(<Ul11 />, document.querySelector('#list-11'));
+        });
+
+        //------------------------Классовый компонент------------------------
+        class Ul12 extends React.Component {
+            render() {
+                return(
+                    <ul className="nuts">
+                        {
+                            nuts.map((el, idx) => <li>{el}</li>)
+                        }
+                    </ul>
+                );
+            };
+        }
+
+        $('.add-list-12').on('click', function() {
+            ReactDOM.render(<Ul12 />, document.querySelector('#list-12'));
+        });
     </script>
 
     <div class="games"><div class="game"><div class="game-flags"><span class="item item-hot">Hot</span></div><img src="images/games/Batman-v-Superman-Dawn-of-Justice-290x180.jpg"><h6>Batman v Superman Dawn of Justice</h6></div><div class="game"><div class="game-flags"></div><img src="images/games/Batman-Begins-290x180.jpg"><h6>Batman Begins</h6></div><div class="game"><div class="game-flags"><span class="item item-new">New</span></div><img src="images/games/jackpot-giant-290x180.jpg"><h6>Jackpot Giant</h6></div><div class="game"><div class="game-flags"><span class="item item-hot">Hot</span><span class="item item-new">New</span></div><img src="images/games/european-roulette-290x180.jpg"><h6>Premium European Roulette</h6></div><div class="game"><div class="game-flags"></div><img src="images/games/Da-vinci-Vault-290x180.jpg"><h6>Da Vinci’s Vault</h6></div><div class="game"><div class="game-flags"></div><img src="images/games/Murder-Mystery-290x180.jpg"><h6>Murder Mystery</h6></div><div class="game"><div class="game-flags"><span class="item item-new">New</span></div><img src="images/games/PremiumBlackjack-290x180.jpg"><h6>Premium Blackjack</h6></div><div class="game"><div class="game-flags"><span class="item item-hot">Hot</span></div><img src="images/games/Gladiator-road-to-rome-290x180.jpg"><h6>Gladiator 2</h6></div></div>
@@ -196,7 +401,35 @@
     </script>
 
     <script type="text/babel">
-        // Write your code here
+        const Game = function(props) {
+            return (
+                <div className="game">
+                    <div className="game-flags">
+                        { props.flagHot ? <span className="item item-hot">Hot</span> : null }
+                        { props.flagNew ? <span className="item item-new">New</span> : null }
+                        { props.flagExclusive ? <span className="item item-exclusive">Exclusive</span> : null }
+                    </div>
+                    <img src={props.imageURL} />
+                    <h6>{props.name}</h6>
+                </div>
+            )
+        };
+
+        const Games = function(props) {
+            return (
+                <>
+                    {
+                        props.items.map((game, idx) => <Game {...game} key={idx} />)
+                    }
+                </>
+            )
+        }
+
+        const games = <Games items={games} />;
+
+        $('.add-games').on('click', function() {
+            ReactDOM.render(games, document.querySelector('#games'));
+        });
     </script>
 
     <style>
@@ -343,14 +576,45 @@
     </script>
 
     <script type="text/babel">
-        // Write your code here
+        const Whore = function(props) {
+            return (
+                <div className="whore">
+                    <div className="whore-name">{props.name}</div>
+                    <img src={props.photo} width="200" />
+                    <div className="whore-age">Возраст: {props.age}</div>
+                    <div className="whore-hair">Цвет волос: {props.hair}</div>
+                    <div className="whore-boobs">Размер груди: {props.boobs}</div>
+                    <div className="whore-height">Рост: {props.height}</div>
+                    <div className="whore-weight">Вес: {props.weight}</div>
+                    <div className="whore-phone">{props.phone}</div>
+                    <div className="whore-can-come">Выезд: {props.can_come ? '+' : '-'}</div>
+                    <div className="whore-teaser">{props.teaser}</div>
+                </div>
+            )
+        };
+
+        const Whores = function(props) {
+            return (
+                <>
+                    {
+                        props.items.map((girl, idx) => <Whore {...girl} key={idx} />)
+                    }
+                </>
+            )
+        }
+
+        const whores = <Whores items={whores} />;
+
+        $('.add-whores').on('click', function() {
+            ReactDOM.render(whores, document.querySelector('#whores'));
+        });
     </script>
 
     <style>
         .whores {
             background: #751a1a;
             width: 910px;
-            height:  474px;
+            min-height:  474px;
             padding: 10px;
             overflow: hidden;
             margin-bottom: 1em;
@@ -666,7 +930,35 @@
     </script>
 
     <script type="text/babel">
-        // Write your code here
+        const Movie = function(props) {
+            return (
+                <div className="movie">
+                    <div className="movie-image-container">
+                        <a href="#"><img src={`images/movies/${props.id}.jpg`} /></a>
+                    </div>
+                    <a className="movie-title" href="#">{props.title}</a>
+                    <div className="movie-details">
+                        <span>{props.year}</span>
+                    </div>
+                </div>
+            )
+        };
+
+        const Movies = function(props) {
+            return (
+                <>
+                    {
+                        props.items.map((film, idx) => <Movie {...film} key={idx} />)
+                    }
+                </>
+            )
+        }
+
+        const movies = <Movies items={movies} />;
+
+        $('.add-movies').on('click', function() {
+            ReactDOM.render(movies, document.querySelector('#movies'));
+        });
     </script>
 
     <style>
@@ -867,7 +1159,37 @@
     </script>
 
     <script type="text/babel">
-        // Write your code here
+        const Rich = function({headings, persons}) {
+            return (
+                <table>
+                    <tbody>
+                        <tr>
+                            {
+                                headings.map((heading, idx) => <th key={idx}>{heading}</th>)
+                            }
+                        </tr>
+                        {
+                            persons.map((person, idx) => (
+                                <tr key={idx}>
+                                    <td>{person.position}</td>
+                                    <td>{person.fio}</td>
+                                    <td>{person.money}</td>
+                                    <td>{person.sourceOfFunds}</td>
+                                    <td>{person.age}</td>
+                                    <td>{person.country}</td>
+                                </tr>
+                            ))
+                        }
+                    </tbody>
+                </table>
+            )
+        }
+
+        const rich = <Rich headings={rich.headings} persons={rich.data} />;
+
+        $('.add-rich').on('click', function() {
+            ReactDOM.render(rich, document.querySelector('#rich'));
+        });
     </script>
 
     <style>
