@@ -315,7 +315,7 @@
         });
 
         //------------------------Функциональный компонент------------------------
-        var Ul11 = function() {
+        var Ul11 = function({nuts}) {
             return (
                 <ul className="nuts">
                     {
@@ -326,12 +326,14 @@
         };
 
         $('.add-list-11').on('click', function() {
-            ReactDOM.render(<Ul11 />, document.querySelector('#list-11'));
+            ReactDOM.render(<Ul11 nuts={nuts} />, document.querySelector('#list-11'));
         });
 
         //------------------------Классовый компонент------------------------
         class Ul12 extends React.Component {
             render() {
+                const {nuts} = this.props;
+
                 return(
                     <ul className="nuts">
                         {
@@ -343,7 +345,7 @@
         }
 
         $('.add-list-12').on('click', function() {
-            ReactDOM.render(<Ul12 />, document.querySelector('#list-12'));
+            ReactDOM.render(<Ul12 nuts={nuts} />, document.querySelector('#list-12'));
         });
     </script>
 
@@ -415,15 +417,15 @@
             )
         };
 
-        const Games = function(props) {
+        const Games = function({items}) {
             return (
                 <>
                     {
-                        props.items.map((game, idx) => <Game {...game} key={idx} />)
+                        items.map((game, idx) => <Game {...game} key={idx} />)
                     }
                 </>
             )
-        }
+        };
 
         const games = <Games items={games} />;
 
@@ -593,15 +595,15 @@
             )
         };
 
-        const Whores = function(props) {
+        const Whores = function({items}) {
             return (
                 <>
                     {
-                        props.items.map((girl, idx) => <Whore {...girl} key={idx} />)
+                        items.map((girl, idx) => <Whore {...girl} key={idx} />)
                     }
                 </>
             )
-        }
+        };
 
         const whores = <Whores items={whores} />;
 
@@ -944,15 +946,15 @@
             )
         };
 
-        const Movies = function(props) {
+        const Movies = function({items}) {
             return (
                 <>
                     {
-                        props.items.map((film, idx) => <Movie {...film} key={idx} />)
+                        items.map((film, idx) => <Movie {...film} key={idx} />)
                     }
                 </>
             )
-        }
+        };
 
         const movies = <Movies items={movies} />;
 
@@ -1159,7 +1161,7 @@
     </script>
 
     <script type="text/babel">
-        const Rich = function({headings, persons}) {
+        const Rich = function({headings, data}) {
             return (
                 <table>
                     <tbody>
@@ -1169,7 +1171,7 @@
                             }
                         </tr>
                         {
-                            persons.map((person, idx) => (
+                            data.map((person, idx) => (
                                 <tr key={idx}>
                                     <td>{person.position}</td>
                                     <td>{person.fio}</td>
@@ -1183,9 +1185,9 @@
                     </tbody>
                 </table>
             )
-        }
+        };
 
-        const rich = <Rich headings={rich.headings} persons={rich.data} />;
+        const rich = <Rich {...rich} />;
 
         $('.add-rich').on('click', function() {
             ReactDOM.render(rich, document.querySelector('#rich'));
