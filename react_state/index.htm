@@ -1180,7 +1180,7 @@
         // TODO:
         class TaskFaq extends React.Component {
             state = {
-                active: false
+                activeIndex: 0
             };
 
             items = [
@@ -1226,15 +1226,15 @@
                 }
             ];
 
-            toggleClass = () => {
-                const currentState = this.state.active;
-                this.setState({ active: !currentState });
+            toggleClass = (e) => {
+                document.querySelectorAll('.question').forEach((el, index) => {
+                    if (this.state.activeIndex === index) {
+                        el === e.target ? this.setState({activeIndex: null}) : null;
+                    } else {
+                        el === e.target ? this.setState({activeIndex: index}) : null;
+                    }
+                })
             };
-
-            // onClick = (e) => {
-            //     console.log(e.target.className === 'question')
-            //     e.target.className === 'question' ? this.setState({className: 'active'}) : this.setState({className: ''});
-            // };
 
             render() {
                 const {items} = this;
@@ -1248,7 +1248,7 @@
                                 items.map((item, index) => {
                                     return (
                                         <>
-                                            <dt className={this.state.active ? 'question active': 'question'}>{item.question}</dt>
+                                            <dt className={this.state.activeIndex === index ? 'question active': 'question'}>{item.question}</dt>
                                             <dd className="answer" dangerouslySetInnerHTML={{__html: item.answer}}></dd>
                                         </>
                                     );
