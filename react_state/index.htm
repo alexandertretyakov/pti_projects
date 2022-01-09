@@ -798,73 +798,61 @@
             }
         }
 
-        // TODO:
+        const Whore = function(props) {
+            return (
+                <div className="whore">
+                    <div className="whore-name">{props.name}</div>
+                    <img src={props.photo} width="200" />
+                    <div className="whore-age">Возраст: {props.age}</div>
+                    <div className="whore-boobs">Размер груди: {props.boobs}</div>
+                    <div className="whore-height">Рост: {props.height}</div>
+                    <div className="whore-weight">Вес: {props.weight}</div>
+                    <div className="whore-phone">{props.phone}</div>
+                    <div className="whore-can-come">Выезд: {props.can_come ? '+' : '-'}</div>
+                    <div className="whore-teaser">{props.teaser}</div>
+                </div>
+            )
+        };
+
         class TaskWhores extends React.Component {
             state = {
-                whores: [
-                    {
-                        name: 'Сильвия',
-                        photo: 'images/silvia.jpg',
-                        age: '32',
-                        hair: 'блондинка',
-                        boobs: '3',
-                        weight: '60',
-                        height: '170',
-                        phone: '+380960000000',
-                        can_come: true,
-                        teaser: 'Я - симпатичная девочка экзотической внешности без\n' +
-                            'комплексов и с огромной любовью к сексу! Я непревзойденная любовница, страстная,\n' +
-                            'доступная и яркая! Я невероятно сексуальна и изобретательна, мила и\n' +
-                            'непосредственна. Не теряй времени, звони мне, мой друг! Я скрашу твоё\n' +
-                            'одиночество :)'
-                    }
-                ]
+                whores: []
             };
 
             onClick = () => {
-                this.setState({
+                this.setState((state) => ({
                     whores: [
-                        ...this.state.whores,
-                        {
-                            name: 'Жасмин',
-                            photo: 'images/zhasmin.jpg',
-                            age: '18',
-                            hair: 'брюнетка',
-                            boobs: '3',
-                            weight: '50',
-                            height: '168',
-                            phone: '+380960000000',
-                            can_come: true,
-                            teaser: 'Очень нежная девчонка доставит Вам удовольствие по полной программе! Каждый мужчина ищет идеальную женщину - попробуй, может быть я именно та которая тебе нужна... Фото мои 1000%!!! Выезда НЕТ!!! Квартира для встреч ЕСТЬ, 5 мин от ст. метро \"Дворец Украина\"'
-                        }
+                        ...state.whores,
+                        jasmine
                     ]
-                })
+                }));
             };
 
             render() {
+                var {whores} = this.state;
+
                 return (
                     <>
-                        <p className="z">Вывести на экран анкету Жасмин используя переменную jasmine (смотри исходный код) двумя способами (созданием элементов, конкатенацией)</p>
+                        <p className="z">Вывести на экран анкету Жасмин используя переменную jasmine (смотри исходный код)</p>
 
                         <div className="whores-container">
-                            {
-                                this.state.whores.map((whore, index) => {
-                                    return (
-                                        <div className="whore">
-                                            <div className="whore-name">{whore.name}</div>
-                                            <img src={whore.photo} width="200" />
-                                            <div className="whore-age">Возраст: {whore.age}</div>
-                                            <div className="whore-boobs">Размер груди: {whore.boobs}</div>
-                                            <div className="whore-height">Рост: {whore.height}</div>
-                                            <div className="whore-weight">Вес: {whore.weight}</div>
-                                            <div className="whore-phone">{whore.phone}</div>
-                                            <div className="whore-can-come">Выезд: {`${whore.can_come ? ' + ': ' - '}`}</div>
-                                            <div className="whore-teaser">{whore.teaser}
-                                            </div>
-                                        </div>
-                                    )
-                                })
-                            }
+                            <div className="whore">
+                                <div className="whore-name">Сильвия</div>
+                                <img src="images/silvia.jpg" width="200" />
+                                <div className="whore-age">Возраст: 32</div>
+                                <div className="whore-boobs">Размер груди: 3</div>
+                                <div className="whore-height">Рост: 170</div>
+                                <div className="whore-weight">Вес: 60</div>
+                                <div className="whore-phone">+380960000000</div>
+                                <div className="whore-can-come">Выезд: -</div>
+                                <div className="whore-teaser">Я - симпатичная девочка экзотической внешности без
+                                    комплексов и с огромной любовью к сексу! Я непревзойденная любовница, страстная,
+                                    доступная и яркая! Я невероятно сексуальна и изобретательна, мила и
+                                    непосредственна. Не теряй времени, звони мне, мой друг! Я скрашу твоё
+                                    одиночество :)
+                                </div>
+                            </div>
+                            { whores.map((whore, idx) => <Whore {...whore} key={idx} />) }
                         </div>
 
                         <button className="b b14" onClick={this.onClick}>Добавить анкету</button>
@@ -1177,10 +1165,9 @@
             };
         }
 
-        // TODO:
         class TaskFaq extends React.Component {
             state = {
-                activeIndex: 0
+                activeQuestionIndex: null
             };
 
             items = [
@@ -1226,29 +1213,26 @@
                 }
             ];
 
-            toggleClass = (e) => {
-                document.querySelectorAll('.question').forEach((el, index) => {
-                    if (this.state.activeIndex === index) {
-                        el === e.target ? this.setState({activeIndex: null}) : null;
-                    } else {
-                        el === e.target ? this.setState({activeIndex: index}) : null;
-                    }
-                })
+            toggleQuestion = (index) => {
+                this.setState((state) => ({
+                    activeQuestionIndex: index === state.activeQuestionIndex ? null : index
+                }));
             };
 
             render() {
-                const {items} = this;
+                const {items, toggleQuestion} = this;
+                const {activeQuestionIndex} = this.state;
 
                 return (
                     <>
                         <p className="z">Кликая вопросам я хочу видеть ответы на них</p>
 
-                        <dl className="faq" onClick={this.toggleClass}>
+                        <dl className="faq">
                             {
                                 items.map((item, index) => {
                                     return (
                                         <>
-                                            <dt className={this.state.activeIndex === index ? 'question active': 'question'}>{item.question}</dt>
+                                            <dt onClick={() => toggleQuestion(index)} className={activeQuestionIndex === index ? 'question active': 'question'}>{item.question}</dt>
                                             <dd className="answer" dangerouslySetInnerHTML={{__html: item.answer}}></dd>
                                         </>
                                     );
@@ -1260,30 +1244,15 @@
             };
         }
 
-        // TODO:
         class TaskTabs extends React.Component {
             state = {
-                data: 'today'
+                id: 'today'
             };
 
             tabs = [
                 {
-                    data: 'today',
-                    text: 'Сегодня'
-                },
-                {
-                    data: 'tomorrow',
-                    text: 'Завтра'
-                },
-                {
-                    data: '23d',
-                    text: '23 декабря'
-                }
-            ];
-
-            contentTabs = [
-                {
-                    data: 'today',
+                    id: 'today',
+                    title: 'Сегодня',
                     content: `<ul>
                                 <li>Звёздные войны: Последние джедаи</li>
                                 <li>Счастливый день смерти</li>
@@ -1291,7 +1260,8 @@
                               </ul>`
                 },
                 {
-                    data: 'tomorrow',
+                    id: 'tomorrow',
+                    title: 'Завтра',
                     content: `<ul>
                                 <li>Киборги</li>
                                 <li>Земля троллей</li>
@@ -1299,7 +1269,8 @@
                               </ul>`
                 },
                 {
-                    data: '23d',
+                    id: '23d',
+                    title: '23 декабря',
                     content: `<ul>
                                 <li>Мой любимый динозавр</li>
                                 <li>Фердинанд</li>
@@ -1309,35 +1280,28 @@
             ];
 
             onClick = (e) => {
-                if (e.target.className === 'item') {
-                    this.setState({data: e.target.dataset.tab})
-                }
+                this.setState({id: e.target.dataset.tab});
             };
 
             render() {
+                const {tabs} = this;
+                const {id} = this.state;
+
                 return (
                     <>
                         <p className="z">Кликая по вкладкам я хочу видеть связанное содержимое</p>
 
                         <h2>Сеансы</h2>
 
-                        <div className="tabs" onClick={this.onClick}>
+                        <div className="tabs">
                             {
-                                this.tabs.map((el, index) => {
-                                    return (
-                                        <div className={el.data === this.state.data ? 'item active' : 'item'} data-tab={el.data}>{el.text}</div>
-                                    )
-                                })
+                                tabs.map((tab, index) => <div onClick={this.onClick} className={tab.id === id ? 'item active' : 'item'} data-tab={tab.id}>{tab.title}</div>)
                             }
                         </div>
 
                         <div className="tabs-content">
                             {
-                                this.contentTabs.map((el, index) => {
-                                    return (
-                                        <div className={el.data === this.state.data ? 'item active' : 'item'} data-tab={el.data} dangerouslySetInnerHTML={{__html: el.content}}></div>
-                                    )
-                                })
+                                tabs.map((tab, index) => <div className={tab.id === id ? 'item active' : 'item'} data-tab={tab.id} dangerouslySetInnerHTML={{__html: tab.content}}></div>)
                             }
                         </div>
                     </>
