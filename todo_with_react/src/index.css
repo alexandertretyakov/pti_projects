@@ -27,7 +27,6 @@
   margin-bottom: 20px;
   display: flex;
   justify-content: space-between;
-  float: right;
 }
 
 .filters input {
@@ -37,11 +36,6 @@
   border: 1px solid #767676;
   width: 100%;
   margin-right: 20px;
-}
-
-#needle {
-  height: 40px;
-  font-size: 20px;
 }
 
 .actions {

@@ -8,20 +8,18 @@ const Filters = ({filter, onFilterChange}) => {
     ];
 
     return (
-        <div className="filters">
-            <div className="actions">
-                {
-                    buttons.map((button) => {
-                        const className = filter === button.name ? 'active' : null;
+        <div className="actions">
+            {
+                buttons.map((button) => {
+                    const className = filter === button.name ? 'active' : null;
 
-                        return (
-                            <button className={className} onClick={onFilterChange.bind(null, button.name)}>{button.title}</button>
-                        );
-                    })
-                }
-            </div>
+                    return (
+                        <button className={className} onClick={onFilterChange.bind(null, button.name)}>{button.title}</button>
+                    );
+                })
+            }
         </div>
-    )
-}
+    );
+};
 
 export default Filters;

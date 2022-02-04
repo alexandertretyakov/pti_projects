@@ -16,7 +16,7 @@ class Search extends React.Component {
     }
 
     render() {
-        return <input type="text" value={this.state.needle} onChange={this.onChange} placeholder="Что будем искать?" id="needle" />
+        return <input type="text" value={this.state.needle} onChange={this.onChange} placeholder="Что будем искать?" id="needle" />;
     }
 }
 

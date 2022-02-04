@@ -90,12 +90,14 @@ class App extends React.Component {
         return (
             <div className="app">
                 <Statistics todoCount={todoCount} completedCount={completedCount} />
-                <Search onSearchChange={this.onSearchChange} />
-                <Filters filter={this.state.filter} onFilterChange={this.onFilterChange} />
+                <div className="filters">
+                    <Search onSearchChange={this.onSearchChange} />
+                    <Filters filter={this.state.filter} onFilterChange={this.onFilterChange} />
+                </div>
                 <EntryField onCreate={this.onCreate} />
                 <TodoList items={this.getFiltredItems()} onRemove={this.onRemove} onImportant={this.onImportant} onCompleted={this.onCompleted} />
             </div>
-        )
+        );
     }
 }
 
