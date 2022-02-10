@@ -2,31 +2,17 @@ import React from 'react';
 import _ from 'underscore';
 
 class Filters extends React.Component {
-    state = {
-        countries: ['usa'],
-        genres: []
-        // countsCountries: 0,
-        // countsGenres: 0
-    };
+    constructor(props) {
+        super();
+        window.fi= this;
+    }
 
     getListOfCountries = () => {
-        return _.countBy(_.flatten(_.pluck(this.props.movies, 'countries')));
+        return _.map(_.countBy(_.flatten(_.pluck(this.props.movies, 'countries'))), (count, country) => ({country, count}));
     };
 
     getListOfGenres = () => {
-        return _.countBy(_.flatten(_.pluck(this.props.movies, 'genre')));
-    };
-
-    enter = () => {
-        var listOfCountries = this.getListOfCountries();
-        var listOfGenres = this.getListOfGenres();
-
-        this.setState({
-            countries: Object.keys(listOfCountries),
-            genres: Object.keys(listOfGenres)
-            // countsCountries: Object.values(listOfCountries),
-            // countsGenres: Object.values(listOfGenres)
-        })
+        return _.map(_.countBy(_.flatten(_.pluck(this.props.movies, 'genre'))), (count, genre) => ({genre, count}));
     };
 
     // models = this.collection.getItemsFilteredBy(models, 'countries', countries); 3
@@ -44,7 +30,9 @@ class Filters extends React.Component {
     // }
 
     render() {
-        this.enter()
+        var listOfCountries = this.getListOfCountries();
+        var listOfGenres = this.getListOfGenres();
+
         return (
             <div className="filters">
                 <h4>Фильтры</h4>
@@ -52,11 +40,11 @@ class Filters extends React.Component {
                 <div>Страна:
                     <div className="filter-countries">
                         {
-                            this.state.countries.map((country) => {
+                            listOfCountries.map((item) => {
                                 return (
                                     <>
-                                        <input type="checkbox" id={country} value={country} />
-                                        <label htmlFor={country}>{country}</label>
+                                        <input type="checkbox" id={item.country} value={item.country} />
+                                        <label htmlFor={item.country}>{item.country} ({item.count})</label>
                                     </>
                                 );
                             })
@@ -67,11 +55,11 @@ class Filters extends React.Component {
                 <div>Жанр:
                     <div className="filter-genre">
                         {
-                            this.state.genres.map((genre) => {
+                            listOfGenres.map((item) => {
                                 return (
                                     <>
-                                        <input type="checkbox" checked={false} id={genre} value={genre} />
-                                        <label htmlFor={genre}>{genre}</label>
+                                        <input type="checkbox" id={item.genre} value={item.genre} />
+                                        <label htmlFor={item.genre}>{item.genre} ({item.count})</label>
                                     </>
                                 );
                             })
