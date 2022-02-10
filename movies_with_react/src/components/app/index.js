@@ -337,7 +337,7 @@ class App extends React.Component {
                     handleSort={this.handleSort}
                 />
                 <Filters movies={this.state.movies}/>
-                {/*<Pagination buttons={this.state.buttons}/>*/}
+                <Pagination pagesCount={16} page={6} onClick={(num) => console.log(num)} />
                 <div className={`movies ${this.state.viewType === 'tiles' ? 'state-tiles' : 'state-list'}`}>
                     <ListMovies
                         viewType={this.state.viewType}

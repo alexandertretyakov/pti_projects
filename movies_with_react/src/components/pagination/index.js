@@ -1,20 +1,20 @@
 import React from 'react';
 
-class Pagination extends React.Component {
-    render() {
-        return (
-            <div className="pagination" onClick={this.handlePagination}>
-                {
-                    this.props.buttons.map(() => {
-                        return (
-                            <button>1</button>
-                        )
-                    })
-                }
-            </div>
-        )
+const Pagination = ({pagesCount, page, onClick}) => {
+    const buttons = Array.from({ length: pagesCount }, (v, i) => i+1);
 
-    }
-}
+    return (
+        <div className="pagination">
+            {
+                buttons.map((number) => {
+                    const className = number === page ? 'active' : null;
+                    return (
+                        <button className={className} onClick={onClick.bind(null, number)}>{number}</button>
+                    );
+                })
+            }
+        </div>
+    )
+};
 
 export default Pagination;
