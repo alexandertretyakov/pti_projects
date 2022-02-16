@@ -58,6 +58,7 @@ class App extends React.Component {
             showAddForm: false,
             selectedWhoreId: null
         }));
+        // localStorage
     };
 
     onRemove = (id) => {
@@ -66,6 +67,7 @@ class App extends React.Component {
             showAddForm: false,
             selectedWhoreId: null
         }));
+        // localStorage
     };
 
     onUpdate = (updatedWhore) => {
@@ -74,6 +76,7 @@ class App extends React.Component {
             showAddForm: false,
             selectedWhoreId: null
         }));
+        // localStorage
     };
 
     render() {
