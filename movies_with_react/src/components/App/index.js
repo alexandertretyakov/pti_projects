@@ -1,11 +1,11 @@
 import React from 'react';
 import _ from 'underscore';
 
-import FiltersTopBar from '../filtersTopBar';
-import Filters from '../filters';
-import Pagination from '../pagination';
-import ListMovies from '../listMovies';
-import PopUp from '../popUp';
+import FiltersTopBar from '../FiltersTopBar';
+import Filters from '../Filters';
+import Pagination from '../Pagination';
+import ListMovies from '../ListMovies';
+import PopUp from '../PopUp';
 
 class App extends React.Component {
     state = {
@@ -253,52 +253,41 @@ class App extends React.Component {
         ],
         viewType: 'tiles',
         needle: '',
-        itemsPerPage: 'default',// default 6 12 18
-        sortBy: 'default', // сортировка по: убыванию, возростанию и т.д.
-        page: 1, // странички пагинации 1,2,3
-        countries: [],       // ['СССР', 'Мальта']
+        itemsPerPage: 'default',    // default 6 12 18
+        sortBy: 'default',          // сортировка по: убыванию, возростанию и т.д.
+        page: 1,                    // странички пагинации 1,2,3
+        countries: [],              // ['СССР', 'Мальта']
         genres: [],
         showPopUpWithMovieId: null
     };
 
-    viewMovies = (view) => {
-        this.setState({
-            viewType: view
-        });
+    componentDidMount() {
+        this.transformMovies();
+    }
+
+    onViewTypeChange = (viewType) => {
+        this.setState({viewType});
     };
 
     onSearchChange = (needle) => {
-        this.setState({
-            needle: needle
-        });
+        this.setState({needle});
     };
 
-    onChangeItemsPerPage = (value) => {
-        value === 'default' ?
+    onItemsPerPageChange = (itemsPerPage) => {
         this.setState({
-            itemsPerPage: value,
-            page: 1
-        }) :
-        this.setState({
-            itemsPerPage: Number(value),
+            itemsPerPage: itemsPerPage === 'default' ? 'default' : Number(itemsPerPage),
             page: 1
         });
-
-        this.PagesCountOfPagination();
     };
 
-    handleSort = (value) => {
-        this.setState({
-            sortBy: value
-        });
+    onSort = (sortBy) => {
+        this.setState({sortBy});
     };
 
-    getSearchItems = (movies) => {
+    getSearchedItems = (movies) => {
         const {needle} = this.state;
 
-        return movies.filter((movie) => {
-            return movie.title.toLowerCase().includes(needle.toLowerCase());
-        });
+        return movies.filter((movie) => movie.title.toLowerCase().includes(needle.toLowerCase()));
     };
 
     getItemsSortedBy = (movies) => {
@@ -317,24 +306,18 @@ class App extends React.Component {
         }
     };
 
-    PagesCountOfPagination = () => {
+    getPagesCount = () => {
         const {movies, itemsPerPage} = this.state;
-        let pagesCount = Math.ceil(movies.length / itemsPerPage);
 
-        if (itemsPerPage === 'default') {
-            pagesCount = 0;
-        }
-
-        return pagesCount;
+        return itemsPerPage === 'default' ? 0 : Math.ceil(movies.length / itemsPerPage);
     };
 
-    ClickOfButtonPagination = (number) => {
-        this.setState({
-            page: number
-        })
+    onPaginate = (page) => {
+        this.setState({page});
     };
 
     getItemsByPage = (movies) => {
+        //TODO: в песду математику
         const {itemsPerPage, page} = this.state;
 
         if (itemsPerPage === 'default') {
@@ -374,50 +357,35 @@ class App extends React.Component {
         }
     };
 
-    handleCheckboxesCountries = (country) => {
-        const {countries} = this.state;
-        let updatedCountries;
-
-        if (countries.includes(country)) {
-            updatedCountries = countries.filter((el) => el !== country);
-        } else {
-            updatedCountries = countries.concat(country);
-        }
-
-        this.setState({
-            countries: updatedCountries
-        });
+    onChooseCountry = (country) => {
+        this.setState((state) => ({
+            countries: state.countries.includes(country) ?
+                state.countries.filter((el) => el !== country) :
+                state.countries.concat(country)
+        }));
     };
 
-    handleCheckboxesGenres = (genre) => {
-        const {genres} = this.state;
-        let updatedGenres;
-
-        if (genres.includes(genre)) {
-            updatedGenres = genres.filter((el) => el !== genre);
-        } else {
-            updatedGenres = genres.concat(genre);
-        }
-
-        this.setState({
-            genres: updatedGenres
-        });
+    onChooseGenre = (genre) => {
+        this.setState((state) => ({
+            genres: state.genres.includes(genre) ?
+                state.genres.filter((el) => el !== genre) :
+                state.genres.concat(genre)
+        }));
     };
 
-
-    getItemsFilteredBy = (movies, field, filter) => {
+    getItemsFilteredBy = (movies, field, filters) => {
         return movies.filter(function(movie) {
-            return filter.every(function(item) {
+            return filters.every(function(item) {
                 return movie[field].includes(item);
             });
         });
     };
 
-    renderFilters = () => {
+    getFilteredMovies = () => {
         let movies = [...this.state.movies];
         const {countries, genres} = this.state;
 
-        movies = this.getSearchItems(movies);
+        movies = this.getSearchedItems(movies);
         movies = this.getItemsSortedBy(movies);
         movies = this.getItemsFilteredBy(movies, 'countries', countries);
         movies = this.getItemsFilteredBy(movies, 'genre', genres);
@@ -426,10 +394,8 @@ class App extends React.Component {
         return movies;
     };
 
-    findMovieById = (movieId) => {
-        return this.state.movies.filter((movie) => {
-            return movie.id === movieId;
-        });
+    getMovieById = (movieId) => {
+        return this.state.movies.find((movie) => movie.id === movieId);
     };
 
     onMovieClick = (movieId) => {
@@ -444,55 +410,69 @@ class App extends React.Component {
         return `${_hours}:${_minutes}`;
     };
 
-    transformModels = () => {
-        this.setState((state) => {
-            movies: state.movies.map((movie) => {
-                movie.hours = this.convertMinutesToHours(movie.time);
-            });
+    transformMovies = () => {
+        this.setState((state) => ({
+            movies: state.movies.map((movie) => ({
+                ...movie,
+                hours: this.convertMinutesToHours(movie.time)
+            }))
+        }));
+    };
+
+    onClosePopUp = () => {
+        this.setState({
+            showPopUpWithMovieId: null
         });
     };
 
-    closePopUp = () => {
-        this.setState({
-            showPopUpWithMovieId: null
-        })
+    getListOfCountries = () => {
+        return _.map(_.countBy(_.flatten(_.pluck(this.state.movies, 'countries'))), (count, country) => ({country, count}));
+    };
+
+    getListOfGenres = () => {
+        return _.map(_.countBy(_.flatten(_.pluck(this.state.movies, 'genre'))), (count, genre) => ({genre, count}));
     };
 
     render() {
-        const {showPopUpWithMovieId} = this.state;
-        this.transformModels();
+        const {showPopUpWithMovieId, viewType, page} = this.state;
+        const pagesCount = this.getPagesCount();
+        const filteredMovies = this.getFilteredMovies();
+        const movieInPopUp = showPopUpWithMovieId === null ?
+            null :
+            this.getMovieById(showPopUpWithMovieId);
+        const listOfCountries = this.getListOfCountries();
+        const listOfGenres = this.getListOfGenres();
 
         return (
             <div className="app">
                 <FiltersTopBar
-                    viewMovies={this.viewMovies}
-                    viewType={this.state.viewType}
+                    viewType={viewType}
+                    onViewTypeChange={this.onViewTypeChange}
                     onSearchChange={this.onSearchChange}
-                    onChangeItemsPerPage={this.onChangeItemsPerPage}
-                    handleSort={this.handleSort}
+                    onItemsPerPageChange={this.onItemsPerPageChange}
+                    onSort={this.onSort}
                 />
                 <Filters
-                    movies={this.state.movies}
-                    handleCheckboxesCountries={this.handleCheckboxesCountries}
-                    handleCheckboxesGenres={this.handleCheckboxesGenres}
+                    listOfCountries={listOfCountries}
+                    listOfGenres={listOfGenres}
+                    onChooseCountry={this.onChooseCountry}
+                    onChooseGenre={this.onChooseGenre}
                 />
                 <Pagination
-                    pagesCount={this.PagesCountOfPagination()}
-                    page={this.state.page}
-                    ClickOfButtonPagination={this.ClickOfButtonPagination}
+                    pagesCount={pagesCount}
+                    page={page}
+                    onPaginate={this.onPaginate}
                 />
-                <div className={`movies ${this.state.viewType === 'tiles' ? 'state-tiles' : 'state-list'}`}>
-                    <ListMovies
-                        viewType={this.state.viewType}
-                        items={this.renderFilters()}
-                        onMovieClick={this.onMovieClick}
-                    />
-                </div>
+                <ListMovies
+                    viewType={viewType}
+                    items={filteredMovies}
+                    onMovieClick={this.onMovieClick}
+                />
                 {
-                    showPopUpWithMovieId !== null ?
+                    movieInPopUp !== null ?
                         <PopUp
-                            movie={this.findMovieById(showPopUpWithMovieId)}
-                            closePopUp={this.closePopUp}
+                            movie={movieInPopUp}
+                            onClosePopUp={this.onClosePopUp}
                         /> :
                         null
                 }
