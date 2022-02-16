@@ -201,10 +201,28 @@ body {
 
 /* --------------------------------------------- PopUp */
 .popup {
-  position: fixed;
-  top: 50%;
+  position: absolute;
+  top: 70%;
   left: 50%;
   transform: translate(-50%, -50%);
   background: #ccc;
   border: 14px solid #fff;
+}
+
+.popup .close {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: black;
+  color: white;
+  border-radius: 50%;
+  right: -15px;
+  top: -15px;
+  cursor: pointer;
+  font-family: Tahoma, sans-serif;
+  border: none;
+}
+
+.popup .close:hover {
+  background: #912626;
 }

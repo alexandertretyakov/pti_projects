@@ -254,15 +254,17 @@ class App extends React.Component {
         viewType: 'tiles',
         needle: '',
         itemsPerPage: 'default',// default 6 12 18
-        sortBy: 'default' // сортировка по: убыванию, возростанию и т.д.
-        // buttons: Array.from({ length: 0 }, (v, i) => i+1),
-        // page: 1 // странички пагинации 1,2,3
+        sortBy: 'default', // сортировка по: убыванию, возростанию и т.д.
+        page: 1, // странички пагинации 1,2,3
+        countries: [],       // ['СССР', 'Мальта']
+        genres: [],
+        showPopUpWithMovieId: null
     };
 
     viewMovies = (view) => {
         this.setState({
             viewType: view
-        })
+        });
     };
 
     onSearchChange = (needle) => {
@@ -274,31 +276,33 @@ class App extends React.Component {
     onChangeItemsPerPage = (value) => {
         value === 'default' ?
         this.setState({
-            itemsPerPage: value
+            itemsPerPage: value,
+            page: 1
         }) :
         this.setState({
-            itemsPerPage: Number(value)
-        })
+            itemsPerPage: Number(value),
+            page: 1
+        });
 
-        this.renderPagination();
+        this.PagesCountOfPagination();
     };
 
     handleSort = (value) => {
         this.setState({
             sortBy: value
-        })
+        });
     };
 
-    getSearchItems = () => {//----------------------------------------------------Поиск 1
-        const {movies, needle} = this.state;
+    getSearchItems = (movies) => {
+        const {needle} = this.state;
 
         return movies.filter((movie) => {
             return movie.title.toLowerCase().includes(needle.toLowerCase());
-        })
+        });
     };
 
-    getItemsSortedBy = () => {//----------------------------------------------------Сортировка 2
-        const {movies, sortBy} = this.state;
+    getItemsSortedBy = (movies) => {
+        const {sortBy} = this.state;
 
         if (sortBy === 'default') {
             return movies;
@@ -313,20 +317,151 @@ class App extends React.Component {
         }
     };
 
-    // renderPagination = () => {
-    //     const {movies, itemsPerPage} = this.state;
-    //     let pagesCount = Math.ceil(movies.length / itemsPerPage);
-    //
-    //     if (itemsPerPage === 'default') {
-    //         pagesCount = 0;
-    //     }
-    //
-    //     this.setState({
-    //         buttons: Array.from({ length: pagesCount }, (v, i) => i+1)
-    //     })
-    // };
+    PagesCountOfPagination = () => {
+        const {movies, itemsPerPage} = this.state;
+        let pagesCount = Math.ceil(movies.length / itemsPerPage);
+
+        if (itemsPerPage === 'default') {
+            pagesCount = 0;
+        }
+
+        return pagesCount;
+    };
+
+    ClickOfButtonPagination = (number) => {
+        this.setState({
+            page: number
+        })
+    };
+
+    getItemsByPage = (movies) => {
+        const {itemsPerPage, page} = this.state;
+
+        if (itemsPerPage === 'default') {
+            return movies;
+        }
+
+        if (itemsPerPage === 6 && page === 1) {
+            return movies.slice(0, 6);
+        }
+
+        if (itemsPerPage === 6 && page === 2) {
+            return movies.slice(6, 12);
+        }
+
+        if (itemsPerPage === 6 && page === 3) {
+            return movies.slice(12, 18);
+        }
+
+        if (itemsPerPage === 6 && page === 4) {
+            return movies.slice(18, 24);
+        }
+
+        if (itemsPerPage === 12 && page === 1) {
+            return movies.slice(0, 12);
+        }
+
+        if (itemsPerPage === 12 && page === 2) {
+            return movies.slice(12, 24);
+        }
+
+        if (itemsPerPage === 18 && page === 1) {
+            return movies.slice(0, 18);
+        }
+
+        if (itemsPerPage === 18 && page === 2) {
+            return movies.slice(18, 24);
+        }
+    };
+
+    handleCheckboxesCountries = (country) => {
+        const {countries} = this.state;
+        let updatedCountries;
+
+        if (countries.includes(country)) {
+            updatedCountries = countries.filter((el) => el !== country);
+        } else {
+            updatedCountries = countries.concat(country);
+        }
+
+        this.setState({
+            countries: updatedCountries
+        });
+    };
+
+    handleCheckboxesGenres = (genre) => {
+        const {genres} = this.state;
+        let updatedGenres;
+
+        if (genres.includes(genre)) {
+            updatedGenres = genres.filter((el) => el !== genre);
+        } else {
+            updatedGenres = genres.concat(genre);
+        }
+
+        this.setState({
+            genres: updatedGenres
+        });
+    };
+
+
+    getItemsFilteredBy = (movies, field, filter) => {
+        return movies.filter(function(movie) {
+            return filter.every(function(item) {
+                return movie[field].includes(item);
+            });
+        });
+    };
+
+    renderFilters = () => {
+        let movies = [...this.state.movies];
+        const {countries, genres} = this.state;
+
+        movies = this.getSearchItems(movies);
+        movies = this.getItemsSortedBy(movies);
+        movies = this.getItemsFilteredBy(movies, 'countries', countries);
+        movies = this.getItemsFilteredBy(movies, 'genre', genres);
+        movies = this.getItemsByPage(movies);
+
+        return movies;
+    };
+
+    findMovieById = (movieId) => {
+        return this.state.movies.filter((movie) => {
+            return movie.id === movieId;
+        });
+    };
+
+    onMovieClick = (movieId) => {
+        this.setState({
+            showPopUpWithMovieId: movieId
+        });
+    };
+
+    convertMinutesToHours = (minutes) => {
+        const _hours = Math.trunc(minutes / 60);
+        const _minutes = minutes % 60;
+        return `${_hours}:${_minutes}`;
+    };
+
+    transformModels = () => {
+        this.setState((state) => {
+            movies: state.movies.map((movie) => {
+                movie.hours = this.convertMinutesToHours(movie.time);
+            });
+        });
+    };
+
+    closePopUp = () => {
+        this.setState({
+            showPopUpWithMovieId: null
+        })
+    };
 
     render() {
+        const {showPopUpWithMovieId} = this.state;
+        this.transformModels();
+
         return (
             <div className="app">
                 <FiltersTopBar
@@ -336,15 +471,31 @@ class App extends React.Component {
                     onChangeItemsPerPage={this.onChangeItemsPerPage}
                     handleSort={this.handleSort}
                 />
-                <Filters movies={this.state.movies}/>
-                <Pagination pagesCount={16} page={6} onClick={(num) => console.log(num)} />
+                <Filters
+                    movies={this.state.movies}
+                    handleCheckboxesCountries={this.handleCheckboxesCountries}
+                    handleCheckboxesGenres={this.handleCheckboxesGenres}
+                />
+                <Pagination
+                    pagesCount={this.PagesCountOfPagination()}
+                    page={this.state.page}
+                    ClickOfButtonPagination={this.ClickOfButtonPagination}
+                />
                 <div className={`movies ${this.state.viewType === 'tiles' ? 'state-tiles' : 'state-list'}`}>
                     <ListMovies
                         viewType={this.state.viewType}
-                        items={this.getItemsSortedBy()}
+                        items={this.renderFilters()}
+                        onMovieClick={this.onMovieClick}
                     />
                 </div>
-                {/*<PopUp />*/}
+                {
+                    showPopUpWithMovieId !== null ?
+                        <PopUp
+                            movie={this.findMovieById(showPopUpWithMovieId)}
+                            closePopUp={this.closePopUp}
+                        /> :
+                        null
+                }
             </div>
         );
     }

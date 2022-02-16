@@ -1,13 +1,17 @@
 import React from 'react';
 
 class ListMovies extends React.Component {
+    onClick = (e) => {
+        const movieId = e.currentTarget.dataset.id;
+        this.props.onMovieClick(movieId);
+    };
 
     render() {
         return (
             this.props.items.map((movie) => {
                 return (
                     this.props.viewType === 'tiles' ?
-                        <div className="movie" data-id={movie.id}>
+                        <div className="movie" data-id={movie.id} onClick={this.onClick}>
                             <div className="movie-image-container">
                                 <a href="#"><img src={`images/movies/${movie.id}.jpg`} /></a>
                             </div>

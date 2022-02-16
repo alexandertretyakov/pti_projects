@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Pagination = ({pagesCount, page, onClick}) => {
+const Pagination = ({pagesCount, page, ClickOfButtonPagination}) => {
     const buttons = Array.from({ length: pagesCount }, (v, i) => i+1);
 
     return (
@@ -9,7 +9,7 @@ const Pagination = ({pagesCount, page, onClick}) => {
                 buttons.map((number) => {
                     const className = number === page ? 'active' : null;
                     return (
-                        <button className={className} onClick={onClick.bind(null, number)}>{number}</button>
+                        <button className={className} onClick={ClickOfButtonPagination.bind(null, number)}>{number}</button>
                     );
                 })
             }
