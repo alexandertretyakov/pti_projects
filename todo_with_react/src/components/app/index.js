@@ -21,6 +21,7 @@ class App extends React.Component {
     };
 
     onCreate = (task) => {
+        // localStorage
         this.setState((state) => ({
             items: [
                 ...state.items,
@@ -30,12 +31,14 @@ class App extends React.Component {
     };
 
     onRemove = (id) => {
+        // localStorage
         this.setState((state) => ({
             items: state.items.filter((task) => task.id !== id)
         }));
     };
 
     onImportant = (id) => {
+        // localStorage
         this.setState((state) => ({
             items: state.items.map((task) =>
                 task.id === id ? {...task, important: !task.important} : task
@@ -44,6 +47,7 @@ class App extends React.Component {
     };
 
     onCompleted = (id) => {
+        // localStorage
         this.setState((state) => ({
             items: state.items.map((task) =>
                 task.id === id ? {...task, completed: !task.completed} : task
