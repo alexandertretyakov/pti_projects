@@ -37,11 +37,11 @@ const ListMovies = ({viewType, items, onMovieClick}) => {
                                     </tr>
                                     <tr>
                                         <th>Жанр:</th>
-                                        <td>{movie.genre}</td>
+                                        <td>{movie.genre.join(', ')}</td>
                                     </tr>
                                     <tr>
                                         <th>Время:</th>
-                                        <td>{movie.time} мин. /{movie.hours} ч.</td>
+                                        <td>{movie.time} мин. / {movie.hours} ч.</td>
                                     </tr>
                                     <tr>
                                         <th>Рейтинг:</th>

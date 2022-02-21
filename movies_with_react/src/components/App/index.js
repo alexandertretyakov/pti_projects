@@ -251,13 +251,13 @@ class App extends React.Component {
                 plot: 'В недалёком будущем раса инопланетян вторгается на Землю. Никакая армия в мире не может противостоять им. Майор Уильям Кейдж умирает в бою, но случается невозможное — он оказывается во временной петле. Раз за разом он попадает в один и тот же бой, сражается и умирает... снова и снова. И каждое повторяющееся сражение приближает его к разгадке того, как победить врага.'
             }
         ],
-        viewType: 'tiles',
-        needle: '',
+        viewType: 'tiles',          // вид отображения список/плитка
+        needle: '',                 // поиск
         itemsPerPage: 'default',    // default 6 12 18
         sortBy: 'default',          // сортировка по: убыванию, возростанию и т.д.
         page: 1,                    // странички пагинации 1,2,3
         countries: [],              // ['СССР', 'Мальта']
-        genres: [],
+        genres: [],                 // ['боевик', 'комедия']
         showPopUpWithMovieId: null
     };
 
@@ -317,44 +317,45 @@ class App extends React.Component {
     };
 
     getItemsByPage = (movies) => {
-        //TODO: в песду математику
         const {itemsPerPage, page} = this.state;
 
         if (itemsPerPage === 'default') {
             return movies;
         }
 
-        if (itemsPerPage === 6 && page === 1) {
-            return movies.slice(0, 6);
-        }
+        return movies.slice((page - 1) * itemsPerPage, (page - 1) * itemsPerPage + itemsPerPage);  // Этот код VS говнокода ниже
 
-        if (itemsPerPage === 6 && page === 2) {
-            return movies.slice(6, 12);
-        }
-
-        if (itemsPerPage === 6 && page === 3) {
-            return movies.slice(12, 18);
-        }
-
-        if (itemsPerPage === 6 && page === 4) {
-            return movies.slice(18, 24);
-        }
-
-        if (itemsPerPage === 12 && page === 1) {
-            return movies.slice(0, 12);
-        }
-
-        if (itemsPerPage === 12 && page === 2) {
-            return movies.slice(12, 24);
-        }
-
-        if (itemsPerPage === 18 && page === 1) {
-            return movies.slice(0, 18);
-        }
-
-        if (itemsPerPage === 18 && page === 2) {
-            return movies.slice(18, 24);
-        }
+        // if (itemsPerPage === 6 && page === 1) {
+        //     return movies.slice(0, 6);
+        // }
+        //
+        // if (itemsPerPage === 6 && page === 2) {
+        //     return movies.slice(6, 12);
+        // }
+        //
+        // if (itemsPerPage === 6 && page === 3) {
+        //     return movies.slice(12, 18);
+        // }
+        //
+        // if (itemsPerPage === 6 && page === 4) {
+        //     return movies.slice(18, 24);
+        // }
+        //
+        // if (itemsPerPage === 12 && page === 1) {
+        //     return movies.slice(0, 12);
+        // }
+        //
+        // if (itemsPerPage === 12 && page === 2) {
+        //     return movies.slice(12, 24);
+        // }
+        //
+        // if (itemsPerPage === 18 && page === 1) {
+        //     return movies.slice(0, 18);
+        // }
+        //
+        // if (itemsPerPage === 18 && page === 2) {
+        //     return movies.slice(18, 24);
+        // }
     };
 
     onChooseCountry = (country) => {
