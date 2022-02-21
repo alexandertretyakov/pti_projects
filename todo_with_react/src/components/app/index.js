@@ -20,39 +20,71 @@ class App extends React.Component {
         needle: ''
     };
 
+    componentDidMount() {
+        const items = this.getItemsFromStorage();
+
+        this.setState({
+            items: items
+        });
+    };
+
+    setItemsToStorage = (items) => {
+        localStorage.setItem('items', JSON.stringify(items));
+    };
+
+    getItemsFromStorage = () => {
+        return JSON.parse(localStorage.getItem('items')) || [];
+    };
+
     onCreate = (task) => {
-        // localStorage
-        this.setState((state) => ({
-            items: [
+        this.setState((state) => {
+            const items = [
                 ...state.items,
                 task
-            ]
-        }));
+            ];
+
+            this.setItemsToStorage(items);
+
+            return {
+                items: items
+            };
+        });
     };
 
     onRemove = (id) => {
-        // localStorage
-        this.setState((state) => ({
-            items: state.items.filter((task) => task.id !== id)
-        }));
+        this.setState((state) => {
+            const items = state.items.filter((task) => task.id !== id);
+
+            this.setItemsToStorage(items);
+
+            return {
+                items: items
+            };
+        });
     };
 
     onImportant = (id) => {
-        // localStorage
-        this.setState((state) => ({
-            items: state.items.map((task) =>
-                task.id === id ? {...task, important: !task.important} : task
-            )
-        }));
+        this.setState((state) => {
+            const items = state.items.map((task) => task.id === id ? {...task, important: !task.important} : task);
+
+            this.setItemsToStorage(items);
+
+            return {
+                items: items
+            };
+        });
     };
 
     onCompleted = (id) => {
-        // localStorage
-        this.setState((state) => ({
-            items: state.items.map((task) =>
-                task.id === id ? {...task, completed: !task.completed} : task
-            )
-        }));
+        this.setState((state) => {
+            const items = state.items.map((task) => task.id === id ? {...task, completed: !task.completed} : task);
+
+            this.setItemsToStorage(items);
+
+            return {
+                items: items
+            };
+        });
     };
 
     onFilterChange = (filter) => {
