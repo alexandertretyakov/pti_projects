@@ -35,6 +35,20 @@ class App extends React.Component {
         selectedWhoreId: null
     };
 
+    componentDidMount() {
+        const whores = this.getWhoresFromStorage();
+
+        this.setState({ whores });
+    };
+
+    setWhoresToStorage = (whores) => {
+        localStorage.setItem('whores', JSON.stringify(whores));
+    };
+
+    getWhoresFromStorage = () => {
+        return JSON.parse(localStorage.getItem('whores')) || [];
+    };
+
     showAddForm = () => {
         this.setState({
             showAddForm: true,
@@ -50,33 +64,48 @@ class App extends React.Component {
     };
 
     onSave = (whore) => {
-        this.setState((state) => ({
-            whores: [
+        this.setState((state) => {
+            const whores = [
                 ...state.whores,
                 whore
-            ],
-            showAddForm: false,
-            selectedWhoreId: null
-        }));
-        // localStorage
+            ];
+
+            this.setWhoresToStorage(whores);
+
+            return {
+                whores: whores,
+                showAddForm: false,
+                selectedWhoreId: null
+            };
+        });
     };
 
     onRemove = (id) => {
-        this.setState((state) => ({
-            whores: state.whores.filter((whore, idx) => whore.id !== id),
-            showAddForm: false,
-            selectedWhoreId: null
-        }));
-        // localStorage
+        this.setState((state) => {
+            const whores = state.whores.filter((whore, idx) => whore.id !== id);
+
+            this.setWhoresToStorage(whores);
+
+            return {
+                whores: whores,
+                showAddForm: false,
+                selectedWhoreId: null
+            };
+        });
     };
 
     onUpdate = (updatedWhore) => {
-        this.setState((state) => ({
-            whores: state.whores.map((whore, idx) => whore.id === updatedWhore.id ? updatedWhore : whore),
-            showAddForm: false,
-            selectedWhoreId: null
-        }));
-        // localStorage
+        this.setState((state) => {
+            const whores = state.whores.map((whore, idx) => whore.id === updatedWhore.id ? updatedWhore : whore);
+
+            this.setWhoresToStorage(whores);
+
+            return {
+                whores: whores,
+                showAddForm: false,
+                selectedWhoreId: null
+            };
+        });
     };
 
     render() {
