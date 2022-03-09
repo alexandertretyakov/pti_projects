@@ -47,7 +47,7 @@ var ListView = Backbone.View.extend({
     },
 
     renderWhores: function () {
-        this.$('whore-list').html(this.tmplFn(this.collection.toJSON()));
+        this.$('.whore-list').html(this.tmplFn(this.collection.toJSON()));
     }
 });
 
