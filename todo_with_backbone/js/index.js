@@ -1,4 +1,4 @@
-//-----------------------------------------------------------------Tasks
+//----------------------------------------------------------------- Tasks Collection
 var Tasks = Backbone.Collection.extend({
     initialize: function() {
         this.reset(this.getModelsFromStorage());
@@ -40,64 +40,43 @@ var Tasks = Backbone.Collection.extend({
 
 var tasks = new Tasks;
 
-//-----------------------------------------------------------------AppModel
-var AppModel = Backbone.Model.extend({
-    filters: {
-        filter: 'all',
-        needle: ''
-    }
+//----------------------------------------------------------------- Application Model
+var appModel = new Backbone.Model({
+    filter: 'all',
+    needle: ''
 });
 
-var appModel = new AppModel;
+//----------------------------------------------------------------- Application View
+var AppView = Backbone.View.extend({
+    initialize: function() {
+        this.updateStats();
 
-//-----------------------------------------------------------------StatsView
-var StatsView = Backbone.View.extend({
-    el: '.stats',
+        this.listenTo(this.collection, 'all', function() {
+            this.updateStats();
+        });
+    },
+
+    el: '.app',
+
+    events: {
+        'click .filters .actions button': 'handleFilter',
+        'keyup #needle': 'handleSearch',
+        'keypress .source .title': 'handleAddTask'
+    },
 
     updateStats: function() {
         this.$('.item-incompleted').text(this.collection.getIncompletedCount());
         this.$('.item-completed').text(this.collection.getCompletedCount());
-    }
-});
-
-var statsView = new StatsView({
-    collection: tasks
-});
-
-//-----------------------------------------------------------------FiltersView
-var FiltersView = Backbone.View.extend({
-    el: '.filters',
-
-    filtration: appModel,
-
-    events: {
-        'click .actions button': 'handleFilter',
-        'keyup input': 'handleSearch'
     },
 
     handleFilter: function(e) {
-        this.filtration.filters.filter = $(e.target).data().filter;
+        this.model.set('filter', $(e.target).data().filter);
         this.$('.actions button').removeClass('active');
         $(e.target).addClass('active');
-        listView.renderTasks();
     },
 
     handleSearch: function(e) {
-        this.filtration.filters.needle = $(e.target).val();
-        listView.renderTasks();
-    },
-});
-
-var filtersView = new FiltersView({
-    collection: tasks
-});
-
-//-----------------------------------------------------------------SourceView
-var SourceView = Backbone.View.extend({
-    el: '.source',
-
-    events: {
-        'keypress .title': 'handleAddTask'
+        this.model.set('needle', $(e.target).val());
     },
 
     getUniqId: function() {
@@ -117,11 +96,12 @@ var SourceView = Backbone.View.extend({
     }
 });
 
-var sourceView = new SourceView({
-    collection: tasks
+var appView = new AppView({
+    collection: tasks,
+    model: appModel
 });
 
-//-----------------------------------------------------------------ListView
+//----------------------------------------------------------------- List View
 var ListView = Backbone.View.extend({
     initialize: function() {
         this.renderTasks();
@@ -129,15 +109,15 @@ var ListView = Backbone.View.extend({
         this.listenTo(this.collection, 'all', function() {
             this.renderTasks();
         });
+
+        this.listenTo(this.model, 'change', function() {
+            this.renderTasks();
+        });
     },
 
     el: '#tasks',
 
     tmplFn: doT.template($('#tasks-template').html()),
-
-    filtration: appModel,
-
-    stats: statsView,
 
     events: {
         'click .item .delete': 'handleDelete',
@@ -168,7 +148,7 @@ var ListView = Backbone.View.extend({
     },
 
     getFiltredModels: function() {
-        var {needle, filter} = this.filtration.filters;
+        var {needle, filter} = this.model.toJSON();
 
         return this.collection.toJSON().filter(function(task) {
             return task.title.toLowerCase().includes(needle.toLowerCase());
@@ -189,13 +169,10 @@ var ListView = Backbone.View.extend({
 
     renderTasks: function() {
         this.$el.html(this.tmplFn(this.getFiltredModels()));
-        this.stats.updateStats();
     }
 });
 
 var listView = new ListView({
-    collection: tasks
+    collection: tasks,
+    model: appModel
 });
-
-
-
