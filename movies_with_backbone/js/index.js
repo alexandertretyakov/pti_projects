@@ -327,10 +327,8 @@ var appModel = new Backbone.Model({
     itemsPerPage: 'default',        // default 6 12 18
     searchText: '',
     sortBy: 'default',              // default ascending_title descending_title...
-    filters: {
-        countries: [],              // ['СССР', 'Мальта']
-        genres: []                  // ['комедия', 'ужасы']
-    },
+    filtersCountries: [],           // ['СССР', 'Мальта']
+    filtersGenres: [],              // ['комедия', 'ужасы']
     page: 1                         // 1,2,3
 });
 
@@ -355,15 +353,15 @@ var ListView = Backbone.View.extend({
     tmplFnPagination: $('#pagination-template').html(),
 
     renderModels: function() {
-        var {viewType, itemsPerPage, searchText, sortBy, filters: {countries, genres}, page} = this.model.toJSON();
+        var {viewType, itemsPerPage, searchText, sortBy, filtersCountries, filtersGenres, page} = this.model.toJSON();
         var tmplFn = viewType === 'tiles' ? this.tmplFnMovieTiles : this.tmplFnMovieList;
         var viewTypeStateClass = viewType === 'tiles' ? 'state-tiles' : 'state-list';
         var models = [...this.collection.toJSON()];
 
         models = this.collection.getSearchedItems(models, searchText);
         models = this.collection.getItemsSortedBy(models, sortBy);
-        models = this.collection.getItemsFilteredBy(models, 'countries', countries);
-        models = this.collection.getItemsFilteredBy(models, 'genre', genres);
+        models = this.collection.getItemsFilteredBy(models, 'countries', filtersCountries);
+        models = this.collection.getItemsFilteredBy(models, 'genre', filtersGenres);
 
         // models = this.collection.getItemsByItemsPerPage(models, itemsPerPage);
         models = this.collection.getItemsByPage(models, itemsPerPage, page);
@@ -495,11 +493,11 @@ var AppView = Backbone.View.extend({
     },
 
     handleCheckboxes: function(e) {
-        this.model.set('filters.countries', $('.filter-countries input:checked').toArray().map(function(input) {
+        this.model.set('filtersCountries', $('.filter-countries input:checked').toArray().map(function(input) {
             return input.value;
         }));
 
-        this.model.set('filters.genres', $('.filter-genre input:checked').toArray().map(function(input) {
+        this.model.set('filtersGenres', $('.filter-genre input:checked').toArray().map(function(input) {
             return input.value;
         }));
     }
