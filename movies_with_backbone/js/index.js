@@ -396,10 +396,6 @@ var listView = new ListView;
 var AppView = Backbone.View.extend({
     initialize: function() {
         this.renderFilters();
-
-        // this.listenTo(document, 'keyup', function() {
-        //     this.hideMoviePopUp();
-        // });
     },
 
     el: '.app',
@@ -421,7 +417,6 @@ var AppView = Backbone.View.extend({
 
     tmplFnCountries: $('#filter-countries-template').html(),
     tmplFnGenres: $('#filter-genre-template').html(),
-    tmplFnPopUp: listView.tmplFnMovieList,
 
     renderFilters: function() {
         var listOfCountries = this.collection.getListOfCountries();
@@ -458,16 +453,8 @@ var AppView = Backbone.View.extend({
     },
 
     showMoviePopUp: function(movieId) {
-        $('<div class="overlay">').appendTo('body');
-        $('<div class="popup">').appendTo('body');
-        $('.popup').html(doT.template(this.tmplFnPopUp)(this.findMovieById(movieId)))
-    },
-
-    hideMoviePopUp: function(e) {
-        if (e.keyCode === 27) {
-            $('.overlay').remove();
-            $('.popup').remove();
-        }
+        var movie = this.findMovieById(movieId);
+        new PopUp(movie);
     },
 
     handlePagination: function(e) {
@@ -519,3 +506,28 @@ var AppView = Backbone.View.extend({
 });
 
 var appView = new AppView;
+
+//----------------------------------------------------------------- Popup View
+var PopUp = Backbone.View.extend({
+    initialize: function(movie) {
+        this.movie = movie;
+        this.render();
+        $(document).on('keyup', this.remove.bind(this));
+    },
+
+    tmplFnMovieList: $('#movie-list-template').html(),
+
+    render: function() {
+        $('<div class="overlay">').appendTo('body');
+        $('<div class="popup">').appendTo('body');
+        $('.popup').html(doT.template(this.tmplFnMovieList)(this.movie));
+    },
+
+    remove: function(e) {
+        if (e.keyCode === 27) {
+            Backbone.View.prototype.remove.apply(this, arguments);
+            $('.overlay').remove();
+            $('.popup').remove();
+        }
+    }
+});
