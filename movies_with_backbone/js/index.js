@@ -307,13 +307,15 @@ var Movies = Backbone.Collection.extend({
             _.extend(movie, {
                 hours: this.convertMinutesToHours(movie.time)
             });
-        }.bind(this));//TODO: Поясни
+        }.bind(this));
     },
 
     getItemsByPage: function(models, itemsPerPage, page) {
         if (itemsPerPage === 'default') {
             return models;
         }
+
+        itemsPerPage = Number(itemsPerPage);
 
         return models.slice((page - 1) * itemsPerPage, (page - 1) * itemsPerPage + itemsPerPage);
     }
@@ -331,6 +333,7 @@ var appModel = new Backbone.Model({
     filtersGenres: [],              // ['комедия', 'ужасы']
     page: 1                         // 1,2,3
 });
+
 
 //----------------------------------------------------------------- List View
 var ListView = Backbone.View.extend({
@@ -383,7 +386,7 @@ var ListView = Backbone.View.extend({
 
         $('.pagination').html(doT.template(this.tmplFnPagination)({
             buttons: Array.from({ length: pagesCount }, (v, i) => i+1),// По сколько кнопок отображать
-            page: this.model.page
+            page: page
         }));
     }
 });
@@ -405,7 +408,7 @@ var AppView = Backbone.View.extend({
         'keyup .top-bar .search': 'handleSearch',
         'change .sorting select': 'handleSort',
         'change .filters input': 'handleCheckboxes',
-        'click .pagination': 'handlePagination',
+        'click .pagination button': 'handlePagination',
         'click .movies': 'handleClickOnMovie'
     },
 
@@ -456,14 +459,7 @@ var AppView = Backbone.View.extend({
     },
 
     handlePagination: function(e) {
-        if ($(e.target)[0].localName !== 'button') {
-            return;
-        }
-
         this.model.set('page', Number($(e.target).text()));
-
-        $('.pagination button').removeClass('active');
-        $(e.target).addClass('active');
     },
 
     handleButtonList: function() {
@@ -511,6 +507,10 @@ var PopUp = Backbone.View.extend({
         this.movie = movie;
         this.render();
         $(document).on('keyup', this.remove.bind(this));
+        $('.popup .close').on('click', function() {
+            $('.overlay').remove();
+            $('.popup').remove();
+        });
     },
 
     tmplFnMovieList: $('#movie-list-template').html(),
@@ -519,6 +519,7 @@ var PopUp = Backbone.View.extend({
         $('<div class="overlay">').appendTo('body');
         $('<div class="popup">').appendTo('body');
         $('.popup').html(doT.template(this.tmplFnMovieList)(this.movie));
+        $('<button class="close">x</button>').appendTo('.popup');
     },
 
     remove: function(e) {
