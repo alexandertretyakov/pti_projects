@@ -123,7 +123,8 @@ body {
     overflow: hidden;
 }
 
-.movies.state-list .movie-image-container {
+.movies.state-list .movie-image-container,
+.popup .movie-image-container {
     overflow: hidden;
     box-shadow: 0 1px 4px 0 #000;
     border-radius: 3px;
@@ -131,13 +132,15 @@ body {
     margin-right: 20px;
 }
 
-.movies.state-list .movie img {
+.movies.state-list .movie img,
+.popup .movie img{
     display: block;
     width: 152px;
     height: 220px;
 }
 
-.movies.state-list .movie-title {
+.movies.state-list .movie-title,
+.popup .movie-title {
     text-decoration: none;
     line-height: 18px;
     font-size: 16px;
@@ -148,7 +151,8 @@ body {
     text-decoration: underline;
 }
 
-.movies.state-list .movie-details {
+.movies.state-list .movie-details,
+.popup .movie-details {
     line-height: 18px;
     font-size: 13px;
     color: #363636;
@@ -156,24 +160,26 @@ body {
     margin: 3px;
 }
 
-.movies.state-list .movie-details th {
+.movies.state-list .movie-details th,
+.popup .movie-details th {
     text-align: left;
     padding-right: 7px;
 }
 
-.movies.state-list .movie-details td {
+.movies.state-list .movie-details td,
+.popup .movie-details td {
     color: #a4a4a4;
 }
 
-.movies.state-list .movie-plot {
+.movies.state-list .movie-plot,
+.popup .movie-plot {
     line-height: 18px;
     font-size: 13px;
     color: #383838;
 }
 
-.movies.state-list .movie-details {}
-
-.movies.state-list .movie-details span {
+.movies.state-list .movie-details span,
+.popup .movie-details span {
     font-size: 11px;
     color: #848484;
 }
@@ -201,10 +207,37 @@ body {
 
 /* --------------------------------------------- PopUp */
 .popup {
-    position: fixed;
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: #ccc;
-    border: 14px solid #fff;
+    background: white;
+    box-shadow: 0 -30px 94px -8px rgba(0, 0, 0, 0.1) inset;
+    width: 700px;
+    padding: 10px;
+    border: 20px solid #ffffff;
+}
+
+.popup .movie {
+    margin-bottom: 20px;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.popup .close {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: #6c6b6b;
+    color: white;
+    border-radius: 25%;
+    right: -15px;
+    top: -15px;
+    cursor: pointer;
+    font-family: Tahoma, sans-serif;
+    border: none;
+}
+
+.popup .close:hover {
+    background: #912626;
 }
