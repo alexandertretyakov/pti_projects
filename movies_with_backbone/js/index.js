@@ -7,7 +7,7 @@ var Movies = Backbone.Collection.extend({
     fetchModelsFromServer: function() {
         $.ajax({
             method: 'GET',
-            url: 'http://127.0.0.1:3000/movies',
+            url: 'http://127.0.0.1:3001/movies',
             dataType: 'json'
         }).done(function(movies) {
             this.reset(movies);
