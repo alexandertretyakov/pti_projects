@@ -1,9 +1,11 @@
 import React from 'react';
+import Loader from '../Loader';
 
 const ListMovies = ({viewType, items, onMovieClick}) => {
     return (
         <div className={`movies ${viewType === 'tiles' ? 'state-tiles' : 'state-list'}`}>
             {
+                items.length === 0 ? <Loader /> :
                 items.map((movie) => {
                     return (
                         viewType === 'tiles' ?
