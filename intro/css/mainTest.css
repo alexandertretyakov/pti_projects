@@ -1,0 +1,407 @@
+body {
+    padding: 20px;
+}
+
+h1 {
+    color: tomato;
+    text-align: center;
+}
+
+/*--------------------1 @font-face--------------------*/
+@font-face {
+    font-family: "lancaster";
+    src: url("../fonts/7fonts.ru_Lancastershire.ttf");
+}
+
+.task-one p {
+    font-size: 26px;
+}
+
+.task-one .changed {
+    font-family: 'lancaster',serif;
+}
+
+.buttons, .lines, .animation {
+    margin-bottom: 50px;
+}
+
+/*--------------------2 transition--------------------*/
+.task-two .buttons button {
+    width: 100px;
+    padding: 20px;
+    margin-right: 50px;
+    background-color: #bde3aa;
+    border-radius: 5px;
+    transition: background-color 2s, width 2s, transform 2s;
+}
+
+.task-two .buttons button:hover,
+.task-two .lines .line:hover,
+.task-two .cub:hover {
+    cursor: pointer;
+}
+
+.task-two .buttons .button-one:hover {
+    transition: background-color 2s;
+    background-color: #98c5f6;
+}
+
+.task-two .buttons .button-two:hover {
+    transition: width 2s;
+    width: 150px;
+}
+
+.task-two .buttons .button-three:hover {
+    transform: scale(1.5, 2);
+    transition: transform 2s;
+}
+
+.task-two .lines .line {
+    width: 40px;
+    height: 20px;
+    margin-bottom: 15px;
+}
+
+.task-two .lines .linear {
+    transition: width 3s linear;
+    background-color: #5a973e;
+}
+
+.task-two .lines .linear:hover {
+    width: 100%;
+    transition: width 3s linear;
+}
+
+.task-two .lines .ease-in {
+    transition: width 3s ease-in;
+    background-color: #793e97;
+}
+
+.task-two .lines .ease-in:hover {
+    width: 100%;
+    transition: width 3s ease-in;
+}
+
+.task-two .lines .steps {
+    transition: width 3s steps(5);
+    background-color: #f0264d;
+}
+
+.task-two .lines .steps:hover {
+    width: 100%;
+    transition: width 3s steps(5);
+}
+
+.task-two .lines .cubic-bezier {
+    transition: width 3s cubic-bezier(0.1, 0.7, 1.0, 0.1);
+    background-color: #97473e;
+}
+
+.task-two .lines .cubic-bezier:hover {
+    width: 100%;
+    transition: width 3s cubic-bezier(0.1, 0.7, 1.0, 0.1);
+}
+
+.task-two .cub {
+    width: 100px;
+    height: 100px;
+    margin-left: 75%;
+    background-color: #4d58b9;
+    transition: background-color 3s, transform 3s;
+    transform: rotate(-180deg) scale(1, 1);
+}
+
+.task-two .cub:hover {
+    background-color: #8f3591;
+    transition: background-color 3s, transform 3s;
+    transform: rotate(180deg) scale(2, 2);
+}
+
+/*--------------------3 animation--------------------*/
+.task-three .animation-one {
+    border-radius: 10px;
+    width: 300px;
+    height: 100px;
+    background-color: #ff7a59;
+    animation-name: pulse;
+    animation-iteration-count: infinite;/*Повтор анимации*/
+    animation-timing-function: inherit; /*Набор разных ф-ций*/
+    animation-duration: 4s; /*Длительность анимации*/
+    position: absolute;
+    margin-left: 50%;
+}
+
+@keyframes pulse {
+    0% {
+        width: 200px;
+        top: 0;
+    }
+
+    50% {
+        width: 50px;
+        background-color: #33475b;
+        top: 100px;
+    }
+
+    100% {
+        width: 200px;
+        background-color: #ff7a59;
+        top: 0;
+    }
+}
+
+.animation-two {
+    padding-left: 50%;
+    height: 100px;
+}
+
+.task-three .animation-two .circle{
+    width: 10px;
+    height: 10px;
+    background-color: grey;
+    border-radius: 100%;
+    position: absolute;
+}
+
+.task-three .animation-two .circle-one {
+    animation: loading 1s infinite 0.3s;
+}
+
+.task-three .animation-two .circle-two {
+    animation: loading 1s infinite 0.4s;
+    left: 52%;
+}
+
+.task-three .animation-two .circle-three {
+    animation: loading 1s infinite 0.5s;
+    left: 54%;
+}
+
+@keyframes loading {
+    0% {
+        width: 10px;
+        height: 10px;
+    }
+
+    50% {
+        width: 20px;
+        height: 20px;
+    }
+
+    100% {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+.task-three .animation-three {
+    height: 500px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.animation-three .column {
+    width: 14.1%;
+    animation-name: columns;
+    animation-duration: 3s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes columns {
+    0% {
+        width: 0;
+    }
+
+    50% {
+        width: 14.1%;
+    }
+
+    100% {
+        width: 0;
+    }
+}
+
+.animation-four {
+    background: #e9e9e9;
+    box-sizing: border-box;
+    padding: 25%;
+    height: 500px;
+}
+
+.animation-four .touchpad {
+    width: 50px;
+    height: 50px;
+    border-radius: 15px;
+    background: #ffffff;
+    box-shadow: inset 5px 5px 5px #c1c0c0 ,inset -5px -5px 5px #ffffff, 0 0 0 #c1c0c0, 0 0 0 #ffffff;
+    animation: touchpad 6s cubic-bezier(0.1, 0.7, 0.5, 1) infinite;
+}
+
+@keyframes touchpad {
+    0% {
+        width: 50px;
+        height: 50px;
+        background: #ffffff;
+        box-shadow: inset 5px 5px 5px #c1c0c0 ,inset -5px -5px 5px #ffffff, 0 0 0 #c1c0c0, 0 0 0 #ffffff;
+    }
+
+    25% {
+        width: 50px;
+        height: 250px;
+        background: #ffffff;
+        box-shadow: 5px 5px 5px #c1c0c0 ,5px 5px 5px #ffffff, 0 0 0 #c1c0c0, 0 0 0 #ffffff;
+    }
+
+    50% {
+        width: 500px;
+        height: 250px;
+        background: #ffffff;
+        box-shadow: 5px 5px 5px #c1c0c0 ,5px 5px 5px #ffffff, 0 0 0 #c1c0c0, 0 0 0 #ffffff;
+    }
+
+    75% {
+        width: 50px;
+        height: 250px;
+        background: #ffffff;
+        box-shadow: 5px 5px 5px #c1c0c0 ,5px 5px 5px #ffffff, 0 0 0 #c1c0c0, 0 0 0 #ffffff;
+    }
+
+    100% {
+        width: 50px;
+        height: 50px;
+        background: #ffffff;
+        box-shadow: inset 5px 5px 5px #c1c0c0 ,inset -5px -5px 5px #ffffff, 0 0 0 #c1c0c0, 0 0 0 #ffffff;
+    }
+}
+
+.animation-five .heard{
+    width: 200px;
+    height: 200px;
+    background: url("../images/heard.jpg") center no-repeat;
+    animation-name: heard;
+    animation-duration: 1s;
+    background-size: 200%;
+    animation-iteration-count: infinite;
+}
+
+@keyframes heard {
+    0% {
+        background-size: 200%;
+    }
+
+    25% {
+        background-size: 300%;
+    }
+
+    50% {
+        background-size: 250%;
+    }
+
+    75% {
+        background-size: 300%;
+    }
+
+    100% {
+        background-size: 200%;
+    }
+}
+
+.animation-six .field {
+    width: 760px;
+    height: 552px;
+    background: url("../images/footballField.jpg") no-repeat;
+    padding: 30px;
+    position: relative;
+}
+
+.animation-six .field img {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    animation-name: ball;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes ball {
+    0% {
+        left: 6%;
+        top: 6%;
+    }
+
+    15% {
+        left: 27%;
+        top: 80%;
+    }
+
+    30% {
+        left: 48%;
+        top: 6%;
+    }
+
+    45% {
+        left: 59%;
+        top: 80%;
+    }
+
+    55% {
+        left: 90%;
+        top: 6%;
+    }
+
+    70% {
+        left: 48%;
+        top: 80%;
+    }
+
+    100% {
+        left: 6%;
+        top: 6%;
+        transform: rotate(400deg);
+    }
+}
+
+.animation-seven {
+    height: 150px;
+    border: 1px dashed black;
+}
+
+.animation-seven .plane {
+    width: 150px;
+    height: 150px;
+    animation-name: plane;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    position: absolute;
+    transition-property: all;
+    transition-duration: 1s;
+}
+
+@keyframes plane {
+    0% {
+        left: 0;
+    }
+
+    49% {
+        transform: scaleX(1);
+    }
+
+    50% {
+        left: 85%;
+        transform: scaleX(-1);
+    }
+
+    99% {
+        transform: scaleX(-1);
+    }
+
+    100% {
+        left: 0;
+        transform: scaleX(1);
+    }
+}
+
