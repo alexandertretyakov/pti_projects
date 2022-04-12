@@ -28,7 +28,7 @@ p {
 }
 
 @mixin clear-fix {
-    &:after {/* TODO: псевдо-элементы с :: а псевдо-классы с : */
+    &::after {
         content: "";
         display: block;
         clear: both;
