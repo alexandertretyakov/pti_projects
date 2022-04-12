@@ -1,0 +1,538 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    background: url("../images/grass1.png");
+    font-family: Tahoma, sans-serif;
+    height: 100%;
+}
+
+.page {
+    width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    min-height: 100%;
+    padding-bottom: 105px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+@mixin clear-fix {
+    &::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+}
+
+@font-face {
+    font-family: "DaxlinePro";
+    src: url("../fonts/DaxlinePro/DaxlinePro-Bold.ttf");
+}
+
+h2 {
+    font-family: 'DaxlinePro', serif;
+}
+
+/*------------------------------------------------------------Header*/
+.header {
+    position: relative;
+    padding-top: 23px;
+
+    a {
+        color: #e9f5eb;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    .logo {
+        position: absolute;
+        top: 13px;
+        left: 65px;
+    }
+
+    .navigation-top-one {
+        margin: 0 0 27px 260px;
+
+        a {
+            margin-right: 10px;
+            font-size: 11px;
+        }
+    }
+
+    .navigation-top-two {
+        height: 100px;
+        background: url("../images/ribbon.png") no-repeat;
+        padding-left: 250px;
+        padding-top: 20px;
+
+        a {
+            font: 10px Arial;
+            display: inline-block;
+            padding: 2px 12px;
+            border-right: 1px dashed #76b783;
+            text-transform: uppercase;
+
+            &:last-child {
+                border: none;
+                vertical-align: text-top;
+            }
+        }
+    }
+}
+
+/*------------------------------------------------------------Content*/
+.content {
+    width: 950px;
+    min-height: 600px;
+    margin: -40px 25px 0 25px;
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 50px;
+    background: url("../images/catch.png") no-repeat,
+                url("../images/wave.png") -13px 1370px no-repeat,
+                #ffffff;
+}
+
+.column-left {
+    width: 455px;
+    padding: 500px 0 0 26px;
+
+    @include clear-fix;
+
+    .comfort-of-housing {
+        width: 429px;
+        background-image:  url("../images/house.png"), linear-gradient(#ffffff, #f9f9ec);
+        background-repeat: no-repeat;
+        background-position: 0 92px, 0 0;
+        border-radius: 10px;
+        border: 1px solid #e6e4ca;
+        margin-bottom: 29px;
+
+        h2 {
+            font-size: 23px;
+            font-weight: bold;
+            color: #006aad;
+            margin-left: 30px;
+
+            span {
+                color: #67a024;
+            }
+        }
+
+        .wrapper {
+            display: flex;
+            flex-direction: row;
+
+            .wrapper-column {
+                width: 49.3%;
+            }
+        }
+
+        a {
+            color: #67a024;
+            text-decoration: none;
+            margin: 180px 0 0 32px;
+            display: inline-block;
+            font-size: 12px;
+            font-weight: bold;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        li {
+            border-top: 1px dashed #e6e4ca;
+            color: #676119;
+            font-size: 12px;
+            font-family: Arial, sans-serif;
+            padding: 5px;
+
+            &::marker {
+                color: #e6e4ca;
+            }
+
+            &:last-child {
+                border-bottom: 1px dashed #e6e4ca;
+                color: #676119;
+            }
+        }
+    }
+
+    .booking {
+        width: 429px;
+        background-image:  url("../images/keys.png"), linear-gradient(#ffffff, #f9f9ec);
+        background-repeat: no-repeat;
+        background-position: 10px 10px, 0 0;
+        border-radius: 10px;
+        border: 1px solid #e6e4ca;
+        margin-bottom: 29px;
+
+        h2 {
+            font-size: 23px;
+            font-weight: bold;
+            color: #006aad;
+            margin-left: 58px;
+        }
+
+        fieldset {
+            padding: 10px;
+            font-size: 12px;
+            border-radius: 10px;
+            border: 1px solid #e6e4ca;
+            margin-bottom: 15px;
+
+            @include clear-fix;
+
+            select {
+                outline: none;
+            }
+
+            .check-in,
+            .departure {
+                border-bottom: 1px dashed #e6e4ca;
+                padding-bottom: 10px;
+                width: 49%;
+
+                .calendar {
+                    width: 13px;
+                    height: 13px;
+                    background-image: url("../images/calendar.png");
+                    display: inline-block;
+                }
+            }
+
+            .check-in {
+                float: left;
+            }
+
+            .departure {
+                float: right;
+            }
+
+            .amount {
+                float: left;
+                width: 30%;
+            }
+
+            .type-of-number {
+                float: left;
+            }
+        }
+
+        .button-check {
+            width: 177px;
+            height: 23px;
+            border-radius: 12px;
+            background-image: url("../images/button1.png");
+            border: 1px solid #a8b3a8;
+            font-size: 9px;
+            color: #ffffff;
+            margin: 0 16px 0 105px;
+        }
+
+        .button-reserve {
+            width: 108px;
+            height: 23px;
+            border-radius: 12px;
+            background-image: url("../images/button2.png");
+            border: 1px solid #a8b3a8;
+            font-size: 9px;
+            color: #ffffff;
+            margin-bottom: 17px;
+        }
+    }
+
+    .weather {
+        width: 208px;
+        background-image: linear-gradient(#ffffff, #f9f9ec);
+        border-radius: 10px;
+        border: 1px solid #e6e4ca;
+        margin-bottom: 29px;
+        padding: 10px;
+        font-size: 12px;
+        float: left;
+
+        h2 {
+            font-size: 17px;
+            font-weight: bold;
+            color: #4e9001;
+            margin: 0;
+        }
+
+        .today {
+            padding: 2px 0;
+            background: url("../images/rain.png") 158px 10px no-repeat;
+            border-bottom: 1px dashed #e6e4ca;
+
+            p {
+                color: #756c05;
+            }
+
+            .temperature {
+                color: #333333;
+            }
+        }
+
+        .tomorrow {
+            padding: 2px 0;
+            background: url("../images/sun.png") 158px 10px no-repeat;
+
+            p {
+                color: #756c05;
+            }
+
+            .temperature {
+                color: #333333;
+            }
+        }
+    }
+
+    .currency-exchange {
+        width: 208px;
+        background-image: linear-gradient(#ffffff, #f9f9ec);
+        border-radius: 10px;
+        border: 1px solid #e6e4ca;
+        float: right;
+        padding: 9px 10px 9px 13px;
+        font-size: 12px;
+
+        h2 {
+            font-size: 17px;
+            font-weight: bold;
+            color: #4e9001;
+            margin: 0 8px 8px 0;
+            display: inline-block;
+        }
+
+        .date-currency {
+            font-size: 11px;
+        }
+
+        .heading,
+        .usd,
+        .eur {
+            border-top: 1px dashed #e6e4ca
+        }
+
+        .heading {
+            background-color: #eaf6e0;
+            padding: 6px 0;
+            color: #756c05;
+        }
+
+        .heading span {
+            margin-left: 11px;
+        }
+
+        .usd span,
+        .eur span {
+            margin-left: 20px;
+        }
+
+        .usd {
+            padding: 6px;
+            background: url("../images/dollar.png") 8px 4px no-repeat;
+        }
+
+        .eur {
+            padding: 6px;
+            background: url("../images/evro.png") 4px 4px no-repeat;
+        }
+    }
+}
+
+.column-right {
+    .description {
+        h2 {
+            color: #ffffff;
+            font-size: 26px;
+            margin-top: 50px;
+            margin-left: 45px;
+            font-weight: lighter;
+
+            span {
+                margin-left: 90px;
+            }
+        }
+
+        p {
+            font-size: 12px;
+            padding-left: 45px;
+            margin-bottom: 32px;
+            color: #002e68;
+        }
+    }
+
+    .contacts {
+        width: 356px;
+        height: 40px;
+        border-radius: 10px;
+        margin-left: 25px;
+        margin-bottom: 40px;
+        padding: 11px 0 0 48px;
+        background: url("../images/phone.png") 15px 6px no-repeat,
+                    url("../images/mail.png") 193px 6px no-repeat, #ffffff;
+
+        p {
+            margin: 0;
+            font-size: 14px;
+
+            span {
+                margin-left: 52px;
+            }
+        }
+    }
+
+    .season {
+        width: 215px;
+        height: 316px;
+        margin: 0 25px 35px 0;
+        float: left;
+        padding: 5px 8px 0 24px;
+        position: relative;
+
+        h2 {
+            color: #ffffff;
+            font-size: 26px;
+            margin: 0;
+
+            span {
+                font-size: 18px;
+                font-weight: lighter;
+            }
+        }
+
+        p {
+            font-size: 13px;
+            color: #ffffff;
+        }
+    }
+
+    .season-hunting {
+        background-image: url("../images/background-green.png");
+
+        h2 {
+            border-bottom: 1px dashed #e6e4ca;
+        }
+
+        .ducks {
+            position: absolute;
+            bottom: -12px;
+            right: -21px;
+        }
+    }
+
+    .season-fishing {
+        background-image: url("../images/background-blue.png");
+
+        .fish {
+            position: absolute;
+            right: -10px;
+            bottom: 0;
+        }
+    }
+
+    .advice {
+        width: 430px;
+        padding-left: 164px;
+        padding-top: 5px;
+        margin-left: 35px;
+        clear: both;
+        font-size: 14px;
+
+        h2 {
+            color: #4e9001;
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        p {
+           margin-top: 0;
+        }
+    }
+
+    .advice-fishing {
+        border-bottom: 1px dashed #e6e4ca;
+        background: url("../images/fisherman.png") 0 15px no-repeat,
+                    url("../images/tracery1.png") 136px 15px no-repeat;
+    }
+
+    .advice-hunting {
+        background: url("../images/hunter.png") 0 15px no-repeat,
+                    url("../images/tracery1.png") 136px 15px no-repeat;
+    }
+
+    .news {
+        width: 430px;
+        margin-left: 35px;
+        background: url("../images/tracery2.png") 90px 10px no-repeat;
+
+        h2 {
+            color: #4e9001;
+            font-size: 20px;
+        }
+
+        .article {
+            padding-left: 105px;
+            position: relative;
+            border-bottom: 1px dashed #e6e4ca;
+            font-size: 14px;
+
+            .article-date {
+                padding: 4px;
+                background-color: #4396c6;
+                color: #ffffff;
+                border-radius: 4px;
+                display: inline-block;
+                position: absolute;
+                top: 5px;
+                left: 5px;
+            }
+        }
+    }
+}
+
+/*------------------------------------------------------------Footer*/
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    clear: both;
+
+    .footer-contacts {
+        width: 200px;
+        color: #ffffff;
+        font-size: 14px;
+        padding: 5px 0 5px 35px;
+        display: inline-block;
+        margin-left: 60px;
+        background: url("../images/phone.png") 0 14px no-repeat,
+                    url("../images/mail.png") 0 52px no-repeat;
+
+        :first-child {
+            margin-bottom: 20px;
+        }
+    }
+
+    .rights {
+        width: 370px;
+        color: #bacba7;
+        float: right;
+        font-size: 11px;
+        padding-right: 220px;
+        text-align: right;
+        background: url("../images/strip.png") 160px 0 no-repeat;
+    }
+}
