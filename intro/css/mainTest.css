@@ -2,9 +2,10 @@ body {
     padding: 20px;
 }
 
-h1 {
+h2 {
     color: tomato;
     text-align: center;
+    font-size: 32px;
 }
 
 /*--------------------1 @font-face--------------------*/
@@ -383,4 +384,13 @@ h1 {
         left: 0;
         transform: scaleX(1);
     }
+}
+
+#myCanvas {
+    background-color: #98c5f6;
+}
+
+iframe {
+    width: 500px;
+    height: 300px;
 }

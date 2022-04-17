@@ -8,7 +8,7 @@
 
 <body>
     <div class="task-one">
-        <h1>1 @font-face</h1>
+        <h2>1 @font-face</h2>
 
         <p>
             Aerodynamics
@@ -20,7 +20,7 @@
     </div>
 
     <div class="task-two">
-        <h1>2 Transition</h1>
+        <h2>2 Transition</h2>
 
         <div class="buttons">
             <button class="button-one">1</button>
@@ -39,7 +39,7 @@
     </div>
 
     <div class="task-three">
-        <h1>3 Animation</h1>
+        <h2>3 Animation</h2>
 
         <div class="animation animation-one">
             <div class="cube"></div>
@@ -79,5 +79,31 @@
             <img class="plane" src="images/plane.png">
         </div>
     </div>
+
+    <div class="task-four">
+        <h2>Canvas</h2>
+        <canvas id="myCanvas" width="400" height="400"></canvas>
+    </div>
+
+    <div class="task-five">
+        <h2>iframe</h2>
+        <iframe src="https://backbonejs.org/"></iframe>
+    </div>
+
+    <script>
+        let canvas = document.querySelector('#myCanvas');
+        let ctx = canvas.getContext('2d');
+
+        ctx.beginPath();
+        ctx.moveTo(50, 50);
+        ctx.lineTo(50, 350);
+        ctx.lineTo(350, 350);
+        ctx.strokeStyle = 'green';
+        ctx.fillStyle = 'yellow';
+        ctx.lineWidth = 5;
+        ctx.closePath();
+        ctx.stroke();
+        ctx.fill();
+    </script>
 </body>
 </html>
