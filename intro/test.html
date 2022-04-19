@@ -95,7 +95,7 @@
         let ctx = canvas.getContext('2d');
 
         ctx.beginPath();
-        ctx.moveTo(50, 50);
+        ctx.moveTo(50, 50);//Начальная точка координат x/y (отсчёт идёт с левого верхнего угла)
         ctx.lineTo(50, 350);
         ctx.lineTo(350, 350);
         ctx.strokeStyle = 'green';
@@ -104,6 +104,35 @@
         ctx.closePath();
         ctx.stroke();
         ctx.fill();
+    </script>
+
+    <div class="task-six">
+        <h2>Mario</h2>
+        <div class="scene">
+            <div class="mushroom"></div>
+        </div>
+    </div>
+
+    <script>
+        var mushroom = document.querySelector('.mushroom');
+
+        function changeImageRightLeg() {
+            mushroom.style.backgroundPosition = '-19px 0';
+        }
+
+        function changeImageLeftLeg() {
+            mushroom.style.backgroundPosition = '0 0';
+        }
+
+        function rightLeg() {
+            setInterval('changeImageRightLeg()', 500);
+        }
+
+        function leftLeg() {
+            setInterval('changeImageLeftLeg()', 500);
+        }
+
+        rightLeg();
     </script>
 </body>
 </html>

@@ -394,3 +394,18 @@ iframe {
     width: 500px;
     height: 300px;
 }
+
+.scene {
+    width: 1000px;
+    height: 1000px;
+    border: 1px solid #98c5f6;
+    margin: 0 auto;
+}
+
+.mushroom {
+    width: 18px;
+    height: 18px;
+    background-image: url('../images/mario_tileset.png');
+    background-repeat: no-repeat;
+    background-position: 0 0;
+}
