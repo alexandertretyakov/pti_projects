@@ -108,31 +108,71 @@
 
     <div class="task-six">
         <h2>Mario</h2>
-        <div class="scene">
-            <div class="mushroom"></div>
-        </div>
+        <div class="scene"></div>
     </div>
 
     <script>
-        var mushroom = document.querySelector('.mushroom');
+        class Mushroom {
+            constructor(options) {
+                this.dx = options.dx || 1;
+                this.x = options.x || 0;
+                this.y = options.y || 0;
+                this.initX = this.x;
 
-        function changeImageRightLeg() {
-            mushroom.style.backgroundPosition = '-19px 0';
+                this.el = document.createElement('div');
+                this.el.classList.add('mushroom');
+
+                this.draw();
+                this.run();
+            }
+
+            addToScene() {
+                var scene = document.querySelector('.scene');
+                scene.appendChild(this.el);
+            }
+
+            run() {
+                this.runIntervalID = setInterval(function() {
+                    if (this.x > this.initX + 250 || this.x < this.initX) { // Если добежал до правого или левого края
+                        this.dx *= -1; // Инвертируем приращивание (дельту)
+                    }
+
+                    this.x += this.dx;
+                    this.draw();
+                }.bind(this), 1000/60);
+            }
+
+            draw() {
+                this.el.style.left = this.x + 'px';
+                this.el.style.top = this.y + 'px';
+            }
+
+            stop() {
+                clearInterval(this.runIntervalID);
+            }
         }
 
-        function changeImageLeftLeg() {
-            mushroom.style.backgroundPosition = '0 0';
-        }
+        var getRandomCoordinates = function() {
+            return {
+                x: Math.trunc(Math.random() * 1000),
+                y: Math.trunc(Math.random() * 1000)
+            };
+        };
 
-        function rightLeg() {
-            setInterval('changeImageRightLeg()', 500);
-        }
+        var mushrooms = [];
+        var intervalID = setInterval(function() {
+            var mushroom = new Mushroom({
+                x: getRandomCoordinates().x,
+                y: getRandomCoordinates().y,
+                dx: Math.trunc(Math.random() * 5 + 1)
+            });
+            mushroom.addToScene();
+            mushrooms.push(mushroom);
 
-        function leftLeg() {
-            setInterval('changeImageLeftLeg()', 500);
-        }
-
-        rightLeg();
+            if (mushrooms.length === 10) {
+                clearInterval(intervalID);
+            }
+        }, 500);
     </script>
 </body>
 </html>

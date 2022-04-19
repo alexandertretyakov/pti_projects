@@ -398,14 +398,16 @@ iframe {
 .scene {
     width: 1000px;
     height: 1000px;
-    border: 1px solid #98c5f6;
+    border: 3px solid #98c5f6;
     margin: 0 auto;
+    position: relative;
 }
 
 .mushroom {
     width: 18px;
     height: 18px;
-    background-image: url('../images/mario_tileset.png');
-    background-repeat: no-repeat;
-    background-position: 0 0;
+    background: url('../images/mario_tileset.png') no-repeat 0 0;
+    position: absolute;
+    left: 0;
+    top: 0;
 }
