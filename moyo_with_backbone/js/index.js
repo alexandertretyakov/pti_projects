@@ -893,8 +893,24 @@ var products = [
 ];
 
 var templates = {
-    //'whore': doT.template($('#whore-template').html())
+    'tmplFnProductTiles': $('#products-tiles-template').html(),
+    'tmplFnProductList': $('#products-list-template').html()
 };
+
+$('.catalog-products').html(doT.template(templates['tmplFnProductTiles'])(products));
+$('.catalog-products[data-tile-mode=list]').html(doT.template(templates['tmplFnProductList'])(products));
+
+
+
+
+
+
+
+
+
+
+
+
 
 // templates[templateName](templateData)
 // templates['whore'](whore)
