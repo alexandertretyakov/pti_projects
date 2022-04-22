@@ -894,7 +894,10 @@ var products = [
 
 var templates = {
     'catalog.product.grid': $('#catalog-product-grid-template').html(),
-    'catalog.product.list': $('#catalog-product-list-template').html()
+    'catalog.product.list': $('#catalog-product-list-template').html(),
+    'app': $('#app-template').html(),
+    'header': $('#header-template').html(),
+    'catalog': $('#catalog-template').html()
 };
 
 // templates[templateName](templateData)
@@ -925,8 +928,34 @@ var i18n = {
     }
 };
 
-$('.catalog-products').html(doT.template(templates['catalog.product.grid'])(products));
-$('.catalog-products[data-tile-mode=list]').html(doT.template(templates['catalog.product.list'])(products));
+//var AppModel = Backbone.Model.extend({});
+
+//var appModel = new AppModel;
+
+var AppView = Backbone.View.extend({
+    render() {
+        // 1. Отрендерить app шаблон
+        this.renderHeader();
+        // 3. Отрендерить catalog в контейнер
+            // var catalog = new Catalog;
+            // вставишь catalog.el
+    },
+
+    renderHeader() {
+        // Отрендерить header в контенер
+    }
+});
+
+var appView = new AppView;
+
+var Catalog = Backbone.View.extend({
+    render() {
+        // Отрендерить catalog в this.el
+        // 4. Отрендерить товары в контейнер
+        //$('.catalog-products').html(doT.template(templates['catalog.product.grid'])(products));
+        //$('.catalog-products[data-tile-mode=list]').html(doT.template(templates['catalog.product.list'])(products));
+    }
+});
 
 
 
