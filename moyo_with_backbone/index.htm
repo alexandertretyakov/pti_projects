@@ -666,7 +666,7 @@
                         </div>
                     </div>
 
-                    <div class="catalog-products" data-tile-mode="grid" style="display: none11;">
+                    <div class="catalog-products" data-tile-mode="grid">
                         <div class="product-item">
                             <div class="product-item_id">Код товара: 490389</div>
                             <a href="#" class="product-item_img"><img src="https://img.moyo.ua/img/products/4903/89_200.jpg?1648295681" alt="Ноутбук LENOVO ThinkBook 15 (20VE00FLRA)"></a>
@@ -1049,126 +1049,7 @@
                         </div>
                     </div>
 
-                    <script type="text/template" id="products-tiles-template">
-                        {{~ it :product:index}}
-                            <div class="product-item">
-                                {{? product.discount}}
-                                    <div class="product-item_discount">- {{= product.discount}} %</div>
-                                {{?}}
-                                <div class="product-item_id">Код товара: {{= product.id}}</div>
-                                <a href="#" class="product-item_img"><img src="images/preview/{{= product.id}}.jpg" alt="{{= product.title}}"></a>
-                                <div class="product-item_content">
-                                    <div class="product-item_content_wrap">
-                                        <div class="product-item_markers">
-                                            {{? product.markers.exclusive}}
-                                                <div class="product-item_label sticker--exclusive">Эксклюзив</div>
-                                            {{?}}
-                                            {{? product.markers.bestPrice}}
-                                                <div class="product-item_label sticker--best-price">Лучшая цена</div>
-                                            {{?}}
-                                            {{? product.markers.hit}}
-                                                <div class="product-item_label sticker--hit">Хит</div>
-                                            {{?}}
-                                        </div>
-                                        <a href="#" class="product-item_name">{{= product.title}}</a>
-                                        <div class="product-item_evaluation">
-                                            {{? product.reviews}}
-                                                <div class="rate-star_container">
-                                                    {{? product.rating === 1}}
-                                                        <div class="rate-star active-start"></div>
-                                                        <div class="rate-star"></div>
-                                                        <div class="rate-star"></div>
-                                                        <div class="rate-star"></div>
-                                                        <div class="rate-star"></div>
-                                                    {{?}}
-                                                    {{? product.rating === 2}}
-                                                        <div class="rate-star active-start"></div>
-                                                        <div class="rate-star active-start"></div>
-                                                        <div class="rate-star"></div>
-                                                        <div class="rate-star"></div>
-                                                        <div class="rate-star"></div>
-                                                    {{?}}
-                                                    {{? product.rating === 3}}
-                                                        <div class="rate-star active-start"></div>
-                                                        <div class="rate-star active-start"></div>
-                                                        <div class="rate-star active-start"></div>
-                                                        <div class="rate-star"></div>
-                                                        <div class="rate-star"></div>
-                                                    {{?}}
-                                                    {{? product.rating === 4}}
-                                                        <div class="rate-star active-start"></div>
-                                                        <div class="rate-star active-start"></div>
-                                                        <div class="rate-star active-start"></div>
-                                                        <div class="rate-star active-start"></div>
-                                                        <div class="rate-star"></div>
-                                                    {{?}}
-                                                    {{? product.rating === 5}}
-                                                        <div class="rate-star active-start"></div>
-                                                        <div class="rate-star active-start"></div>
-                                                        <div class="rate-star active-start"></div>
-                                                        <div class="rate-star active-start"></div>
-                                                        <div class="rate-star active-start"></div>
-                                                    {{?}}
-                                                </div>
-                                                <div class="product-item_reviews">{{= product.reviews}} отзывов</div>
-                                            {{?}}
-                                        </div>
-                                    </div>
-                                    <div class="product-item_price">
-                                        <div class="product-item_price_title">Цена</div>
-                                        <div class="product-item_price_current
-                                            {{? product.discount}}
-                                                sale
-                                            {{?}}
-                                            {{? product.available === false}}
-                                                not-available
-                                            {{?}}">{{= product.price}} грн
-                                            {{? product.available}}
-                                                <div class="product-item_price_cashback">+ {{= calcCashback(products)[index].toFixed(2)}} грн кэшбек</div>
-                                            {{?}}
-                                        </div>
-                                        <div class="product-item_price_{{? product.available}}oldprice{{??}}text{{?}}">
-                                            {{? product.available}}{{= product.price}}грн{{??}}Нет в наличии{{?}}
-                                        </div>
-                                    </div>
-                                    <div class="product-item_action">
-                                        <button class="buy-btn btn btn--{{? product.available}}green{{??}}inform{{?}}" data-product-id="{{= product.id}}">
-                                            {{? product.available}}
-                                                Купить
-                                            {{??}}
-                                                Уведомить
-                                            {{?}}
-                                        </button>
-                                        <div class="product-item_action_group">
-                                            <button class="product-item_wish-btn" data-product_id="434489"><span></span>В список желаний</button>
-                                            <button class="product-item_compare-btn" data-product-id="434489"><span></span>В сравнение</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="product-item_footer">
-                                    <div class="product-item_info">
-                                        <ul class="product-item_info_list">
-                                            <li><span class="key">Процессор (модель): </span> <span class="value">{{= product.processorManufacturer}}</span></li>
-                                            <li><span class="key">Дисплей (диагональ): </span> <span class="value">{{= product.diagonal}}</span></li>
-                                            <li><span class="key">Оперативная память (объем): </span> <span class="value">{{= product.RAMCapacity}} Гб </span></li>
-                                            {{? product.preinstalledOS}}
-                                                <li><span class="key">Предустановленная ОС: </span> <span class="value">{{= product.preinstalledOS}}</span></li>
-                                            {{??}}
-                                                <li><span class="key">Предустановленная ОС: </span> <span class="value">Без ОС</span></li>
-                                            {{?}}
-                                            {{? product.videoCardDiscrete}}
-                                                <li><span class="key">Видеокарта (дискретная): </span> <span class="value">{{= product.videoCardDiscrete}}</span></li>
-                                            {{??}}
-                                                <li><span class="key">Видеокарта (интегрированная): </span> <span class="value">{{= product.videoCardIntegrated}}</span></li>
-                                            {{?}}
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        {{~}}
-                    </script>
-
-                    <div class="catalog-products" data-tile-mode="list" style="display: none11;">
+                    <div class="catalog-products" data-tile-mode="list">
                         <div class="product-item product-item--list">
                             <div class="product-item--list_image-section">
                                 <a href="#" class="product-item_img"><img src="https://img.moyo.ua/img/products/4986/35_200.jpg?1648478628" alt="Ноутбук HP Pavilion 15-eh1040ua (422K4EA)"></a>
@@ -1509,143 +1390,6 @@
                         </div>
                     </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    <script type="text/template" id="products-list-template">
-                        {{~ it :product:index}}
-                            <div class="product-item product-item--list">
-                                <div class="product-item--list_image-section">
-                                    <a href="#" class="product-item_img"><img src="images/preview/{{= product.id}}.jpg" alt="{{= product.title}}"></a>
-                                </div>
-                                <div class="product-item--list_info-section">
-                                    <div class="product-item_markers"></div>
-                                    <a href="#" class="product-item_name">{{= product.title}}</a>
-                                    <div class="product-item_evaluation">
-                                        {{? product.reviews}}
-                                            <div class="rate-star_container">
-                                                {{? product.rating === 1}}
-                                                    <div class="rate-star active-start"></div>
-                                                    <div class="rate-star"></div>
-                                                    <div class="rate-star"></div>
-                                                    <div class="rate-star"></div>
-                                                    <div class="rate-star"></div>
-                                                {{?}}
-                                                {{? product.rating === 2}}
-                                                    <div class="rate-star active-start"></div>
-                                                    <div class="rate-star active-start"></div>
-                                                    <div class="rate-star"></div>
-                                                    <div class="rate-star"></div>
-                                                    <div class="rate-star"></div>
-                                                {{?}}
-                                                {{? product.rating === 3}}
-                                                    <div class="rate-star active-start"></div>
-                                                    <div class="rate-star active-start"></div>
-                                                    <div class="rate-star active-start"></div>
-                                                    <div class="rate-star"></div>
-                                                    <div class="rate-star"></div>
-                                                {{?}}
-                                                {{? product.rating === 4}}
-                                                    <div class="rate-star active-start"></div>
-                                                    <div class="rate-star active-start"></div>
-                                                    <div class="rate-star active-start"></div>
-                                                    <div class="rate-star active-start"></div>
-                                                    <div class="rate-star"></div>
-                                                {{?}}
-                                                {{? product.rating === 5}}
-                                                    <div class="rate-star active-start"></div>
-                                                    <div class="rate-star active-start"></div>
-                                                    <div class="rate-star active-start"></div>
-                                                    <div class="rate-star active-start"></div>
-                                                    <div class="rate-star active-start"></div>
-                                                {{?}}
-                                            </div>
-                                            <div class="product-item_reviews">{{= product.reviews}} отзывов</div>
-                                        {{?}}
-                                    </div>
-                                    <div class="product-item_info">
-                                        <ul class="product-item_info_list">
-                                            <li><span class="key">Процессор (модель): </span> <span class="value">{{= product.processorManufacturer}}</span></li>
-                                            <li><span class="key">Дисплей (диагональ): </span> <span class="value">{{= product.diagonal}}</span></li>
-                                            <li><span class="key">Оперативная память (объем): </span> <span class="value">{{= product.RAMCapacity}} Гб </span></li>
-                                            {{? product.preinstalledOS}}
-                                                <li><span class="key">Предустановленная ОС: </span> <span class="value">{{= product.preinstalledOS}}</span></li>
-                                            {{??}}
-                                                <li><span class="key">Предустановленная ОС: </span> <span class="value">Без ОС</span></li>
-                                            {{?}}
-                                            {{? product.videoCardDiscrete}}
-                                                <li><span class="key">Видеокарта (дискретная): </span> <span class="value">{{= product.videoCardDiscrete}}</span></li>
-                                            {{??}}
-                                                <li><span class="key">Видеокарта (интегрированная): </span> <span class="value">{{= product.videoCardIntegrated}}</span></li>
-                                            {{?}}
-                                            <li><span class="key">Клавиатура (подсветка): </span> <span class="value">{{? product.keyboardBacklit}}Есть{{??}}Нет{{?}}</span></li>
-                                            <li><span class="key">Гарантия, мес.: </span> <span class="value">{{= product.warranty}}</span></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="product-item--list_tools-section">
-                                    <div class="product-item_id">Код товара: {{= product.id}}</div>
-                                    <div class="product-item_content">
-                                        <div class="product-item_price">
-                                            <div class="product-item_price_title">Цена</div>
-                                            <div class="product-item_price_current
-                                            {{? product.available}}
-                                                sale
-                                            {{??}}
-                                                not-available
-                                            {{?}}">{{= product.price}} грн
-                                                {{? product.available}}
-                                                <div class="product-item_price_cashback">+ {{= it[index].price * 0.01.toFixed(2)}} грн кэшбек</div>
-                                                {{?}}
-                                            </div>
-                                            <div class="product-item_price_{{? product.available}}oldprice{{??}}text{{?}}">
-                                                {{? product.available}}{{= product.price}}грн{{??}}Нет в наличии{{?}}
-                                            </div>
-                                        </div>
-                                        <div class="product-item_action">
-                                            <button class="buy-btn btn btn--{{? product.available}}green{{??}}inform{{?}}" data-product-id="{{= product.id}}">
-                                                {{? product.available}}
-                                                Купить
-                                                {{??}}
-                                                Уведомить
-                                                {{?}}
-                                            </button>
-                                            <div class="product-item_action_group">
-                                                <button class="product-item_wish-btn" data-product_id="434489"><span></span>В список желаний</button>
-                                                <button class="product-item_compare-btn" data-product-id="434489"><span></span>В сравнение</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        {{~}}
-                    </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                     <div class="load-section">
                         <div class="load-section_show-more">
                             <button class="btn btn--yellow">
@@ -1669,8 +1413,197 @@
         </div>
     </div>
 
-    <script type="text/template" id="xxx-template">
-        // Write your code here
+    <script type="text/template" id="catalog-product-grid-template">
+        {{~ it :product:index}}
+            <div class="product-item">
+                {{? product.discount}}
+                    <div class="product-item_discount">-{{= product.discount}}%</div>
+                {{?}}
+                <div class="product-item_id">Код товара: {{= product.id}}</div>
+                <a href="#" class="product-item_img"><img src="images/preview/{{= product.id}}.jpg" alt="{{= product.title}}"></a>
+                <div class="product-item_content">
+                    <div class="product-item_content_wrap">
+                        <div class="product-item_markers">
+                            {{? product.markers.exclusive}}
+                                <div class="product-item_label sticker--exclusive">Эксклюзив</div>
+                            {{?}}
+                            {{? product.markers.bestPrice}}
+                                <div class="product-item_label sticker--best-price">Лучшая цена</div>
+                            {{?}}
+                            {{? product.markers.hit}}
+                                <div class="product-item_label sticker--hit">Хит</div>
+                            {{?}}
+                        </div>
+                        <a href="#" class="product-item_name">{{= product.title}}</a>
+                        <div class="product-item_evaluation">
+                            {{? product.reviews}}
+                                <div class="rate-star_container">
+                                    {{~ [1, 2, 3, 4, 5] :n:idx}}
+                                        <div class="rate-star {{? idx < product.rating}}active-start{{?}}"></div>
+                                    {{~}}
+                                </div>
+                                <div class="product-item_reviews">{{= product.reviews}} отзывов</div>
+                            {{?}}
+                        </div>
+                    </div>
+                    <div class="product-item_price">
+                        <div class="product-item_price_title">Цена</div>
+                        <div class="product-item_price_current {{? product.discount}}sale{{?}} {{? !product.available}}not-available{{?}}">
+                            {{= product.price}} грн
+                            {{? product.available}}
+                                <div class="product-item_price_cashback">+ {{= calcCashback(products)[0].toFixed(2)}} грн кэшбек</div>
+                            {{?}}
+                        </div>
+                        <div class="product-item_price_{{? product.available}}oldprice{{??}}text{{?}}">
+                            {{? product.available}}
+                                {{= product.price}} грн
+                            {{??}}
+                                Нет в наличии
+                            {{?}}
+                        </div>
+                    </div>
+                    <div class="product-item_action">
+                        <button class="buy-btn btn btn--{{? product.available}}green{{??}}inform{{?}}" data-product-id="{{= product.id}}">
+                            {{? product.available}}Купить{{??}}Уведомить{{?}}
+                        </button>
+                        <div class="product-item_action_group">
+                            <button class="product-item_wish-btn" data-product_id="{{= product.id}}"><span></span>В список желаний</button>
+                            <button class="product-item_compare-btn" data-product-id="{{= product.id}}"><span></span>В сравнение</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-item_footer">
+                    <div class="product-item_info">
+                        <ul class="product-item_info_list">
+                            <li>
+                                <span class="key">Процессор (модель): </span>
+                                <span class="value">{{= product.processorManufacturer}}</span>
+                            </li>
+                            <li>
+                                <span class="key">Дисплей (диагональ): </span>
+                                <span class="value">{{= product.diagonal}}</span>
+                            </li>
+                            <li>
+                                <span class="key">Оперативная память (объем): </span>
+                                <span class="value">{{= product.RAMCapacity}} Гб </span>
+                            </li>
+                            <li>
+                                <span class="key">Предустановленная ОС: </span>
+                                <span class="value">
+                                    {{? product.preinstalledOS}}
+                                        {{= product.preinstalledOS}}
+                                    {{??}}
+                                        Без ОС
+                                    {{?}}
+                                </span>
+                            </li>
+                            {{? product.videoCardDiscrete}}
+                                <li>
+                                    <span class="key">Видеокарта (дискретная): </span>
+                                    <span class="value">{{= product.videoCardDiscrete}}</span>
+                                </li>
+                            {{??}}
+                                <li>
+                                    <span class="key">Видеокарта (интегрированная): </span>
+                                    <span class="value">{{= product.videoCardIntegrated}}</span>
+                                </li>
+                            {{?}}
+                            <li>
+                                <span class="key">Клавиатура (подсветка): </span>
+                                <span class="value">{{? product.keyboardBacklit}}Есть{{??}}Нет{{?}}</span>
+                            </li>
+                            <li>
+                                <span class="key">Гарантия, мес.: </span>
+                                <span class="value">{{= product.warranty}}</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        {{~}}
+    </script>
+
+    <script type="text/template" id="catalog-product-list-template">
+        {{~ it :product:index}}
+            <div class="product-item product-item--list">
+                <div class="product-item--list_image-section">
+                    <a href="#" class="product-item_img"><img src="images/preview/{{= product.id}}.jpg" alt="{{= product.title}}"></a>
+                </div>
+                <div class="product-item--list_info-section">
+                    <div class="product-item_markers"></div>
+                    <a href="#" class="product-item_name">{{= product.title}}</a>
+                    <div class="product-item_evaluation">
+                        {{? product.reviews}}
+                            <div class="rate-star_container">
+                                {{~ [1, 2, 3, 4, 5] :n:idx}}
+                                    <div class="rate-star {{? idx < product.rating}}active-start{{?}}"></div>
+                                {{~}}
+                            </div>
+                            <div class="product-item_reviews">{{= product.reviews}} отзывов</div>
+                        {{?}}
+                    </div>
+                    <div class="product-item_info">
+                        <ul class="product-item_info_list">
+                            <li>
+                                <span class="key">Процессор (модель): </span>
+                                <span class="value">{{= product.processorManufacturer}}</span>
+                            </li>
+                            <li>
+                                <span class="key">Дисплей (диагональ): </span>
+                                <span class="value">{{= product.diagonal}}</span>
+                            </li>
+                            <li>
+                                <span class="key">Оперативная память (объем): </span>
+                                <span class="value">{{= product.RAMCapacity}} Гб </span>
+                            </li>
+                            <li>
+                                <span class="key">Предустановленная ОС: </span>
+                                <span class="value">{{? product.preinstalledOS}}{{= product.preinstalledOS}}{{??}}Без ОС{{?}}</span>
+                            </li>
+                            {{? product.videoCardDiscrete}}
+                                <li>
+                                    <span class="key">Видеокарта (дискретная): </span>
+                                    <span class="value">{{= product.videoCardDiscrete}}</span>
+                                </li>
+                            {{??}}
+                                <li>
+                                    <span class="key">Видеокарта (интегрированная): </span>
+                                    <span class="value">{{= product.videoCardIntegrated}}</span>
+                                </li>
+                            {{?}}
+                        </ul>
+                    </div>
+                </div>
+                <div class="product-item--list_tools-section">
+                    <div class="product-item_id">Код товара: {{= product.id}}</div>
+                    <div class="product-item_content">
+                        <div class="product-item_price">
+                            <div class="product-item_price_title">Цена</div>
+                            <div class="product-item_price_current {{? product.discount}}sale{{?}} {{? !product.available}}not-available{{?}}">
+                                {{= product.price}} грн
+                                {{? product.available}}
+                                    <div class="product-item_price_cashback">+ {{= it[index].price * 0.01.toFixed(2)}} грн кэшбек</div>
+                                {{?}}
+                            </div>
+                            <div class="product-item_price_{{? product.available}}oldprice{{??}}text{{?}}">
+                                {{? product.available}}
+                                    {{= product.price}} грн
+                                {{??}}
+                                    Нет в наличии
+                                {{?}}
+                            </div>
+                        </div>
+                        <div class="product-item_action">
+                            <button class="product-item_buy-btn btn btn--{{? product.available}}green{{??}}inform{{?}}" data-product-id="{{= product.id}}">{{? product.available}}Купить{{??}}Уведомить{{?}}</button>
+                            <div class="product-item_action_group">
+                                <button class="product-item_wish-btn" data-product_id="{{= product.id}}"><span></span>В список желаний</button>
+                                <button class="product-item_compare-btn" data-product-id="{{= product.id}}"><span></span>В сравнение</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {{~}}
     </script>
 
     <script src="js/index.js"></script>

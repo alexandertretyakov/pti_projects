@@ -893,29 +893,23 @@ var products = [
 ];
 
 var templates = {
-    'tmplFnProductTiles': $('#products-tiles-template').html(),
-    'tmplFnProductList': $('#products-list-template').html()
+    'catalog.product.grid': $('#catalog-product-grid-template').html(),
+    'catalog.product.list': $('#catalog-product-list-template').html()
 };
-
-$('.catalog-products').html(doT.template(templates['tmplFnProductTiles'])(products));
-$('.catalog-products[data-tile-mode=list]').html(doT.template(templates['tmplFnProductList'])(products));
-
-
-
-
-
-
-
-
-
-
-
-
 
 // templates[templateName](templateData)
 // templates['whore'](whore)
 
-// Write your code here
+var calcCashback = function() {
+    return [4343];
+};
+
+$('.catalog-products').html(doT.template(templates['catalog.product.grid'])(products));
+$('.catalog-products[data-tile-mode=list]').html(doT.template(templates['catalog.product.list'])(products));
+
+
+
+
 
 
 
