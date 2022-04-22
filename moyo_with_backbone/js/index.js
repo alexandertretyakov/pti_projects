@@ -904,6 +904,27 @@ var calcCashback = function() {
     return [4343];
 };
 
+var translationsRU = {
+    'catalog.product.price': 'Цена',
+    'catalog.product.productId': 'Код товара'
+};
+
+var translationsUA = {
+    'catalog.product.price': 'Ціна',
+    'catalog.product.productId': 'Код товару'
+};
+
+var i18n = {
+    lang: 'ru',
+    t: function(tk) {
+        if (this.lang === 'ru') {
+            return translationsRU[tk];
+        } else {
+            return translationsUA[tk];
+        }
+    }
+};
+
 $('.catalog-products').html(doT.template(templates['catalog.product.grid'])(products));
 $('.catalog-products[data-tile-mode=list]').html(doT.template(templates['catalog.product.list'])(products));
 
@@ -936,13 +957,5 @@ $('.catalog-products[data-tile-mode=list]').html(doT.template(templates['catalog
 
 
 /* ------------------------------------------------------------------------------------ */
-
-var translations = {
-    'dwedwd.ewdewdweSdede.dede': 'wdedwdwdewde'
-};
-
-var i18n = {
-    t: () => {}
-};
 
 //base view, info

@@ -1419,7 +1419,7 @@
                 {{? product.discount}}
                     <div class="product-item_discount">-{{= product.discount}}%</div>
                 {{?}}
-                <div class="product-item_id">Код товара: {{= product.id}}</div>
+                <div class="product-item_id">{{= i18n.t('catalog.product.productId')}}: {{= product.id}}</div>
                 <a href="#" class="product-item_img"><img src="images/preview/{{= product.id}}.jpg" alt="{{= product.title}}"></a>
                 <div class="product-item_content">
                     <div class="product-item_content_wrap">
@@ -1447,7 +1447,7 @@
                         </div>
                     </div>
                     <div class="product-item_price">
-                        <div class="product-item_price_title">Цена</div>
+                        <div class="product-item_price_title">{{= i18n.t('catalog.product.price')}}</div>
                         <div class="product-item_price_current {{? product.discount}}sale{{?}} {{? !product.available}}not-available{{?}}">
                             {{= product.price}} грн
                             {{? product.available}}
@@ -1575,10 +1575,10 @@
                     </div>
                 </div>
                 <div class="product-item--list_tools-section">
-                    <div class="product-item_id">Код товара: {{= product.id}}</div>
+                    <div class="product-item_id">{{= i18n.t('catalog.product.productId')}}: {{= product.id}}</div>
                     <div class="product-item_content">
                         <div class="product-item_price">
-                            <div class="product-item_price_title">Цена</div>
+                            <div class="product-item_price_title">{{= i18n.t('catalog.product.price')}}</div>
                             <div class="product-item_price_current {{? product.discount}}sale{{?}} {{? !product.available}}not-available{{?}}">
                                 {{= product.price}} грн
                                 {{? product.available}}
