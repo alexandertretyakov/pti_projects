@@ -903,16 +903,12 @@ var templates = {
 // templates[templateName](templateData)
 // templates['whore'](whore)
 
-var calcCashback = function() {
-    return [4343];
-};
-
 var getPriceWithDiscount = function(price, discount = 0) {
-    return price - price * discount / 100;
+    return Math.ceil(price - price * discount / 100);
 };
 
 var getCashbackAmount = function(price, rate = 0) {
-    return price * rate;
+    return Math.ceil(price * rate);
 };
 
 var formatPrice = function(price) {
