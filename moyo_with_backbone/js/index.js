@@ -915,6 +915,10 @@ var getCashbackAmount = function(price, rate = 0) {
     return price * rate;
 };
 
+var formatPrice = function(price) {
+    return price.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ');
+};
+
 var translationsRU = {
     'catalog.product.price': 'Цена',
     'catalog.product.productId': 'Код товара'
