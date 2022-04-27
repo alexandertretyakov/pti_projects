@@ -907,6 +907,14 @@ var calcCashback = function() {
     return [4343];
 };
 
+var getPriceWithDiscount = function(price, discount = 0) {
+    return price - price * discount / 100;
+};
+
+var getCashbackAmount = function(price, rate = 0) {
+    return price * rate;
+};
+
 var translationsRU = {
     'catalog.product.price': 'Цена',
     'catalog.product.productId': 'Код товара'
