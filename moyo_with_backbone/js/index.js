@@ -917,12 +917,56 @@ var formatPrice = function(price) {
 
 var translationsRU = {
     'catalog.product.price': 'Цена',
-    'catalog.product.productId': 'Код товара'
+    'catalog.product.productId': 'Код товара',
+    'catalog.product.currency': 'грн',
+    'catalog.product.cashback': 'кэшбек',
+    'catalog.product.notAvailable': 'Нет в наличии',
+    'catalog.product.reviews': 'отзывов',
+    'catalog.product.markers.exclusive': 'Эксклюзив',
+    'catalog.product.markers.bestPrice': 'Лучшая цена',
+    'catalog.product.markers.hit': 'Хит',
+    'catalog.product.btn.buy': 'Купить',
+    'catalog.product.btn.notify': 'Уведомить',
+    'catalog.product.processor': 'Процессор (модель)',
+    'catalog.product.diagonal': 'Дисплей (диагональ)',
+    'catalog.product.RAMCapacity': 'Оперативная память (объем)',
+    'catalog.product.preinstalledOS': 'Предустановленная ОС',
+    'catalog.product.notPreinstalledOS': 'Без ОС',
+    'catalog.product.videoCardDiscrete': 'Видеокарта (дискретная)',
+    'catalog.product.videoCardIntegrated': 'Видеокарта (интегрированная)',
+    'catalog.product.keyboardBacklit': 'Клавиатура (подсветка)',
+    'catalog.product.warranty': 'Гарантия, мес.',
+    'catalog.product.yes': 'Есть',
+    'catalog.product.no': 'Нет',
+    'catalog.product.favorites': 'В список желаний',
+    'catalog.product.compare': 'В сравнение'
 };
 
 var translationsUA = {
     'catalog.product.price': 'Ціна',
-    'catalog.product.productId': 'Код товару'
+    'catalog.product.productId': 'Код товару',
+    'catalog.product.currency': 'грн',
+    'catalog.product.cashback': 'кешбек',
+    'catalog.product.notAvailable': 'Немає в наявності',
+    'catalog.product.reviews': 'відгуків',
+    'catalog.product.markers.exclusive': 'Ексклюзив',
+    'catalog.product.markers.bestPrice': 'Найкраща ціна',
+    'catalog.product.markers.hit': 'Хіт',
+    'catalog.product.btn.buy': 'Купити',
+    'catalog.product.btn.notify': 'Повідомити',
+    'catalog.product.processor': 'Процесор (модель)',
+    'catalog.product.diagonal': 'Дисплей (діагональ)',
+    'catalog.product.RAMCapacity': 'Оперативна пам\'ять (обсяг)',
+    'catalog.product.preinstalledOS': 'Попередньо ОС',
+    'catalog.product.notPreinstalledOS': 'Без ОС',
+    'catalog.product.videoCardDiscrete': 'Відеокарта (дискретна)',
+    'catalog.product.videoCardIntegrated': 'Відеокарта (інтегрована)',
+    'catalog.product.keyboardBacklit': 'Клавіатура (підсвічування)',
+    'catalog.product.warranty': 'Гарантія, міс.',
+    'catalog.product.yes': 'Є',
+    'catalog.product.no': 'Ні',
+    'catalog.product.favorites': 'До списку бажань',
+    'catalog.product.compare': 'В порівнянні'
 };
 
 var i18n = {
