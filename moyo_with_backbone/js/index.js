@@ -988,6 +988,11 @@ var i18n = {
 
 //var appModel = new AppModel;
 
+var catalogModel = new Backbone.Model({
+    viewType: 'grid',
+    sortBy: 'default'
+});
+
 var AppView = Backbone.View.extend({
     initialize: function() {
         $('body').append(this.render().el);
@@ -1009,6 +1014,10 @@ var AppView = Backbone.View.extend({
 });
 
 var Catalog = Backbone.View.extend({
+    initialize() {
+        // TODO: слушаешь catalogModel, если меняется viewType, рендеришь renderContentHead & renderProducts
+    },
+
     render() {
         this.$el.html(doT.template(templates['catalog'])());
 
@@ -1025,10 +1034,12 @@ var Catalog = Backbone.View.extend({
     },
 
     renderContentHead() {
+        // TODO:
         this.$('.catalog-content-head-container').html(doT.template(templates['catalog.content.head'])());
     },
 
     renderProducts() {
+        // TODO:
         this.$('.catalog-products-container').html(doT.template(templates['catalog.products'])());
 
         this.$('.catalog-products[data-tile-mode="grid"]').html(doT.template(templates['catalog.product.grid'])(products));
