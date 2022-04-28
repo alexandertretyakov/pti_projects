@@ -1021,21 +1021,22 @@ var Catalog = Backbone.View.extend({
     },
 
     renderFilter() {
-        // TODO:
+        this.$('.catalog-filter-container').html(doT.template(templates['catalog.filter'])());
     },
 
     renderContentHead() {
-        // TODO:
+        this.$('.catalog-content-head-container').html(doT.template(templates['catalog.content.head'])());
     },
 
     renderProducts() {
-        // TODO:
-        //this.$('.catalog-products[data-tile-mode="grid"]').html(doT.template(templates['catalog.product.grid'])(products));
+        this.$('.catalog-products-container').html(doT.template(templates['catalog.products'])());
+
+        this.$('.catalog-products[data-tile-mode="grid"]').html(doT.template(templates['catalog.product.grid'])(products));
         //this.$('.catalog-products[data-tile-mode="list"]').html(doT.template(templates['catalog.product.list'])(products));
     },
 
     renderLoad() {
-        // TODO:
+        this.$('.catalog-load-container').html(doT.template(templates['catalog.load'])());
     }
 });
 
