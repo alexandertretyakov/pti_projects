@@ -1533,9 +1533,9 @@
                                 <span class="key">{{= i18n.t('catalog.product.keyboardBacklit')}}: </span>
                                 <span class="value">
                                     {{? product.keyboardBacklit}}
-                                        {{= i18n.t('catalog.product.yes')}}
+                                        {{= i18n.t('catalog.product.keyboardBacklit.yes')}}
                                     {{??}}
-                                        {{= i18n.t('catalog.product.no')}}
+                                        {{= i18n.t('catalog.product.keyboardBacklit.no')}}
                                     {{?}}
                                 </span>
                             </li>
@@ -1562,13 +1562,13 @@
                             <div class="product-item_discount">-{{= product.discount}}%</div>
                         {{?}}
                         {{? product.markers.exclusive}}
-                            <div class="product-item_label sticker--exclusive">Эксклюзив</div>
+                            <div class="product-item_label sticker--exclusive">{{= i18n.t('catalog.product.markers.exclusive')}}</div>
                         {{?}}
                         {{? product.markers.bestPrice}}
-                            <div class="product-item_label sticker--best-price">Лучшая цена</div>
+                            <div class="product-item_label sticker--best-price">{{= i18n.t('catalog.product.markers.bestPrice')}}</div>
                         {{?}}
                         {{? product.markers.hit}}
-                            <div class="product-item_label sticker--hit">Хит</div>
+                            <div class="product-item_label sticker--hit">{{= i18n.t('catalog.product.markers.hit')}}</div>
                         {{?}}
                     </div>
                     <a href="#" class="product-item_name">{{= product.title}}</a>
@@ -1579,35 +1579,41 @@
                                     <div class="rate-star {{? idx < product.rating}}active-start{{?}}"></div>
                                 {{~}}
                             </div>
-                            <div class="product-item_reviews">{{= product.reviews}} отзывов</div>
+                            <div class="product-item_reviews">{{= product.reviews}} {{= i18n.t('catalog.product.reviews')}}</div>
                         {{?}}
                     </div>
                     <div class="product-item_info">
                         <ul class="product-item_info_list">
                             <li>
-                                <span class="key">Процессор (модель): </span>
+                                <span class="key">{{= i18n.t('catalog.product.processor')}}: </span>
                                 <span class="value">{{= product.processorManufacturer}}</span>
                             </li>
                             <li>
-                                <span class="key">Дисплей (диагональ): </span>
+                                <span class="key">{{= i18n.t('catalog.product.diagonal')}}: </span>
                                 <span class="value">{{= product.diagonal}}</span>
                             </li>
                             <li>
-                                <span class="key">Оперативная память (объем): </span>
+                                <span class="key">{{= i18n.t('catalog.product.RAMCapacity')}}: </span>
                                 <span class="value">{{= product.RAMCapacity}} Гб </span>
                             </li>
                             <li>
-                                <span class="key">Предустановленная ОС: </span>
-                                <span class="value">{{? product.preinstalledOS}}{{= product.preinstalledOS}}{{??}}Без ОС{{?}}</span>
+                                <span class="key">{{= i18n.t('catalog.product.preinstalledOS')}}: </span>
+                                <span class="value">
+                                    {{? product.preinstalledOS}}
+                                        {{= product.preinstalledOS}}
+                                    {{??}}
+                                        {{= i18n.t('catalog.product.notPreinstalledOS')}}
+                                    {{?}}
+                                </span>
                             </li>
                             {{? product.videoCardDiscrete}}
                                 <li>
-                                    <span class="key">Видеокарта (дискретная): </span>
+                                    <span class="key">{{= i18n.t('catalog.product.videoCardDiscrete')}}: </span>
                                     <span class="value">{{= product.videoCardDiscrete}}</span>
                                 </li>
                             {{??}}
                                 <li>
-                                    <span class="key">Видеокарта (интегрированная): </span>
+                                    <span class="key">{{= i18n.t('catalog.product.videoCardIntegrated')}}: </span>
                                     <span class="value">{{= product.videoCardIntegrated}}</span>
                                 </li>
                             {{?}}
@@ -1621,26 +1627,32 @@
                             <div class="product-item_price_title">{{= i18n.t('catalog.product.price')}}</div>
                             <div class="product-item_price_current {{? product.discount}}sale{{?}} {{? !product.available}}not-available{{?}}">
                                 {{? product.discount}}
-                                    {{= formatPrice(getPriceWithDiscount(product.price, product.discount))}} грн
+                                    {{= formatPrice(getPriceWithDiscount(product.price, product.discount))}} {{= i18n.t('catalog.product.currency')}}
                                 {{??}}
                                     {{= formatPrice(product.price)}}
                                 {{?}}
                                 {{? product.available}}
-                                    <div class="product-item_price_cashback">+ {{= getCashbackAmount(product.price, 0.01)}} грн кэшбек</div>
+                                    <div class="product-item_price_cashback">+ {{= getCashbackAmount(product.price, 0.01)}} {{= i18n.t('catalog.product.currency')}} {{= i18n.t('catalog.product.cashback')}}</div>
                                 {{?}}
                             </div>
                             <div class="product-item_price_{{? product.available}}oldprice{{??}}text{{?}}">
                                 {{? product.available}}
                                     {{? product.discount}}
-                                        {{= formatPrice(product.price)}} грн
+                                        {{= formatPrice(product.price)}} {{= i18n.t('catalog.product.currency')}}
                                     {{?}}
                                 {{??}}
-                                    Нет в наличии
+                                    {{= i18n.t('catalog.product.notAvailable')}}
                                 {{?}}
                             </div>
                         </div>
                         <div class="product-item_action">
-                            <button class="product-item_buy-btn btn btn--{{? product.available}}green{{??}}inform{{?}}" data-product-id="{{= product.id}}">{{? product.available}}Купить{{??}}Уведомить{{?}}</button>
+                            <button class="product-item_buy-btn btn btn--{{? product.available}}green{{??}}inform{{?}}" data-product-id="{{= product.id}}">
+                                {{? product.available}}
+                                    {{= i18n.t('catalog.product.btn.buy')}}
+                                {{??}}
+                                    {{= i18n.t('catalog.product.btn.notify')}}
+                                {{?}}
+                            </button>
                             <div class="product-item_action_group">
                                 <button class="product-item_wish-btn" data-product_id="{{= product.id}}"><span></span>В список желаний</button>
                                 <button class="product-item_compare-btn" data-product-id="{{= product.id}}"><span></span>В сравнение</button>

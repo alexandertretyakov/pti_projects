@@ -936,8 +936,8 @@ var translationsRU = {
     'catalog.product.videoCardIntegrated': 'Видеокарта (интегрированная)',
     'catalog.product.keyboardBacklit': 'Клавиатура (подсветка)',
     'catalog.product.warranty': 'Гарантия, мес.',
-    'catalog.product.yes': 'Есть',
-    'catalog.product.no': 'Нет',
+    'catalog.product.keyboardBacklit.yes': 'Есть',
+    'catalog.product.keyboardBacklit.no': 'Нет',
     'catalog.product.favorites': 'В список желаний',
     'catalog.product.compare': 'В сравнение'
 };
@@ -957,14 +957,14 @@ var translationsUA = {
     'catalog.product.processor': 'Процесор (модель)',
     'catalog.product.diagonal': 'Дисплей (діагональ)',
     'catalog.product.RAMCapacity': 'Оперативна пам\'ять (обсяг)',
-    'catalog.product.preinstalledOS': 'Попередньо ОС',
+    'catalog.product.preinstalledOS': 'Попередньо встановлена ОС',
     'catalog.product.notPreinstalledOS': 'Без ОС',
     'catalog.product.videoCardDiscrete': 'Відеокарта (дискретна)',
     'catalog.product.videoCardIntegrated': 'Відеокарта (інтегрована)',
     'catalog.product.keyboardBacklit': 'Клавіатура (підсвічування)',
     'catalog.product.warranty': 'Гарантія, міс.',
-    'catalog.product.yes': 'Є',
-    'catalog.product.no': 'Ні',
+    'catalog.product.keyboardBacklit.yes': 'Є',
+    'catalog.product.keyboardBacklit.no': 'Ні',
     'catalog.product.favorites': 'До списку бажань',
     'catalog.product.compare': 'В порівнянні'
 };
@@ -986,30 +986,30 @@ var i18n = {
 
 var AppView = Backbone.View.extend({
     initialize: function() {
-        // TODO: встваить el в body
+        $('body').append(this.render().el);
     },
 
     render() {
-        // TODO: встваить дочерние элементы в $el
+        this.$el.html(doT.template(templates['app'])());
 
         this.renderHeader();
 
-        // TODO: вставить в контейнер для catalog catalog.el
+        this.$('.page-content-container').html(new Catalog().render().el);
 
         return this;
     },
 
     renderHeader() {
-        // TODO: вставить в контейнер для header header
+        this.$('.header-container').html(doT.template(templates['header'])());
     }
 });
 
 var Catalog = Backbone.View.extend({
     render() {
-        // TODO: встваить дочерние элементы в $el
+        this.$el.html(doT.template(templates['catalog'])());
 
-        // TODO: вставить в контейнер для [data-tile-mode="grid"] product
-        // TODO: вставить в контейнер для [data-tile-mode="list"] product
+        this.$('.catalog-products[data-tile-mode="grid"]').html(doT.template(templates['catalog.product.grid'])(products));
+        this.$('.catalog-products[data-tile-mode="list"]').html(doT.template(templates['catalog.product.list'])(products));
 
         return this;
     }
