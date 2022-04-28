@@ -986,30 +986,30 @@ var i18n = {
 
 var AppView = Backbone.View.extend({
     initialize: function() {
-        $('body').append(this.render().el);
+        // TODO: встваить el в body
     },
 
     render() {
-        this.$el.html(doT.template(templates['app'])());
+        // TODO: встваить дочерние элементы в $el
 
         this.renderHeader();
 
-        this.$('.page-content-container').html(new Catalog().render().el);
+        // TODO: вставить в контейнер для catalog catalog.el
 
         return this;
     },
 
     renderHeader() {
-        this.$('.header-container').html(doT.template(templates['header'])());
+        // TODO: вставить в контейнер для header header
     }
 });
 
 var Catalog = Backbone.View.extend({
     render() {
-        this.$el.html(doT.template(templates['catalog'])());
+        // TODO: встваить дочерние элементы в $el
 
-        this.$('.catalog-products[data-tile-mode="grid"]').html(doT.template(templates['catalog.product.grid'])(products));
-        this.$('.catalog-products[data-tile-mode="list"]').html(doT.template(templates['catalog.product.list'])(products));
+        // TODO: вставить в контейнер для [data-tile-mode="grid"] product
+        // TODO: вставить в контейнер для [data-tile-mode="list"] product
 
         return this;
     }
