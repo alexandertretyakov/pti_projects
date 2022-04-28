@@ -893,11 +893,15 @@ var products = [
 ];
 
 var templates = {
-    'catalog.product.grid': $('#catalog-product-grid-template').html(),
-    'catalog.product.list': $('#catalog-product-list-template').html(),
     'app': $('#app-template').html(),
     'header': $('#header-template').html(),
-    'catalog': $('#catalog-template').html()
+    'catalog': $('#catalog-template').html(),
+    'catalog.filter': $('#catalog-filter-template').html(),
+    'catalog.content.head': $('#catalog-content-head-template').html(),
+    'catalog.products': $('#catalog-products-template').html(),
+    'catalog.product.grid': $('#catalog-product-grid-template').html(),
+    'catalog.product.list': $('#catalog-product-list-template').html(),
+    'catalog.load': $('#catalog-load-template').html()
 };
 
 // templates[templateName](templateData)
@@ -1008,10 +1012,30 @@ var Catalog = Backbone.View.extend({
     render() {
         this.$el.html(doT.template(templates['catalog'])());
 
-        this.$('.catalog-products[data-tile-mode="grid"]').html(doT.template(templates['catalog.product.grid'])(products));
-        this.$('.catalog-products[data-tile-mode="list"]').html(doT.template(templates['catalog.product.list'])(products));
+        this.renderFilter();
+        this.renderContentHead();
+        this.renderProducts();
+        this.renderLoad();
 
         return this;
+    },
+
+    renderFilter() {
+        // TODO:
+    },
+
+    renderContentHead() {
+        // TODO:
+    },
+
+    renderProducts() {
+        // TODO:
+        //this.$('.catalog-products[data-tile-mode="grid"]').html(doT.template(templates['catalog.product.grid'])(products));
+        //this.$('.catalog-products[data-tile-mode="list"]').html(doT.template(templates['catalog.product.list'])(products));
+    },
+
+    renderLoad() {
+        // TODO:
     }
 });
 

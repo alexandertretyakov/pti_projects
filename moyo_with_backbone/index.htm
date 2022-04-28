@@ -48,1380 +48,652 @@
             </div>
 
             <div class="catalog-body">
-                <div class="catalog-filter">
-                    <div>
-                        <div class="catalog-filter-section active" data-filter-property="price">
-                            <div class="catalog-filter-section-head">
-                                <div class="item--title">Цена</div>
-                                <div class="item--close"></div>
-                            </div>
-                            <div class="catalog-filter-section-content">
-                                <div class="filter-section-item">
-                                    <div class="range-input">
-                                        <div class="range-input_section">
-                                            <div class="input">
-                                                <input type="number" value="10299" name="min">
-                                            </div>
-                                            <div class="range-input_delimetr"></div>
-                                            <div class="input">
-                                                <input type="number" value="59999" name="max">
-                                            </div>
-                                        </div>
+                <div class="catalog-filter-container"></div>
+
+                <div class="catalog-content">
+                    <div class="catalog-content-head-container"></div>
+
+                    <div class="catalog-products-container"></div>
+
+                    <div class="catalog-load-container"></div>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <script type="text/template" id="catalog-filter-template">
+        <div class="catalog-filter">
+            <div>
+                <div class="catalog-filter-section active" data-filter-property="price">
+                    <div class="catalog-filter-section-head">
+                        <div class="item--title">Цена</div>
+                        <div class="item--close"></div>
+                    </div>
+                    <div class="catalog-filter-section-content">
+                        <div class="filter-section-item">
+                            <div class="range-input">
+                                <div class="range-input_section">
+                                    <div class="input">
+                                        <input type="number" value="10299" name="min">
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="catalog-filter-section active" data-filter-property="brands">
-                            <div class="catalog-filter-section-head">
-                                <div class="item--title">Производитель</div>
-                                <div class="item--close"></div>
-                            </div>
-                            <div class="catalog-filter-section-content">
-                                <div class="filter-section-item" data-filter-name="brands" data-filter-value="hp">
-                                    <div class="checkbox">
-                                        <input class="checkbox_input" type="checkbox" name="brands" value="hp" id="filter-brands-hp">
-                                        <div class="checkbox_field"></div>
-                                        <label class="checkbox_label" for="filter-brands-hp">
-                                            <a class="value" href="#">HP</a>
-                                            <span class="count">23</span>
-                                        </label>
+                                    <div class="range-input_delimetr"></div>
+                                    <div class="input">
+                                        <input type="number" value="59999" name="max">
                                     </div>
-                                </div>
-                                <div class="filter-section-item" data-filter-name="brands" data-filter-value="asus">
-                                    <div class="checkbox ">
-                                        <input class="checkbox_input" type="checkbox" name="brands" value="asus" id="filter-brands-asus">
-                                        <div class="checkbox_field"></div>
-                                        <label class="checkbox_label" for="filter-brands-asus">
-                                            <a class="value" href="#">ASUS</a>
-                                            <span class="count">20</span>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="filter-section-item" data-filter-name="brands" data-filter-value="lenovo">
-                                    <div class="checkbox ">
-                                        <input class="checkbox_input" type="checkbox" name="brands" value="lenovo" id="filter-brands-lenovo">
-                                        <div class="checkbox_field"></div>
-                                        <label class="checkbox_label" for="filter-brands-lenovo">
-                                            <a class="value" href="#">LENOVO</a>
-                                            <span class="count">15</span>
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="filter-section-item" data-filter-name="brands" data-filter-value="acer">
-                                    <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="brands"
-                                                                  value="acer" id="filter-brands-acer" data-filter-label="ACER"
-                                                                  data-open-filter-url="/comp-and-periphery/notebooks/acer/">
-                                        <div class="checkbox_field"></div>
-                                        <label class="checkbox_label" for="filter-brands-acer"><a class="value"
-                                                                                                  href="/comp-and-periphery/notebooks/acer/">ACER</a><span
-                                                class="count">15</span></label></div>
-                                </div>
-                                <div class="filter-section-item" data-filter-name="brands" data-filter-value="msi">
-                                    <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="brands"
-                                                                  value="msi" id="filter-brands-msi" data-filter-label="MSI"
-                                                                  data-open-filter-url="/comp-and-periphery/notebooks/msi/">
-                                        <div class="checkbox_field"></div>
-                                        <label class="checkbox_label" for="filter-brands-msi"><a class="value"
-                                                                                                 href="/comp-and-periphery/notebooks/msi/">MSI</a><span
-                                                class="count">1</span></label></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="catalog-filter-section active" data-filter-property="6515">
-                            <div class="catalog-filter-section-head">
-                                <div class="item--title">Дисплей (диагональ экрана)</div>
-                                <div class="item--close"></div>
-                            </div>
-                            <div class="catalog-filter-section-content">
-                                <div class="filter-section-item" data-filter-name="6515" data-filter-value="573512">
-                                    <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="6515"
-                                                                  value="573512" id="filter-6515-573512" data-filter-label="17&quot;"
-                                                                  data-open-filter-url="/comp-and-periphery/notebooks/noutbuki-17-dyujmov/">
-                                        <div class="checkbox_field"></div>
-                                        <label class="checkbox_label" for="filter-6515-573512"><a class="value"
-                                                                                                  href="/comp-and-periphery/notebooks/noutbuki-17-dyujmov/">17"</a><span
-                                                class="count">4</span></label></div>
-                                </div>
-                                <div class="filter-section-item" data-filter-name="6515" data-filter-value="573511">
-                                    <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="6515"
-                                                                  value="573511" id="filter-6515-573511" data-filter-label="16&quot;"
-                                                                  data-open-filter-url="/comp-and-periphery/notebooks/noutbuki-16-dyujmov/">
-                                        <div class="checkbox_field"></div>
-                                        <label class="checkbox_label" for="filter-6515-573511"><a class="value"
-                                                                                                  href="/comp-and-periphery/notebooks/noutbuki-16-dyujmov/">16"</a><span
-                                                class="count">2</span></label></div>
-                                </div>
-                                <div class="filter-section-item" data-filter-name="6515" data-filter-value="573510">
-                                    <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="6515"
-                                                                  value="573510" id="filter-6515-573510" data-filter-label="15&quot;"
-                                                                  data-open-filter-url="/comp-and-periphery/notebooks/noutbuki-15-dyujmov/">
-                                        <div class="checkbox_field"></div>
-                                        <label class="checkbox_label" for="filter-6515-573510"><a class="value"
-                                                                                                  href="/comp-and-periphery/notebooks/noutbuki-15-dyujmov/">15"</a><span
-                                                class="count">45</span></label></div>
-                                </div>
-                                <div class="filter-section-item" data-filter-name="6515" data-filter-value="573509">
-                                    <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="6515"
-                                                                  value="573509" id="filter-6515-573509" data-filter-label="14&quot;"
-                                                                  data-open-filter-url="/comp-and-periphery/notebooks/noutbuki-14-dyujmov/">
-                                        <div class="checkbox_field"></div>
-                                        <label class="checkbox_label" for="filter-6515-573509"><a class="value"
-                                                                                                  href="/comp-and-periphery/notebooks/noutbuki-14-dyujmov/">14"</a><span
-                                                class="count">20</span></label></div>
-                                </div>
-                                <div class="filter-section-item" data-filter-name="6515" data-filter-value="573508">
-                                    <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="6515"
-                                                                  value="573508" id="filter-6515-573508" data-filter-label="13&quot;"
-                                                                  data-open-filter-url="/comp-and-periphery/notebooks/noutbuki-13-dyujmov/">
-                                        <div class="checkbox_field"></div>
-                                        <label class="checkbox_label" for="filter-6515-573508"><a class="value"
-                                                                                                  href="/comp-and-periphery/notebooks/noutbuki-13-dyujmov/">13"</a><span
-                                                class="count">3</span></label></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="catalog-filter-section active" data-filter-property="4001">
-                            <div class="catalog-filter-section-head">
-                                <div class="item--title">Процессор (серия)</div>
-                                <div class="item--close"></div>
-                            </div>
-                            <div class="catalog-filter-section-content">
-                                <div class="filter-section-item" data-filter-name="4001" data-filter-value="179211">
-                                    <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="4001"
-                                                                  value="179211" id="filter-4001-179211" data-filter-label="Intel Core i5"
-                                                                  data-open-filter-url="/comp-and-periphery/notebooks/processor_seriya_intel_core_i5/">
-                                        <div class="checkbox_field"></div>
-                                        <label class="checkbox_label" for="filter-4001-179211"><a class="value"
-                                                                                                  href="/comp-and-periphery/notebooks/processor_seriya_intel_core_i5/">Intel
-                                            Core i5</a><span class="count">16</span></label></div>
-                                </div>
-                                <div class="filter-section-item" data-filter-name="4001" data-filter-value="179319">
-                                    <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="4001"
-                                                                  value="179319" id="filter-4001-179319" data-filter-label="Intel Core i7"
-                                                                  data-open-filter-url="/comp-and-periphery/notebooks/processor_seriya_intel_core_i7/">
-                                        <div class="checkbox_field"></div>
-                                        <label class="checkbox_label" for="filter-4001-179319"><a class="value"
-                                                                                                  href="/comp-and-periphery/notebooks/processor_seriya_intel_core_i7/">Intel
-                                            Core i7</a><span class="count">5</span></label></div>
-                                </div>
-                                <div class="filter-section-item" data-filter-name="4001" data-filter-value="179261">
-                                    <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="4001"
-                                                                  value="179261" id="filter-4001-179261" data-filter-label="Intel Core i3"
-                                                                  data-open-filter-url="/comp-and-periphery/notebooks/processor_seriya_intel_core_i3/">
-                                        <div class="checkbox_field"></div>
-                                        <label class="checkbox_label" for="filter-4001-179261"><a class="value"
-                                                                                                  href="/comp-and-periphery/notebooks/processor_seriya_intel_core_i3/">Intel
-                                            Core i3</a><span class="count">16</span></label></div>
-                                </div>
-                                <div class="filter-section-item" data-filter-name="4001" data-filter-value="415469">
-                                    <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="4001"
-                                                                  value="415469" id="filter-4001-415469" data-filter-label="AMD Ryzen 5"
-                                                                  data-open-filter-url="/comp-and-periphery/notebooks/amd_ryzen_5/">
-                                        <div class="checkbox_field"></div>
-                                        <label class="checkbox_label" for="filter-4001-415469"><a class="value"
-                                                                                                  href="/comp-and-periphery/notebooks/amd_ryzen_5/">AMD
-                                            Ryzen 5</a><span class="count">12</span></label></div>
-                                </div>
-                                <div class="filter-section-item" data-filter-name="4001" data-filter-value="426706">
-                                    <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="4001"
-                                                                  value="426706" id="filter-4001-426706" data-filter-label="AMD Ryzen 7"
-                                                                  data-open-filter-url="/comp-and-periphery/notebooks/amd_ryzen_7/">
-                                        <div class="checkbox_field"></div>
-                                        <label class="checkbox_label" for="filter-4001-426706"><a class="value"
-                                                                                                  href="/comp-and-periphery/notebooks/amd_ryzen_7/">AMD
-                                            Ryzen 7</a><span class="count">4</span></label></div>
-                                </div>
-                                <div class="filter-section-item hidden" data-filter-name="4001" data-filter-value="415085">
-                                    <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="4001"
-                                                                  value="415085" id="filter-4001-415085" data-filter-label="AMD Ryzen 3"
-                                                                  data-open-filter-url="/comp-and-periphery/notebooks/amd_ryzen_3/">
-                                        <div class="checkbox_field"></div>
-                                        <label class="checkbox_label" for="filter-4001-415085"><a class="value"
-                                                                                                  href="/comp-and-periphery/notebooks/amd_ryzen_3/">AMD
-                                            Ryzen 3</a><span class="count">7</span></label></div>
-                                </div>
-                                <div class="filter-section-item hidden" data-filter-name="4001" data-filter-value="179310">
-                                    <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="4001"
-                                                                  value="179310" id="filter-4001-179310" data-filter-label="Intel Celeron"
-                                                                  data-open-filter-url="/comp-and-periphery/notebooks/intel_celeron/">
-                                        <div class="checkbox_field"></div>
-                                        <label class="checkbox_label" for="filter-4001-179310"><a class="value"
-                                                                                                  href="/comp-and-periphery/notebooks/intel_celeron/">Intel
-                                            Celeron</a><span class="count">6</span></label></div>
-                                </div>
-                                <div class="filter-section-item hidden" data-filter-name="4001" data-filter-value="179279">
-                                    <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="4001"
-                                                                  value="179279" id="filter-4001-179279" data-filter-label="Intel Pentium"
-                                                                  data-open-filter-url="/comp-and-periphery/notebooks/intel_pentium/">
-                                        <div class="checkbox_field"></div>
-                                        <label class="checkbox_label" for="filter-4001-179279"><a class="value"
-                                                                                                  href="/comp-and-periphery/notebooks/intel_pentium/">Intel
-                                            Pentium</a><span class="count">5</span></label></div>
-                                </div>
-                                <div class="filter-section-item hidden" data-filter-name="4001" data-filter-value="197745">
-                                    <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="4001"
-                                                                  value="197745" id="filter-4001-197745" data-filter-label="AMD Athlon"
-                                                                  data-open-filter-url="">
-                                        <div class="checkbox_field"></div>
-                                        <label class="checkbox_label" for="filter-4001-197745" data-hash=""><span
-                                                class="value">AMD Athlon</span><span class="count">2</span></label></div>
-                                </div>
-                                <div class="filter-section-item hidden" data-filter-name="4001" data-filter-value="455943">
-                                    <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="4001"
-                                                                  value="455943" id="filter-4001-455943" data-filter-label="Intel Core i5 (H)"
-                                                                  data-open-filter-url="">
-                                        <div class="checkbox_field"></div>
-                                        <label class="checkbox_label" for="filter-4001-455943" data-hash=""><span class="value">Intel Core i5 (H)</span><span
-                                                class="count">1</span></label></div>
-                                </div>
-                                <div class="filter-section-item filter-section-item--show-all" data-text-more="Показать все"
-                                     data-text-less="Меньше"> Показать все
-                                </div>
-                            </div>
-                        </div>
-                        <div class="catalog-filter-section active" data-filter-property="4189">
-                            <div class="catalog-filter-section-head">
-                                <div class="item--title">Объем накопителя</div>
-                                <div class="item--close"></div>
-                            </div>
-                            <div class="catalog-filter-section-content">
-                                <div class="filter-section-item" data-filter-name="4189" data-filter-value="544245">
-                                    <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="4189"
-                                                                  value="544245" id="filter-4189-544245" data-filter-label="До 500 ГБ"
-                                                                  data-open-filter-url="">
-                                        <div class="checkbox_field"></div>
-                                        <label class="checkbox_label" for="filter-4189-544245" data-hash=""><span class="value">До 500 ГБ</span><span
-                                                class="count">39</span></label></div>
-                                </div>
-                                <div class="filter-section-item" data-filter-name="4189" data-filter-value="544246">
-                                    <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="4189"
-                                                                  value="544246" id="filter-4189-544246" data-filter-label="500 Гб - 1 Тб"
-                                                                  data-open-filter-url="">
-                                        <div class="checkbox_field"></div>
-                                        <label class="checkbox_label" for="filter-4189-544246" data-hash=""><span
-                                                class="value">500 Гб - 1 Тб</span><span class="count">30</span></label></div>
-                                </div>
-                                <div class="filter-section-item" data-filter-name="4189" data-filter-value="544247">
-                                    <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="4189"
-                                                                  value="544247" id="filter-4189-544247" data-filter-label="1 Тб - 2 Тб"
-                                                                  data-open-filter-url="">
-                                        <div class="checkbox_field"></div>
-                                        <label class="checkbox_label" for="filter-4189-544247" data-hash=""><span
-                                                class="value">1 Тб - 2 Тб</span><span class="count">6</span></label></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="catalog-filter-section active" data-filter-property="6447">
-                            <div class="catalog-filter-section-head">
-                                <div class="item--title">Оперативная память (объем)</div>
-                                <div class="item--close"></div>
-                            </div>
-                            <div class="catalog-filter-section-content">
-                                <div class="filter-section-item" data-filter-name="6447" data-filter-value="291437">
-                                    <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="6447"
-                                                                  value="291437" id="filter-6447-291437" data-filter-label="4 ГБ"
-                                                                  data-open-filter-url="/comp-and-periphery/notebooks/4096mb-ram/">
-                                        <div class="checkbox_field"></div>
-                                        <label class="checkbox_label" for="filter-6447-291437"><a class="value"
-                                                                                                  href="/comp-and-periphery/notebooks/4096mb-ram/">4
-                                            ГБ</a><span class="count">8</span></label></div>
-                                </div>
-                                <div class="filter-section-item" data-filter-name="6447" data-filter-value="291444">
-                                    <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="6447"
-                                                                  value="291444" id="filter-6447-291444" data-filter-label="8 ГБ"
-                                                                  data-open-filter-url="/comp-and-periphery/notebooks/8192mb-ram/">
-                                        <div class="checkbox_field"></div>
-                                        <label class="checkbox_label" for="filter-6447-291444"><a class="value"
-                                                                                                  href="/comp-and-periphery/notebooks/8192mb-ram/">8
-                                            ГБ</a><span class="count">45</span></label></div>
-                                </div>
-                                <div class="filter-section-item" data-filter-name="6447" data-filter-value="291451">
-                                    <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="6447"
-                                                                  value="291451" id="filter-6447-291451" data-filter-label="12 ГБ"
-                                                                  data-open-filter-url="/comp-and-periphery/notebooks/12gb-ram/">
-                                        <div class="checkbox_field"></div>
-                                        <label class="checkbox_label" for="filter-6447-291451"><a class="value"
-                                                                                                  href="/comp-and-periphery/notebooks/12gb-ram/">12
-                                            ГБ</a><span class="count">1</span></label></div>
-                                </div>
-                                <div class="filter-section-item" data-filter-name="6447" data-filter-value="291446">
-                                    <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="6447"
-                                                                  value="291446" id="filter-6447-291446" data-filter-label="16 ГБ"
-                                                                  data-open-filter-url="/comp-and-periphery/notebooks/16gb-ram/">
-                                        <div class="checkbox_field"></div>
-                                        <label class="checkbox_label" for="filter-6447-291446"><a class="value"
-                                                                                                  href="/comp-and-periphery/notebooks/16gb-ram/">16
-                                            ГБ</a><span class="count">20</span></label></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="catalog-filter-section active" data-filter-property="4003">
-                            <div class="catalog-filter-section-head">
-                                <div class="item--title">Видеокарта (тип)</div>
-                                <div class="item--close"></div>
-                            </div>
-                            <div class="catalog-filter-section-content">
-                                <div class="filter-section-item" data-filter-name="4003" data-filter-value="354604">
-                                    <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="4003"
-                                                                  value="354604" id="filter-4003-354604"
-                                                                  data-filter-label="Дискретная (игровая)"
-                                                                  data-open-filter-url="/comp-and-periphery/notebooks/igrovaya-videokarta-geforce-gtx/">
-                                        <div class="checkbox_field"></div>
-                                        <label class="checkbox_label" for="filter-4003-354604"><a class="value"
-                                                                                                  href="/comp-and-periphery/notebooks/igrovaya-videokarta-geforce-gtx/">Дискретная
-                                            (игровая)</a><span class="count">13</span></label></div>
-                                </div>
-                                <div class="filter-section-item" data-filter-name="4003" data-filter-value="354605">
-                                    <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="4003"
-                                                                  value="354605" id="filter-4003-354605"
-                                                                  data-filter-label="Дискретная (начальный уровень)" data-open-filter-url="">
-                                        <div class="checkbox_field"></div>
-                                        <label class="checkbox_label" for="filter-4003-354605" data-hash=""><span class="value">Дискретная (начальный уровень)</span><span
-                                                class="count">13</span></label></div>
-                                </div>
-                                <div class="filter-section-item" data-filter-name="4003" data-filter-value="179216">
-                                    <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="4003"
-                                                                  value="179216" id="filter-4003-179216" data-filter-label="Интегрированная"
-                                                                  data-open-filter-url="/comp-and-periphery/notebooks/videokarta_tip_integrirovannaya/">
-                                        <div class="checkbox_field"></div>
-                                        <label class="checkbox_label" for="filter-4003-179216"><a class="value"
-                                                                                                  href="/comp-and-periphery/notebooks/videokarta_tip_integrirovannaya/">Интегрированная</a><span
-                                                class="count">48</span></label></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="catalog-filter-section active" data-filter-property="7759">
-                            <div class="catalog-filter-section-head">
-                                <div class="item--title">Объем SSD</div>
-                                <div class="item--close"></div>
-                            </div>
-                            <div class="catalog-filter-section-content">
-                                <div class="filter-section-item" data-filter-name="7759" data-filter-value="547909">
-                                    <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="7759"
-                                                                  value="547909" id="filter-7759-547909" data-filter-label="1 ТБ"
-                                                                  data-open-filter-url="">
-                                        <div class="checkbox_field"></div>
-                                        <label class="checkbox_label" for="filter-7759-547909" data-hash=""><span class="value">1 ТБ</span><span
-                                                class="count">4</span></label></div>
-                                </div>
-                                <div class="filter-section-item" data-filter-name="7759" data-filter-value="547912">
-                                    <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="7759"
-                                                                  value="547912" id="filter-7759-547912" data-filter-label="128 ГБ"
-                                                                  data-open-filter-url="">
-                                        <div class="checkbox_field"></div>
-                                        <label class="checkbox_label" for="filter-7759-547912" data-hash=""><span
-                                                class="value">128 ГБ</span><span class="count">8</span></label></div>
-                                </div>
-                                <div class="filter-section-item" data-filter-name="7759" data-filter-value="547918">
-                                    <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="7759"
-                                                                  value="547918" id="filter-7759-547918" data-filter-label="256 ГБ"
-                                                                  data-open-filter-url="">
-                                        <div class="checkbox_field"></div>
-                                        <label class="checkbox_label" for="filter-7759-547918" data-hash=""><span
-                                                class="value">256 ГБ</span><span class="count">33</span></label></div>
-                                </div>
-                                <div class="filter-section-item" data-filter-name="7759" data-filter-value="547923">
-                                    <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="7759"
-                                                                  value="547923" id="filter-7759-547923" data-filter-label="512 ГБ"
-                                                                  data-open-filter-url="">
-                                        <div class="checkbox_field"></div>
-                                        <label class="checkbox_label" for="filter-7759-547923" data-hash=""><span
-                                                class="value">512 ГБ</span><span class="count">28</span></label></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="catalog-filter-section active" data-filter-property="4011">
-                            <div class="catalog-filter-section-head">
-                                <div class="item--title">Предустановленная ОС</div>
-                                <div class="item--close"></div>
-                            </div>
-                            <div class="catalog-filter-section-content">
-                                <div class="filter-section-item" data-filter-name="4011" data-filter-value="320790">
-                                    <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="4011"
-                                                                  value="320790" id="filter-4011-320790" data-filter-label="DOS"
-                                                                  data-open-filter-url="">
-                                        <div class="checkbox_field"></div>
-                                        <label class="checkbox_label" for="filter-4011-320790" data-hash=""><span class="value">DOS</span><span
-                                                class="count">17</span></label></div>
-                                </div>
-                                <div class="filter-section-item" data-filter-name="4011" data-filter-value="196999">
-                                    <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="4011"
-                                                                  value="196999" id="filter-4011-196999" data-filter-label="Windows 10"
-                                                                  data-open-filter-url="">
-                                        <div class="checkbox_field"></div>
-                                        <label class="checkbox_label" for="filter-4011-196999" data-hash=""><span
-                                                class="value">Windows 10</span><span class="count">1</span></label></div>
-                                </div>
-                                <div class="filter-section-item" data-filter-name="4011" data-filter-value="179432">
-                                    <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="4011"
-                                                                  value="179432" id="filter-4011-179432" data-filter-label="Windows 10 Home"
-                                                                  data-open-filter-url="">
-                                        <div class="checkbox_field"></div>
-                                        <label class="checkbox_label" for="filter-4011-179432" data-hash=""><span
-                                                class="value">Windows 10 Home</span><span class="count">11</span></label></div>
-                                </div>
-                                <div class="filter-section-item" data-filter-name="4011" data-filter-value="185465">
-                                    <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="4011"
-                                                                  value="185465" id="filter-4011-185465" data-filter-label="Windows 10 Pro"
-                                                                  data-open-filter-url="/comp-and-periphery/notebooks/windows_10_pro/">
-                                        <div class="checkbox_field"></div>
-                                        <label class="checkbox_label" for="filter-4011-185465"><a class="value"
-                                                                                                  href="/comp-and-periphery/notebooks/windows_10_pro/">Windows
-                                            10 Pro</a><span class="count">5</span></label></div>
-                                </div>
-                                <div class="filter-section-item" data-filter-name="4011" data-filter-value="607669">
-                                    <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="4011"
-                                                                  value="607669" id="filter-4011-607669" data-filter-label="Windows 11"
-                                                                  data-open-filter-url="">
-                                        <div class="checkbox_field"></div>
-                                        <label class="checkbox_label" for="filter-4011-607669" data-hash=""><span
-                                                class="value">Windows 11</span><span class="count">1</span></label></div>
-                                </div>
-                                <div class="filter-section-item hidden" data-filter-name="4011" data-filter-value="608955">
-                                    <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="4011"
-                                                                  value="608955" id="filter-4011-608955" data-filter-label="Windows 11 Home"
-                                                                  data-open-filter-url="">
-                                        <div class="checkbox_field"></div>
-                                        <label class="checkbox_label" for="filter-4011-608955" data-hash=""><span
-                                                class="value">Windows 11 Home</span><span class="count">3</span></label></div>
-                                </div>
-                                <div class="filter-section-item hidden" data-filter-name="4011" data-filter-value="306017">
-                                    <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="4011"
-                                                                  value="306017" id="filter-4011-306017" data-filter-label="Без ОС"
-                                                                  data-open-filter-url="/comp-and-periphery/notebooks/predustanovlennaya_os_bez_os/">
-                                        <div class="checkbox_field"></div>
-                                        <label class="checkbox_label" for="filter-4011-306017"><a class="value"
-                                                                                                  href="/comp-and-periphery/notebooks/predustanovlennaya_os_bez_os/">Без
-                                            ОС</a><span class="count">36</span></label></div>
-                                </div>
-                                <div class="filter-section-item filter-section-item--show-all" data-text-more="Показать все"
-                                     data-text-less="Меньше"> Показать все
-                                </div>
-                            </div>
-                        </div>
-                        <div class="catalog-filter-section active" data-filter-property="4016">
-                            <div class="catalog-filter-section-head">
-                                <div class="item--title">Клавиатура (подсветка)</div>
-                                <div class="item--close"></div>
-                            </div>
-                            <div class="catalog-filter-section-content">
-                                <div class="filter-section-item" data-filter-name="4016" data-filter-value="179235">
-                                    <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="4016"
-                                                                  value="179235" id="filter-4016-179235" data-filter-label="Есть"
-                                                                  data-open-filter-url="/comp-and-periphery/notebooks/klaviatura_podsvetka_est/">
-                                        <div class="checkbox_field"></div>
-                                        <label class="checkbox_label" for="filter-4016-179235"><a class="value"
-                                                                                                  href="/comp-and-periphery/notebooks/klaviatura_podsvetka_est/">Есть</a><span
-                                                class="count">41</span></label></div>
-                                </div>
-                                <div class="filter-section-item" data-filter-name="4016" data-filter-value="179256">
-                                    <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="4016"
-                                                                  value="179256" id="filter-4016-179256" data-filter-label="Нет"
-                                                                  data-open-filter-url="">
-                                        <div class="checkbox_field"></div>
-                                        <label class="checkbox_label" for="filter-4016-179256" data-hash=""><span class="value">Нет</span><span
-                                                class="count">31</span></label></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="catalog-filter-section active" data-filter-property="7758">
-                            <div class="catalog-filter-section-head">
-                                <div class="item--title">Цвет (основной)</div>
-                                <div class="item--close"></div>
-                            </div>
-                            <div class="catalog-filter-section-content">
-                                <div class="filter-section-item" data-filter-name="7758" data-filter-value="547294">
-                                    <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="7758"
-                                                                  value="547294" id="filter-7758-547294" data-filter-label="Белый"
-                                                                  data-open-filter-url="/comp-and-periphery/notebooks/belyyi/">
-                                        <div class="checkbox_field"></div>
-                                        <label class="checkbox_label" for="filter-7758-547294"><a class="value"
-                                                                                                  href="/comp-and-periphery/notebooks/belyyi/">Белый</a><span
-                                                class="count">2</span></label></div>
-                                </div>
-                                <div class="filter-section-item" data-filter-name="7758" data-filter-value="547301">
-                                    <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="7758"
-                                                                  value="547301" id="filter-7758-547301" data-filter-label="Голубой (синий)"
-                                                                  data-open-filter-url="/comp-and-periphery/notebooks/goluboyi_siniyi/">
-                                        <div class="checkbox_field"></div>
-                                        <label class="checkbox_label" for="filter-7758-547301"><a class="value"
-                                                                                                  href="/comp-and-periphery/notebooks/goluboyi_siniyi/">Голубой
-                                            (синий)</a><span class="count">5</span></label></div>
-                                </div>
-                                <div class="filter-section-item" data-filter-name="7758" data-filter-value="547307">
-                                    <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="7758"
-                                                                  value="547307" id="filter-7758-547307" data-filter-label="Зеленый"
-                                                                  data-open-filter-url="/comp-and-periphery/notebooks/zelenyyi/">
-                                        <div class="checkbox_field"></div>
-                                        <label class="checkbox_label" for="filter-7758-547307"><a class="value"
-                                                                                                  href="/comp-and-periphery/notebooks/zelenyyi/">Зеленый</a><span
-                                                class="count">2</span></label></div>
-                                </div>
-                                <div class="filter-section-item" data-filter-name="7758" data-filter-value="547297">
-                                    <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="7758"
-                                                                  value="547297" id="filter-7758-547297" data-filter-label="Золотистый"
-                                                                  data-open-filter-url="/comp-and-periphery/notebooks/zolotistyyi/">
-                                        <div class="checkbox_field"></div>
-                                        <label class="checkbox_label" for="filter-7758-547297"><a class="value"
-                                                                                                  href="/comp-and-periphery/notebooks/zolotistyyi/">Золотистый</a><span
-                                                class="count">2</span></label></div>
-                                </div>
-                                <div class="filter-section-item" data-filter-name="7758" data-filter-value="547300">
-                                    <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="7758"
-                                                                  value="547300" id="filter-7758-547300" data-filter-label="Серебристый"
-                                                                  data-open-filter-url="/comp-and-periphery/notebooks/serebristyyi/">
-                                        <div class="checkbox_field"></div>
-                                        <label class="checkbox_label" for="filter-7758-547300"><a class="value"
-                                                                                                  href="/comp-and-periphery/notebooks/serebristyyi/">Серебристый</a><span
-                                                class="count">14</span></label></div>
-                                </div>
-                                <div class="filter-section-item hidden" data-filter-name="7758" data-filter-value="547298">
-                                    <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="7758"
-                                                                  value="547298" id="filter-7758-547298" data-filter-label="Серый"
-                                                                  data-open-filter-url="/comp-and-periphery/notebooks/seryyi/">
-                                        <div class="checkbox_field"></div>
-                                        <label class="checkbox_label" for="filter-7758-547298"><a class="value"
-                                                                                                  href="/comp-and-periphery/notebooks/seryyi/">Серый</a><span
-                                                class="count">24</span></label></div>
-                                </div>
-                                <div class="filter-section-item hidden" data-filter-name="7758" data-filter-value="547296">
-                                    <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="7758"
-                                                                  value="547296" id="filter-7758-547296" data-filter-label="Черный"
-                                                                  data-open-filter-url="/comp-and-periphery/notebooks/chernyyi/">
-                                        <div class="checkbox_field"></div>
-                                        <label class="checkbox_label" for="filter-7758-547296"><a class="value"
-                                                                                                  href="/comp-and-periphery/notebooks/chernyyi/">Черный</a><span
-                                                class="count">25</span></label></div>
-                                </div>
-                                <div class="filter-section-item filter-section-item--show-all" data-text-more="Показать все"
-                                     data-text-less="Меньше"> Показать все
-                                </div>
-                            </div>
-                        </div>
-                        <div class="catalog-filter-section active" data-filter-property="4968">
-                            <div class="catalog-filter-section-head">
-                                <div class="item--title">Вес, кг</div>
-                                <div class="item--close"></div>
-                            </div>
-                            <div class="catalog-filter-section-content">
-                                <div class="filter-section-item" data-filter-name="4968" data-filter-value="307344">
-                                    <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="4968"
-                                                                  value="307344" id="filter-4968-307344" data-filter-label="0,50 - 1,00 кг"
-                                                                  data-open-filter-url="/comp-and-periphery/notebooks/0_50_-_1_00_kg/">
-                                        <div class="checkbox_field"></div>
-                                        <label class="checkbox_label" for="filter-4968-307344"><a class="value"
-                                                                                                  href="/comp-and-periphery/notebooks/0_50_-_1_00_kg/">0,50
-                                            - 1,00 кг</a><span class="count">1</span></label></div>
-                                </div>
-                                <div class="filter-section-item" data-filter-name="4968" data-filter-value="307173">
-                                    <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="4968"
-                                                                  value="307173" id="filter-4968-307173" data-filter-label="1,01 - 1,50 кг"
-                                                                  data-open-filter-url="">
-                                        <div class="checkbox_field"></div>
-                                        <label class="checkbox_label" for="filter-4968-307173" data-hash=""><span
-                                                class="value">1,01 - 1,50 кг</span><span class="count">19</span></label></div>
-                                </div>
-                                <div class="filter-section-item" data-filter-name="4968" data-filter-value="307181">
-                                    <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="4968"
-                                                                  value="307181" id="filter-4968-307181" data-filter-label="1,51 - 2,00 кг"
-                                                                  data-open-filter-url="">
-                                        <div class="checkbox_field"></div>
-                                        <label class="checkbox_label" for="filter-4968-307181" data-hash=""><span
-                                                class="value">1,51 - 2,00 кг</span><span class="count">43</span></label></div>
-                                </div>
-                                <div class="filter-section-item" data-filter-name="4968" data-filter-value="307175">
-                                    <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="4968"
-                                                                  value="307175" id="filter-4968-307175" data-filter-label="2,01 - 2,50 кг"
-                                                                  data-open-filter-url="">
-                                        <div class="checkbox_field"></div>
-                                        <label class="checkbox_label" for="filter-4968-307175" data-hash=""><span
-                                                class="value">2,01 - 2,50 кг</span><span class="count">10</span></label></div>
-                                </div>
-                                <div class="filter-section-item" data-filter-name="4968" data-filter-value="307167">
-                                    <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="4968"
-                                                                  value="307167" id="filter-4968-307167" data-filter-label="2,51 - 3,00 кг"
-                                                                  data-open-filter-url="">
-                                        <div class="checkbox_field"></div>
-                                        <label class="checkbox_label" for="filter-4968-307167" data-hash=""><span
-                                                class="value">2,51 - 3,00 кг</span><span class="count">1</span></label></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="catalog-content">
-                    <div class="catalog-content-head">
-                        <div class="catalog_content_sort">
-                            <div class="catalog_content_sort_title">Показать сначала:</div>
-                            <div class="catalog_content_sort_items">
-                                <div class="catalog_content_sort_item" data-sort="price-asc">дешевые</div>
-                                <div class="catalog_content_sort_item active" data-sort="price-desc">дорогие</div>
-                                <div class="catalog_content_sort_item" data-sort="novinka-desc">новинки</div>
-                                <div class="catalog_content_sort_item" data-sort="weeklyrate-desc">популярные</div>
-                                <div class="catalog_content_sort_item" data-sort="sale-asc">рекомендации</div>
+                <div class="catalog-filter-section active" data-filter-property="brands">
+                    <div class="catalog-filter-section-head">
+                        <div class="item--title">Производитель</div>
+                        <div class="item--close"></div>
+                    </div>
+                    <div class="catalog-filter-section-content">
+                        <div class="filter-section-item" data-filter-name="brands" data-filter-value="hp">
+                            <div class="checkbox">
+                                <input class="checkbox_input" type="checkbox" name="brands" value="hp" id="filter-brands-hp">
+                                <div class="checkbox_field"></div>
+                                <label class="checkbox_label" for="filter-brands-hp">
+                                    <a class="value" href="#">HP</a>
+                                    <span class="count">23</span>
+                                </label>
                             </div>
                         </div>
-                        <div class="catalog_products-view">
-                            <div class="catalog_products-view_item active" data-layout="grid">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                    <path d="M0 2.40909C0 2.68523 0.223858 2.90909 0.5 2.90909H2.40909C2.68523 2.90909 2.90909 2.68523 2.90909 2.40909V0.500001C2.90909 0.223858 2.68523 0 2.40909 0H0.500001C0.223858 0 0 0.223858 0 0.5V2.40909ZM4.36364 11.1364C4.36364 11.4125 4.58749 11.6364 4.86364 11.6364H6.77273C7.04887 11.6364 7.27273 11.4125 7.27273 11.1364V9.22727C7.27273 8.95113 7.04887 8.72727 6.77273 8.72727H4.86364C4.58749 8.72727 4.36364 8.95113 4.36364 9.22727V11.1364ZM0 11.1364C0 11.4125 0.223858 11.6364 0.5 11.6364H2.40909C2.68523 11.6364 2.90909 11.4125 2.90909 11.1364V9.22727C2.90909 8.95113 2.68523 8.72727 2.40909 8.72727H0.500001C0.223858 8.72727 0 8.95113 0 9.22727V11.1364ZM0 6.77273C0 7.04887 0.223858 7.27273 0.5 7.27273H2.40909C2.68523 7.27273 2.90909 7.04887 2.90909 6.77273V4.86364C2.90909 4.58749 2.68523 4.36364 2.40909 4.36364H0.500001C0.223858 4.36364 0 4.58749 0 4.86364V6.77273ZM4.36364 6.77273C4.36364 7.04887 4.58749 7.27273 4.86364 7.27273H6.77273C7.04887 7.27273 7.27273 7.04887 7.27273 6.77273V4.86364C7.27273 4.58749 7.04887 4.36364 6.77273 4.36364H4.86364C4.58749 4.36364 4.36364 4.58749 4.36364 4.86364V6.77273ZM9.22727 0C8.95113 0 8.72727 0.223858 8.72727 0.5V2.40909C8.72727 2.68523 8.95113 2.90909 9.22727 2.90909H11.1364C11.4125 2.90909 11.6364 2.68523 11.6364 2.40909V0.500001C11.6364 0.223858 11.4125 0 11.1364 0H9.22727ZM4.36364 2.40909C4.36364 2.68523 4.58749 2.90909 4.86364 2.90909H6.77273C7.04887 2.90909 7.27273 2.68523 7.27273 2.40909V0.500001C7.27273 0.223858 7.04887 0 6.77273 0H4.86364C4.58749 0 4.36364 0.223858 4.36364 0.5V2.40909ZM8.72727 6.77273C8.72727 7.04887 8.95113 7.27273 9.22727 7.27273H11.1364C11.4125 7.27273 11.6364 7.04887 11.6364 6.77273V4.86364C11.6364 4.58749 11.4125 4.36364 11.1364 4.36364H9.22727C8.95113 4.36364 8.72727 4.58749 8.72727 4.86364V6.77273ZM8.72727 11.1364C8.72727 11.4125 8.95113 11.6364 9.22727 11.6364H11.1364C11.4125 11.6364 11.6364 11.4125 11.6364 11.1364V9.22727C11.6364 8.95113 11.4125 8.72727 11.1364 8.72727H9.22727C8.95113 8.72727 8.72727 8.95113 8.72727 9.22727V11.1364Z" fill="currentColor"></path><path d="M13.0909 2.40909C13.0909 2.68523 13.3148 2.90909 13.5909 2.90909H15.5C15.7761 2.90909 16 2.68523 16 2.40909V0.500001C16 0.223858 15.7761 0 15.5 0H13.5909C13.3148 0 13.0909 0.223858 13.0909 0.5V2.40909ZM13.0909 11.1364C13.0909 11.4125 13.3148 11.6364 13.5909 11.6364H15.5C15.7761 11.6364 16 11.4125 16 11.1364V9.22727C16 8.95113 15.7761 8.72727 15.5 8.72727H13.5909C13.3148 8.72727 13.0909 8.95113 13.0909 9.22727V11.1364ZM13.0909 6.77273C13.0909 7.04887 13.3148 7.27273 13.5909 7.27273H15.5C15.7761 7.27273 16 7.04887 16 6.77273V4.86364C16 4.58749 15.7761 4.36364 15.5 4.36364H13.5909C13.3148 4.36364 13.0909 4.58749 13.0909 4.86364V6.77273Z" fill="currentColor"></path><path d="M0 15.5C0 15.7761 0.223858 16 0.5 16H2.40909C2.68523 16 2.90909 15.7761 2.90909 15.5V13.5909C2.90909 13.3148 2.68523 13.0909 2.40909 13.0909H0.500001C0.223858 13.0909 0 13.3148 0 13.5909V15.5ZM9.22727 13.0909C8.95113 13.0909 8.72727 13.3148 8.72727 13.5909V15.5C8.72727 15.7761 8.95113 16 9.22727 16H11.1364C11.4125 16 11.6364 15.7761 11.6364 15.5V13.5909C11.6364 13.3148 11.4125 13.0909 11.1364 13.0909H9.22727ZM4.36364 15.5C4.36364 15.7761 4.58749 16 4.86364 16H6.77273C7.04887 16 7.27273 15.7761 7.27273 15.5V13.5909C7.27273 13.3148 7.04887 13.0909 6.77273 13.0909H4.86364C4.58749 13.0909 4.36364 13.3148 4.36364 13.5909V15.5Z" fill="currentColor"></path><path d="M13.0909 15.5C13.0909 15.7761 13.3148 16 13.5909 16H15.5C15.7761 16 16 15.7761 16 15.5V13.5909C16 13.3148 15.7761 13.0909 15.5 13.0909H13.5909C13.3148 13.0909 13.0909 13.3148 13.0909 13.5909V15.5Z" fill="currentColor"></path>
-                                </svg>
-
+                        <div class="filter-section-item" data-filter-name="brands" data-filter-value="asus">
+                            <div class="checkbox ">
+                                <input class="checkbox_input" type="checkbox" name="brands" value="asus" id="filter-brands-asus">
+                                <div class="checkbox_field"></div>
+                                <label class="checkbox_label" for="filter-brands-asus">
+                                    <a class="value" href="#">ASUS</a>
+                                    <span class="count">20</span>
+                                </label>
                             </div>
-                            <div class="catalog_products-view_item " data-layout="list">
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                    <path d="M0 3.5C0 3.77614 0.223858 4 0.5 4H3.5C3.77614 4 4 3.77614 4 3.5V0.5C4 0.223858 3.77614 0 3.5 0H0.5C0.223858 0 0 0.223858 0 0.5V3.5ZM6 15.5C6 15.7761 6.22386 16 6.5 16H15.5C15.7761 16 16 15.7761 16 15.5V12.5C16 12.2239 15.7761 12 15.5 12H6.5C6.22386 12 6 12.2239 6 12.5V15.5ZM0 15.5C0 15.7761 0.223858 16 0.5 16H3.5C3.77614 16 4 15.7761 4 15.5V12.5C4 12.2239 3.77614 12 3.5 12H0.5C0.223858 12 0 12.2239 0 12.5V15.5ZM0 9.5C0 9.77614 0.223858 10 0.5 10H3.5C3.77614 10 4 9.77614 4 9.5V6.5C4 6.22386 3.77614 6 3.5 6H0.5C0.223858 6 0 6.22386 0 6.5V9.5ZM6 9.5C6 9.77614 6.22386 10 6.5 10H15.5C15.7761 10 16 9.77614 16 9.5V6.5C16 6.22386 15.7761 6 15.5 6H6.5C6.22386 6 6 6.22386 6 6.5V9.5ZM6 3.5C6 3.77614 6.22386 4 6.5 4H15.5C15.7761 4 16 3.77614 16 3.5V0.5C16 0.223858 15.7761 0 15.5 0H6.5C6.22386 0 6 0.223858 6 0.5V3.5Z" fill="currentColor"></path>
-                                </svg>
+                        </div>
+                        <div class="filter-section-item" data-filter-name="brands" data-filter-value="lenovo">
+                            <div class="checkbox ">
+                                <input class="checkbox_input" type="checkbox" name="brands" value="lenovo" id="filter-brands-lenovo">
+                                <div class="checkbox_field"></div>
+                                <label class="checkbox_label" for="filter-brands-lenovo">
+                                    <a class="value" href="#">LENOVO</a>
+                                    <span class="count">15</span>
+                                </label>
                             </div>
+                        </div>
+                        <div class="filter-section-item" data-filter-name="brands" data-filter-value="acer">
+                            <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="brands"
+                                                          value="acer" id="filter-brands-acer" data-filter-label="ACER"
+                                                          data-open-filter-url="/comp-and-periphery/notebooks/acer/">
+                                <div class="checkbox_field"></div>
+                                <label class="checkbox_label" for="filter-brands-acer"><a class="value"
+                                                                                          href="/comp-and-periphery/notebooks/acer/">ACER</a><span
+                                        class="count">15</span></label></div>
+                        </div>
+                        <div class="filter-section-item" data-filter-name="brands" data-filter-value="msi">
+                            <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="brands"
+                                                          value="msi" id="filter-brands-msi" data-filter-label="MSI"
+                                                          data-open-filter-url="/comp-and-periphery/notebooks/msi/">
+                                <div class="checkbox_field"></div>
+                                <label class="checkbox_label" for="filter-brands-msi"><a class="value"
+                                                                                         href="/comp-and-periphery/notebooks/msi/">MSI</a><span
+                                        class="count">1</span></label></div>
                         </div>
                     </div>
-
-                    <div class="catalog-products" data-tile-mode="grid">
-                        <div class="product-item">
-                            <div class="product-item_id">Код товара: 490389</div>
-                            <a href="#" class="product-item_img"><img src="https://img.moyo.ua/img/products/4903/89_200.jpg?1648295681" alt="Ноутбук LENOVO ThinkBook 15 (20VE00FLRA)"></a>
-                            <div class="product-item_content">
-                                <div class="product-item_content_wrap">
-                                    <div class="product-item_markers">
-                                        <div class="product-item_label sticker--hit">Хит</div>
-                                    </div>
-                                    <a href="#" class="product-item_name">Ноутбук LENOVO ThinkBook 15 (20VE00FLRA)</a>
-                                    <div class="product-item_evaluation">
-                                        <div class="rate-star_container">
-                                            <div class="rate-star active-start"></div>
-                                            <div class="rate-star active-start"></div>
-                                            <div class="rate-star active-start"></div>
-                                            <div class="rate-star active-start"></div>
-                                            <div class="rate-star active-start"></div>
-                                        </div>
-                                        <div class="product-item_reviews">5 отзывов</div>
-                                    </div>
-                                </div>
-                                <div class="product-item_price">
-                                    <div class="product-item_price_title">Цена</div>
-                                    <div class="product-item_price_current sale">24&nbsp;966 грн
-                                        <div class="product-item_price_cashback">+ 250 грн кэшбек</div>
-                                    </div>
-                                    <div class="product-item_price_oldprice">25&nbsp;404грн</div>
-                                </div>
-                                <div class="product-item_action">
-                                    <button class="buy-btn btn btn--green"  data-product-id="490389">Купить</button>
-                                    <div class="product-item_action_group">
-                                        <button class="product-item_wish-btn" data-product_id="490389"><span></span>В список желаний</button>
-                                        <button class="product-item_compare-btn" data-product-id="490389"><span></span>В сравнение</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-item_footer">
-                                <div class="product-item_info">
-                                    <ul class="product-item_info_list">
-                                        <li><span class="key"> Модельный ряд: </span><span class="value"> ThinkBook 15 </span></li>
-                                        <li><span class="key"> Дисплей (диагональ): </span><span class="value"> 15,6 </span></li>
-                                        <li><span class="key"> Дисплей (макс. разрешение): </span><span class="value"> 1920 x 1080 (Full HD) </span></li>
-                                        <li><span class="key"> Процессор (модель): </span><span class="value"> Intel Core i5-1135G7 (Tiger Lake) </span></li>
-                                        <li><span class="key"> Процессор (тактовая частота - turbo), ГГц: </span><span class="value"> 2,4-4,2 </span></li>
-                                        <li><span class="key"> Оперативная память (объем): </span><span class="value"> 8 Гб </span></li>
-                                        <li><span class="key"> Видеокарта (интегрированная): </span><span class="value"> Intel Iris Xe Graphics </span></li>
-                                    </ul>
-                                </div>
-                            </div>
+                </div>
+                <div class="catalog-filter-section active" data-filter-property="6515">
+                    <div class="catalog-filter-section-head">
+                        <div class="item--title">Дисплей (диагональ экрана)</div>
+                        <div class="item--close"></div>
+                    </div>
+                    <div class="catalog-filter-section-content">
+                        <div class="filter-section-item" data-filter-name="6515" data-filter-value="573512">
+                            <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="6515"
+                                                          value="573512" id="filter-6515-573512" data-filter-label="17&quot;"
+                                                          data-open-filter-url="/comp-and-periphery/notebooks/noutbuki-17-dyujmov/">
+                                <div class="checkbox_field"></div>
+                                <label class="checkbox_label" for="filter-6515-573512"><a class="value"
+                                                                                          href="/comp-and-periphery/notebooks/noutbuki-17-dyujmov/">17"</a><span
+                                        class="count">4</span></label></div>
                         </div>
-                        <div class="product-item">
-                            <div class="product-item_discount">-5%</div>
-                            <div class="product-item_id">Код товара: 508199</div>
-                            <a href="#" class="product-item_img"><img src="https://img.moyo.ua/img/products/5081/99_200.jpg?1648295716" alt="Ноутбук ASUS Vivobook 15 K513EQ-BN266 (90NB0SK2-M03410)"></a>
-                            <div class="product-item_content">
-                                <div class="product-item_content_wrap">
-                                    <div class="product-item_markers">
-                                        <div class="product-item_label sticker--hit">Хит</div>
-                                    </div>
-                                    <a href="#" class="product-item_name">Ноутбук ASUS Vivobook 15 K513EQ-BN266 (90NB0SK2-M03410)</a>
-                                    <div class="product-item_evaluation">
-                                        <div class="rate-star_container">
-                                            <div class="rate-star active-start"></div>
-                                            <div class="rate-star active-start"></div>
-                                            <div class="rate-star active-start"></div>
-                                            <div class="rate-star active-start"></div>
-                                            <div class="rate-star active-start"></div>
-                                        </div>
-                                        <div class="product-item_reviews">3 отзыва</div>
-                                    </div>
-                                </div>
-                                <div class="product-item_price">
-                                    <div class="product-item_price_title">Цена</div>
-                                    <div class="product-item_price_current sale">18&nbsp;955 грн
-                                        <div class="product-item_price_cashback">+ 190 грн кэшбек</div>
-                                    </div>
-                                    <div class="product-item_price_oldprice">19&nbsp;999грн</div>
-                                </div>
-                                <div class="product-item_action">
-                                    <button class="buy-btn btn btn--green" data-product-id="508199">Купить</button>
-                                    <div class="product-item_action_group">
-                                        <button class="product-item_wish-btn" data-product_id="508199"><span></span>В список желаний</button>
-                                        <button class="product-item_compare-btn" data-product-id="508199"><span></span>В сравнение</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-item_footer">
-                                <div class="product-item_info">
-                                    <ul class="product-item_info_list">
-                                        <li><span class="key"> Модельный ряд: </span><span class="value"> VivoBook 15 </span></li>
-                                        <li><span class="key"> Дисплей (диагональ): </span><span class="value"> 15,6 </span></li>
-                                        <li><span class="key"> Дисплей (макс. разрешение): </span><span class="value"> 1920 x 1080 (Full HD) </span></li>
-                                        <li><span class="key"> Процессор (модель): </span><span class="value"> Intel Core i3-1115G4 (Tiger Lake) </span></li>
-                                        <li><span class="key"> Процессор (тактовая частота - turbo), ГГц: </span><span class="value"> 3,0-4,1 </span></li>
-                                        <li><span class="key"> Оперативная память (объем): </span><span class="value"> 8 Гб </span></li>
-                                        <li><span class="key"> Видеокарта (интегрированная): </span><span class="value"> Intel UHD Graphics </span></li>
-                                    </ul>
-                                </div>
-                            </div>
+                        <div class="filter-section-item" data-filter-name="6515" data-filter-value="573511">
+                            <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="6515"
+                                                          value="573511" id="filter-6515-573511" data-filter-label="16&quot;"
+                                                          data-open-filter-url="/comp-and-periphery/notebooks/noutbuki-16-dyujmov/">
+                                <div class="checkbox_field"></div>
+                                <label class="checkbox_label" for="filter-6515-573511"><a class="value"
+                                                                                          href="/comp-and-periphery/notebooks/noutbuki-16-dyujmov/">16"</a><span
+                                        class="count">2</span></label></div>
                         </div>
-                        <div class="product-item">
-                            <div class="product-item_discount">-14%</div>
-                            <div class="product-item_id">Код товара: 502985</div>
-                            <a href="#" class="product-item_img"><img src="https://img.moyo.ua/img/products/5029/85_200.jpg?1648295704" alt="Ноутбук ACER Aspire 3 A315-56 (NX.HS5EU.01Q)"></a>
-                            <div class="product-item_content">
-                                <div class="product-item_content_wrap">
-                                    <div class="product-item_markers">
-                                        <div class="product-item_label sticker--best-price">Лучшая цена</div>
-                                    </div>
-                                    <a href="#" class="product-item_name">Ноутбук ACER Aspire 3 A315-56 (NX.HS5EU.01Q)</a>
-                                    <div class="product-item_evaluation">
-                                        <div class="rate-star_container">
-                                            <div class="rate-star active-start"></div>
-                                            <div class="rate-star active-start"></div>
-                                            <div class="rate-star active-start"></div>
-                                            <div class="rate-star active-start"></div>
-                                            <div class="rate-star active-start"></div>
-                                        </div>
-                                        <div class="product-item_reviews">3 отзыва</div>
-                                    </div>
-                                </div>
-                                <div class="product-item_price">
-                                    <div class="product-item_price_title">Цена</div>
-                                    <div class="product-item_price_current sale">18&nbsp;499 грн
-                                        <div class="product-item_price_cashback">+ 185 грн кэшбек</div>
-                                    </div>
-                                    <div class="product-item_price_oldprice">21&nbsp;499грн</div>
-                                </div>
-                                <div class="product-item_action">
-                                    <button class="buy-btn btn btn--green" data-product-id="502985">Купить</button>
-                                    <div class="product-item_action_group">
-                                        <button class="product-item_wish-btn" data-product_id="502985"><span></span>В список желаний</button>
-                                        <button class="product-item_compare-btn" data-product-id="502985"><span></span>В сравнение</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-item_footer">
-                                <div class="product-item_info">
-                                    <ul class="product-item_info_list">
-                                        <li><span class="key"> Модельный ряд: </span><span class="value"> Aspire 3 </span></li>
-                                        <li><span class="key"> Дисплей (диагональ): </span><span class="value"> 15,6 </span></li>
-                                        <li><span class="key"> Дисплей (макс. разрешение): </span><span class="value"> 1920 x 1080 (Full HD) </span></li>
-                                        <li><span class="key"> Процессор (модель): </span><span class="value"> Intel Core i5-1035G1 (Ice Lake) </span></li>
-                                        <li><span class="key"> Процессор (тактовая частота - turbo), ГГц: </span><span class="value"> 1,0-3,6 </span></li>
-                                        <li><span class="key"> Оперативная память (объем): </span><span class="value"> 8 Гб </span></li>
-                                        <li><span class="key"> Видеокарта (интегрированная): </span><span class="value"> Intel UHD Graphics </span></li>
-                                    </ul>
-                                </div>
-                            </div>
+                        <div class="filter-section-item" data-filter-name="6515" data-filter-value="573510">
+                            <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="6515"
+                                                          value="573510" id="filter-6515-573510" data-filter-label="15&quot;"
+                                                          data-open-filter-url="/comp-and-periphery/notebooks/noutbuki-15-dyujmov/">
+                                <div class="checkbox_field"></div>
+                                <label class="checkbox_label" for="filter-6515-573510"><a class="value"
+                                                                                          href="/comp-and-periphery/notebooks/noutbuki-15-dyujmov/">15"</a><span
+                                        class="count">45</span></label></div>
                         </div>
-                        <div class="product-item">
-                            <div class="product-item_discount">-9%</div>
-                            <div class="product-item_id">Код товара: 490377</div>
-                            <a href="#" class="product-item_img"><img src="https://img.moyo.ua/img/products/4903/77_200.jpg?1648295681" alt="Ноутбук LENOVO ThinkBook 15 (21A4003ERA)"></a>
-                            <div class="product-item_content">
-                                <div class="product-item_content_wrap">
-                                    <div class="product-item_markers">
-                                        <div class="product-item_label sticker--exclusive">Эксклюзив</div>
-                                    </div>
-                                    <a href="#" class="product-item_name">Ноутбук LENOVO ThinkBook 15 (21A4003ERA)</a>
-                                    <div class="product-item_evaluation">
-                                        <div class="rate-star_container">
-                                            <div class="rate-star active-start"></div>
-                                            <div class="rate-star active-start"></div>
-                                            <div class="rate-star active-start"></div>
-                                            <div class="rate-star active-start"></div>
-                                            <div class="rate-star active-start"></div>
-                                        </div>
-                                        <div class="product-item_reviews">15 отзывов</div>
-                                    </div>
-                                </div>
-                                <div class="product-item_price">
-                                    <div class="product-item_price_title">Цена</div>
-                                    <div class="product-item_price_current sale">22&nbsp;829 грн
-                                        <div class="product-item_price_cashback">+ 228 грн кэшбек</div>
-                                    </div>
-                                    <div class="product-item_price_oldprice">24&nbsp;999грн</div>
-                                </div>
-                                <div class="product-item_action">
-                                    <button class="buy-btn btn btn--green" data-product-id="490377">Купить</button>
-                                    <div class="product-item_action_group">
-                                        <button class="product-item_wish-btn" data-product_id="490377"><span></span>В список желаний</button>
-                                        <button class="product-item_compare-btn" data-product-id="490377"><span></span>В сравнение</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-item_footer">
-                                <div class="product-item_info">
-                                    <ul class="product-item_info_list">
-                                        <li><span class="key"> Модельный ряд: </span><span class="value"> ThinkBook 15 </span></li>
-                                        <li><span class="key"> Дисплей (диагональ): </span><span class="value"> 15,6 </span></li>
-                                        <li><span class="key"> Дисплей (макс. разрешение): </span><span class="value"> 1920 x 1080 (Full HD) </span></li>
-                                        <li><span class="key"> Процессор (модель): </span><span class="value"> AMD Ryzen 5 5500U (Zen 2) </span></li>
-                                        <li><span class="key"> Процессор (тактовая частота - turbo), ГГц: </span><span class="value"> 2,1-4,0 </span></li>
-                                        <li><span class="key"> Оперативная память (объем): </span><span class="value"> 8 Гб </span></li>
-                                        <li><span class="key"> Видеокарта (интегрированная): </span><span class="value"> AMD Radeon Graphics </span></li>
-                                    </ul>
-                                </div>
-                            </div>
+                        <div class="filter-section-item" data-filter-name="6515" data-filter-value="573509">
+                            <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="6515"
+                                                          value="573509" id="filter-6515-573509" data-filter-label="14&quot;"
+                                                          data-open-filter-url="/comp-and-periphery/notebooks/noutbuki-14-dyujmov/">
+                                <div class="checkbox_field"></div>
+                                <label class="checkbox_label" for="filter-6515-573509"><a class="value"
+                                                                                          href="/comp-and-periphery/notebooks/noutbuki-14-dyujmov/">14"</a><span
+                                        class="count">20</span></label></div>
                         </div>
-                        <div class="product-item">
-                            <div class="product-item_discount">-13%</div>
-                            <div class="product-item_id">Код товара: 467183</div>
-                            <a href="#" class="product-item_img"><img src="https://img.moyo.ua/img/products/4671/83_200.jpeg?1648295697" alt="Ноутбук LENOVO V15 (82C500KLRA)"></a>
-                            <div class="product-item_content">
-                                <div class="product-item_content_wrap">
-                                    <div class="product-item_markers"></div>
-                                    <a href="#" class="product-item_name">Ноутбук LENOVO V15 (82C500KLRA)</a>
-                                    <div class="product-item_evaluation">
-                                        <div class="rate-star_container">
-                                            <div class="rate-star active-start"></div>
-                                            <div class="rate-star active-start"></div>
-                                            <div class="rate-star active-start"></div>
-                                            <div class="rate-star active-start"></div>
-                                            <div class="rate-star active-start"></div>
-                                        </div>
-                                        <div class="product-item_reviews">1 отзыв</div>
-                                    </div>
-                                </div>
-                                <div class="product-item_price">
-                                    <div class="product-item_price_title">Цена</div>
-                                    <div class="product-item_price_current sale">16&nbsp;530 грн
-                                        <div class="product-item_price_cashback">+ 165 грн кэшбек</div>
-                                    </div>
-                                    <div class="product-item_price_oldprice">18&nbsp;899грн</div>
-                                </div>
-                                <div class="product-item_action">
-                                    <button class="buy-btn btn btn--green" data-product-id="467183">Купить</button>
-                                    <div class="product-item_action_group">
-                                        <button class="product-item_wish-btn" data-product_id="467183"><span></span>В список желаний</button>
-                                        <button class="product-item_compare-btn" data-product-id="467183"><span></span>В сравнение</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-item_footer">
-                                <div class="product-item_info">
-                                    <ul class="product-item_info_list">
-                                        <li><span class="key"> Модельный ряд: </span><span class="value"> V </span></li>
-                                        <li><span class="key"> Дисплей (диагональ): </span><span class="value"> 15,6 </span></li>
-                                        <li><span class="key"> Дисплей (макс. разрешение): </span><span class="value"> 1920 x 1080 (Full HD) </span></li>
-                                        <li><span class="key"> Процессор (модель): </span><span class="value"> Intel Core i3-1005G1 (Ice Lake) </span></li>
-                                        <li><span class="key"> Процессор (тактовая частота - turbo), ГГц: </span><span class="value"> 1,2 - 3,4 </span></li>
-                                        <li><span class="key"> Оперативная память (объем): </span><span class="value"> 8 Гб </span></li>
-                                        <li><span class="key"> Видеокарта (интегрированная): </span><span class="value"> Intel UHD Graphics 620 </span></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-item">
-                            <div class="product-item_id">Код товара: 478648</div>
-                            <a href="#" class="product-item_img"><img src="https://img.moyo.ua/img/products/4786/48_200.jpeg?1648295681" alt="Ноутбук LENOVO IdeaPad Gaming 3 15IMH05 (81Y400EQRA)"></a>
-                            <div class="product-item_content">
-                                <div class="product-item_content_wrap">
-                                    <div class="product-item_markers"></div>
-                                    <a href="#" class="product-item_name">Ноутбук LENOVO IdeaPad Gaming 3 15IMH05 (81Y400EQRA)</a>
-                                    <div class="product-item_evaluation">
-                                        <div class="rate-star_container">
-                                            <div class="rate-star active-start"></div>
-                                            <div class="rate-star active-start"></div>
-                                            <div class="rate-star active-start"></div>
-                                            <div class="rate-star active-start"></div>
-                                            <div class="rate-star active-start"></div>
-                                        </div>
-                                        <div class="product-item_reviews">2 отзыва</div>
-                                    </div>
-                                </div>
-                                <div class="product-item_price">
-                                    <div class="product-item_price_title">Цена</div>
-                                    <div class="product-item_price_current"> 33&nbsp;500 грн
-                                        <div class="product-item_price_cashback">+ 335 грн кэшбек</div>
-                                    </div>
-                                    <div class="product-item_price_oldprice"></div>
-                                </div>
-                                <div class="product-item_action">
-                                    <button class="buy-btn btn btn--green" data-product-id="478648">Купить</button>
-                                    <div class="product-item_action_group">
-                                        <button class="product-item_wish-btn" data-product_id="478648"><span></span>В список желаний</button>
-                                        <button class="product-item_compare-btn" data-product-id="478648"><span></span>В сравнение</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-item_footer">
-                                <div class="product-item_info">
-                                    <ul class="product-item_info_list">
-                                        <li><span class="key"> Модельный ряд: </span><span class="value"> IdeaPad Gaming 3 </span></li>
-                                        <li><span class="key"> Дисплей (диагональ): </span><span class="value"> 15,6 </span></li>
-                                        <li><span class="key"> Дисплей (макс. разрешение): </span><span class="value"> 1920 x 1080 (Full HD) </span></li>
-                                        <li><span class="key"> Процессор (модель): </span><span class="value"> Intel Core i5-10300H (Comet Lake) </span></li>
-                                        <li><span class="key"> Процессор (тактовая частота - turbo), ГГц: </span><span class="value"> 2,5 - 4,5 </span></li>
-                                        <li><span class="key"> Оперативная память (объем): </span><span class="value"> 16 Гб </span></li>
-                                        <li><span class="key"> Видеокарта (интегрированная): </span><span class="value"> Intel UHD Graphics </span></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-item">
-                            <div class="product-item_discount">-14%</div>
-                            <div class="product-item_id">Код товара: 511906</div>
-                            <a href="#" class="product-item_img"><img src="https://img.moyo.ua/img/products/5119/6_200.jpg?1648295701" alt="Ноутбук HP OMEN 17-ck0002ua (48V99EA)"></a>
-                            <div class="product-item_content">
-                                <div class="product-item_content_wrap">
-                                    <div class="product-item_markers">
-                                        <div class="product-item_label sticker--exclusive">Эксклюзив</div>
-                                    </div>
-                                    <a href="#" class="product-item_name">Ноутбук HP OMEN 17-ck0002ua (48V99EA)</a>
-                                    <div class="product-item_evaluation"></div>
-                                </div>
-                                <div class="product-item_price">
-                                    <div class="product-item_price_title">Цена</div>
-                                    <div class="product-item_price_current sale">59&nbsp;999 грн
-                                        <div class="product-item_price_cashback">+ 600 грн кэшбек</div>
-                                    </div>
-                                    <div class="product-item_price_oldprice">69&nbsp;999грн</div>
-                                </div>
-                                <div class="product-item_action">
-                                    <button class="buy-btn btn btn--green" data-product-id="511906">Купить</button>
-                                    <div class="product-item_action_group">
-                                        <button class="product-item_wish-btn" data-product_id="511906"><span></span>В список желаний</button>
-                                        <button class="product-item_compare-btn" data-product-id="511906"><span></span>В сравнение</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-item_footer">
-                                <div class="product-item_info">
-                                    <ul class="product-item_info_list">
-                                        <li><span class="key"> Модельный ряд: </span><span class="value"> OMEN </span></li>
-                                        <li><span class="key"> Дисплей (диагональ): </span><span class="value"> 17,3 </span></li>
-                                        <li><span class="key"> Дисплей (макс. разрешение): </span><span class="value"> 1920 x 1080 (Full HD) </span></li>
-                                        <li><span class="key"> Процессор (модель): </span><span class="value"> Intel Core i7-11800H (Tiger Lake) </span></li>
-                                        <li><span class="key"> Процессор (тактовая частота - turbo), ГГц: </span><span class="value"> 2,3-4,6 </span></li>
-                                        <li><span class="key"> Оперативная память (объем): </span><span class="value"> 16 Гб </span></li>
-                                        <li><span class="key"> Видеокарта (интегрированная): </span><span class="value"> Intel UHD Graphics </span></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-item">
-                            <div class="product-item_id">Код товара: 434489</div>
-                            <a href="#" class="product-item_img"><img src="https://img.moyo.ua/img/products/4344/89_200.jpg?1648382679" alt="Ноутбук DELL G3 3579 (G35581S0NDL-65B)"></a>
-                            <div class="product-item_content">
-                                <div class="product-item_content_wrap">
-                                    <div class="product-item_markers"></div>
-                                    <a href="#" class="product-item_name">Ноутбук DELL G3 3579 (G35581S0NDL-65B)</a>
-                                    <div class="product-item_evaluation">
-                                        <div class="rate-star_container">
-                                            <div class="rate-star active-start"></div>
-                                            <div class="rate-star active-start"></div>
-                                            <div class="rate-star active-start"></div>
-                                            <div class="rate-star active-start"></div>
-                                            <div class="rate-star"></div>
-                                        </div>
-                                        <div class="product-item_reviews">9 отзывов</div>
-                                    </div>
-                                </div>
-                                <div class="product-item_price">
-                                    <div class="product-item_price_title">Цена</div>
-                                    <div class="product-item_price_current not-available">19&nbsp;999 грн</div>
-                                    <div class="product-item_price_text"> Нет в наличии</div>
-                                </div>
-                                <div class="product-item_action">
-                                    <button class="buy-btn btn btn--inform" data-product-id="434489">Уведомить</button>
-                                    <div class="product-item_action_group">
-                                        <button class="product-item_wish-btn" data-product_id="434489"><span></span>В список желаний</button>
-                                        <button class="product-item_compare-btn" data-product-id="434489"><span></span>В сравнение</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="product-item_footer">
-                                <div class="product-item_info">
-                                    <ul class="product-item_info_list">
-                                        <li><span class="key"> Модельный ряд: </span> <span class="value"> G3 </span></li>
-                                        <li><span class="key"> Дисплей (диагональ): </span> <span class="value"> 15,6 </span></li>
-                                        <li><span class="key"> Дисплей (макс. разрешение): </span> <span class="value"> 1920 x 1080 (Full HD) </span></li>
-                                        <li><span class="key"> Процессор (модель): </span> <span class="value"> Intel Core i5-8300H (Coffee Lake) </span></li>
-                                        <li><span class="key"> Процессор (тактовая частота - turbo), ГГц: </span> <span class="value"> 2,3 - 4,0 </span></li>
-                                        <li><span class="key"> Оперативная память (объем): </span> <span class="value"> 8 Гб </span></li>
-                                        <li><span class="key"> Видеокарта (интегрированная): </span> <span class="value"> Intel UHD Graphics 630 </span></li>
-                                    </ul>
-                                </div>
-                            </div>
+                        <div class="filter-section-item" data-filter-name="6515" data-filter-value="573508">
+                            <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="6515"
+                                                          value="573508" id="filter-6515-573508" data-filter-label="13&quot;"
+                                                          data-open-filter-url="/comp-and-periphery/notebooks/noutbuki-13-dyujmov/">
+                                <div class="checkbox_field"></div>
+                                <label class="checkbox_label" for="filter-6515-573508"><a class="value"
+                                                                                          href="/comp-and-periphery/notebooks/noutbuki-13-dyujmov/">13"</a><span
+                                        class="count">3</span></label></div>
                         </div>
                     </div>
-
-                    <div class="catalog-products" data-tile-mode="list">
-                        <div class="product-item product-item--list">
-                            <div class="product-item--list_image-section">
-                                <a href="#" class="product-item_img"><img src="https://img.moyo.ua/img/products/4986/35_200.jpg?1648478628" alt="Ноутбук HP Pavilion 15-eh1040ua (422K4EA)"></a>
-                            </div>
-                            <div class="product-item--list_info-section">
-                                <div class="product-item_markers">
-                                    <div class="product-item_discount">-21%</div>
-                                </div>
-                                <a href="#" class="product-item_name">Ноутбук HP Pavilion 15-eh1040ua (422K4EA) </a>
-                                <div class="product-item_evaluation">
-                                    <div class="rate-star_container">
-                                        <div class="rate-star"></div>
-                                        <div class="rate-star"></div>
-                                        <div class="rate-star"></div>
-                                        <div class="rate-star"></div>
-                                        <div class="rate-star"></div>
-                                    </div>
-                                    <div class="product-item_reviews">0 отзывов</div>
-                                </div>
-                                <div class="product-item_info">
-                                    <ul class="product-item_info_list">
-                                        <li><span class="key"> Модельный ряд </span> <span class="value"> Pavilion </span></li>
-                                        <li><span class="key"> Дисплей (диагональ) </span> <span class="value"> 15,6 </span></li>
-                                        <li><span class="key"> Дисплей (макс. разрешение) </span> <span class="value"> 1920 x 1080 (Full HD) </span></li>
-                                        <li><span class="key"> Процессор (модель) </span> <span class="value"> AMD Ryzen 5 5500U (Zen 2) </span></li>
-                                        <li><span class="key"> Процессор (тактовая частота - turbo), ГГц </span> <span class="value"> 2,1-4,0 </span></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="product-item--list_tools-section">
-                                <div class="product-item_id">Код товара: 498635</div>
-                                <div class="product-item_content">
-                                    <div class="product-item_price">
-                                        <div class="product-item_price_title">Цена</div>
-                                        <div class="product-item_price_current sale">26&nbsp;999 грн
-                                            <div class="product-item_price_cashback">+ 270 грн кэшбек</div>
-                                        </div>
-                                        <div class="product-item_price_oldprice">34&nbsp;199грн</div>
-                                    </div>
-                                    <div class="product-item_action">
-                                        <button class="product-item_buy-btn btn btn--green" data-product-id="498635">Купить</button>
-                                        <div class="product-item_action_group">
-                                            <button class="product-item_wish-btn" data-product_id="498635"><span></span></button>
-                                            <button class="product-item_compare-btn active" data-product-id="498635"><span></span></button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                </div>
+                <div class="catalog-filter-section active" data-filter-property="4001">
+                    <div class="catalog-filter-section-head">
+                        <div class="item--title">Процессор (серия)</div>
+                        <div class="item--close"></div>
+                    </div>
+                    <div class="catalog-filter-section-content">
+                        <div class="filter-section-item" data-filter-name="4001" data-filter-value="179211">
+                            <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="4001"
+                                                          value="179211" id="filter-4001-179211" data-filter-label="Intel Core i5"
+                                                          data-open-filter-url="/comp-and-periphery/notebooks/processor_seriya_intel_core_i5/">
+                                <div class="checkbox_field"></div>
+                                <label class="checkbox_label" for="filter-4001-179211"><a class="value"
+                                                                                          href="/comp-and-periphery/notebooks/processor_seriya_intel_core_i5/">Intel
+                                    Core i5</a><span class="count">16</span></label></div>
                         </div>
-                        <div class="product-item product-item--list">
-                            <div class="product-item--list_image-section">
-                                <a href="#" class="product-item_img"><img src="https://img.moyo.ua/img/products/5119/6_200.jpg?1648382221" alt="Ноутбук HP OMEN 17-ck0002ua (48V99EA)"></a>
-                            </div>
-                            <div class="product-item--list_info-section">
-                                <div class="product-item_markers">
-                                    <div class="product-item_discount">-14%</div>
-                                    <div class="product-item_label sticker--exclusive">Эксклюзив</div>
-                                </div>
-                                <a href="#" class="product-item_name">Ноутбук HP OMEN 17-ck0002ua (48V99EA) </a>
-                                <div class="product-item_evaluation">
-                                    <div class="rate-star_container">
-                                        <div class="rate-star"></div>
-                                        <div class="rate-star"></div>
-                                        <div class="rate-star"></div>
-                                        <div class="rate-star"></div>
-                                        <div class="rate-star"></div>
-                                    </div>
-                                    <div class="product-item_reviews">0 отзывов</div>
-                                </div>
-                                <div class="product-item_info">
-                                    <ul class="product-item_info_list">
-                                        <li><span class="key"> Модельный ряд </span><span class="value"> OMEN </span></li>
-                                        <li><span class="key"> Дисплей (диагональ) </span><span class="value"> 17,3 </span></li>
-                                        <li><span class="key"> Дисплей (макс. разрешение) </span><span class="value"> 1920 x 1080 (Full HD) </span></li>
-                                        <li><span class="key"> Процессор (модель) </span><span class="value"> Intel Core i7-11800H (Tiger Lake) </span></li>
-                                        <li><span class="key"> Процессор (тактовая частота - turbo), ГГц </span><span class="value"> 2,3-4,6 </span></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="product-item--list_tools-section">
-                                <div class="product-item_id">Код товара: 511906</div>
-                                <div class="product-item_content">
-                                    <div class="product-item_price">
-                                        <div class="product-item_price_title">Цена</div>
-                                        <div class="product-item_price_current sale">59&nbsp;999 грн
-                                            <div class="product-item_price_cashback">+ 600 грн кэшбек</div>
-                                        </div>
-                                        <div class="product-item_price_oldprice">69&nbsp;999грн</div>
-                                    </div>
-                                    <div class="product-item_action">
-                                        <button class="product-item_buy-btn btn btn--green" data-product-id="511906">Купить</button>
-                                        <div class="product-item_action_group">
-                                            <button class="product-item_wish-btn" data-product_id="511906"><span></span></button>
-                                            <button class="product-item_compare-btn" data-product-id="511906"><span></span></button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="filter-section-item" data-filter-name="4001" data-filter-value="179319">
+                            <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="4001"
+                                                          value="179319" id="filter-4001-179319" data-filter-label="Intel Core i7"
+                                                          data-open-filter-url="/comp-and-periphery/notebooks/processor_seriya_intel_core_i7/">
+                                <div class="checkbox_field"></div>
+                                <label class="checkbox_label" for="filter-4001-179319"><a class="value"
+                                                                                          href="/comp-and-periphery/notebooks/processor_seriya_intel_core_i7/">Intel
+                                    Core i7</a><span class="count">5</span></label></div>
                         </div>
-                        <div class="product-item product-item--list">
-                            <div class="product-item--list_image-section">
-                                <a href="#" class="product-item_img"><img src="https://img.moyo.ua/img/products/5110/51_200.jpg?1648382256" alt="Ноутбук ASUS Vivobook Pro M7600QC-L2002W 16.0WQUXGA OLED (90NB0V81-M02180)"></a>
-                            </div>
-                            <div class="product-item--list_info-section">
-                                <div class="product-item_markers"></div>
-                                <a href="#" class="product-item_name">Ноутбук ASUS Vivobook Pro M7600QC-L2002W 16.0WQUXGA OLED (90NB0V81-M02180) </a>
-                                <div class="product-item_evaluation">
-                                    <div class="rate-star_container">
-                                        <div class="rate-star"></div>
-                                        <div class="rate-star"></div>
-                                        <div class="rate-star"></div>
-                                        <div class="rate-star"></div>
-                                        <div class="rate-star"></div>
-                                    </div>
-                                    <div class="product-item_reviews">0 отзывов</div>
-                                </div>
-                                <div class="product-item_info">
-                                    <ul class="product-item_info_list">
-                                        <li><span class="key"> Модельный ряд </span><span class="value"> VivoBook Pro </span></li>
-                                        <li><span class="key"> Дисплей (диагональ) </span><span class="value"> 16,0 </span></li>
-                                        <li><span class="key"> Дисплей (макс. разрешение) </span><span class="value"> 3840x2400 (WQUXGA) </span></li>
-                                        <li><span class="key"> Процессор (модель) </span><span class="value"> AMD Ryzen 7 5800H </span></li>
-                                        <li><span class="key"> Процессор (тактовая частота - turbo), ГГц </span><span class="value"> 3,2-4,4 </span></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="product-item--list_tools-section">
-                                <div class="product-item_id">Код товара: 511051</div>
-                                <div class="product-item_content">
-                                    <div class="product-item_price">
-                                        <div class="product-item_price_title">Цена</div>
-                                        <div class="product-item_price_current">52&nbsp;999 грн
-                                            <div class="product-item_price_cashback">+ 530 грн кэшбек</div>
-                                        </div>
-                                        <div class="product-item_price_oldprice"></div>
-                                    </div>
-                                    <div class="product-item_action">
-                                        <button class="product-item_buy-btn btn btn--green" data-product-id="511051">Купить</button>
-                                        <div class="product-item_action_group">
-                                            <button class="product-item_wish-btn" data-product_id="511051"><span></span></button>
-                                            <button class="product-item_compare-btn" data-product-id="511051"><span></span></button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="filter-section-item" data-filter-name="4001" data-filter-value="179261">
+                            <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="4001"
+                                                          value="179261" id="filter-4001-179261" data-filter-label="Intel Core i3"
+                                                          data-open-filter-url="/comp-and-periphery/notebooks/processor_seriya_intel_core_i3/">
+                                <div class="checkbox_field"></div>
+                                <label class="checkbox_label" for="filter-4001-179261"><a class="value"
+                                                                                          href="/comp-and-periphery/notebooks/processor_seriya_intel_core_i3/">Intel
+                                    Core i3</a><span class="count">16</span></label></div>
                         </div>
-                        <div class="product-item product-item--list">
-                            <div class="product-item--list_image-section">
-                                <a href="#" class="product-item_img"><img src="https://img.moyo.ua/img/products/5021/96_200.jpg?1648382148" alt="Ноутбук MSI Katana GF66-11UD (GF6611UD-480XUA)"></a>
-                            </div>
-                            <div class="product-item--list_info-section">
-                                <div class="product-item_markers">
-                                    <div class="product-item_discount">-13%</div>
-                                    <div class="product-item_label sticker--best-price">Лучшая цена</div>
-                                </div>
-                                <a href="#" class="product-item_name">Ноутбук MSI Katana GF66-11UD (GF6611UD-480XUA) </a>
-                                <div class="product-item_evaluation">
-                                    <div class="rate-star_container">
-                                        <div class="rate-star active-start"></div>
-                                        <div class="rate-star active-start"></div>
-                                        <div class="rate-star active-start"></div>
-                                        <div class="rate-star active-start"></div>
-                                        <div class="rate-star active-start"></div>
-                                    </div>
-                                    <div class="product-item_reviews">4 отзыва</div>
-                                </div>
-                                <div class="product-item_info">
-                                    <ul class="product-item_info_list">
-                                        <li><span class="key"> Модельный ряд </span><span class="value"> Katana GF66 </span></li>
-                                        <li><span class="key"> Дисплей (диагональ) </span><span class="value"> 15,6 </span></li>
-                                        <li><span class="key"> Дисплей (макс. разрешение) </span><span class="value"> 1920 x 1080 (Full HD) </span></li>
-                                        <li><span class="key"> Процессор (модель) </span><span class="value"> Intel Core i5-11400H (Tiger Lake) </span></li>
-                                        <li><span class="key"> Процессор (тактовая частота - turbo), ГГц </span><span class="value"> 2,7-4,5 </span></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="product-item--list_tools-section">
-                                <div class="product-item_id">Код товара: 502196</div>
-                                <div class="product-item_content">
-                                    <div class="product-item_price">
-                                        <div class="product-item_price_title">Цена</div>
-                                        <div class="product-item_price_current sale">41&nbsp;999 грн
-                                            <div class="product-item_price_cashback">+ 420 грн кэшбек</div>
-                                        </div>
-                                        <div class="product-item_price_oldprice">47&nbsp;999грн</div>
-                                    </div>
-                                    <div class="product-item_action">
-                                        <button class="product-item_buy-btn btn btn--green" data-product-id="502196">Купить</button>
-                                        <div class="product-item_action_group">
-                                            <button class="product-item_wish-btn" data-product_id="502196"><span></span></button>
-                                            <button class="product-item_compare-btn" data-product-id="502196"><span></span></button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="filter-section-item" data-filter-name="4001" data-filter-value="415469">
+                            <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="4001"
+                                                          value="415469" id="filter-4001-415469" data-filter-label="AMD Ryzen 5"
+                                                          data-open-filter-url="/comp-and-periphery/notebooks/amd_ryzen_5/">
+                                <div class="checkbox_field"></div>
+                                <label class="checkbox_label" for="filter-4001-415469"><a class="value"
+                                                                                          href="/comp-and-periphery/notebooks/amd_ryzen_5/">AMD
+                                    Ryzen 5</a><span class="count">12</span></label></div>
                         </div>
-                        <div class="product-item product-item--list">
-                            <div class="product-item--list_image-section">
-                                <a href="#" class="product-item_img"><img src="https://img.moyo.ua/img/products/5119/3_200.jpeg?1648382091" alt="Ноутбук HP ENVY x360 15-es1000ua (5B1Y6EA)"></a>
-                            </div>
-                            <div class="product-item--list_info-section">
-                                <div class="product-item_markers">
-                                    <div class="product-item_discount">-10%</div>
-                                    <div class="product-item_label sticker--hit">Хит</div>
-                                </div>
-                                <a href="#" class="product-item_name">Ноутбук HP ENVY x360 15-es1000ua (5B1Y6EA) </a>
-                                <div class="product-item_evaluation">
-                                    <div class="rate-star_container">
-                                        <div class="rate-star"></div>
-                                        <div class="rate-star"></div>
-                                        <div class="rate-star"></div>
-                                        <div class="rate-star"></div>
-                                        <div class="rate-star"></div>
-                                    </div>
-                                    <div class="product-item_reviews">0 отзывов</div>
-                                </div>
-                                <div class="product-item_info">
-                                    <ul class="product-item_info_list">
-                                        <li><span class="key"> Модельный ряд </span><span class="value"> x360 Convert </span></li>
-                                        <li><span class="key"> Дисплей (диагональ) </span><span class="value"> 15,6 </span></li>
-                                        <li><span class="key"> Дисплей (макс. разрешение) </span><span class="value"> 1920 x 1080 (Full HD) </span></li>
-                                        <li><span class="key"> Процессор (модель) </span><span class="value"> Intel Core i5-1155G7 (Tiger Lake) </span></li>
-                                        <li><span class="key"> Процессор (тактовая частота - turbo), ГГц </span><span class="value"> 2,5-4,5 </span></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="product-item--list_tools-section">
-                                <div class="product-item_id">Код товара: 511903</div>
-                                <div class="product-item_content">
-                                    <div class="product-item_price">
-                                        <div class="product-item_price_title">Цена</div>
-                                        <div class="product-item_price_current sale">35&nbsp;999 грн
-                                            <div class="product-item_price_cashback">+ 360 грн кэшбек</div>
-                                        </div>
-                                        <div class="product-item_price_oldprice">39&nbsp;999грн</div>
-                                    </div>
-                                    <div class="product-item_action">
-                                        <button class="product-item_buy-btn btn btn--green" data-product-id="511903">Купить</button>
-                                        <div class="product-item_action_group">
-                                            <button class="product-item_wish-btn" data-product_id="511903"><span></span></button>
-                                            <button class="product-item_compare-btn" data-product-id="511903"><span></span></button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="filter-section-item" data-filter-name="4001" data-filter-value="426706">
+                            <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="4001"
+                                                          value="426706" id="filter-4001-426706" data-filter-label="AMD Ryzen 7"
+                                                          data-open-filter-url="/comp-and-periphery/notebooks/amd_ryzen_7/">
+                                <div class="checkbox_field"></div>
+                                <label class="checkbox_label" for="filter-4001-426706"><a class="value"
+                                                                                          href="/comp-and-periphery/notebooks/amd_ryzen_7/">AMD
+                                    Ryzen 7</a><span class="count">4</span></label></div>
                         </div>
-                        <div class="product-item product-item--list">
-                            <div class="product-item--list_image-section">
-                                <a href="#" class="product-item_img"><img src="https://img.moyo.ua/img/products/4874/94_200.jpg?1648382091" alt="Ноутбук ACER Swift 1 SF114-34 (NX.A77EU.00E)"></a>
-                            </div>
-                            <div class="product-item--list_info-section">
-                                <div class="product-item_markers"></div>
-                                <a href="#" class="product-item_name">Ноутбук ACER Swift 1 SF114-34 (NX.A77EU.00E) </a>
-                                <div class="product-item_evaluation">
-                                    <div class="rate-star_container">
-                                        <div class="rate-star active-start"></div>
-                                        <div class="rate-star active-start"></div>
-                                        <div class="rate-star active-start"></div>
-                                        <div class="rate-star active-start"></div>
-                                        <div class="rate-star active-start"></div>
-                                    </div>
-                                    <div class="product-item_reviews">1 отзыв</div>
-                                </div>
-                                <div class="product-item_info">
-                                    <ul class="product-item_info_list">
-                                        <li><span class="key"> Модельный ряд </span> <span class="value"> Swift 1 </span></li>
-                                        <li><span class="key"> Дисплей (диагональ) </span> <span class="value"> 14 </span></li>
-                                        <li><span class="key"> Дисплей (макс. разрешение) </span> <span class="value"> 1920 x 1080 (Full HD) </span></li>
-                                        <li><span class="key"> Процессор (модель) </span> <span class="value"> Intel Pentium Silver N6000 (Jasper Lake) </span></li>
-                                        <li><span class="key"> Процессор (тактовая частота - turbo), ГГц </span> <span class="value"> 1,1-3,3 </span></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="product-item--list_tools-section">
-                                <div class="product-item_id">Код товара: 487494</div>
-                                <div class="product-item_content">
-                                    <div class="product-item_price">
-                                        <div class="product-item_price_title">Цена</div>
-                                        <div class="product-item_price_current">13&nbsp;999 грн
-                                            <div class="product-item_price_cashback">+ 140 грн кэшбек</div>
-                                        </div>
-                                        <div class="product-item_price_oldprice"></div>
-                                    </div>
-                                    <div class="product-item_action">
-                                        <button class="product-item_buy-btn btn btn--green" data-product-id="487494">Купить</button>
-                                        <div class="product-item_action_group">
-                                            <button class="product-item_wish-btn" data-product_id="487494"><span></span></button>
-                                            <button class="product-item_compare-btn" data-product-id="487494"><span></span></button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="filter-section-item hidden" data-filter-name="4001" data-filter-value="415085">
+                            <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="4001"
+                                                          value="415085" id="filter-4001-415085" data-filter-label="AMD Ryzen 3"
+                                                          data-open-filter-url="/comp-and-periphery/notebooks/amd_ryzen_3/">
+                                <div class="checkbox_field"></div>
+                                <label class="checkbox_label" for="filter-4001-415085"><a class="value"
+                                                                                          href="/comp-and-periphery/notebooks/amd_ryzen_3/">AMD
+                                    Ryzen 3</a><span class="count">7</span></label></div>
                         </div>
-                        <div class="product-item product-item--list">
-                            <div class="product-item--list_image-section">
-                                <a href="#" class="product-item_img"><img src="https://img.moyo.ua/img/products/4980/4_200.jpg?1648383035" alt="Ноутбук LENOVO ThinkPad P1 (20Y30013RA)"></a>
-                            </div>
-                            <div class="product-item--list_info-section">
-                                <div class="product-item_markers"></div>
-                                <a href="#" class="product-item_name">Ноутбук LENOVO ThinkPad P1 (20Y30013RA) </a>
-                                <div class="product-item_evaluation">
-                                    <div class="rate-star_container">
-                                        <div class="rate-star"></div>
-                                        <div class="rate-star"></div>
-                                        <div class="rate-star"></div>
-                                        <div class="rate-star"></div>
-                                        <div class="rate-star"></div>
-                                    </div>
-                                    <div class="product-item_reviews">0 отзывов</div>
-                                </div>
-                                <div class="product-item_info">
-                                    <ul class="product-item_info_list">
-                                        <li><span class="key"> Модельный ряд </span> <span class="value"> ThinkPad P </span></li>
-                                        <li><span class="key"> Дисплей (диагональ) </span> <span class="value"> 16,0 </span></li>
-                                        <li><span class="key"> Дисплей (макс. разрешение) </span> <span class="value"> 2560 x 1600 - WQXGA </span></li>
-                                        <li><span class="key"> Процессор (модель) </span> <span class="value"> Intel Core i7-11850H (Tiger Lake) </span></li>
-                                        <li><span class="key"> Процессор (тактовая частота - turbo), ГГц </span> <span class="value"> 2,5-4,8 </span></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="product-item--list_tools-section">
-                                <div class="product-item_id">Код товара: 498004</div>
-                                <div class="product-item_content">
-                                    <div class="product-item_price">
-                                        <div class="product-item_price_title">Цена</div>
-                                        <div class="product-item_price_current not-available">130&nbsp;331 грн</div>
-                                        <div class="product-item_price_text">Нет в наличии</div>
-                                    </div>
-                                    <div class="product-item_action">
-                                        <button type="button" class="product-item_buy-btn btn btn--inform" data-product-id="498004">Уведомить</button>
-                                        <div class="product-item_action_group">
-                                            <button class="product-item_wish-btn" data-product_id="498004"><span></span></button>
-                                            <button class="product-item_compare-btn" data-product-id="498004"><span></span></button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="filter-section-item hidden" data-filter-name="4001" data-filter-value="179310">
+                            <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="4001"
+                                                          value="179310" id="filter-4001-179310" data-filter-label="Intel Celeron"
+                                                          data-open-filter-url="/comp-and-periphery/notebooks/intel_celeron/">
+                                <div class="checkbox_field"></div>
+                                <label class="checkbox_label" for="filter-4001-179310"><a class="value"
+                                                                                          href="/comp-and-periphery/notebooks/intel_celeron/">Intel
+                                    Celeron</a><span class="count">6</span></label></div>
+                        </div>
+                        <div class="filter-section-item hidden" data-filter-name="4001" data-filter-value="179279">
+                            <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="4001"
+                                                          value="179279" id="filter-4001-179279" data-filter-label="Intel Pentium"
+                                                          data-open-filter-url="/comp-and-periphery/notebooks/intel_pentium/">
+                                <div class="checkbox_field"></div>
+                                <label class="checkbox_label" for="filter-4001-179279"><a class="value"
+                                                                                          href="/comp-and-periphery/notebooks/intel_pentium/">Intel
+                                    Pentium</a><span class="count">5</span></label></div>
+                        </div>
+                        <div class="filter-section-item hidden" data-filter-name="4001" data-filter-value="197745">
+                            <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="4001"
+                                                          value="197745" id="filter-4001-197745" data-filter-label="AMD Athlon"
+                                                          data-open-filter-url="">
+                                <div class="checkbox_field"></div>
+                                <label class="checkbox_label" for="filter-4001-197745" data-hash=""><span
+                                        class="value">AMD Athlon</span><span class="count">2</span></label></div>
+                        </div>
+                        <div class="filter-section-item hidden" data-filter-name="4001" data-filter-value="455943">
+                            <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="4001"
+                                                          value="455943" id="filter-4001-455943" data-filter-label="Intel Core i5 (H)"
+                                                          data-open-filter-url="">
+                                <div class="checkbox_field"></div>
+                                <label class="checkbox_label" for="filter-4001-455943" data-hash=""><span class="value">Intel Core i5 (H)</span><span
+                                        class="count">1</span></label></div>
+                        </div>
+                        <div class="filter-section-item filter-section-item--show-all" data-text-more="Показать все"
+                             data-text-less="Меньше"> Показать все
                         </div>
                     </div>
-
-                    <div class="load-section">
-                        <div class="load-section_show-more">
-                            <button class="btn btn--yellow">
-                                <span class="icon icon--re-dark"></span>
-                                <span class="btn_text">Показать еще 24</span>
-                            </button>
+                </div>
+                <div class="catalog-filter-section active" data-filter-property="4189">
+                    <div class="catalog-filter-section-head">
+                        <div class="item--title">Объем накопителя</div>
+                        <div class="item--close"></div>
+                    </div>
+                    <div class="catalog-filter-section-content">
+                        <div class="filter-section-item" data-filter-name="4189" data-filter-value="544245">
+                            <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="4189"
+                                                          value="544245" id="filter-4189-544245" data-filter-label="До 500 ГБ"
+                                                          data-open-filter-url="">
+                                <div class="checkbox_field"></div>
+                                <label class="checkbox_label" for="filter-4189-544245" data-hash=""><span class="value">До 500 ГБ</span><span
+                                        class="count">39</span></label></div>
                         </div>
-                        <div class="load-section_pagination">
-                            <ul class="pagination">
-                                <li data-page="1"><a href="/comp-and-periphery/notebooks/">1</a></li>
-                                <li data-page="2"><a href="/comp-and-periphery/notebooks/?page=2">2</a></li>
-                                <li data-page="3"><a href="/comp-and-periphery/notebooks/?page=3">3</a></li>
-                                <li data-page="4" class="active">4</li>
-                                <li data-page="5"><a href="/comp-and-periphery/notebooks/?page=5">5</a></li>
-                                <li data-page="6"><a href="/comp-and-periphery/notebooks/?page=6">6</a></li>
-                            </ul>
+                        <div class="filter-section-item" data-filter-name="4189" data-filter-value="544246">
+                            <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="4189"
+                                                          value="544246" id="filter-4189-544246" data-filter-label="500 Гб - 1 Тб"
+                                                          data-open-filter-url="">
+                                <div class="checkbox_field"></div>
+                                <label class="checkbox_label" for="filter-4189-544246" data-hash=""><span
+                                        class="value">500 Гб - 1 Тб</span><span class="count">30</span></label></div>
+                        </div>
+                        <div class="filter-section-item" data-filter-name="4189" data-filter-value="544247">
+                            <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="4189"
+                                                          value="544247" id="filter-4189-544247" data-filter-label="1 Тб - 2 Тб"
+                                                          data-open-filter-url="">
+                                <div class="checkbox_field"></div>
+                                <label class="checkbox_label" for="filter-4189-544247" data-hash=""><span
+                                        class="value">1 Тб - 2 Тб</span><span class="count">6</span></label></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="catalog-filter-section active" data-filter-property="6447">
+                    <div class="catalog-filter-section-head">
+                        <div class="item--title">Оперативная память (объем)</div>
+                        <div class="item--close"></div>
+                    </div>
+                    <div class="catalog-filter-section-content">
+                        <div class="filter-section-item" data-filter-name="6447" data-filter-value="291437">
+                            <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="6447"
+                                                          value="291437" id="filter-6447-291437" data-filter-label="4 ГБ"
+                                                          data-open-filter-url="/comp-and-periphery/notebooks/4096mb-ram/">
+                                <div class="checkbox_field"></div>
+                                <label class="checkbox_label" for="filter-6447-291437"><a class="value"
+                                                                                          href="/comp-and-periphery/notebooks/4096mb-ram/">4
+                                    ГБ</a><span class="count">8</span></label></div>
+                        </div>
+                        <div class="filter-section-item" data-filter-name="6447" data-filter-value="291444">
+                            <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="6447"
+                                                          value="291444" id="filter-6447-291444" data-filter-label="8 ГБ"
+                                                          data-open-filter-url="/comp-and-periphery/notebooks/8192mb-ram/">
+                                <div class="checkbox_field"></div>
+                                <label class="checkbox_label" for="filter-6447-291444"><a class="value"
+                                                                                          href="/comp-and-periphery/notebooks/8192mb-ram/">8
+                                    ГБ</a><span class="count">45</span></label></div>
+                        </div>
+                        <div class="filter-section-item" data-filter-name="6447" data-filter-value="291451">
+                            <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="6447"
+                                                          value="291451" id="filter-6447-291451" data-filter-label="12 ГБ"
+                                                          data-open-filter-url="/comp-and-periphery/notebooks/12gb-ram/">
+                                <div class="checkbox_field"></div>
+                                <label class="checkbox_label" for="filter-6447-291451"><a class="value"
+                                                                                          href="/comp-and-periphery/notebooks/12gb-ram/">12
+                                    ГБ</a><span class="count">1</span></label></div>
+                        </div>
+                        <div class="filter-section-item" data-filter-name="6447" data-filter-value="291446">
+                            <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="6447"
+                                                          value="291446" id="filter-6447-291446" data-filter-label="16 ГБ"
+                                                          data-open-filter-url="/comp-and-periphery/notebooks/16gb-ram/">
+                                <div class="checkbox_field"></div>
+                                <label class="checkbox_label" for="filter-6447-291446"><a class="value"
+                                                                                          href="/comp-and-periphery/notebooks/16gb-ram/">16
+                                    ГБ</a><span class="count">20</span></label></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="catalog-filter-section active" data-filter-property="4003">
+                    <div class="catalog-filter-section-head">
+                        <div class="item--title">Видеокарта (тип)</div>
+                        <div class="item--close"></div>
+                    </div>
+                    <div class="catalog-filter-section-content">
+                        <div class="filter-section-item" data-filter-name="4003" data-filter-value="354604">
+                            <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="4003"
+                                                          value="354604" id="filter-4003-354604"
+                                                          data-filter-label="Дискретная (игровая)"
+                                                          data-open-filter-url="/comp-and-periphery/notebooks/igrovaya-videokarta-geforce-gtx/">
+                                <div class="checkbox_field"></div>
+                                <label class="checkbox_label" for="filter-4003-354604"><a class="value"
+                                                                                          href="/comp-and-periphery/notebooks/igrovaya-videokarta-geforce-gtx/">Дискретная
+                                    (игровая)</a><span class="count">13</span></label></div>
+                        </div>
+                        <div class="filter-section-item" data-filter-name="4003" data-filter-value="354605">
+                            <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="4003"
+                                                          value="354605" id="filter-4003-354605"
+                                                          data-filter-label="Дискретная (начальный уровень)" data-open-filter-url="">
+                                <div class="checkbox_field"></div>
+                                <label class="checkbox_label" for="filter-4003-354605" data-hash=""><span class="value">Дискретная (начальный уровень)</span><span
+                                        class="count">13</span></label></div>
+                        </div>
+                        <div class="filter-section-item" data-filter-name="4003" data-filter-value="179216">
+                            <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="4003"
+                                                          value="179216" id="filter-4003-179216" data-filter-label="Интегрированная"
+                                                          data-open-filter-url="/comp-and-periphery/notebooks/videokarta_tip_integrirovannaya/">
+                                <div class="checkbox_field"></div>
+                                <label class="checkbox_label" for="filter-4003-179216"><a class="value"
+                                                                                          href="/comp-and-periphery/notebooks/videokarta_tip_integrirovannaya/">Интегрированная</a><span
+                                        class="count">48</span></label></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="catalog-filter-section active" data-filter-property="7759">
+                    <div class="catalog-filter-section-head">
+                        <div class="item--title">Объем SSD</div>
+                        <div class="item--close"></div>
+                    </div>
+                    <div class="catalog-filter-section-content">
+                        <div class="filter-section-item" data-filter-name="7759" data-filter-value="547909">
+                            <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="7759"
+                                                          value="547909" id="filter-7759-547909" data-filter-label="1 ТБ"
+                                                          data-open-filter-url="">
+                                <div class="checkbox_field"></div>
+                                <label class="checkbox_label" for="filter-7759-547909" data-hash=""><span class="value">1 ТБ</span><span
+                                        class="count">4</span></label></div>
+                        </div>
+                        <div class="filter-section-item" data-filter-name="7759" data-filter-value="547912">
+                            <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="7759"
+                                                          value="547912" id="filter-7759-547912" data-filter-label="128 ГБ"
+                                                          data-open-filter-url="">
+                                <div class="checkbox_field"></div>
+                                <label class="checkbox_label" for="filter-7759-547912" data-hash=""><span
+                                        class="value">128 ГБ</span><span class="count">8</span></label></div>
+                        </div>
+                        <div class="filter-section-item" data-filter-name="7759" data-filter-value="547918">
+                            <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="7759"
+                                                          value="547918" id="filter-7759-547918" data-filter-label="256 ГБ"
+                                                          data-open-filter-url="">
+                                <div class="checkbox_field"></div>
+                                <label class="checkbox_label" for="filter-7759-547918" data-hash=""><span
+                                        class="value">256 ГБ</span><span class="count">33</span></label></div>
+                        </div>
+                        <div class="filter-section-item" data-filter-name="7759" data-filter-value="547923">
+                            <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="7759"
+                                                          value="547923" id="filter-7759-547923" data-filter-label="512 ГБ"
+                                                          data-open-filter-url="">
+                                <div class="checkbox_field"></div>
+                                <label class="checkbox_label" for="filter-7759-547923" data-hash=""><span
+                                        class="value">512 ГБ</span><span class="count">28</span></label></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="catalog-filter-section active" data-filter-property="4011">
+                    <div class="catalog-filter-section-head">
+                        <div class="item--title">Предустановленная ОС</div>
+                        <div class="item--close"></div>
+                    </div>
+                    <div class="catalog-filter-section-content">
+                        <div class="filter-section-item" data-filter-name="4011" data-filter-value="320790">
+                            <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="4011"
+                                                          value="320790" id="filter-4011-320790" data-filter-label="DOS"
+                                                          data-open-filter-url="">
+                                <div class="checkbox_field"></div>
+                                <label class="checkbox_label" for="filter-4011-320790" data-hash=""><span class="value">DOS</span><span
+                                        class="count">17</span></label></div>
+                        </div>
+                        <div class="filter-section-item" data-filter-name="4011" data-filter-value="196999">
+                            <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="4011"
+                                                          value="196999" id="filter-4011-196999" data-filter-label="Windows 10"
+                                                          data-open-filter-url="">
+                                <div class="checkbox_field"></div>
+                                <label class="checkbox_label" for="filter-4011-196999" data-hash=""><span
+                                        class="value">Windows 10</span><span class="count">1</span></label></div>
+                        </div>
+                        <div class="filter-section-item" data-filter-name="4011" data-filter-value="179432">
+                            <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="4011"
+                                                          value="179432" id="filter-4011-179432" data-filter-label="Windows 10 Home"
+                                                          data-open-filter-url="">
+                                <div class="checkbox_field"></div>
+                                <label class="checkbox_label" for="filter-4011-179432" data-hash=""><span
+                                        class="value">Windows 10 Home</span><span class="count">11</span></label></div>
+                        </div>
+                        <div class="filter-section-item" data-filter-name="4011" data-filter-value="185465">
+                            <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="4011"
+                                                          value="185465" id="filter-4011-185465" data-filter-label="Windows 10 Pro"
+                                                          data-open-filter-url="/comp-and-periphery/notebooks/windows_10_pro/">
+                                <div class="checkbox_field"></div>
+                                <label class="checkbox_label" for="filter-4011-185465"><a class="value"
+                                                                                          href="/comp-and-periphery/notebooks/windows_10_pro/">Windows
+                                    10 Pro</a><span class="count">5</span></label></div>
+                        </div>
+                        <div class="filter-section-item" data-filter-name="4011" data-filter-value="607669">
+                            <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="4011"
+                                                          value="607669" id="filter-4011-607669" data-filter-label="Windows 11"
+                                                          data-open-filter-url="">
+                                <div class="checkbox_field"></div>
+                                <label class="checkbox_label" for="filter-4011-607669" data-hash=""><span
+                                        class="value">Windows 11</span><span class="count">1</span></label></div>
+                        </div>
+                        <div class="filter-section-item hidden" data-filter-name="4011" data-filter-value="608955">
+                            <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="4011"
+                                                          value="608955" id="filter-4011-608955" data-filter-label="Windows 11 Home"
+                                                          data-open-filter-url="">
+                                <div class="checkbox_field"></div>
+                                <label class="checkbox_label" for="filter-4011-608955" data-hash=""><span
+                                        class="value">Windows 11 Home</span><span class="count">3</span></label></div>
+                        </div>
+                        <div class="filter-section-item hidden" data-filter-name="4011" data-filter-value="306017">
+                            <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="4011"
+                                                          value="306017" id="filter-4011-306017" data-filter-label="Без ОС"
+                                                          data-open-filter-url="/comp-and-periphery/notebooks/predustanovlennaya_os_bez_os/">
+                                <div class="checkbox_field"></div>
+                                <label class="checkbox_label" for="filter-4011-306017"><a class="value"
+                                                                                          href="/comp-and-periphery/notebooks/predustanovlennaya_os_bez_os/">Без
+                                    ОС</a><span class="count">36</span></label></div>
+                        </div>
+                        <div class="filter-section-item filter-section-item--show-all" data-text-more="Показать все"
+                             data-text-less="Меньше"> Показать все
+                        </div>
+                    </div>
+                </div>
+                <div class="catalog-filter-section active" data-filter-property="4016">
+                    <div class="catalog-filter-section-head">
+                        <div class="item--title">Клавиатура (подсветка)</div>
+                        <div class="item--close"></div>
+                    </div>
+                    <div class="catalog-filter-section-content">
+                        <div class="filter-section-item" data-filter-name="4016" data-filter-value="179235">
+                            <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="4016"
+                                                          value="179235" id="filter-4016-179235" data-filter-label="Есть"
+                                                          data-open-filter-url="/comp-and-periphery/notebooks/klaviatura_podsvetka_est/">
+                                <div class="checkbox_field"></div>
+                                <label class="checkbox_label" for="filter-4016-179235"><a class="value"
+                                                                                          href="/comp-and-periphery/notebooks/klaviatura_podsvetka_est/">Есть</a><span
+                                        class="count">41</span></label></div>
+                        </div>
+                        <div class="filter-section-item" data-filter-name="4016" data-filter-value="179256">
+                            <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="4016"
+                                                          value="179256" id="filter-4016-179256" data-filter-label="Нет"
+                                                          data-open-filter-url="">
+                                <div class="checkbox_field"></div>
+                                <label class="checkbox_label" for="filter-4016-179256" data-hash=""><span class="value">Нет</span><span
+                                        class="count">31</span></label></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="catalog-filter-section active" data-filter-property="7758">
+                    <div class="catalog-filter-section-head">
+                        <div class="item--title">Цвет (основной)</div>
+                        <div class="item--close"></div>
+                    </div>
+                    <div class="catalog-filter-section-content">
+                        <div class="filter-section-item" data-filter-name="7758" data-filter-value="547294">
+                            <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="7758"
+                                                          value="547294" id="filter-7758-547294" data-filter-label="Белый"
+                                                          data-open-filter-url="/comp-and-periphery/notebooks/belyyi/">
+                                <div class="checkbox_field"></div>
+                                <label class="checkbox_label" for="filter-7758-547294"><a class="value"
+                                                                                          href="/comp-and-periphery/notebooks/belyyi/">Белый</a><span
+                                        class="count">2</span></label></div>
+                        </div>
+                        <div class="filter-section-item" data-filter-name="7758" data-filter-value="547301">
+                            <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="7758"
+                                                          value="547301" id="filter-7758-547301" data-filter-label="Голубой (синий)"
+                                                          data-open-filter-url="/comp-and-periphery/notebooks/goluboyi_siniyi/">
+                                <div class="checkbox_field"></div>
+                                <label class="checkbox_label" for="filter-7758-547301"><a class="value"
+                                                                                          href="/comp-and-periphery/notebooks/goluboyi_siniyi/">Голубой
+                                    (синий)</a><span class="count">5</span></label></div>
+                        </div>
+                        <div class="filter-section-item" data-filter-name="7758" data-filter-value="547307">
+                            <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="7758"
+                                                          value="547307" id="filter-7758-547307" data-filter-label="Зеленый"
+                                                          data-open-filter-url="/comp-and-periphery/notebooks/zelenyyi/">
+                                <div class="checkbox_field"></div>
+                                <label class="checkbox_label" for="filter-7758-547307"><a class="value"
+                                                                                          href="/comp-and-periphery/notebooks/zelenyyi/">Зеленый</a><span
+                                        class="count">2</span></label></div>
+                        </div>
+                        <div class="filter-section-item" data-filter-name="7758" data-filter-value="547297">
+                            <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="7758"
+                                                          value="547297" id="filter-7758-547297" data-filter-label="Золотистый"
+                                                          data-open-filter-url="/comp-and-periphery/notebooks/zolotistyyi/">
+                                <div class="checkbox_field"></div>
+                                <label class="checkbox_label" for="filter-7758-547297"><a class="value"
+                                                                                          href="/comp-and-periphery/notebooks/zolotistyyi/">Золотистый</a><span
+                                        class="count">2</span></label></div>
+                        </div>
+                        <div class="filter-section-item" data-filter-name="7758" data-filter-value="547300">
+                            <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="7758"
+                                                          value="547300" id="filter-7758-547300" data-filter-label="Серебристый"
+                                                          data-open-filter-url="/comp-and-periphery/notebooks/serebristyyi/">
+                                <div class="checkbox_field"></div>
+                                <label class="checkbox_label" for="filter-7758-547300"><a class="value"
+                                                                                          href="/comp-and-periphery/notebooks/serebristyyi/">Серебристый</a><span
+                                        class="count">14</span></label></div>
+                        </div>
+                        <div class="filter-section-item hidden" data-filter-name="7758" data-filter-value="547298">
+                            <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="7758"
+                                                          value="547298" id="filter-7758-547298" data-filter-label="Серый"
+                                                          data-open-filter-url="/comp-and-periphery/notebooks/seryyi/">
+                                <div class="checkbox_field"></div>
+                                <label class="checkbox_label" for="filter-7758-547298"><a class="value"
+                                                                                          href="/comp-and-periphery/notebooks/seryyi/">Серый</a><span
+                                        class="count">24</span></label></div>
+                        </div>
+                        <div class="filter-section-item hidden" data-filter-name="7758" data-filter-value="547296">
+                            <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="7758"
+                                                          value="547296" id="filter-7758-547296" data-filter-label="Черный"
+                                                          data-open-filter-url="/comp-and-periphery/notebooks/chernyyi/">
+                                <div class="checkbox_field"></div>
+                                <label class="checkbox_label" for="filter-7758-547296"><a class="value"
+                                                                                          href="/comp-and-periphery/notebooks/chernyyi/">Черный</a><span
+                                        class="count">25</span></label></div>
+                        </div>
+                        <div class="filter-section-item filter-section-item--show-all" data-text-more="Показать все"
+                             data-text-less="Меньше"> Показать все
+                        </div>
+                    </div>
+                </div>
+                <div class="catalog-filter-section active" data-filter-property="4968">
+                    <div class="catalog-filter-section-head">
+                        <div class="item--title">Вес, кг</div>
+                        <div class="item--close"></div>
+                    </div>
+                    <div class="catalog-filter-section-content">
+                        <div class="filter-section-item" data-filter-name="4968" data-filter-value="307344">
+                            <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="4968"
+                                                          value="307344" id="filter-4968-307344" data-filter-label="0,50 - 1,00 кг"
+                                                          data-open-filter-url="/comp-and-periphery/notebooks/0_50_-_1_00_kg/">
+                                <div class="checkbox_field"></div>
+                                <label class="checkbox_label" for="filter-4968-307344"><a class="value"
+                                                                                          href="/comp-and-periphery/notebooks/0_50_-_1_00_kg/">0,50
+                                    - 1,00 кг</a><span class="count">1</span></label></div>
+                        </div>
+                        <div class="filter-section-item" data-filter-name="4968" data-filter-value="307173">
+                            <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="4968"
+                                                          value="307173" id="filter-4968-307173" data-filter-label="1,01 - 1,50 кг"
+                                                          data-open-filter-url="">
+                                <div class="checkbox_field"></div>
+                                <label class="checkbox_label" for="filter-4968-307173" data-hash=""><span
+                                        class="value">1,01 - 1,50 кг</span><span class="count">19</span></label></div>
+                        </div>
+                        <div class="filter-section-item" data-filter-name="4968" data-filter-value="307181">
+                            <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="4968"
+                                                          value="307181" id="filter-4968-307181" data-filter-label="1,51 - 2,00 кг"
+                                                          data-open-filter-url="">
+                                <div class="checkbox_field"></div>
+                                <label class="checkbox_label" for="filter-4968-307181" data-hash=""><span
+                                        class="value">1,51 - 2,00 кг</span><span class="count">43</span></label></div>
+                        </div>
+                        <div class="filter-section-item" data-filter-name="4968" data-filter-value="307175">
+                            <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="4968"
+                                                          value="307175" id="filter-4968-307175" data-filter-label="2,01 - 2,50 кг"
+                                                          data-open-filter-url="">
+                                <div class="checkbox_field"></div>
+                                <label class="checkbox_label" for="filter-4968-307175" data-hash=""><span
+                                        class="value">2,01 - 2,50 кг</span><span class="count">10</span></label></div>
+                        </div>
+                        <div class="filter-section-item" data-filter-name="4968" data-filter-value="307167">
+                            <div class="checkbox "><input class="checkbox_input" type="checkbox" data-require-value="null" name="4968"
+                                                          value="307167" id="filter-4968-307167" data-filter-label="2,51 - 3,00 кг"
+                                                          data-open-filter-url="">
+                                <div class="checkbox_field"></div>
+                                <label class="checkbox_label" for="filter-4968-307167" data-hash=""><span
+                                        class="value">2,51 - 3,00 кг</span><span class="count">1</span></label></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </script>
+
+    <script type="text/template" id="catalog-content-head-template">
+        <div class="catalog-content-head">
+            <div class="catalog_content_sort">
+                <div class="catalog_content_sort_title">Показать сначала:</div>
+                <div class="catalog_content_sort_items">
+                    <div class="catalog_content_sort_item" data-sort="price-asc">дешевые</div>
+                    <div class="catalog_content_sort_item active" data-sort="price-desc">дорогие</div>
+                    <div class="catalog_content_sort_item" data-sort="novinka-desc">новинки</div>
+                    <div class="catalog_content_sort_item" data-sort="weeklyrate-desc">популярные</div>
+                    <div class="catalog_content_sort_item" data-sort="sale-asc">рекомендации</div>
+                </div>
+            </div>
+            <div class="catalog_products-view">
+                <div class="catalog_products-view_item active" data-layout="grid">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M0 2.40909C0 2.68523 0.223858 2.90909 0.5 2.90909H2.40909C2.68523 2.90909 2.90909 2.68523 2.90909 2.40909V0.500001C2.90909 0.223858 2.68523 0 2.40909 0H0.500001C0.223858 0 0 0.223858 0 0.5V2.40909ZM4.36364 11.1364C4.36364 11.4125 4.58749 11.6364 4.86364 11.6364H6.77273C7.04887 11.6364 7.27273 11.4125 7.27273 11.1364V9.22727C7.27273 8.95113 7.04887 8.72727 6.77273 8.72727H4.86364C4.58749 8.72727 4.36364 8.95113 4.36364 9.22727V11.1364ZM0 11.1364C0 11.4125 0.223858 11.6364 0.5 11.6364H2.40909C2.68523 11.6364 2.90909 11.4125 2.90909 11.1364V9.22727C2.90909 8.95113 2.68523 8.72727 2.40909 8.72727H0.500001C0.223858 8.72727 0 8.95113 0 9.22727V11.1364ZM0 6.77273C0 7.04887 0.223858 7.27273 0.5 7.27273H2.40909C2.68523 7.27273 2.90909 7.04887 2.90909 6.77273V4.86364C2.90909 4.58749 2.68523 4.36364 2.40909 4.36364H0.500001C0.223858 4.36364 0 4.58749 0 4.86364V6.77273ZM4.36364 6.77273C4.36364 7.04887 4.58749 7.27273 4.86364 7.27273H6.77273C7.04887 7.27273 7.27273 7.04887 7.27273 6.77273V4.86364C7.27273 4.58749 7.04887 4.36364 6.77273 4.36364H4.86364C4.58749 4.36364 4.36364 4.58749 4.36364 4.86364V6.77273ZM9.22727 0C8.95113 0 8.72727 0.223858 8.72727 0.5V2.40909C8.72727 2.68523 8.95113 2.90909 9.22727 2.90909H11.1364C11.4125 2.90909 11.6364 2.68523 11.6364 2.40909V0.500001C11.6364 0.223858 11.4125 0 11.1364 0H9.22727ZM4.36364 2.40909C4.36364 2.68523 4.58749 2.90909 4.86364 2.90909H6.77273C7.04887 2.90909 7.27273 2.68523 7.27273 2.40909V0.500001C7.27273 0.223858 7.04887 0 6.77273 0H4.86364C4.58749 0 4.36364 0.223858 4.36364 0.5V2.40909ZM8.72727 6.77273C8.72727 7.04887 8.95113 7.27273 9.22727 7.27273H11.1364C11.4125 7.27273 11.6364 7.04887 11.6364 6.77273V4.86364C11.6364 4.58749 11.4125 4.36364 11.1364 4.36364H9.22727C8.95113 4.36364 8.72727 4.58749 8.72727 4.86364V6.77273ZM8.72727 11.1364C8.72727 11.4125 8.95113 11.6364 9.22727 11.6364H11.1364C11.4125 11.6364 11.6364 11.4125 11.6364 11.1364V9.22727C11.6364 8.95113 11.4125 8.72727 11.1364 8.72727H9.22727C8.95113 8.72727 8.72727 8.95113 8.72727 9.22727V11.1364Z" fill="currentColor"></path><path d="M13.0909 2.40909C13.0909 2.68523 13.3148 2.90909 13.5909 2.90909H15.5C15.7761 2.90909 16 2.68523 16 2.40909V0.500001C16 0.223858 15.7761 0 15.5 0H13.5909C13.3148 0 13.0909 0.223858 13.0909 0.5V2.40909ZM13.0909 11.1364C13.0909 11.4125 13.3148 11.6364 13.5909 11.6364H15.5C15.7761 11.6364 16 11.4125 16 11.1364V9.22727C16 8.95113 15.7761 8.72727 15.5 8.72727H13.5909C13.3148 8.72727 13.0909 8.95113 13.0909 9.22727V11.1364ZM13.0909 6.77273C13.0909 7.04887 13.3148 7.27273 13.5909 7.27273H15.5C15.7761 7.27273 16 7.04887 16 6.77273V4.86364C16 4.58749 15.7761 4.36364 15.5 4.36364H13.5909C13.3148 4.36364 13.0909 4.58749 13.0909 4.86364V6.77273Z" fill="currentColor"></path><path d="M0 15.5C0 15.7761 0.223858 16 0.5 16H2.40909C2.68523 16 2.90909 15.7761 2.90909 15.5V13.5909C2.90909 13.3148 2.68523 13.0909 2.40909 13.0909H0.500001C0.223858 13.0909 0 13.3148 0 13.5909V15.5ZM9.22727 13.0909C8.95113 13.0909 8.72727 13.3148 8.72727 13.5909V15.5C8.72727 15.7761 8.95113 16 9.22727 16H11.1364C11.4125 16 11.6364 15.7761 11.6364 15.5V13.5909C11.6364 13.3148 11.4125 13.0909 11.1364 13.0909H9.22727ZM4.36364 15.5C4.36364 15.7761 4.58749 16 4.86364 16H6.77273C7.04887 16 7.27273 15.7761 7.27273 15.5V13.5909C7.27273 13.3148 7.04887 13.0909 6.77273 13.0909H4.86364C4.58749 13.0909 4.36364 13.3148 4.36364 13.5909V15.5Z" fill="currentColor"></path><path d="M13.0909 15.5C13.0909 15.7761 13.3148 16 13.5909 16H15.5C15.7761 16 16 15.7761 16 15.5V13.5909C16 13.3148 15.7761 13.0909 15.5 13.0909H13.5909C13.3148 13.0909 13.0909 13.3148 13.0909 13.5909V15.5Z" fill="currentColor"></path>
+                    </svg>
+                </div>
+                <div class="catalog_products-view_item " data-layout="list">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M0 3.5C0 3.77614 0.223858 4 0.5 4H3.5C3.77614 4 4 3.77614 4 3.5V0.5C4 0.223858 3.77614 0 3.5 0H0.5C0.223858 0 0 0.223858 0 0.5V3.5ZM6 15.5C6 15.7761 6.22386 16 6.5 16H15.5C15.7761 16 16 15.7761 16 15.5V12.5C16 12.2239 15.7761 12 15.5 12H6.5C6.22386 12 6 12.2239 6 12.5V15.5ZM0 15.5C0 15.7761 0.223858 16 0.5 16H3.5C3.77614 16 4 15.7761 4 15.5V12.5C4 12.2239 3.77614 12 3.5 12H0.5C0.223858 12 0 12.2239 0 12.5V15.5ZM0 9.5C0 9.77614 0.223858 10 0.5 10H3.5C3.77614 10 4 9.77614 4 9.5V6.5C4 6.22386 3.77614 6 3.5 6H0.5C0.223858 6 0 6.22386 0 6.5V9.5ZM6 9.5C6 9.77614 6.22386 10 6.5 10H15.5C15.7761 10 16 9.77614 16 9.5V6.5C16 6.22386 15.7761 6 15.5 6H6.5C6.22386 6 6 6.22386 6 6.5V9.5ZM6 3.5C6 3.77614 6.22386 4 6.5 4H15.5C15.7761 4 16 3.77614 16 3.5V0.5C16 0.223858 15.7761 0 15.5 0H6.5C6.22386 0 6 0.223858 6 0.5V3.5Z" fill="currentColor"></path>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <script type="text/template" id="catalog-products-template">
+        <div class="catalog-products" data-tile-mode="grid"></div>
     </script>
 
     <script type="text/template" id="catalog-product-grid-template">
@@ -1662,6 +934,27 @@
                 </div>
             </div>
         {{~}}
+    </script>
+
+    <script type="text/template" id="catalog-load-template">
+        <div class="load-section">
+            <div class="load-section_show-more">
+                <button class="btn btn--yellow">
+                    <span class="icon icon--re-dark"></span>
+                    <span class="btn_text">Показать еще 24</span>
+                </button>
+            </div>
+            <div class="load-section_pagination">
+                <ul class="pagination">
+                    <li data-page="1"><a href="/comp-and-periphery/notebooks/">1</a></li>
+                    <li data-page="2"><a href="/comp-and-periphery/notebooks/?page=2">2</a></li>
+                    <li data-page="3"><a href="/comp-and-periphery/notebooks/?page=3">3</a></li>
+                    <li data-page="4" class="active">4</li>
+                    <li data-page="5"><a href="/comp-and-periphery/notebooks/?page=5">5</a></li>
+                    <li data-page="6"><a href="/comp-and-periphery/notebooks/?page=6">6</a></li>
+                </ul>
+            </div>
+        </div>
     </script>
 
     <div class="modal" style="display: none;">
