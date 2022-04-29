@@ -974,9 +974,10 @@ var translationsUA = {
 };
 
 var i18n = {
-    lang: 'ru',
     t: function(tk) {
-        if (this.lang === 'ru') {
+        var lang = appModel.get('lang');
+
+        if (lang === 'ru') {
             return translationsRU[tk];
         } else {
             return translationsUA[tk];
@@ -984,9 +985,9 @@ var i18n = {
     }
 };
 
-//var AppModel = Backbone.Model.extend({});
-
-//var appModel = new AppModel;
+var appModel = new Backbone.Model({
+    lang: 'ru'
+});
 
 var catalogModel = new Backbone.Model({
     viewType: 'grid',
