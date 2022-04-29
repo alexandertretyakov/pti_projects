@@ -23,8 +23,13 @@
         <div class="header">
             <div class="header_content">
                 <div class="header-lang">
-                    <span data-lng="ru">Рус</span>
-                    <a data-lng="ua" href="#">Укр</a>
+                    {{? it.lang === 'ru'}}
+                        <span data-lng="ru">Рус</span>
+                        <a data-lng="ua" href="#">Укр</a>
+                    {{??}}
+                        <a data-lng="ru" href="#">Рус</a>
+                        <span data-lng="ua">Укр</span>
+                    {{?}}
                 </div>
 
                 <div class="header-actions">

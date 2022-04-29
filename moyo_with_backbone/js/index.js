@@ -999,6 +999,16 @@ var AppView = Backbone.View.extend({
         $('body').append(this.render().el);
     },
 
+    events: {
+        'click .header-lang': 'onLanguageSwitcherClick'
+    },
+
+    onLanguageSwitcherClick(e) {
+        var langAcronym = e.target.dataset.lng;
+        appModel.set('lang', langAcronym);
+        this.render();
+    },
+
     render() {
         this.$el.html(doT.template(templates['app'])());
 
@@ -1010,7 +1020,10 @@ var AppView = Backbone.View.extend({
     },
 
     renderHeader() {
-        this.$('.header-container').html(doT.template(templates['header'])());
+        var lang = appModel.get('lang');
+        this.$('.header-container').html(doT.template(templates['header'])({
+            lang: lang
+        }));
     }
 });
 
