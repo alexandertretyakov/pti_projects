@@ -10,8 +10,6 @@
     <script src="js/backbone.js"></script>
 </head>
 <body>
-    <!-- app view -->
-
     <script type="text/template" id="app-template">
         <div class="app">
             <div class="header-container"></div>
@@ -23,13 +21,13 @@
         <div class="header">
             <div class="header_content">
                 <div class="header-lang">
-                    {{? it.lang === 'ru'}}
-                        <span data-lng="ru">Рус</span>
-                        <a data-lng="ua" href="#">Укр</a>
-                    {{??}}
-                        <a data-lng="ru" href="#">Рус</a>
-                        <span data-lng="ua">Укр</span>
-                    {{?}}
+                    {{~ ['ru', 'ua'] :lng:idx}}
+                        {{? it.lang === lng}}
+                            <span data-lng="{{= lng}}">{{= i18n.t(`app.header.lang.${lng}`)}}</span>
+                        {{??}}
+                            <a data-lng="{{= lng}}" href="#">{{= i18n.t(`app.header.lang.${lng}`)}}</a>
+                        {{?}}
+                    {{~}}
                 </div>
 
                 <div class="header-actions">

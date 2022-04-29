@@ -920,6 +920,8 @@ var formatPrice = function(price) {
 };
 
 var translationsRU = {
+    'app.header.lang.ru': 'Рус',
+    'app.header.lang.ua': 'Укр',
     'catalog.product.price': 'Цена',
     'catalog.product.productId': 'Код товара',
     'catalog.product.currency': 'грн',
@@ -947,6 +949,8 @@ var translationsRU = {
 };
 
 var translationsUA = {
+    'app.header.lang.ru': 'Рус',
+    'app.header.lang.ua': 'Укр',
     'catalog.product.price': 'Ціна',
     'catalog.product.productId': 'Код товару',
     'catalog.product.currency': 'грн',
@@ -997,24 +1001,23 @@ var catalogModel = new Backbone.Model({
 var AppView = Backbone.View.extend({
     initialize: function() {
         $('body').append(this.render().el);
+        this.listenTo(appModel, 'change:lang', this.render);
     },
 
     events: {
-        'click .header-lang': 'onLanguageSwitcherClick'
+        'click .header-lang [data-lng]': 'onLangClick'
     },
 
-    onLanguageSwitcherClick(e) {
-        var langAcronym = e.target.dataset.lng;
+    onLangClick(e) {
+        var langAcronym = e.currentTarget.dataset.lng;
         appModel.set('lang', langAcronym);
-        this.render();
     },
 
     render() {
         this.$el.html(doT.template(templates['app'])());
 
         this.renderHeader();
-
-        this.$('.page-content-container').html(new Catalog().render().el);
+        this.renderPageContent();
 
         return this;
     },
@@ -1024,15 +1027,16 @@ var AppView = Backbone.View.extend({
         this.$('.header-container').html(doT.template(templates['header'])({
             lang: lang
         }));
+    },
+
+    renderPageContent() {
+        this.$('.page-content-container').html(new Catalog().render().el);
     }
 });
 
 var Catalog = Backbone.View.extend({
     initialize() {
-        this.listenTo(catalogModel, 'change:viewType', function() {
-            this.renderContentHead();
-            this.renderProducts();
-        }.bind(this));
+        this.listenTo(catalogModel, 'change:viewType', this.render);
     },
 
     events: {
