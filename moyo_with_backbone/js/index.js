@@ -1,4 +1,4 @@
-var products = [
+var _products = [
     {
         title: 'Ноутбук ASUS Zenbook 14 UX435EG-K9348R (90NB0SI1-M009L0)',
         manufacturer: 'ASUS',
@@ -904,17 +904,6 @@ var templates = {
     'catalog.load': $('#catalog-load-template').html()
 };
 
-// templates[templateName](templateData)
-// templates['whore'](whore)
-
-var getPriceWithDiscount = function(price, discount = 0) {
-    return Math.ceil(price - price * discount / 100);
-};
-
-var getCashbackAmount = function(price, rate = 0) {
-    return Math.ceil(price * rate);
-};
-
 var formatPrice = function(price) {
     return price.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ');
 };
@@ -998,7 +987,34 @@ var catalogModel = new Backbone.Model({
     sortBy: 'default'
 });
 
-var AppView = Backbone.View.extend({
+var Products = Backbone.Collection.extend({
+    toJSON() {
+        var getPriceWithDiscount = function(price, discount = 0) {
+            return Math.ceil(price - price * discount / 100);
+        };
+
+        var getCashbackAmount = function(price, rate = 0) {
+            return Math.ceil(price * rate);
+        };
+
+        var models = Backbone.Collection.prototype.toJSON.apply(this);
+        models.forEach(function(model) {
+            model.priceWithDiscount = getPriceWithDiscount(model.price, model.discount);
+            model.cashbackAmount = getCashbackAmount(model.price, 0.01);
+        });
+        return models;
+    }
+});
+
+var products = new Products(_products);
+
+var BaseView = Backbone.View.extend({
+    tmpl(templateName, templateData) {
+        return doT.template(templates[templateName])(templateData);
+    }
+});
+
+var AppView = BaseView.extend({
     initialize: function() {
         $('body').append(this.render().el);
         this.listenTo(appModel, 'change:lang', this.render);
@@ -1014,7 +1030,7 @@ var AppView = Backbone.View.extend({
     },
 
     render() {
-        this.$el.html(doT.template(templates['app'])());
+        this.$el.html(this.tmpl('app'));
 
         this.renderHeader();
         this.renderPageContent();
@@ -1024,17 +1040,17 @@ var AppView = Backbone.View.extend({
 
     renderHeader() {
         var lang = appModel.get('lang');
-        this.$('.header-container').html(doT.template(templates['header'])({
+        this.$('.header-container').html(this.tmpl('header', {
             lang: lang
         }));
     },
 
     renderPageContent() {
-        this.$('.page-content-container').html(new Catalog().render().el);
+        this.$('.page-content-container').html(new CatalogView().render().el);
     }
 });
 
-var Catalog = Backbone.View.extend({
+var CatalogView = BaseView.extend({
     initialize() {
         this.listenTo(catalogModel, 'change:viewType', this.render);
     },
@@ -1049,7 +1065,7 @@ var Catalog = Backbone.View.extend({
     },
 
     render() {
-        this.$el.html(doT.template(templates['catalog'])());
+        this.$el.html(this.tmpl('catalog'));
 
         this.renderFilter();
         this.renderContentHead();
@@ -1060,29 +1076,30 @@ var Catalog = Backbone.View.extend({
     },
 
     renderFilter() {
-        this.$('.catalog-filter-container').html(doT.template(templates['catalog.filter'])());
+        this.$('.catalog-filter-container').html(this.tmpl('catalog.filter'));
     },
 
     renderContentHead() {
         var viewType = catalogModel.get('viewType');
 
-        this.$('.catalog-content-head-container').html(doT.template(templates['catalog.content.head'])({
+        this.$('.catalog-content-head-container').html(this.tmpl('catalog.content.head', {
             viewType: viewType
         }));
     },
 
     renderProducts() {
         var viewType = catalogModel.get('viewType');
+        var _products = products.toJSON();
 
-        this.$('.catalog-products-container').html(doT.template(templates['catalog.products'])({
+        this.$('.catalog-products-container').html(this.tmpl('catalog.products', {
             viewType: viewType
         }));
 
-        this.$('.catalog-products').html(doT.template(templates[`catalog.product.${viewType}`])(products));
+        this.$('.catalog-products').html(this.tmpl(`catalog.product.${viewType}`, _products));
     },
 
     renderLoad() {
-        this.$('.catalog-load-container').html(doT.template(templates['catalog.load'])());
+        this.$('.catalog-load-container').html(this.tmpl('catalog.load'));
     }
 });
 

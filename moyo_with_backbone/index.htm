@@ -733,12 +733,12 @@
                         <div class="product-item_price_title">{{= i18n.t('catalog.product.price')}}</div>
                         <div class="product-item_price_current {{? product.discount}}sale{{?}} {{? !product.available}}not-available{{?}}">
                             {{? product.discount}}
-                                {{= formatPrice(getPriceWithDiscount(product.price, product.discount))}} {{= i18n.t('catalog.product.currency')}}
+                                {{= formatPrice(product.priceWithDiscount)}} {{= i18n.t('catalog.product.currency')}}
                             {{??}}
                                 {{= formatPrice(product.price)}}
                             {{?}}
                             {{? product.available}}
-                                <div class="product-item_price_cashback">+ {{= getCashbackAmount(product.price, 0.01)}} {{= i18n.t('catalog.product.currency')}} {{= i18n.t('catalog.product.cashback')}}</div>
+                                <div class="product-item_price_cashback">+ {{= product.cashbackAmount}} {{= i18n.t('catalog.product.currency')}} {{= i18n.t('catalog.product.cashback')}}</div>
                             {{?}}
                         </div>
                         <div class="product-item_price_{{? product.available}}oldprice{{??}}text{{?}}">
@@ -899,12 +899,12 @@
                             <div class="product-item_price_title">{{= i18n.t('catalog.product.price')}}</div>
                             <div class="product-item_price_current {{? product.discount}}sale{{?}} {{? !product.available}}not-available{{?}}">
                                 {{? product.discount}}
-                                    {{= formatPrice(getPriceWithDiscount(product.price, product.discount))}} {{= i18n.t('catalog.product.currency')}}
+                                    {{= formatPrice(product.priceWithDiscount)}} {{= i18n.t('catalog.product.currency')}}
                                 {{??}}
                                     {{= formatPrice(product.price)}}
                                 {{?}}
                                 {{? product.available}}
-                                    <div class="product-item_price_cashback">+ {{= getCashbackAmount(product.price, 0.01)}} {{= i18n.t('catalog.product.currency')}} {{= i18n.t('catalog.product.cashback')}}</div>
+                                    <div class="product-item_price_cashback">+ {{= product.cashbackAmount}} {{= i18n.t('catalog.product.currency')}} {{= i18n.t('catalog.product.cashback')}}</div>
                                 {{?}}
                             </div>
                             <div class="product-item_price_{{? product.available}}oldprice{{??}}text{{?}}">
