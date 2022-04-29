@@ -1015,7 +1015,19 @@ var AppView = Backbone.View.extend({
 
 var Catalog = Backbone.View.extend({
     initialize() {
-        // TODO: слушаешь catalogModel, если меняется viewType, рендеришь renderContentHead & renderProducts
+        this.listenTo(catalogModel, 'change:viewType', function() {
+            this.renderContentHead();
+            this.renderProducts();
+        }.bind(this));
+    },
+
+    events: {
+        'click .catalog_products-view_item': 'onViewTypeClick'
+    },
+
+    onViewTypeClick(e) {
+        var viewType = e.currentTarget.dataset.layout;
+        catalogModel.set('viewType', viewType);
     },
 
     render() {
@@ -1034,16 +1046,21 @@ var Catalog = Backbone.View.extend({
     },
 
     renderContentHead() {
-        // TODO:
-        this.$('.catalog-content-head-container').html(doT.template(templates['catalog.content.head'])());
+        var viewType = catalogModel.get('viewType');
+
+        this.$('.catalog-content-head-container').html(doT.template(templates['catalog.content.head'])({
+            viewType: viewType
+        }));
     },
 
     renderProducts() {
-        // TODO:
-        this.$('.catalog-products-container').html(doT.template(templates['catalog.products'])());
+        var viewType = catalogModel.get('viewType');
 
-        this.$('.catalog-products[data-tile-mode="grid"]').html(doT.template(templates['catalog.product.grid'])(products));
-        //this.$('.catalog-products[data-tile-mode="list"]').html(doT.template(templates['catalog.product.list'])(products));
+        this.$('.catalog-products-container').html(doT.template(templates['catalog.products'])({
+            viewType: viewType
+        }));
+
+        this.$('.catalog-products').html(doT.template(templates[`catalog.product.${viewType}`])(products));
     },
 
     renderLoad() {
