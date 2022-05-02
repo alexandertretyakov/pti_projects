@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Moyo</title>
+    <meta charset="utf-8">
+    <script src="js/dot.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/underscore.js"></script>
+    <script src="js/backbone.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .app {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .header {
+            width: 100%;
+            background: red;
+            height: 200px;
+        }
+
+        .main {
+            width: 70%;
+            background: green;
+            height: 500px;
+            padding: 20px;
+        }
+
+        .aside {
+            width: 30%;
+            background: orange;
+            height: 500px;
+            padding: 20px;
+        }
+
+        .footer {
+            width: 100%;
+            background: yellow;
+            height: 200px;
+        }
+
+        .module1 {
+            background: white;
+            height: 50px;
+            border: 2px solid black;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .module2 {
+            background: white;
+            height: 50px;
+            border: 2px solid black;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .outline {
+            outline: 9px dotted blue;
+        }
+
+        .bg {
+            background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+        }
+    </style>
+</head>
+<body>
+
+    <script type="text/template" id="app-template">
+        <div class="app">
+            <header class="header">It is header</header>
+            <main class="main"></main>
+            <aside class="aside"></aside>
+            <footer class="footer">It is footer</footer>
+        </div>
+    </script>
+
+    <script type="text/template" id="module1-template">
+        <div class="module1 outline"><button>Toggle outline</button></div>
+    </script>
+
+    <script type="text/template" id="module2-template">
+        <div class="module2 bg"><button>Toggle background</button></div>
+    </script>
+</body>
+</html>
