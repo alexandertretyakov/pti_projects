@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Moyo</title>
+    <title>Backbone View</title>
     <meta charset="utf-8">
     <script src="js/dot.js"></script>
     <script src="js/jquery.js"></script>
@@ -71,20 +71,22 @@
 <body>
 
     <script type="text/template" id="app-template">
-        <div class="app">
-            <header class="header">It is header</header>
-            <main class="main"></main>
-            <aside class="aside"></aside>
-            <footer class="footer">It is footer</footer>
-        </div>
+        <header class="header">It is header</header>
+        <footer class="footer">It is footer</footer>
     </script>
 
     <script type="text/template" id="module1-template">
-        <div class="module1 outline"><button>Toggle outline</button></div>
+        {{~ it :module:index}}
+            <div class="module1 outline"><button>Toggle outline</button></div>
+        {{~}}
     </script>
 
     <script type="text/template" id="module2-template">
-        <div class="module2 bg"><button>Toggle background</button></div>
+        {{~ it :module:index}}
+            <div class="module2 bg"><button>Toggle background</button></div>
+        {{~}}
     </script>
+
+    <script src="js/index.js"></script>
 </body>
 </html>
