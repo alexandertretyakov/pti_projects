@@ -11,10 +11,8 @@
 </head>
 <body>
     <script type="text/template" id="app-template">
-        <div class="app">
-            <div class="header-container"></div>
-            <div class="page-content-container"></div>
-        </div>
+        <div class="header-container"></div>
+        <div class="page-content-container"></div>
     </script>
 
     <script type="text/template" id="header-template">
@@ -44,22 +42,20 @@
     </script>
 
     <script type="text/template" id="catalog-template">
-        <div class="catalog">
-            <div class="catalog-head">
-                <h1 class="item--title">Ноутбуки</h1>
-                <div class="item--count">4928 товаров</div>
-            </div>
+        <div class="catalog-head">
+            <h1 class="item--title">Ноутбуки</h1>
+            <div class="item--count">4928 товаров</div>
+        </div>
 
-            <div class="catalog-body">
-                <div class="catalog-filter-container"></div>
+        <div class="catalog-body">
+            <div class="catalog-filter-container"></div>
 
-                <div class="catalog-content">
-                    <div class="catalog-content-head-container"></div>
+            <div class="catalog-content">
+                <div class="catalog-content-head-container"></div>
 
-                    <div class="catalog-products-container"></div>
+                <div class="catalog-products-container"></div>
 
-                    <div class="catalog-load-container"></div>
-                </div>
+                <div class="catalog-load-container"></div>
             </div>
         </div>
     </script>
@@ -671,10 +667,15 @@
     <script type="text/template" id="catalog-content-head-template">
         <div class="catalog-content-head">
             <div class="catalog_content_sort">
-                <div class="catalog_content_sort_title">Показать сначала:</div>
+                <div class="catalog_content_sort_title">{{= i18n.t('catalog.content.showFirst')}}:</div>
                 <div class="catalog_content_sort_items">
-                    <div class="catalog_content_sort_item" data-sort="price-asc">дешевые</div>
-                    <div class="catalog_content_sort_item active" data-sort="price-desc">дорогие</div>
+                    {{? it.sortBy === 'default' || it.sortBy === 'price-desc'}}
+                        <div class="catalog_content_sort_item" data-sort="price-asc">{{= i18n.t('catalog.content.cheap')}}</div>
+                        <div class="catalog_content_sort_item active" data-sort="price-desc">{{= i18n.t('catalog.content.expensive')}}</div>
+                    {{??}}
+                        <div class="catalog_content_sort_item active" data-sort="price-asc">{{= i18n.t('catalog.content.cheap')}}</div>
+                        <div class="catalog_content_sort_item" data-sort="price-desc">{{= i18n.t('catalog.content.expensive')}}</div>
+                    {{?}}
                 </div>
             </div>
             <div class="catalog_products-view">

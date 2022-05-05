@@ -934,7 +934,10 @@ var translationsRU = {
     'catalog.product.keyboardBacklit.yes': 'Есть',
     'catalog.product.keyboardBacklit.no': 'Нет',
     'catalog.product.favorites': 'В список желаний',
-    'catalog.product.compare': 'В сравнение'
+    'catalog.product.compare': 'В сравнение',
+    'catalog.content.showFirst': 'Показать сначала',
+    'catalog.content.cheap': 'дешевые',
+    'catalog.content.expensive': 'дорогие'
 };
 
 var translationsUA = {
@@ -963,7 +966,10 @@ var translationsUA = {
     'catalog.product.keyboardBacklit.yes': 'Є',
     'catalog.product.keyboardBacklit.no': 'Ні',
     'catalog.product.favorites': 'До списку бажань',
-    'catalog.product.compare': 'В порівнянні'
+    'catalog.product.compare': 'В порівнянні',
+    'catalog.content.showFirst': 'Показати одразу',
+    'catalog.content.cheap': 'дешеві',
+    'catalog.content.expensive': 'дорогі'
 };
 
 var i18n = {
@@ -1020,6 +1026,8 @@ var AppView = BaseView.extend({
         this.listenTo(appModel, 'change:lang', this.render);
     },
 
+    className: 'app',
+
     events: {
         'click .header-lang [data-lng]': 'onLangClick'
     },
@@ -1053,10 +1061,14 @@ var AppView = BaseView.extend({
 var CatalogView = BaseView.extend({
     initialize() {
         this.listenTo(catalogModel, 'change:viewType', this.render);
+        this.listenTo(catalogModel, 'change:sortBy', this.render);
     },
 
+    className: 'catalog',
+
     events: {
-        'click .catalog_products-view_item': 'onViewTypeClick'
+        'click .catalog_products-view_item': 'onViewTypeClick',
+        'click .catalog_content_sort_item': 'onSortingProductsClick',
     },
 
     onViewTypeClick(e) {
@@ -1064,12 +1076,19 @@ var CatalogView = BaseView.extend({
         catalogModel.set('viewType', viewType);
     },
 
+    onSortingProductsClick(e) {
+        var sortBy = e.currentTarget.dataset.sort;
+        catalogModel.set('sortBy', sortBy);
+    },
+
     render() {
         this.$el.html(this.tmpl('catalog'));
 
         this.renderFilter();
         this.renderContentHead();
+
         this.renderProducts();
+        this.renderSorting();
         this.renderLoad();
 
         return this;
@@ -1081,10 +1100,30 @@ var CatalogView = BaseView.extend({
 
     renderContentHead() {
         var viewType = catalogModel.get('viewType');
+        var sortBy = catalogModel.get('sortBy');
 
         this.$('.catalog-content-head-container').html(this.tmpl('catalog.content.head', {
-            viewType: viewType
+            viewType: viewType, sortBy: sortBy
         }));
+    },
+
+    renderSorting() {
+        var viewType = catalogModel.get('viewType');
+        var sortBy = catalogModel.get('sortBy');
+
+        var _products = products.toJSON().sort(function(a, b) {
+            if (sortBy === 'default') {
+                return products.toJSON()
+            }
+            if (sortBy === 'price-asc') {
+                return a.priceWithDiscount-b.priceWithDiscount
+            }
+            if (sortBy === 'price-desc') {
+                return b.priceWithDiscount-a.priceWithDiscount
+            }
+        })
+
+        this.$('.catalog-products').html(this.tmpl(`catalog.product.${viewType}`, _products));
     },
 
     renderProducts() {
