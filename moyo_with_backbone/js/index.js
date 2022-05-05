@@ -901,7 +901,8 @@ var templates = {
     'catalog.products': $('#catalog-products-template').html(),
     'catalog.product.grid': $('#catalog-product-grid-template').html(),
     'catalog.product.list': $('#catalog-product-list-template').html(),
-    'catalog.load': $('#catalog-load-template').html()
+    'catalog.load': $('#catalog-load-template').html(),
+    'compare': $('#compare-template').html()
 };
 
 var formatPrice = function(price) {
@@ -985,12 +986,17 @@ var i18n = {
 };
 
 var appModel = new Backbone.Model({
-    lang: 'ru'
+    lang: 'ru',         // ru ua
+    page: 'catalog'     // catalog compare
 });
 
 var catalogModel = new Backbone.Model({
     viewType: 'grid',           // grid list
     sortBy: 'default'           // default ascending_price descending_price...
+});
+
+var compareModel = new Backbone.Model({
+    items: []           // product IDs
 });
 
 var Products = Backbone.Collection.extend({
@@ -1054,7 +1060,13 @@ var AppView = BaseView.extend({
     },
 
     renderPageContent() {
-        this.$('.page-content-container').html(new CatalogView().render().el);
+        var page = appModel.get('page');
+
+        if (page === 'catalog') {
+            this.$('.page-content-container').html(new CatalogView().render().el);
+        } else {
+            this.$('.page-content-container').html(new CompareView().render().el);
+        }
     }
 });
 
@@ -1139,6 +1151,16 @@ var CatalogView = BaseView.extend({
 
     renderLoad() {
         this.$('.catalog-load-container').html(this.tmpl('catalog.load'));
+    }
+});
+
+var CompareView = BaseView.extend({
+    className: 'compare',
+
+    render() {
+        this.$el.html(this.tmpl('compare'));
+
+        return this;
     }
 });
 

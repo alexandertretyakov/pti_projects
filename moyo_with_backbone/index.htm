@@ -758,7 +758,7 @@
                         </button>
                         <div class="product-item_action_group">
                             <button class="product-item_wish-btn" data-product_id="{{= product.id}}"><span></span>{{= i18n.t('catalog.product.favorites')}}</button>
-                            <button class="product-item_compare-btn" data-product-id="{{= product.id}}"><span></span>{{= i18n.t('catalog.product.compare')}}</button>
+                            <button class="product-item_compare-btn active" data-product-id="{{= product.id}}"><span></span>{{= i18n.t('catalog.product.compare')}}</button>
                         </div>
                     </div>
                 </div>
@@ -924,7 +924,7 @@
                             </button>
                             <div class="product-item_action_group">
                                 <button class="product-item_wish-btn" data-product_id="{{= product.id}}"><span></span>В список желаний</button>
-                                <button class="product-item_compare-btn" data-product-id="{{= product.id}}"><span></span>В сравнение</button>
+                                <button class="product-item_compare-btn active" data-product-id="{{= product.id}}"><span></span>В сравнение</button>
                             </div>
                         </div>
                     </div>
@@ -1226,7 +1226,7 @@
         </div>
     </div>
 
-    <div class="compare" style="display: none;">
+    <script type="text/template" id="compare-template">
         <h1 class="compare-title">Сравнение</h1>
 
         <div class="compare-table-wrap">
@@ -1356,7 +1356,7 @@
                 </table>
             </div>
         </div>
-    </div>
+    </script>
 
     <div style="display: none;">
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
