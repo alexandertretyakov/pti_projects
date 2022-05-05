@@ -667,15 +667,11 @@
     <script type="text/template" id="catalog-content-head-template">
         <div class="catalog-content-head">
             <div class="catalog_content_sort">
-                <div class="catalog_content_sort_title">{{= i18n.t('catalog.content.showFirst')}}:</div>
+                <div class="catalog_content_sort_title">{{= i18n.t('catalog.head.showFirst')}}:</div>
                 <div class="catalog_content_sort_items">
-                    {{? it.sortBy === 'default' || it.sortBy === 'price-desc'}}
-                        <div class="catalog_content_sort_item" data-sort="price-asc">{{= i18n.t('catalog.content.cheap')}}</div>
-                        <div class="catalog_content_sort_item active" data-sort="price-desc">{{= i18n.t('catalog.content.expensive')}}</div>
-                    {{??}}
-                        <div class="catalog_content_sort_item active" data-sort="price-asc">{{= i18n.t('catalog.content.cheap')}}</div>
-                        <div class="catalog_content_sort_item" data-sort="price-desc">{{= i18n.t('catalog.content.expensive')}}</div>
-                    {{?}}
+                    {{~ ['ascending_price', 'descending_price'] :sortBy:idx}}
+                        <div class="catalog_content_sort_item {{? it.sortBy === sortBy}}active{{?}}" data-sort="{{= sortBy}}">{{= i18n.t(`catalog.head.${sortBy}`)}}</div>
+                    {{~}}
                 </div>
             </div>
             <div class="catalog_products-view">
