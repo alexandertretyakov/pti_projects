@@ -30,7 +30,9 @@
 
                 <div class="header-actions">
                     <div class="item item--compare">
-                        <div class="item--count">{{= compareModel.get('items').length}}</div>
+                        {{? it.compareCount.length > 0}}
+                            <div class="item--count">{{= it.compareCount.length}}</div>
+                        {{?}}
                     </div>
                     <div class="item item--wish"></div>
                     <div class="item item--cart">
