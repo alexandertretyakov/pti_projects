@@ -30,7 +30,7 @@
 
                 <div class="header-actions">
                     <div class="item item--compare">
-                        <div class="item--count">3</div>
+                        <div class="item--count">{{= compareModel.get('items').length}}</div>
                     </div>
                     <div class="item item--wish"></div>
                     <div class="item item--cart">
@@ -758,7 +758,7 @@
                         </button>
                         <div class="product-item_action_group">
                             <button class="product-item_wish-btn" data-product_id="{{= product.id}}"><span></span>{{= i18n.t('catalog.product.favorites')}}</button>
-                            <button class="product-item_compare-btn active" data-product-id="{{= product.id}}"><span></span>{{= i18n.t('catalog.product.compare')}}</button>
+                            <button class="product-item_compare-btn" data-product-id="{{= product.id}}"><span></span>{{= i18n.t('catalog.product.compare')}}</button>
                         </div>
                     </div>
                 </div>
@@ -924,7 +924,7 @@
                             </button>
                             <div class="product-item_action_group">
                                 <button class="product-item_wish-btn" data-product_id="{{= product.id}}"><span></span>В список желаний</button>
-                                <button class="product-item_compare-btn active" data-product-id="{{= product.id}}"><span></span>В сравнение</button>
+                                <button class="product-item_compare-btn" data-product-id="{{= product.id}}"><span></span>В сравнение</button>
                             </div>
                         </div>
                     </div>

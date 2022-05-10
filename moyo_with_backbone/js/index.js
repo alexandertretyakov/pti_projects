@@ -1030,12 +1030,18 @@ var AppView = BaseView.extend({
     initialize: function() {
         $('body').append(this.render().el);
         this.listenTo(appModel, 'change:lang', this.render);
+        this.listenTo(appModel, 'change:page', this.render);
     },
 
     className: 'app',
 
     events: {
-        'click .header-lang [data-lng]': 'onLangClick'
+        'click .header-lang [data-lng]': 'onLangClick',
+        'click .item--compare': 'onCompareClick'
+    },
+
+    onCompareClick() {
+        appModel.set('page', 'compare');
     },
 
     onLangClick(e) {
@@ -1081,6 +1087,7 @@ var CatalogView = BaseView.extend({
     events: {
         'click .catalog_products-view_item': 'onViewTypeClick',
         'click .catalog_content_sort_item': 'onSortByClick',
+        'click .product-item_compare-btn': 'onFilteredModels'
     },
 
     onViewTypeClick(e) {
@@ -1091,6 +1098,25 @@ var CatalogView = BaseView.extend({
     onSortByClick(e) {
         var sortBy = e.currentTarget.dataset.sort;
         catalogModel.set('sortBy', sortBy);
+    },
+
+    onFilteredModels(e) {
+        var productId = e.target.dataset.productId;
+        var items = compareModel.get('items');
+        var filteredItems;
+
+        $(e.target).toggleClass('active');
+
+        items.includes(productId) ?
+            filteredItems = items.filter(function(el) {
+                return el !== productId;
+            }) :
+            filteredItems = [...items, productId];
+
+        compareModel.set('items', filteredItems);
+
+        console.log(productId);
+        console.log(compareModel.get('items'));
     },
 
     render() {
