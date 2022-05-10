@@ -30,8 +30,8 @@
 
                 <div class="header-actions">
                     <div class="item item--compare">
-                        {{? it.compareCount.length > 0}}
-                            <div class="item--count">{{= it.compareCount.length}}</div>
+                        {{? it.compareCount > 0}}
+                            <div class="item--count">{{= it.compareCount}}</div>
                         {{?}}
                     </div>
                     <div class="item item--wish"></div>
@@ -696,7 +696,7 @@
     </script>
 
     <script type="text/template" id="catalog-product-grid-template">
-        {{~ it :product:index}}
+        {{~ it.products :product:index}}
             <div class="product-item">
                 {{? product.discount}}
                     <div class="product-item_discount">-{{= product.discount}}%</div>
@@ -760,7 +760,7 @@
                         </button>
                         <div class="product-item_action_group">
                             <button class="product-item_wish-btn" data-product_id="{{= product.id}}"><span></span>{{= i18n.t('catalog.product.favorites')}}</button>
-                            <button class="product-item_compare-btn" data-product-id="{{= product.id}}"><span></span>{{= i18n.t('catalog.product.compare')}}</button>
+                            <button class="product-item_compare-btn {{? it.compareItems.includes(product.id)}}active{{?}}" data-product-id="{{= product.id}}"><span></span>{{= i18n.t('catalog.product.compare')}}</button>
                         </div>
                     </div>
                 </div>
@@ -822,7 +822,7 @@
     </script>
 
     <script type="text/template" id="catalog-product-list-template">
-        {{~ it :product:index}}
+        {{~ it.products :product:index}}
             <div class="product-item product-item--list">
                 <div class="product-item--list_image-section">
                     <a href="#" class="product-item_img"><img src="images/preview/{{= product.id}}.jpg" alt="{{= product.title}}"></a>
@@ -926,7 +926,7 @@
                             </button>
                             <div class="product-item_action_group">
                                 <button class="product-item_wish-btn" data-product_id="{{= product.id}}"><span></span>В список желаний</button>
-                                <button class="product-item_compare-btn" data-product-id="{{= product.id}}"><span></span>В сравнение</button>
+                                <button class="product-item_compare-btn {{? it.compareItems.includes(product.id)}}active{{?}}" data-product-id="{{= product.id}}"><span></span>В сравнение</button>
                             </div>
                         </div>
                     </div>

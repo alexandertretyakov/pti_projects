@@ -1031,6 +1031,7 @@ var AppView = BaseView.extend({
         $('body').append(this.render().el);
         this.listenTo(appModel, 'change:lang', this.render);
         this.listenTo(appModel, 'change:page', this.render);
+        this.listenTo(compareModel, 'change:items', this.render);
     },
 
     className: 'app',
@@ -1060,11 +1061,11 @@ var AppView = BaseView.extend({
 
     renderHeader() {
         var lang = appModel.get('lang');
-        var items = compareModel.get('items');
+        var compareItems = compareModel.get('items');
 
         this.$('.header-container').html(this.tmpl('header', {
             lang: lang,
-            compareCount: items
+            compareCount: compareItems.length
         }));
     },
 
@@ -1104,23 +1105,15 @@ var CatalogView = BaseView.extend({
     },
 
     onCompareClick(e) {
-        var productId = e.target.dataset.productId;
-        var items = compareModel.get('items');
-        var filteredItems = [];
-
-        $(e.target).toggleClass('active');
-
-        items.includes(productId) ?
-            filteredItems = items.filter(function(el) {
+        var productId = e.currentTarget.dataset.productId;
+        var compareItems = compareModel.get('items');
+        var newCompareItems = compareItems.includes(productId) ?
+            compareItems.filter(function(el) {
                 return el !== productId;
             }) :
-            filteredItems = [...items, productId];
+            [...compareItems, productId];
 
-        compareModel.set('items', filteredItems);
-        appView.renderHeader();
-
-        console.log(productId);
-        console.log(compareModel.get('items'));
+        compareModel.set('items', newCompareItems);
     },
 
     render() {
@@ -1167,6 +1160,7 @@ var CatalogView = BaseView.extend({
     },
 
     renderProducts() {
+        var compareItems = compareModel.get('items');
         var viewType = catalogModel.get('viewType');
         var sortBy = catalogModel.get('sortBy');
         var _products = products.toJSON();
@@ -1176,7 +1170,10 @@ var CatalogView = BaseView.extend({
             viewType: viewType
         }));
 
-        this.$('.catalog-products').html(this.tmpl(`catalog.product.${viewType}`, _products));
+        this.$('.catalog-products').html(this.tmpl(`catalog.product.${viewType}`, {
+            products: _products,
+            compareItems: compareItems
+        }));
     },
 
     renderLoad() {
