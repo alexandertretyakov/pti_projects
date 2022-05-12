@@ -925,8 +925,8 @@
                                 {{?}}
                             </button>
                             <div class="product-item_action_group">
-                                <button class="product-item_wish-btn" data-product_id="{{= product.id}}"><span></span>В список желаний</button>
-                                <button class="product-item_compare-btn {{? it.compareItems.includes(product.id)}}active{{?}}" data-product-id="{{= product.id}}"><span></span>В сравнение</button>
+                                <button class="product-item_wish-btn" data-product_id="{{= product.id}}"><span></span>{{= i18n.t('catalog.product.favorites')}}</button>
+                                <button class="product-item_compare-btn {{? it.compareItems.includes(product.id)}}active{{?}}" data-product-id="{{= product.id}}"><span></span>{{= i18n.t('catalog.product.compare')}}</button>
                             </div>
                         </div>
                     </div>
@@ -1254,106 +1254,262 @@
                                 </div>
                             </div>
                         </th>
-                        <th class="compare-table-header-item">
-                            <div class="product-card product-card--compare">
-                                <button class="product-card_remove" data-id="470363"></button>
-                                <a href="#" class="product-card_image"><img src="https://img.moyo.ua/img/products/4703/63_200.jpg?1648544556" alt="Ноутбук LENOVO V15 (82C500NRRA) 3 года гарантии"></a>
-                                <div class="product-card_content">
-                                    <div class="product-card_info">
-                                        <a href="#" class="product-card_name">Ноутбук LENOVO V15 (82C500NRRA) 3 года гарантии </a>
-                                        <div class="product-card_price-block">
-                                            <div class="product-card_price">
-                                                <div class="product-card_price_current">16&nbsp;787 грн</div>
+                        {{~ it.products :product:index}}
+                            <th class="compare-table-header-item">
+                                <div class="product-card product-card--compare">
+                                    <button class="product-card_remove" data-id="{{= product.id}}"></button>
+                                    <a href="#" class="product-card_image"><img src="images/preview/{{= product.id}}.jpg" alt="{{= product.title}}"></a>
+                                    <div class="product-card_content">
+                                        <div class="product-card_info">
+                                            <a href="#" class="product-card_name">{{= product.title}}</a>
+                                            <div class="product-card_price-block">
+                                                <div class="product-card_price">
+                                                    <div class="product-card_price_current">
+                                                        {{? product.discount}}
+                                                            {{= formatPrice(product.priceWithDiscount)}} {{= i18n.t('catalog.product.currency')}}
+                                                        {{??}}
+                                                            {{= formatPrice(product.price)}}
+                                                        {{?}}
+                                                    </div>
+                                                    {{? product.available}}
+                                                        <div class="product-card_price_text">
+                                                            {{= i18n.t('catalog.product.notAvailable')}}
+                                                        </div>
+                                                    {{?}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="product-card_buy-block">
+                                            <button class="buy-btn btn btn--{{? product.available}}green{{??}}inform{{?}}" data-product-id="{{= product.id}}">
+                                                {{? product.available}}
+                                                    {{= i18n.t('catalog.product.btn.buy')}}
+                                                {{??}}
+                                                    {{= i18n.t('catalog.product.btn.notify')}}
+                                                {{?}}
+                                            </button>
+                                            <div class="product-card_buy-block_tools">
+                                                <button class="product-card_wish-btn" data-product_id="{{= product.id}}"><span></span>{{= i18n.t('catalog.product.favorites')}}</button>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="product-card_buy-block">
-                                        <button class="buy-btn btn btn--green" data-product-id="470363">Купить</button>
-                                        <div class="product-card_buy-block_tools">
-                                            <button class="product-card_wish-btn" data-product_id="470363"><span></span>В список желаний</button>
-                                        </div>
-                                    </div>
                                 </div>
-                            </div>
-                        </th>
-                        <th class="compare-table-header-item">
-                            <div class="product-card product-card--compare">
-                                <button class="product-card_remove" data-id="490389"></button>
-                                <a href="#" class="product-card_image"><img src="https://img.moyo.ua/img/products/4903/89_200.jpg?1648544556" alt="Ноутбук LENOVO ThinkBook 15 (20VE00FLRA)"></a>
-                                <div class="product-card_content">
-                                    <div class="product-card_info">
-                                        <a href="#" class="product-card_name">Ноутбук LENOVO ThinkBook 15 (20VE00FLRA)</a>
-                                        <div class="product-card_price-block">
-                                            <div class="product-card_price">
-                                                <div class="product-card_price_current">24&nbsp;966 грн</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product-card_buy-block">
-                                        <button class="buy-btn btn btn--green" data-product-id="490389">Купить</button>
-                                        <div class="product-card_buy-block_tools">
-                                            <button class="product-card_wish-btn" data-product_id="490389"><span></span>В список желаний</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </th>
-                        <th class="compare-table-header-item">
-                            <div class="product-card product-card--compare">
-                                <button class="product-card_remove" data-id="502333"></button>
-                                <a href="#" class="product-card_image"><img src="https://img.moyo.ua/img/products/5023/33_200.jpg?1648544715" alt="Ноутбук ASUS ROG Flow X13 GV301QH-K6231T (90NR06C5-M12300)"></a>
-                                <div class="product-card_content">
-                                    <div class="product-card_info">
-                                        <a href="#" class="product-card_name">Ноутбук ASUS ROG Flow X13 GV301QH-K6231T (90NR06C5-M12300) </a>
-                                        <div class="product-card_price-block">
-                                            <div class="product-card_price">
-                                                <div class="product-card_price_current">99&nbsp;999 грн</div>
-                                            </div>
-                                            <div class="product-card_price_text">Нет в наличии</div>
-                                        </div>
-                                    </div>
-                                    <div class="product-card_buy-block">
-                                        <button class="buy-btn btn btn--inform" data-product-id="502333">Уведомить</button>
-                                        <div class="product-card_buy-block_tools">
-                                            <button class="product-card_wish-btn" data-product_id="502333"><span></span>В список желаний</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </th>
-                    </tr>
+                            </th>
+                        {{~}}
+<!--                        <th class="compare-table-header-item">-->
+<!--                            <div class="product-card product-card&#45;&#45;compare">-->
+<!--                                <button class="product-card_remove" data-id="470363"></button>-->
+<!--                                <a href="#" class="product-card_image"><img src="https://img.moyo.ua/img/products/4703/63_200.jpg?1648544556" alt="Ноутбук LENOVO V15 (82C500NRRA) 3 года гарантии"></a>-->
+<!--                                <div class="product-card_content">-->
+<!--                                    <div class="product-card_info">-->
+<!--                                        <a href="#" class="product-card_name">Ноутбук LENOVO V15 (82C500NRRA) 3 года гарантии </a>-->
+<!--                                        <div class="product-card_price-block">-->
+<!--                                            <div class="product-card_price">-->
+<!--                                                <div class="product-card_price_current">16&nbsp;787 грн</div>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="product-card_buy-block">-->
+<!--                                        <button class="buy-btn btn btn&#45;&#45;green" data-product-id="470363">Купить</button>-->
+<!--                                        <div class="product-card_buy-block_tools">-->
+<!--                                            <button class="product-card_wish-btn" data-product_id="470363"><span></span>В список желаний</button>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </th>-->
+<!--                        <th class="compare-table-header-item">-->
+<!--                            <div class="product-card product-card&#45;&#45;compare">-->
+<!--                                <button class="product-card_remove" data-id="490389"></button>-->
+<!--                                <a href="#" class="product-card_image"><img src="https://img.moyo.ua/img/products/4903/89_200.jpg?1648544556" alt="Ноутбук LENOVO ThinkBook 15 (20VE00FLRA)"></a>-->
+<!--                                <div class="product-card_content">-->
+<!--                                    <div class="product-card_info">-->
+<!--                                        <a href="#" class="product-card_name">Ноутбук LENOVO ThinkBook 15 (20VE00FLRA)</a>-->
+<!--                                        <div class="product-card_price-block">-->
+<!--                                            <div class="product-card_price">-->
+<!--                                                <div class="product-card_price_current">24&nbsp;966 грн</div>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="product-card_buy-block">-->
+<!--                                        <button class="buy-btn btn btn&#45;&#45;green" data-product-id="490389">Купить</button>-->
+<!--                                        <div class="product-card_buy-block_tools">-->
+<!--                                            <button class="product-card_wish-btn" data-product_id="490389"><span></span>В список желаний</button>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </th>-->
+<!--                        <th class="compare-table-header-item">-->
+<!--                            <div class="product-card product-card&#45;&#45;compare">-->
+<!--                                <button class="product-card_remove" data-id="502333"></button>-->
+<!--                                <a href="#" class="product-card_image"><img src="https://img.moyo.ua/img/products/5023/33_200.jpg?1648544715" alt="Ноутбук ASUS ROG Flow X13 GV301QH-K6231T (90NR06C5-M12300)"></a>-->
+<!--                                <div class="product-card_content">-->
+<!--                                    <div class="product-card_info">-->
+<!--                                        <a href="#" class="product-card_name">Ноутбук ASUS ROG Flow X13 GV301QH-K6231T (90NR06C5-M12300) </a>-->
+<!--                                        <div class="product-card_price-block">-->
+<!--                                            <div class="product-card_price">-->
+<!--                                                <div class="product-card_price_current">99&nbsp;999 грн</div>-->
+<!--                                            </div>-->
+<!--                                            <div class="product-card_price_text">Нет в наличии</div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="product-card_buy-block">-->
+<!--                                        <button class="buy-btn btn btn&#45;&#45;inform" data-product-id="502333">Уведомить</button>-->
+<!--                                        <div class="product-card_buy-block_tools">-->
+<!--                                            <button class="product-card_wish-btn" data-product_id="502333"><span></span>В список желаний</button>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </th>-->
+<!--                    </tr>-->
                     </thead>
                     <tbody>
-                    <tr class="prop_different">
-                        <th>Модельный ряд</th>
-                        <td>V</td>
-                        <td>ThinkBook 15</td>
-                        <td>Flow X13</td>
-                    </tr>
-                    <tr class="prop_different">
-                        <th>Цвет (основной)</th>
-                        <td>Серый</td>
-                        <td>Серый</td>
-                        <td>Черный</td>
-                    </tr>
-                    <tr class="prop_equal">
-                        <th>Страна производитель</th>
-                        <td>Китай</td>
-                        <td>Китай</td>
-                        <td>Китай</td>
-                    </tr>
-                    <tr class="prop_different">
-                        <th>Гарантия, мес.</th>
-                        <td>36</td>
-                        <td>12</td>
-                        <td>24</td>
-                    </tr>
-                    <tr class="prop_different">
-                        <th>Дисплей (диагональ)</th>
-                        <td>15,6</td>
-                        <td>15,6</td>
-                        <td>13,4</td>
-                    </tr>
+                        <tr class="prop_different">
+                            <th>{{= i18n.t('catalog.product.processor')}}</th>
+                            {{~ it.products :product:index}}
+                                <td>{{= product.processorManufacturer}}</td>
+                            {{~}}
+                        </tr>
+                        <tr class="prop_different">
+                            <th>{{= i18n.t('catalog.product.producingCountry')}}</th>
+                            {{~ it.products :product:index}}
+                                <td>
+                                    {{? product.producingCountry === 'China'}}
+                                        {{= i18n.t('catalog.product.producingCountry.China')}}
+                                    {{?}}
+                                </td>
+                            {{~}}
+                        </tr>
+                        <tr class="prop_equal">
+                            <th>{{= i18n.t('catalog.product.color')}}</th>
+                            {{~ it.products :product:index}}
+                                <td>
+                                    {{? product.color === 'silver'}}
+                                        {{= i18n.t('catalog.product.color.silver')}}
+                                    {{?}}
+                                    {{? product.color === 'black'}}
+                                        {{= i18n.t('catalog.product.color.black')}}
+                                    {{?}}
+                                    {{? product.color === 'white'}}
+                                        {{= i18n.t('catalog.product.color.white')}}
+                                    {{?}}
+                                    {{? product.color === 'grey'}}
+                                        {{= i18n.t('catalog.product.color.grey')}}
+                                    {{?}}
+                                </td>
+                            {{~}}
+                        </tr>
+                        <tr class="prop_different">
+                            <th>{{= i18n.t('catalog.product.warranty')}}</th>
+                            {{~ it.products :product:index}}
+                                <td>{{= product.warranty}}</td>
+                            {{~}}
+                        </tr>
+                        <tr class="prop_different">
+                            <th>{{= i18n.t('catalog.product.diagonal')}}</th>
+                            {{~ it.products :product:index}}
+                                <td>{{= product.diagonal}}</td>
+                            {{~}}
+                        </tr>
+                        <tr class="prop_different">
+                            <th>{{= i18n.t('catalog.product.manufacturer')}}</th>
+                            {{~ it.products :product:index}}
+                                <td>{{= product.manufacturer}}</td>
+                            {{~}}
+                        </tr>
+                        <tr class="prop_different">
+                            <th>{{= i18n.t('catalog.product.RAMCapacity')}}</th>
+                            {{~ it.products :product:index}}
+                                <td>{{= product.RAMCapacity}}</td>
+                            {{~}}
+                        </tr>
+                        <tr class="prop_equal">
+                            <th>{{= i18n.t('catalog.product.videoCardIntegrated')}}</th>
+                            {{~ it.products :product:index}}
+                                <td>{{= product.videoCardIntegrated}}</td>
+                            {{~}}
+                        </tr>
+                        <tr class="prop_different">
+                            <th>{{= i18n.t('catalog.product.videoCardDiscrete')}}</th>
+                            {{~ it.products :product:index}}
+                                <td>
+                                    {{? product.videoCardDiscrete}}
+                                        {{= product.videoCardDiscrete}}
+                                    {{??}}
+                                        {{= i18n.t('catalog.product.keyboardBacklit.no')}}
+                                    {{?}}
+                                </td>
+                            {{~}}
+                        </tr>
+                        <tr class="prop_different">
+                            <th>{{= i18n.t('catalog.product.SSDVolume')}}</th>
+                            {{~ it.products :product:index}}
+                                <td>{{= product.SSDVolume}}</td>
+                            {{~}}
+                        </tr>
+                        <tr class="prop_different">
+                            <th>{{= i18n.t('catalog.product.preinstalledOS')}}</th>
+                            {{~ it.products :product:index}}
+                                <td>
+                                    {{? product.preinstalledOS}}
+                                        {{= product.preinstalledOS}}
+                                    {{??}}
+                                        {{= i18n.t('catalog.product.notPreinstalledOS')}}
+                                    {{?}}
+                                </td>
+                            {{~}}
+                        </tr>
+                        <tr class="prop_equal">
+                            <th>{{= i18n.t('catalog.product.keyboardBacklit')}}</th>
+                            {{~ it.products :product:index}}
+                                <td>
+                                    {{? product.keyboardBacklit}}
+                                        {{= i18n.t('catalog.product.keyboardBacklit.yes')}}
+                                    {{??}}
+                                        {{= i18n.t('catalog.product.keyboardBacklit.no')}}
+                                    {{?}}
+                                </td>
+                            {{~}}
+                        </tr>
+                        <tr class="prop_different">
+                            <th>{{= i18n.t('catalog.product.weight')}}</th>
+                            {{~ it.products :product:index}}
+                                <td>{{= product.weight}}</td>
+                            {{~}}
+                        </tr>
+
+
+<!--                    <tr class="prop_different">-->
+<!--                        <th>Модельный ряд</th>-->
+<!--                        <td>V</td>-->
+<!--                        <td>ThinkBook 15</td>-->
+<!--                        <td>Flow X13</td>-->
+<!--                    </tr>-->
+<!--                    <tr class="prop_different">-->
+<!--                        <th>Цвет (основной)</th>-->
+<!--                        <td>Серый</td>-->
+<!--                        <td>Серый</td>-->
+<!--                        <td>Черный</td>-->
+<!--                    </tr>-->
+<!--                    <tr class="prop_equal">-->
+<!--                        <th>Страна производитель</th>-->
+<!--                        <td>Китай</td>-->
+<!--                        <td>Китай</td>-->
+<!--                        <td>Китай</td>-->
+<!--                    </tr>-->
+<!--                    <tr class="prop_different">-->
+<!--                        <th>Гарантия, мес.</th>-->
+<!--                        <td>36</td>-->
+<!--                        <td>12</td>-->
+<!--                        <td>24</td>-->
+<!--                    </tr>-->
+<!--                    <tr class="prop_different">-->
+<!--                        <th>Дисплей (диагональ)</th>-->
+<!--                        <td>15,6</td>-->
+<!--                        <td>15,6</td>-->
+<!--                        <td>13,4</td>-->
+<!--                    </tr>-->
                     </tbody>
                 </table>
             </div>

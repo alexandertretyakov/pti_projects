@@ -925,7 +925,7 @@ var translationsRU = {
     'catalog.product.btn.notify': 'Уведомить',
     'catalog.product.processor': 'Процессор (модель)',
     'catalog.product.diagonal': 'Дисплей (диагональ)',
-    'catalog.product.RAMCapacity': 'Оперативная память (объем)',
+    'catalog.product.RAMCapacity': 'Оперативная память (объем), Гб',
     'catalog.product.preinstalledOS': 'Предустановленная ОС',
     'catalog.product.notPreinstalledOS': 'Без ОС',
     'catalog.product.videoCardDiscrete': 'Видеокарта (дискретная)',
@@ -938,7 +938,17 @@ var translationsRU = {
     'catalog.product.compare': 'В сравнение',
     'catalog.head.showFirst': 'Показать сначала',
     'catalog.head.ascending_price': 'дешевые',
-    'catalog.head.descending_price': 'дорогие'
+    'catalog.head.descending_price': 'дорогие',
+    'catalog.product.color': 'Цвет',
+    'catalog.product.producingCountry': 'Страна производитель',
+    'catalog.product.manufacturer': 'Изготовитель',
+    'catalog.product.SSDVolume': 'Объём SSD',
+    'catalog.product.weight': 'Вес ноутбука (без ЗП), кг',
+    'catalog.product.color.silver': 'Серебристый',
+    'catalog.product.color.black': 'Чёрный',
+    'catalog.product.color.grey': 'Серый',
+    'catalog.product.color.white': 'Белый',
+    'catalog.product.producingCountry.China': 'Китай'
 };
 
 var translationsUA = {
@@ -957,7 +967,7 @@ var translationsUA = {
     'catalog.product.btn.notify': 'Повідомити',
     'catalog.product.processor': 'Процесор (модель)',
     'catalog.product.diagonal': 'Дисплей (діагональ)',
-    'catalog.product.RAMCapacity': 'Оперативна пам\'ять (обсяг)',
+    'catalog.product.RAMCapacity': 'Оперативна пам\'ять (обсяг), Гб',
     'catalog.product.preinstalledOS': 'Попередньо встановлена ОС',
     'catalog.product.notPreinstalledOS': 'Без ОС',
     'catalog.product.videoCardDiscrete': 'Відеокарта (дискретна)',
@@ -970,7 +980,17 @@ var translationsUA = {
     'catalog.product.compare': 'В порівнянні',
     'catalog.head.showFirst': 'Показати одразу',
     'catalog.head.ascending_price': 'дешеві',
-    'catalog.head.descending_price': 'дорогі'
+    'catalog.head.descending_price': 'дорогі',
+    'catalog.product.color': 'Колір',
+    'catalog.product.producingCountry': 'Країна виробник',
+    'catalog.product.manufacturer': 'Виробник',
+    'catalog.product.SSDVolume': 'Об\'єм SSD',
+    'catalog.product.weight': 'Вага ноутбука (без ЗП), кг',
+    'catalog.product.color.silver': 'Сріблястий',
+    'catalog.product.color.black': 'Чорний',
+    'catalog.product.color.grey': 'Сірий',
+    'catalog.product.color.white': 'Білий',
+    'catalog.product.producingCountry.China': 'Китай'
 };
 
 var i18n = {
