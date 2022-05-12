@@ -1184,8 +1184,18 @@ var CatalogView = BaseView.extend({
 var CompareView = BaseView.extend({
     className: 'compare',
 
+    getProductsByIds: function(ids = []) {
+        var _products = products.toJSON();
+
+        return _products.filter((i) => ids.includes(i.id));
+    },
+
     render() {
-        this.$el.html(this.tmpl('compare'));
+        var compareItemsIds = compareModel.get('items');
+
+        this.$el.html(this.tmpl('compare'), {
+            products: this.getProductsByIds(compareItemsIds)
+        });
 
         return this;
     }
