@@ -57,3 +57,32 @@ var Module2 = Backbone.View.extend({
 });
 
 var appView = new AppView;
+
+var CircleModel = Backbone.Model.extend({
+    initialize() {
+        this.x = x;
+        this.y = y;
+        this.radius = radius;
+    },
+
+    getDiameter() {
+        var diameter = 2 * this.radius;
+        return diameter;
+    },
+
+    getPerimeter() {
+        var diameter = 2 * this.radius;
+        var perimeter = 3.14 * diameter;
+        return perimeter;
+    },
+
+    getSquare() {
+        var square = 3.14 * this.radius * this.radius;
+        return square;
+    }
+});
+
+var circle1 = new CircleModel(5, 5, 10);
+var circle2 = new CircleModel(10, 10, 20);
+
+
