@@ -1213,9 +1213,9 @@ var CompareView = BaseView.extend({
     render() {
         var compareItemsIds = compareModel.get('items');
 
-        this.$el.html(this.tmpl('compare'), {
+        this.$el.html(this.tmpl('compare', {
             products: this.getProductsByIds(compareItemsIds)
-        });
+        }));
 
         return this;
     }
