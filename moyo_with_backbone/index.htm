@@ -1365,6 +1365,28 @@
 <!--                    </tr>-->
                     </thead>
                     <tbody>
+                        {{~ [
+                            'manufacturer',
+                            'processorManufacturer',
+                            'producingCountry',
+                            'color',
+                            'warranty',
+                            'diagonal',
+                            'RAMCapacity',
+                            'videoCardIntegrated',
+                            'videoCardDiscrete',
+                            'SSDVolume',
+                            'preinstalledOS',
+                            'keyboardBacklit',
+                            'weight'
+                        ] :prop:idx}}
+                            <tr class="prop_different prop_equal">
+                                <th>{{= i18n.t(`compare.product.props.${prop}`)}}</th>
+                                {{~ it.products :product:index}}
+                                    <td>{{= product[prop]}}</td>
+                                {{~}}
+                            </tr>
+                        {{~}}
                         <tr class="prop_different">
                             <th>{{= i18n.t('catalog.product.processor')}}</th>
                             {{~ it.products :product:index}}
