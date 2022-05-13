@@ -939,16 +939,26 @@ var translationsRU = {
     'catalog.head.showFirst': 'Показать сначала',
     'catalog.head.ascending_price': 'дешевые',
     'catalog.head.descending_price': 'дорогие',
-    'catalog.product.color': 'Цвет',
-    'catalog.product.producingCountry': 'Страна производитель',
-    'catalog.product.manufacturer': 'Изготовитель',
     'catalog.product.SSDVolume': 'Объём SSD',
-    'catalog.product.weight': 'Вес ноутбука (без ЗП), кг',
-    'catalog.product.color.silver': 'Серебристый',
-    'catalog.product.color.black': 'Чёрный',
-    'catalog.product.color.grey': 'Серый',
-    'catalog.product.color.white': 'Белый',
-    'catalog.product.producingCountry.China': 'Китай'
+    'compare.product.color': 'Цвет',
+    'compare.product.producingCountry': 'Страна изготовитель',
+    'compare.product.manufacturer': 'Изготовитель',
+    'compare.product.SSDVolume': 'Объём SSD',
+    'compare.product.weight': 'Вес ноутбука (без ЗП), кг',
+    'compare.product.color.silver': 'Серебристый',
+    'compare.product.color.black': 'Чёрный',
+    'compare.product.color.grey': 'Серый',
+    'compare.product.color.white': 'Белый',
+    'compare.product.producingCountry.China': 'Китай',
+    'compare.product.processorManufacturer': 'Процессор (модель)',
+    'compare.product.diagonal': 'Дисплей (диагональ)',
+    'compare.product.RAMCapacity': 'Оперативная память (объем), Гб',
+    'compare.product.preinstalledOS': 'Предустановленная ОС',
+    'compare.product.notPreinstalledOS': 'Без ОС',
+    'compare.product.videoCardDiscrete': 'Видеокарта (дискретная)',
+    'compare.product.videoCardIntegrated': 'Видеокарта (интегрированная)',
+    'compare.product.keyboardBacklit': 'Клавиатура (подсветка)',
+    'compare.product.warranty': 'Гарантия, мес.'
 };
 
 var translationsUA = {
@@ -981,16 +991,26 @@ var translationsUA = {
     'catalog.head.showFirst': 'Показати одразу',
     'catalog.head.ascending_price': 'дешеві',
     'catalog.head.descending_price': 'дорогі',
-    'catalog.product.color': 'Колір',
-    'catalog.product.producingCountry': 'Країна виробник',
-    'catalog.product.manufacturer': 'Виробник',
     'catalog.product.SSDVolume': 'Об\'єм SSD',
-    'catalog.product.weight': 'Вага ноутбука (без ЗП), кг',
-    'catalog.product.color.silver': 'Сріблястий',
-    'catalog.product.color.black': 'Чорний',
-    'catalog.product.color.grey': 'Сірий',
-    'catalog.product.color.white': 'Білий',
-    'catalog.product.producingCountry.China': 'Китай'
+    'compare.product.color': 'Колір',
+    'compare.product.producingCountry': 'Країна виробник',
+    'compare.product.manufacturer': 'Виробник',
+    'compare.product.SSDVolume': 'Об\'єм SSD',
+    'compare.product.weight': 'Вага ноутбука (без ЗП), кг',
+    'compare.product.color.silver': 'Сріблястий',
+    'compare.product.color.black': 'Чорний',
+    'compare.product.color.grey': 'Сірий',
+    'compare.product.color.white': 'Білий',
+    'compare.product.producingCountry.China': 'Китай',
+    'compare.product.processor': 'Процесор (модель)',
+    'compare.product.diagonal': 'Дисплей (діагональ)',
+    'compare.product.RAMCapacity': 'Оперативна пам\'ять (обсяг), Гб',
+    'compare.product.preinstalledOS': 'Попередньо встановлена ОС',
+    'compare.product.notPreinstalledOS': 'Без ОС',
+    'compare.product.videoCardDiscrete': 'Відеокарта (дискретна)',
+    'compare.product.videoCardIntegrated': 'Відеокарта (інтегрована)',
+    'compare.product.keyboardBacklit': 'Клавіатура (підсвічування)',
+    'compare.product.warranty': 'Гарантія, міс.'
 };
 
 var i18n = {
@@ -1202,7 +1222,27 @@ var CatalogView = BaseView.extend({
 });
 
 var CompareView = BaseView.extend({
+    initialize() {
+        this.listenTo(compareModel, 'change:items', this.render);
+    },
+
     className: 'compare',
+
+    events: {
+        'click .product-card_remove': 'onCloseClick'
+    },
+
+    onCloseClick(e) {
+        var productId = e.target.dataset.id;
+        var compareItemsIds = compareModel.get('items');
+        var newCompareItemsIds;
+
+        newCompareItemsIds = compareItemsIds.filter(function(el) {
+            return el !== productId;
+        });
+
+        compareModel.set('items', newCompareItemsIds);
+    },
 
     getProductsByIds: function(ids = []) {
         var _products = products.toJSON();
@@ -1212,6 +1252,7 @@ var CompareView = BaseView.extend({
 
     render() {
         var compareItemsIds = compareModel.get('items');
+        console.log(compareItemsIds)
 
         this.$el.html(this.tmpl('compare', {
             products: this.getProductsByIds(compareItemsIds)

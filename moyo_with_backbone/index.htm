@@ -1381,125 +1381,127 @@
                             'weight'
                         ] :prop:idx}}
                             <tr class="prop_different prop_equal">
-                                <th>{{= i18n.t(`compare.product.props.${prop}`)}}</th>
+                                <th>{{= i18n.t(`compare.product.${prop}`)}}</th>
                                 {{~ it.products :product:index}}
-                                    <td>{{= product[prop]}}</td>
+                                    <td>
+                                        {{= product[prop]}}
+                                    </td>
                                 {{~}}
                             </tr>
                         {{~}}
-                        <tr class="prop_different">
-                            <th>{{= i18n.t('catalog.product.processor')}}</th>
-                            {{~ it.products :product:index}}
-                                <td>{{= product.processorManufacturer}}</td>
-                            {{~}}
-                        </tr>
-                        <tr class="prop_different">
-                            <th>{{= i18n.t('catalog.product.producingCountry')}}</th>
-                            {{~ it.products :product:index}}
-                                <td>
-                                    {{? product.producingCountry === 'China'}}
-                                        {{= i18n.t('catalog.product.producingCountry.China')}}
-                                    {{?}}
-                                </td>
-                            {{~}}
-                        </tr>
-                        <tr class="prop_equal">
-                            <th>{{= i18n.t('catalog.product.color')}}</th>
-                            {{~ it.products :product:index}}
-                                <td>
-                                    {{? product.color === 'silver'}}
-                                        {{= i18n.t('catalog.product.color.silver')}}
-                                    {{?}}
-                                    {{? product.color === 'black'}}
-                                        {{= i18n.t('catalog.product.color.black')}}
-                                    {{?}}
-                                    {{? product.color === 'white'}}
-                                        {{= i18n.t('catalog.product.color.white')}}
-                                    {{?}}
-                                    {{? product.color === 'grey'}}
-                                        {{= i18n.t('catalog.product.color.grey')}}
-                                    {{?}}
-                                </td>
-                            {{~}}
-                        </tr>
-                        <tr class="prop_different">
-                            <th>{{= i18n.t('catalog.product.warranty')}}</th>
-                            {{~ it.products :product:index}}
-                                <td>{{= product.warranty}}</td>
-                            {{~}}
-                        </tr>
-                        <tr class="prop_different">
-                            <th>{{= i18n.t('catalog.product.diagonal')}}</th>
-                            {{~ it.products :product:index}}
-                                <td>{{= product.diagonal}}</td>
-                            {{~}}
-                        </tr>
-                        <tr class="prop_different">
-                            <th>{{= i18n.t('catalog.product.manufacturer')}}</th>
-                            {{~ it.products :product:index}}
-                                <td>{{= product.manufacturer}}</td>
-                            {{~}}
-                        </tr>
-                        <tr class="prop_different">
-                            <th>{{= i18n.t('catalog.product.RAMCapacity')}}</th>
-                            {{~ it.products :product:index}}
-                                <td>{{= product.RAMCapacity}}</td>
-                            {{~}}
-                        </tr>
-                        <tr class="prop_equal">
-                            <th>{{= i18n.t('catalog.product.videoCardIntegrated')}}</th>
-                            {{~ it.products :product:index}}
-                                <td>{{= product.videoCardIntegrated}}</td>
-                            {{~}}
-                        </tr>
-                        <tr class="prop_different">
-                            <th>{{= i18n.t('catalog.product.videoCardDiscrete')}}</th>
-                            {{~ it.products :product:index}}
-                                <td>
-                                    {{? product.videoCardDiscrete}}
-                                        {{= product.videoCardDiscrete}}
-                                    {{??}}
-                                        {{= i18n.t('catalog.product.keyboardBacklit.no')}}
-                                    {{?}}
-                                </td>
-                            {{~}}
-                        </tr>
-                        <tr class="prop_different">
-                            <th>{{= i18n.t('catalog.product.SSDVolume')}}</th>
-                            {{~ it.products :product:index}}
-                                <td>{{= product.SSDVolume}}</td>
-                            {{~}}
-                        </tr>
-                        <tr class="prop_different">
-                            <th>{{= i18n.t('catalog.product.preinstalledOS')}}</th>
-                            {{~ it.products :product:index}}
-                                <td>
-                                    {{? product.preinstalledOS}}
-                                        {{= product.preinstalledOS}}
-                                    {{??}}
-                                        {{= i18n.t('catalog.product.notPreinstalledOS')}}
-                                    {{?}}
-                                </td>
-                            {{~}}
-                        </tr>
-                        <tr class="prop_equal">
-                            <th>{{= i18n.t('catalog.product.keyboardBacklit')}}</th>
-                            {{~ it.products :product:index}}
-                                <td>
-                                    {{? product.keyboardBacklit}}
-                                        {{= i18n.t('catalog.product.keyboardBacklit.yes')}}
-                                    {{??}}
-                                        {{= i18n.t('catalog.product.keyboardBacklit.no')}}
-                                    {{?}}
-                                </td>
-                            {{~}}
-                        </tr>
-                        <tr class="prop_different">
-                            <th>{{= i18n.t('catalog.product.weight')}}</th>
-                            {{~ it.products :product:index}}
-                                <td>{{= product.weight}}</td>
-                            {{~}}
-                        </tr>
+<!--                        <tr class="prop_different">-->
+<!--                            <th>{{= i18n.t('catalog.product.processor')}}</th>-->
+<!--                            {{~ it.products :product:index}}-->
+<!--                                <td>{{= product.processorManufacturer}}</td>-->
+<!--                            {{~}}-->
+<!--                        </tr>-->
+<!--                        <tr class="prop_different">-->
+<!--                            <th>{{= i18n.t('catalog.product.producingCountry')}}</th>-->
+<!--                            {{~ it.products :product:index}}-->
+<!--                                <td>-->
+<!--                                    {{? product.producingCountry === 'China'}}-->
+<!--                                        {{= i18n.t('catalog.product.producingCountry.China')}}-->
+<!--                                    {{?}}-->
+<!--                                </td>-->
+<!--                            {{~}}-->
+<!--                        </tr>-->
+<!--                        <tr class="prop_equal">-->
+<!--                            <th>{{= i18n.t('catalog.product.color')}}</th>-->
+<!--                            {{~ it.products :product:index}}-->
+<!--                                <td>-->
+<!--                                    {{? product.color === 'silver'}}-->
+<!--                                        {{= i18n.t('catalog.product.color.silver')}}-->
+<!--                                    {{?}}-->
+<!--                                    {{? product.color === 'black'}}-->
+<!--                                        {{= i18n.t('catalog.product.color.black')}}-->
+<!--                                    {{?}}-->
+<!--                                    {{? product.color === 'white'}}-->
+<!--                                        {{= i18n.t('catalog.product.color.white')}}-->
+<!--                                    {{?}}-->
+<!--                                    {{? product.color === 'grey'}}-->
+<!--                                        {{= i18n.t('catalog.product.color.grey')}}-->
+<!--                                    {{?}}-->
+<!--                                </td>-->
+<!--                            {{~}}-->
+<!--                        </tr>-->
+<!--                        <tr class="prop_different">-->
+<!--                            <th>{{= i18n.t('catalog.product.warranty')}}</th>-->
+<!--                            {{~ it.products :product:index}}-->
+<!--                                <td>{{= product.warranty}}</td>-->
+<!--                            {{~}}-->
+<!--                        </tr>-->
+<!--                        <tr class="prop_different">-->
+<!--                            <th>{{= i18n.t('catalog.product.diagonal')}}</th>-->
+<!--                            {{~ it.products :product:index}}-->
+<!--                                <td>{{= product.diagonal}}</td>-->
+<!--                            {{~}}-->
+<!--                        </tr>-->
+<!--                        <tr class="prop_different">-->
+<!--                            <th>{{= i18n.t('catalog.product.manufacturer')}}</th>-->
+<!--                            {{~ it.products :product:index}}-->
+<!--                                <td>{{= product.manufacturer}}</td>-->
+<!--                            {{~}}-->
+<!--                        </tr>-->
+<!--                        <tr class="prop_different">-->
+<!--                            <th>{{= i18n.t('catalog.product.RAMCapacity')}}</th>-->
+<!--                            {{~ it.products :product:index}}-->
+<!--                                <td>{{= product.RAMCapacity}}</td>-->
+<!--                            {{~}}-->
+<!--                        </tr>-->
+<!--                        <tr class="prop_equal">-->
+<!--                            <th>{{= i18n.t('catalog.product.videoCardIntegrated')}}</th>-->
+<!--                            {{~ it.products :product:index}}-->
+<!--                                <td>{{= product.videoCardIntegrated}}</td>-->
+<!--                            {{~}}-->
+<!--                        </tr>-->
+<!--                        <tr class="prop_different">-->
+<!--                            <th>{{= i18n.t('catalog.product.videoCardDiscrete')}}</th>-->
+<!--                            {{~ it.products :product:index}}-->
+<!--                                <td>-->
+<!--                                    {{? product.videoCardDiscrete}}-->
+<!--                                        {{= product.videoCardDiscrete}}-->
+<!--                                    {{??}}-->
+<!--                                        {{= i18n.t('catalog.product.keyboardBacklit.no')}}-->
+<!--                                    {{?}}-->
+<!--                                </td>-->
+<!--                            {{~}}-->
+<!--                        </tr>-->
+<!--                        <tr class="prop_different">-->
+<!--                            <th>{{= i18n.t('catalog.product.SSDVolume')}}</th>-->
+<!--                            {{~ it.products :product:index}}-->
+<!--                                <td>{{= product.SSDVolume}}</td>-->
+<!--                            {{~}}-->
+<!--                        </tr>-->
+<!--                        <tr class="prop_different">-->
+<!--                            <th>{{= i18n.t('catalog.product.preinstalledOS')}}</th>-->
+<!--                            {{~ it.products :product:index}}-->
+<!--                                <td>-->
+<!--                                    {{? product.preinstalledOS}}-->
+<!--                                        {{= product.preinstalledOS}}-->
+<!--                                    {{??}}-->
+<!--                                        {{= i18n.t('catalog.product.notPreinstalledOS')}}-->
+<!--                                    {{?}}-->
+<!--                                </td>-->
+<!--                            {{~}}-->
+<!--                        </tr>-->
+<!--                        <tr class="prop_equal">-->
+<!--                            <th>{{= i18n.t('catalog.product.keyboardBacklit')}}</th>-->
+<!--                            {{~ it.products :product:index}}-->
+<!--                                <td>-->
+<!--                                    {{? product.keyboardBacklit}}-->
+<!--                                        {{= i18n.t('catalog.product.keyboardBacklit.yes')}}-->
+<!--                                    {{??}}-->
+<!--                                        {{= i18n.t('catalog.product.keyboardBacklit.no')}}-->
+<!--                                    {{?}}-->
+<!--                                </td>-->
+<!--                            {{~}}-->
+<!--                        </tr>-->
+<!--                        <tr class="prop_different">-->
+<!--                            <th>{{= i18n.t('catalog.product.weight')}}</th>-->
+<!--                            {{~ it.products :product:index}}-->
+<!--                                <td>{{= product.weight}}</td>-->
+<!--                            {{~}}-->
+<!--                        </tr>-->
 
 
 <!--                    <tr class="prop_different">-->
