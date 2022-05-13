@@ -1271,7 +1271,7 @@
                                                             {{= formatPrice(product.price)}}
                                                         {{?}}
                                                     </div>
-                                                    {{? product.available}}
+                                                    {{? !product.available}}
                                                         <div class="product-card_price_text">
                                                             {{= i18n.t('catalog.product.notAvailable')}}
                                                         </div>

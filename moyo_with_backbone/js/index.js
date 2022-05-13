@@ -910,6 +910,8 @@ var formatPrice = function(price) {
 };
 
 var translationsRU = {
+    'global.yes': 'Да',
+    'global.no': 'Нет',
     'app.header.lang.ru': 'Рус',
     'app.header.lang.ua': 'Укр',
     'catalog.product.price': 'Цена',
@@ -964,6 +966,8 @@ var translationsRU = {
 };
 
 var translationsUA = {
+    'global.yes': 'Так',
+    'global.no': 'Ні',
     'app.header.lang.ru': 'Рус',
     'app.header.lang.ua': 'Укр',
     'catalog.product.price': 'Ціна',
@@ -994,25 +998,25 @@ var translationsUA = {
     'catalog.head.ascending_price': 'дешеві',
     'catalog.head.descending_price': 'дорогі',
     'catalog.product.SSDVolume': 'Об\'єм SSD',
-    'compare.product.color': 'Колір',
-    'compare.product.producingCountry': 'Країна виробник',
-    'compare.product.manufacturer': 'Виробник',
-    'compare.product.SSDVolume': 'Об\'єм SSD',
-    'compare.product.weight': 'Вага ноутбука (без ЗП), кг',
-    'compare.product.color.silver': 'Сріблястий',
-    'compare.product.color.black': 'Чорний',
-    'compare.product.color.grey': 'Сірий',
-    'compare.product.color.white': 'Білий',
-    'compare.product.producingCountry.China': 'Китай',
-    'compare.product.processor': 'Процесор (модель)',
-    'compare.product.diagonal': 'Дисплей (діагональ)',
-    'compare.product.RAMCapacity': 'Оперативна пам\'ять (обсяг), Гб',
-    'compare.product.preinstalledOS': 'Попередньо встановлена ОС',
-    'compare.product.notPreinstalledOS': 'Без ОС',
-    'compare.product.videoCardDiscrete': 'Відеокарта (дискретна)',
-    'compare.product.videoCardIntegrated': 'Відеокарта (інтегрована)',
-    'compare.product.keyboardBacklit': 'Клавіатура (підсвічування)',
-    'compare.product.warranty': 'Гарантія, міс.'
+    'compare.product.props.color': 'Колір',
+    'compare.product.props.color.silver': 'Сріблястий',
+    'compare.product.props.color.black': 'Чорний',
+    'compare.product.props.color.grey': 'Сірий',
+    'compare.product.props.color.white': 'Білий',
+    'compare.product.props.producingCountry': 'Країна виробник',
+    'compare.product.props.producingCountry.China': 'Китай',
+    'compare.product.props.manufacturer': 'Виробник',
+    'compare.product.props.SSDVolume': 'Об\'єм SSD',
+    'compare.product.props.weight': 'Вага ноутбука (без ЗП), кг',
+    'compare.product.props.processor': 'Процесор (модель)',
+    'compare.product.props.diagonal': 'Дисплей (діагональ)',
+    'compare.product.props.RAMCapacity': 'Оперативна пам\'ять (обсяг), Гб',
+    'compare.product.props.preinstalledOS': 'Попередньо встановлена ОС',
+    'compare.product.props.notPreinstalledOS': 'Без ОС',
+    'compare.product.props.videoCardDiscrete': 'Відеокарта (дискретна)',
+    'compare.product.props.videoCardIntegrated': 'Відеокарта (інтегрована)',
+    'compare.product.props.keyboardBacklit': 'Клавіатура (підсвічування)',
+    'compare.product.props.warranty': 'Гарантія, міс.'
 };
 
 var i18n = {
