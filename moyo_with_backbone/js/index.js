@@ -902,7 +902,9 @@ var templates = {
     'catalog.product.grid': $('#catalog-product-grid-template').html(),
     'catalog.product.list': $('#catalog-product-list-template').html(),
     'catalog.load': $('#catalog-load-template').html(),
-    'compare': $('#compare-template').html()
+    'compare': $('#compare-template').html(),
+    'popup': $('#popup-template').html(),
+    'cart': $('#cart-template').html()
 };
 
 var formatPrice = function(price) {
@@ -1045,6 +1047,10 @@ var compareModel = new Backbone.Model({
     items: []           // product IDs
 });
 
+var cartModel = new Backbone.Model({
+    items: []           // {id: '', qty: 4}
+});
+
 var Products = Backbone.Collection.extend({
     toJSON() {
         var getPriceWithDiscount = function(price, discount = 0) {
@@ -1084,11 +1090,18 @@ var AppView = BaseView.extend({
 
     events: {
         'click .header-lang [data-lng]': 'onLangClick',
-        'click .item--compare': 'onCompareClick'
+        'click .item--compare': 'onCompareClick',
+        'click .item--cart': 'onCartClick'
     },
 
     onCompareClick() {
         appModel.set('page', 'compare');
+    },
+
+    onCartClick() {
+        new PopupView({
+            content: new CartView().render().$el
+        }).render().$el.appendTo('body');
     },
 
     onLangClick(e) {
@@ -1262,6 +1275,31 @@ var CompareView = BaseView.extend({
         this.$el.html(this.tmpl('compare', {
             products: this.getProductsByIds(compareItemsIds)
         }));
+
+        return this;
+    }
+});
+
+var PopupView = BaseView.extend({
+    options: {
+        content: ''
+    },
+
+    initialize(options) {
+        this.options = _.extend(this.options, options);
+    },
+
+    render() {
+        this.$el.html(this.tmpl('popup'));
+        this.$('.modal__content').html(this.options.content);
+
+        return this;
+    }
+});
+
+var CartView = BaseView.extend({
+    render() {
+        this.$el.html(this.tmpl('cart'));
 
         return this;
     }

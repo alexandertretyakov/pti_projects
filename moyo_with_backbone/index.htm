@@ -956,277 +956,281 @@
         </div>
     </script>
 
-    <div class="modal" style="display: none;">
-        <div class="modal__wrapper">
-            <div class="modal__container">
-                <svg viewBox="0 0 30 30" width="14" height="14" class="modal__close yyy1">
-                    <use xlink:href="#close-dark"></use>
-                </svg>
-                <div class="modal__content">
-                    <div class="cart simply">
-                        <header class="cart-header">
-                            <div class="cart-header__text-block">
-                                <div class="cart-header__title">Корзина</div>
-                                <span class="cart-header__count">9 товаров</span></div>
-                        </header>
-                        <div class="cart-items">
-                            <section class="cart-item">
-                                <div class="cart-item__wrapper">
-                                    <div class="cart-item__image">
-                                        <img src="https://img.moyo.ua/img/products/4986/35_174.jpg?1648478628" alt="Ноутбук HP Pavilion 15-eh1040ua (422K4EA)">
-                                    </div>
-                                    <div class="cart-item__info">
-                                        <div class="cart-item__title-wrapper">
-                                            <div class="cart-item__title">
-                                                <a href="#" target="_blank" class="product-link">Ноутбук HP Pavilion 15-eh1040ua (422K4EA)</a>
-                                            </div>
-                                            <div class="cart-item__remove">
-                                                <div class="cart-item__remove-close"></div>
-                                                <svg viewBox="0 0 30 30" width="12" height="12" class="yyy1">
-                                                    <use xlink:href="#close-red"></use>
-                                                </svg>
-                                            </div>
-                                        </div>
-                                        <div class="cart-item__price-wrapper">
-                                            <div class="cart-item__quantity">
+    <script type="text/template" id="popup-template">
+        <div class="modal">
+            <div class="modal__wrapper">
+                <div class="modal__container">
+                    <svg viewBox="0 0 30 30" width="14" height="14" class="modal__close yyy1">
+                        <use xlink:href="#close-dark"></use>
+                    </svg>
+                    <div class="modal__content"></div>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <script type="text/template" id="cart-template">
+        <div class="cart simply">
+            <header class="cart-header">
+                <div class="cart-header__text-block">
+                    <div class="cart-header__title">Корзина</div>
+                    <span class="cart-header__count">9 товаров</span></div>
+            </header>
+            <div class="cart-items">
+                <section class="cart-item">
+                    <div class="cart-item__wrapper">
+                        <div class="cart-item__image">
+                            <img src="https://img.moyo.ua/img/products/4986/35_174.jpg?1648478628" alt="Ноутбук HP Pavilion 15-eh1040ua (422K4EA)">
+                        </div>
+                        <div class="cart-item__info">
+                            <div class="cart-item__title-wrapper">
+                                <div class="cart-item__title">
+                                    <a href="#" target="_blank" class="product-link">Ноутбук HP Pavilion 15-eh1040ua (422K4EA)</a>
+                                </div>
+                                <div class="cart-item__remove">
+                                    <div class="cart-item__remove-close"></div>
+                                    <svg viewBox="0 0 30 30" width="12" height="12" class="yyy1">
+                                        <use xlink:href="#close-red"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="cart-item__price-wrapper">
+                                <div class="cart-item__quantity">
                                                 <span class="bold xxx1 large price">
                                                     <span class="value">26 999</span>
                                                     <span class="currency">грн</span>
                                                 </span>
-                                            </div>
-                                            <div class="qty-block">
-                                                <button class="qty-btn minus noneEvents">
-                                                    <svg viewBox="0 0 30 30" width="9" height="9" class="yyy1">
-                                                        <use xlink:href="#minus" class="red"></use>
-                                                    </svg>
-                                                </button>
-                                                <span class="qty-value">1</span>
-                                                <button class="qty-btn plus">
-                                                    <svg viewBox="0 0 30 30" width="9" height="9" class="yyy1">
-                                                        <use xlink:href="#plus" class="green"></use>
-                                                    </svg>
-                                                </button>
-                                            </div>
-                                            <div class="cart-item__price">
+                                </div>
+                                <div class="qty-block">
+                                    <button class="qty-btn minus noneEvents">
+                                        <svg viewBox="0 0 30 30" width="9" height="9" class="yyy1">
+                                            <use xlink:href="#minus" class="red"></use>
+                                        </svg>
+                                    </button>
+                                    <span class="qty-value">1</span>
+                                    <button class="qty-btn plus">
+                                        <svg viewBox="0 0 30 30" width="9" height="9" class="yyy1">
+                                            <use xlink:href="#plus" class="green"></use>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="cart-item__price">
                                                 <span class="price large bold xxx1">
                                                     <span class="value">26 999</span>
                                                     <span class="currency">грн</span>
                                                 </span>
-                                                <div class="bonus-holder bonus-holder__cart">
-                                                    <div class="bonus-info">
+                                    <div class="bonus-holder bonus-holder__cart">
+                                        <div class="bonus-info">
                                                         <span class="bonus-info__price">
                                                             <span class="bonus-info__price-value">+270</span>
                                                             <span class="bonus-info__price-currency">грн</span>
                                                         </span>
-                                                        <span class="bonus-info__description">кэшбек</span>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <span class="bonus-info__description">кэшбек</span>
                                         </div>
                                     </div>
                                 </div>
-                            </section>
-                            <section class="cart-item">
-                                <div class="cart-item__wrapper">
-                                    <div class="cart-item__image">
-                                        <img src="https://img.moyo.ua/img/products/4803/45_174.jpg?1648478523" alt="Смартфон Blackview BV5500 2/16GB Dual SIM Black OFFICIAL UA">
-                                    </div>
-                                    <div class="cart-item__info">
-                                        <div class="cart-item__title-wrapper">
-                                            <div class="cart-item__title">
-                                                <a href="#" target="_blank" class="product-link">Смартфон Blackview BV5500 2/16GB Dual SIM Black OFFICIAL UA</a>
-                                            </div>
-                                            <div class="cart-item__remove">
-                                                <div class="cart-item__remove-close"></div>
-                                                <svg viewBox="0 0 30 30" width="12" height="12" class="yyy1">
-                                                    <use xlink:href="#close-red"></use>
-                                                </svg>
-                                            </div>
-                                        </div>
-                                        <div class="cart-item__price-wrapper">
-                                            <div class="cart-item__quantity">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="cart-item">
+                    <div class="cart-item__wrapper">
+                        <div class="cart-item__image">
+                            <img src="https://img.moyo.ua/img/products/4803/45_174.jpg?1648478523" alt="Смартфон Blackview BV5500 2/16GB Dual SIM Black OFFICIAL UA">
+                        </div>
+                        <div class="cart-item__info">
+                            <div class="cart-item__title-wrapper">
+                                <div class="cart-item__title">
+                                    <a href="#" target="_blank" class="product-link">Смартфон Blackview BV5500 2/16GB Dual SIM Black OFFICIAL UA</a>
+                                </div>
+                                <div class="cart-item__remove">
+                                    <div class="cart-item__remove-close"></div>
+                                    <svg viewBox="0 0 30 30" width="12" height="12" class="yyy1">
+                                        <use xlink:href="#close-red"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="cart-item__price-wrapper">
+                                <div class="cart-item__quantity">
                                                 <span class="bold xxx1 large price">
                                                     <span class="value">2 999</span>
                                                     <span class="currency">грн</span>
                                                 </span>
-                                            </div>
-                                            <div class="qty-block">
-                                                <button class="qty-btn minus">
-                                                    <svg viewBox="0 0 30 30" width="9" height="9" class="yyy1">
-                                                        <use xlink:href="#minus" class="red"></use>
-                                                    </svg>
-                                                </button>
-                                                <span class="qty-value">2</span>
-                                                <button class="qty-btn plus">
-                                                    <svg viewBox="0 0 30 30" width="9" height="9" class="yyy1">
-                                                        <use xlink:href="#plus" class="green"></use>
-                                                    </svg>
-                                                </button>
-                                            </div>
-                                            <div class="cart-item__price">
+                                </div>
+                                <div class="qty-block">
+                                    <button class="qty-btn minus">
+                                        <svg viewBox="0 0 30 30" width="9" height="9" class="yyy1">
+                                            <use xlink:href="#minus" class="red"></use>
+                                        </svg>
+                                    </button>
+                                    <span class="qty-value">2</span>
+                                    <button class="qty-btn plus">
+                                        <svg viewBox="0 0 30 30" width="9" height="9" class="yyy1">
+                                            <use xlink:href="#plus" class="green"></use>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="cart-item__price">
                                                 <span class="price large bold xxx1">
                                                     <span class="value">5 998</span>
                                                     <span class="currency">грн</span>
                                                 </span>
-                                                <div class="bonus-holder bonus-holder__cart">
-                                                    <div class="bonus-info">
+                                    <div class="bonus-holder bonus-holder__cart">
+                                        <div class="bonus-info">
                                                         <span class="bonus-info__price">
                                                             <span class="bonus-info__price-value">+60</span>
                                                             <span class="bonus-info__price-currency">грн</span>
                                                         </span>
-                                                        <span class="bonus-info__description">кэшбек</span>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <span class="bonus-info__description">кэшбек</span>
                                         </div>
                                     </div>
                                 </div>
-                            </section>
-                            <section class="cart-item">
-                                <div class="cart-item__wrapper">
-                                    <div class="cart-item__image">
-                                        <img src="https://img.moyo.ua/img/products/4133/49_174.jpg?1648478576" alt="Пылесос Electrolux EEG43WR">
-                                    </div>
-                                    <div class="cart-item__info">
-                                        <div class="cart-item__title-wrapper">
-                                            <div class="cart-item__title">
-                                                <a href="#" target="_blank" class="product-link">Пылесос Electrolux EEG43WR</a>
-                                            </div>
-                                            <div class="cart-item__remove">
-                                                <div class="cart-item__remove-close"></div>
-                                                <svg viewBox="0 0 30 30" width="12" height="12" class="yyy1">
-                                                    <use xlink:href="#close-red"></use>
-                                                </svg>
-                                            </div>
-                                        </div>
-                                        <div class="cart-item__price-wrapper">
-                                            <div class="cart-item__quantity">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="cart-item">
+                    <div class="cart-item__wrapper">
+                        <div class="cart-item__image">
+                            <img src="https://img.moyo.ua/img/products/4133/49_174.jpg?1648478576" alt="Пылесос Electrolux EEG43WR">
+                        </div>
+                        <div class="cart-item__info">
+                            <div class="cart-item__title-wrapper">
+                                <div class="cart-item__title">
+                                    <a href="#" target="_blank" class="product-link">Пылесос Electrolux EEG43WR</a>
+                                </div>
+                                <div class="cart-item__remove">
+                                    <div class="cart-item__remove-close"></div>
+                                    <svg viewBox="0 0 30 30" width="12" height="12" class="yyy1">
+                                        <use xlink:href="#close-red"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="cart-item__price-wrapper">
+                                <div class="cart-item__quantity">
                                                 <span class="bold xxx1 large price">
                                                     <span class="value">2 999</span>
                                                     <span class="currency">грн</span>
                                                 </span>
-                                            </div>
-                                            <div class="qty-block">
-                                                <button class="qty-btn minus noneEvents">
-                                                    <svg viewBox="0 0 30 30" width="9" height="9" class="yyy1">
-                                                        <use xlink:href="#minus" class="red"></use>
-                                                    </svg>
-                                                </button>
-                                                <span class="qty-value">1</span>
-                                                <button class="qty-btn plus">
-                                                    <svg viewBox="0 0 30 30" width="9" height="9" class="yyy1">
-                                                        <use xlink:href="#plus" class="green"></use>
-                                                    </svg>
-                                                </button>
-                                            </div>
-                                            <div class="cart-item__price">
+                                </div>
+                                <div class="qty-block">
+                                    <button class="qty-btn minus noneEvents">
+                                        <svg viewBox="0 0 30 30" width="9" height="9" class="yyy1">
+                                            <use xlink:href="#minus" class="red"></use>
+                                        </svg>
+                                    </button>
+                                    <span class="qty-value">1</span>
+                                    <button class="qty-btn plus">
+                                        <svg viewBox="0 0 30 30" width="9" height="9" class="yyy1">
+                                            <use xlink:href="#plus" class="green"></use>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="cart-item__price">
                                                 <span class="price large bold  xxx1">
                                                     <span class="value">2 999</span>
                                                     <span class="currency">грн</span>
                                                 </span>
-                                                <div class="bonus-holder bonus-holder__cart">
-                                                    <div class="bonus-info">
+                                    <div class="bonus-holder bonus-holder__cart">
+                                        <div class="bonus-info">
                                                         <span class="bonus-info__price">
                                                             <span class="bonus-info__price-value">+30</span>
                                                             <span class="bonus-info__price-currency">грн</span>
                                                         </span>
-                                                        <span class="bonus-info__description">кэшбек</span>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <span class="bonus-info__description">кэшбек</span>
                                         </div>
                                     </div>
                                 </div>
-                            </section>
-                            <section class="cart-item">
-                                <div class="cart-item__wrapper">
-                                    <div class="cart-item__image">
-                                        <img src="https://img.moyo.ua/img/products/4848/14_174.jpg?1648478522" alt="Портативная акустика 2E SoundXTube TWS MP3 Wireless Waterproof Black (2E-BSSXTWBK)">
-                                    </div>
-                                    <div class="cart-item__info">
-                                        <div class="cart-item__title-wrapper">
-                                            <div class="cart-item__title">
-                                                <a href="#" target="_blank" class="product-link">Портативная акустика 2E SoundXTube TWS MP3 Wireless Waterproof Black (2E-BSSXTWBK)</a>
-                                            </div>
-                                            <div class="cart-item__remove">
-                                                <div class="cart-item__remove-close"></div>
-                                                <svg viewBox="0 0 30 30" width="12" height="12" class="yyy1">
-                                                    <use xlink:href="#close-red"></use>
-                                                </svg>
-                                            </div>
-                                        </div>
-                                        <div class="cart-item__price-wrapper">
-                                            <div class="cart-item__quantity">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="cart-item">
+                    <div class="cart-item__wrapper">
+                        <div class="cart-item__image">
+                            <img src="https://img.moyo.ua/img/products/4848/14_174.jpg?1648478522" alt="Портативная акустика 2E SoundXTube TWS MP3 Wireless Waterproof Black (2E-BSSXTWBK)">
+                        </div>
+                        <div class="cart-item__info">
+                            <div class="cart-item__title-wrapper">
+                                <div class="cart-item__title">
+                                    <a href="#" target="_blank" class="product-link">Портативная акустика 2E SoundXTube TWS MP3 Wireless Waterproof Black (2E-BSSXTWBK)</a>
+                                </div>
+                                <div class="cart-item__remove">
+                                    <div class="cart-item__remove-close"></div>
+                                    <svg viewBox="0 0 30 30" width="12" height="12" class="yyy1">
+                                        <use xlink:href="#close-red"></use>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="cart-item__price-wrapper">
+                                <div class="cart-item__quantity">
                                                 <span class="price large bold xxx1">
                                                     <span class="value">1 449</span>
                                                     <span class="currency">грн</span>
                                                 </span>
-                                            </div>
-                                            <div class="qty-block">
-                                                <button class="qty-btn minus">
-                                                    <svg viewBox="0 0 30 30" width="9" height="9" class="yyy1">
-                                                        <use xlink:href="#minus" class="red"></use>
-                                                    </svg>
-                                                </button>
-                                                <span class="qty-value">5</span>
-                                                <button class="qty-btn plus">
-                                                    <svg viewBox="0 0 30 30" width="9" height="9" class="yyy1">
-                                                        <use xlink:href="#plus" class="green"></use>
-                                                    </svg>
-                                                </button>
-                                            </div>
-                                            <div class="cart-item__price">
+                                </div>
+                                <div class="qty-block">
+                                    <button class="qty-btn minus">
+                                        <svg viewBox="0 0 30 30" width="9" height="9" class="yyy1">
+                                            <use xlink:href="#minus" class="red"></use>
+                                        </svg>
+                                    </button>
+                                    <span class="qty-value">5</span>
+                                    <button class="qty-btn plus">
+                                        <svg viewBox="0 0 30 30" width="9" height="9" class="yyy1">
+                                            <use xlink:href="#plus" class="green"></use>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="cart-item__price">
                                                 <span class="price large bold xxx1">
                                                     <span class="value">7 245</span>
                                                     <span class="currency">грн</span>
                                                 </span>
-                                                <div class="bonus-holder bonus-holder__cart">
-                                                    <div class="bonus-info">
+                                    <div class="bonus-holder bonus-holder__cart">
+                                        <div class="bonus-info">
                                                         <span class="bonus-info__price">
                                                             <span class="bonus-info__price-value">+70</span>
                                                             <span class="bonus-info__price-currency">грн</span>
                                                         </span>
-                                                        <span class="bonus-info__description">кэшбек</span>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <span class="bonus-info__description">кэшбек</span>
                                         </div>
                                     </div>
                                 </div>
-                            </section>
+                            </div>
                         </div>
-                        <footer class="cart-footer">
-                            <div class="cart-footer__total-holder">
-                                <div class="cart-footer-price">
-                                    <span class="price-text large">Сумма заказа:</span>
-                                    <span class="price xxx1">
+                    </div>
+                </section>
+            </div>
+            <footer class="cart-footer">
+                <div class="cart-footer__total-holder">
+                    <div class="cart-footer-price">
+                        <span class="price-text large">Сумма заказа:</span>
+                        <span class="price xxx1">
                                         <span class="value">43 241</span>
                                         <span class="currency">грн</span>
                                     </span>
-                                </div>
-                                <div class="bonus-holder bonus-holder__cart-total">
-                                    <div class="bonus-info">
+                    </div>
+                    <div class="bonus-holder bonus-holder__cart-total">
+                        <div class="bonus-info">
                                         <span class="bonus-info__price">
                                             <span class="bonus-info__price-value">+430</span>
                                             <span class="bonus-info__price-currency">грн</span>
                                         </span>
-                                        <span class="bonus-info__description">кэшбек</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="cart-footer-buttons">
-                                <div class="footer-cta">
-                                    <div class="main-btn">
-                                        <button type="button" class="rds-btn">Купить сейчас</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </footer>
+                            <span class="bonus-info__description">кэшбек</span>
+                        </div>
                     </div>
                 </div>
-            </div>
+                <div class="cart-footer-buttons">
+                    <div class="footer-cta">
+                        <div class="main-btn">
+                            <button type="button" class="rds-btn">Купить сейчас</button>
+                        </div>
+                    </div>
+                </div>
+            </footer>
         </div>
-    </div>
+    </script>
 
     <script type="text/template" id="compare-template">
         <h1 class="compare-title">Сравнение</h1>
