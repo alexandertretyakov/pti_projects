@@ -1381,11 +1381,17 @@
                             'weight'
                         ] :prop:idx}}
                             <tr class="prop_different prop_equal">
-                                <th>{{= i18n.t(`compare.product.${prop}`)}}</th>
+                                <th>{{= i18n.t(`compare.product.props.${prop}`)}}</th>
                                 {{~ it.products :product:index}}
-                                    <td>
-                                        {{= product[prop]}}
-                                    </td>
+                                    {{? prop === 'color'}}
+                                        <td>{{= i18n.t(`compare.product.props.color.${product[prop]}`)}}</td>
+                                    {{?? prop === 'producingCountry'}}
+                                        <td>{{= i18n.t(`compare.product.props.producingCountry.${product[prop]}`)}}</td>
+                                    {{?? prop === 'keyboardBacklit'}}
+                                        <td>{{= i18n.t(`compare.product.props.keyboardBacklit.${product[prop]}`)}}</td>
+                                    {{??}}
+                                        <td>{{= product[prop]}}</td>
+                                    {{?}}
                                 {{~}}
                             </tr>
                         {{~}}

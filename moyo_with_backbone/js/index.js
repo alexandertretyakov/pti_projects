@@ -940,25 +940,27 @@ var translationsRU = {
     'catalog.head.ascending_price': 'дешевые',
     'catalog.head.descending_price': 'дорогие',
     'catalog.product.SSDVolume': 'Объём SSD',
-    'compare.product.color': 'Цвет',
-    'compare.product.producingCountry': 'Страна изготовитель',
-    'compare.product.manufacturer': 'Изготовитель',
-    'compare.product.SSDVolume': 'Объём SSD',
-    'compare.product.weight': 'Вес ноутбука (без ЗП), кг',
-    'compare.product.color.silver': 'Серебристый',
-    'compare.product.color.black': 'Чёрный',
-    'compare.product.color.grey': 'Серый',
-    'compare.product.color.white': 'Белый',
-    'compare.product.producingCountry.China': 'Китай',
-    'compare.product.processorManufacturer': 'Процессор (модель)',
-    'compare.product.diagonal': 'Дисплей (диагональ)',
-    'compare.product.RAMCapacity': 'Оперативная память (объем), Гб',
-    'compare.product.preinstalledOS': 'Предустановленная ОС',
-    'compare.product.notPreinstalledOS': 'Без ОС',
-    'compare.product.videoCardDiscrete': 'Видеокарта (дискретная)',
-    'compare.product.videoCardIntegrated': 'Видеокарта (интегрированная)',
-    'compare.product.keyboardBacklit': 'Клавиатура (подсветка)',
-    'compare.product.warranty': 'Гарантия, мес.'
+    'compare.product.props.color': 'Цвет',
+    'compare.product.props.color.silver': 'Серебристый',
+    'compare.product.props.color.grey': 'Серый',
+    'compare.product.props.color.black': 'Чёрный',
+    'compare.product.props.color.white': 'Белый',
+    'compare.product.props.producingCountry': 'Страна изготовитель',
+    'compare.product.props.producingCountry.China': 'Китай',
+    'compare.product.props.manufacturer': 'Изготовитель',
+    'compare.product.props.SSDVolume': 'Объём SSD',
+    'compare.product.props.weight': 'Вес ноутбука (без ЗП), кг',
+    'compare.product.props.processorManufacturer': 'Процессор (модель)',
+    'compare.product.props.diagonal': 'Дисплей (диагональ)',
+    'compare.product.props.RAMCapacity': 'Оперативная память (объем), Гб',
+    'compare.product.props.preinstalledOS': 'Предустановленная ОС',
+    'compare.product.props.notPreinstalledOS': 'Без ОС',
+    'compare.product.props.videoCardDiscrete': 'Видеокарта (дискретная)',
+    'compare.product.props.videoCardIntegrated': 'Видеокарта (интегрированная)',
+    'compare.product.props.keyboardBacklit': 'Клавиатура (подсветка)',
+    'compare.product.props.keyboardBacklit.true': 'Есть',
+    'compare.product.props.keyboardBacklit.false': 'Нет',
+    'compare.product.props.warranty': 'Гарантия, мес.'
 };
 
 var translationsUA = {
@@ -1229,10 +1231,10 @@ var CompareView = BaseView.extend({
     className: 'compare',
 
     events: {
-        'click .product-card_remove': 'onCloseClick'
+        'click .product-card_remove': 'onRemoveClick'
     },
 
-    onCloseClick(e) {
+    onRemoveClick(e) {
         var productId = e.target.dataset.id;
         var compareItemsIds = compareModel.get('items');
         var newCompareItemsIds;
@@ -1252,7 +1254,6 @@ var CompareView = BaseView.extend({
 
     render() {
         var compareItemsIds = compareModel.get('items');
-        console.log(compareItemsIds)
 
         this.$el.html(this.tmpl('compare', {
             products: this.getProductsByIds(compareItemsIds)
