@@ -1136,8 +1136,8 @@ var AppView = BaseView.extend({
 
         this.$('.header-container').html(this.tmpl('header', {
             lang: lang,
-            compareCount: compareItems.length,
-            cartCount: cartItems.length
+            compareItemsCount: compareItems.length,
+            cartItemsCount: cartItems.length
         }));
     },
 
@@ -1342,8 +1342,8 @@ var CartView = BaseView.extend({
     },
 
     events: {
-        'click .plus': 'onPlusClick',
-        'click .minus': 'onMinusClick'
+        'click .qty-btn.plus': 'onPlusClick',
+        'click .qty-btn.minus': 'onMinusClick'
     },
 
     onPlusClick() {
@@ -1354,13 +1354,24 @@ var CartView = BaseView.extend({
         console.log('-');
     },
 
-    render() {
+    getTemplateData() {
         var cartItems = cartModel.get('items');
         var _products = products.toJSON();
-
-        this.$el.html(this.tmpl('cart', {
-            products: _products
+        var __products = cartItems.map((item) => ({
+            ..._.findWhere(_products, {id: item.id}),
+            ...item
         }));
+
+        return {
+            totalProductsCount: 19,
+            products: __products,
+            totalAmount: 2000,
+            totalCashbackAmount: 222
+        };
+    },
+
+    render() {
+        this.$el.html(this.tmpl('cart', this.getTemplateData()));
 
         return this;
     }
