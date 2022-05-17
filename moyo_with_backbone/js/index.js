@@ -964,7 +964,12 @@ var translationsRU = {
     'compare.product.props.keyboardBacklit': 'Клавиатура (подсветка)',
     'compare.product.props.keyboardBacklit.true': 'Есть',
     'compare.product.props.keyboardBacklit.false': 'Нет',
-    'compare.product.props.warranty': 'Гарантия, мес.'
+    'compare.product.props.warranty': 'Гарантия, мес.',
+    'cart.product.currency': 'грн',
+    'cart.product.cashback': 'кэшбек',
+    'cart.header.title': 'Корзина',
+    'cart.header.count': 'товаров',
+    'cart.footer.sum': 'Сумма заказа'
 };
 
 var translationsUA = {
@@ -1018,7 +1023,12 @@ var translationsUA = {
     'compare.product.props.videoCardDiscrete': 'Відеокарта (дискретна)',
     'compare.product.props.videoCardIntegrated': 'Відеокарта (інтегрована)',
     'compare.product.props.keyboardBacklit': 'Клавіатура (підсвічування)',
-    'compare.product.props.warranty': 'Гарантія, міс.'
+    'compare.product.props.warranty': 'Гарантія, міс.',
+    'cart.product.currency': 'грн',
+    'cart.product.cashback': 'кешбек',
+    'cart.header.title': 'Кошик',
+    'cart.header.count': 'товарів',
+    'cart.footer.sum': 'Сума замовлення'
 };
 
 var i18n = {
@@ -1084,6 +1094,7 @@ var AppView = BaseView.extend({
         this.listenTo(appModel, 'change:lang', this.render);
         this.listenTo(appModel, 'change:page', this.render);
         this.listenTo(compareModel, 'change:items', this.render);
+        this.listenTo(cartModel, 'change:items', this.render);
     },
 
     className: 'app',
@@ -1121,10 +1132,12 @@ var AppView = BaseView.extend({
     renderHeader() {
         var lang = appModel.get('lang');
         var compareItems = compareModel.get('items');
+        var cartItems = cartModel.get('items');
 
         this.$('.header-container').html(this.tmpl('header', {
             lang: lang,
-            compareCount: compareItems.length
+            compareCount: compareItems.length,
+            cartCount: cartItems.length
         }));
     },
 
@@ -1150,7 +1163,8 @@ var CatalogView = BaseView.extend({
     events: {
         'click .catalog_products-view_item': 'onViewTypeClick',
         'click .catalog_content_sort_item': 'onSortByClick',
-        'click .product-item_compare-btn': 'onCompareClick'
+        'click .product-item_compare-btn': 'onCompareClick',
+        'click .buy-btn': 'onBuyClick'
     },
 
     onViewTypeClick(e) {
@@ -1173,6 +1187,23 @@ var CatalogView = BaseView.extend({
             [...compareItems, productId];
 
         compareModel.set('items', newCompareItems);
+    },
+
+    onBuyClick(e) {
+        var productId = e.target.dataset.productId;
+        var cartItems = cartModel.get('items');
+
+        var newCartItems = cartItems.some(function(el) {
+            return el.id === productId;
+        }) ?
+            cartItems
+           :
+            [...cartItems, {
+            id: productId,
+            qty: 1
+        }];
+
+        cartModel.set('items', newCartItems);
     },
 
     render() {
@@ -1289,6 +1320,14 @@ var PopupView = BaseView.extend({
         this.options = _.extend(this.options, options);
     },
 
+    events: {
+        'click .modal__close': 'onClosePopupClick'
+    },
+
+    onClosePopupClick() {
+        this.remove();
+    },
+
     render() {
         this.$el.html(this.tmpl('popup'));
         this.$('.modal__content').html(this.options.content);
@@ -1298,8 +1337,30 @@ var PopupView = BaseView.extend({
 });
 
 var CartView = BaseView.extend({
+    initialize() {
+        this.listenTo(cartModel, 'change:items', this.render);
+    },
+
+    events: {
+        'click .plus': 'onPlusClick',
+        'click .minus': 'onMinusClick'
+    },
+
+    onPlusClick() {
+        console.log('+');
+    },
+
+    onMinusClick() {
+        console.log('-');
+    },
+
     render() {
-        this.$el.html(this.tmpl('cart'));
+        var cartItems = cartModel.get('items');
+        var _products = products.toJSON();
+
+        this.$el.html(this.tmpl('cart', {
+            products: _products
+        }));
 
         return this;
     }

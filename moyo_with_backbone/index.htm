@@ -36,7 +36,9 @@
                     </div>
                     <div class="item item--wish"></div>
                     <div class="item item--cart">
-                        <div class="item--count">4</div>
+                        {{? it.cartCount > 0}}
+                            <div class="item--count">{{= it.cartCount}}</div>
+                        {{?}}
                     </div>
                 </div>
             </div>
@@ -973,249 +975,308 @@
         <div class="cart simply">
             <header class="cart-header">
                 <div class="cart-header__text-block">
-                    <div class="cart-header__title">Корзина</div>
-                    <span class="cart-header__count">9 товаров</span></div>
+                    <div class="cart-header__title">{{= i18n.t('cart.header.title')}}</div>
+                    <span class="cart-header__count">{{= it.products.length}} {{= i18n.t('cart.header.count')}}</span></div>
             </header>
             <div class="cart-items">
-                <section class="cart-item">
-                    <div class="cart-item__wrapper">
-                        <div class="cart-item__image">
-                            <img src="https://img.moyo.ua/img/products/4986/35_174.jpg?1648478628" alt="Ноутбук HP Pavilion 15-eh1040ua (422K4EA)">
-                        </div>
-                        <div class="cart-item__info">
-                            <div class="cart-item__title-wrapper">
-                                <div class="cart-item__title">
-                                    <a href="#" target="_blank" class="product-link">Ноутбук HP Pavilion 15-eh1040ua (422K4EA)</a>
-                                </div>
-                                <div class="cart-item__remove">
-                                    <div class="cart-item__remove-close"></div>
-                                    <svg viewBox="0 0 30 30" width="12" height="12" class="yyy1">
-                                        <use xlink:href="#close-red"></use>
-                                    </svg>
-                                </div>
+                {{~ it.products :product:index}}
+                    <section class="cart-item">
+                        <div class="cart-item__wrapper">
+                            <div class="cart-item__image">
+                                <img src="images/preview/{{= product.id}}.jpg" alt="{{= product.title}}">
                             </div>
-                            <div class="cart-item__price-wrapper">
-                                <div class="cart-item__quantity">
-                                                <span class="bold xxx1 large price">
-                                                    <span class="value">26 999</span>
-                                                    <span class="currency">грн</span>
-                                                </span>
-                                </div>
-                                <div class="qty-block">
-                                    <button class="qty-btn minus noneEvents">
-                                        <svg viewBox="0 0 30 30" width="9" height="9" class="yyy1">
-                                            <use xlink:href="#minus" class="red"></use>
+                            <div class="cart-item__info">
+                                <div class="cart-item__title-wrapper">
+                                    <div class="cart-item__title">
+                                        <a href="#" target="_blank" class="product-link">{{= product.title}}</a>
+                                    </div>
+                                    <div class="cart-item__remove">
+                                        <div class="cart-item__remove-close"></div>
+                                        <svg viewBox="0 0 30 30" width="12" height="12" class="yyy1">
+                                            <use xlink:href="#close-red"></use>
                                         </svg>
-                                    </button>
-                                    <span class="qty-value">1</span>
-                                    <button class="qty-btn plus">
-                                        <svg viewBox="0 0 30 30" width="9" height="9" class="yyy1">
-                                            <use xlink:href="#plus" class="green"></use>
-                                        </svg>
-                                    </button>
+                                    </div>
                                 </div>
-                                <div class="cart-item__price">
-                                                <span class="price large bold xxx1">
-                                                    <span class="value">26 999</span>
-                                                    <span class="currency">грн</span>
-                                                </span>
-                                    <div class="bonus-holder bonus-holder__cart">
-                                        <div class="bonus-info">
-                                                        <span class="bonus-info__price">
-                                                            <span class="bonus-info__price-value">+270</span>
-                                                            <span class="bonus-info__price-currency">грн</span>
-                                                        </span>
-                                            <span class="bonus-info__description">кэшбек</span>
+                                <div class="cart-item__price-wrapper">
+                                    <div class="cart-item__quantity">
+                                                    <span class="bold xxx1 large price">
+                                                        <span class="value">{{= formatPrice(product.priceWithDiscount)}}</span>
+                                                        <span class="currency">{{= i18n.t('cart.product.currency')}}</span>
+                                                    </span>
+                                    </div>
+                                    <div class="qty-block">
+                                        <button class="qty-btn minus noneEvents">
+                                            <svg viewBox="0 0 30 30" width="9" height="9" class="yyy1">
+                                                <use xlink:href="#minus" class="red"></use>
+                                            </svg>
+                                        </button>
+                                        <span class="qty-value">1</span>
+                                        <button class="qty-btn plus">
+                                            <svg viewBox="0 0 30 30" width="9" height="9" class="yyy1">
+                                                <use xlink:href="#plus" class="green"></use>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                    <div class="cart-item__price">
+                                                    <span class="price large bold xxx1">
+                                                        <span class="value">{{= formatPrice(product.priceWithDiscount)}}</span>
+                                                        <span class="currency">{{= i18n.t('cart.product.currency')}}</span>
+                                                    </span>
+                                        <div class="bonus-holder bonus-holder__cart">
+                                            <div class="bonus-info">
+                                                            <span class="bonus-info__price">
+                                                                <span class="bonus-info__price-value">+ {{= product.cashbackAmount}}</span>
+                                                                <span class="bonus-info__price-currency">{{= i18n.t('cart.product.currency')}}</span>
+                                                            </span>
+                                                <span class="bonus-info__description">{{= i18n.t('cart.product.cashback')}}</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </section>
-                <section class="cart-item">
-                    <div class="cart-item__wrapper">
-                        <div class="cart-item__image">
-                            <img src="https://img.moyo.ua/img/products/4803/45_174.jpg?1648478523" alt="Смартфон Blackview BV5500 2/16GB Dual SIM Black OFFICIAL UA">
-                        </div>
-                        <div class="cart-item__info">
-                            <div class="cart-item__title-wrapper">
-                                <div class="cart-item__title">
-                                    <a href="#" target="_blank" class="product-link">Смартфон Blackview BV5500 2/16GB Dual SIM Black OFFICIAL UA</a>
-                                </div>
-                                <div class="cart-item__remove">
-                                    <div class="cart-item__remove-close"></div>
-                                    <svg viewBox="0 0 30 30" width="12" height="12" class="yyy1">
-                                        <use xlink:href="#close-red"></use>
-                                    </svg>
-                                </div>
-                            </div>
-                            <div class="cart-item__price-wrapper">
-                                <div class="cart-item__quantity">
-                                                <span class="bold xxx1 large price">
-                                                    <span class="value">2 999</span>
-                                                    <span class="currency">грн</span>
-                                                </span>
-                                </div>
-                                <div class="qty-block">
-                                    <button class="qty-btn minus">
-                                        <svg viewBox="0 0 30 30" width="9" height="9" class="yyy1">
-                                            <use xlink:href="#minus" class="red"></use>
-                                        </svg>
-                                    </button>
-                                    <span class="qty-value">2</span>
-                                    <button class="qty-btn plus">
-                                        <svg viewBox="0 0 30 30" width="9" height="9" class="yyy1">
-                                            <use xlink:href="#plus" class="green"></use>
-                                        </svg>
-                                    </button>
-                                </div>
-                                <div class="cart-item__price">
-                                                <span class="price large bold xxx1">
-                                                    <span class="value">5 998</span>
-                                                    <span class="currency">грн</span>
-                                                </span>
-                                    <div class="bonus-holder bonus-holder__cart">
-                                        <div class="bonus-info">
-                                                        <span class="bonus-info__price">
-                                                            <span class="bonus-info__price-value">+60</span>
-                                                            <span class="bonus-info__price-currency">грн</span>
-                                                        </span>
-                                            <span class="bonus-info__description">кэшбек</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <section class="cart-item">
-                    <div class="cart-item__wrapper">
-                        <div class="cart-item__image">
-                            <img src="https://img.moyo.ua/img/products/4133/49_174.jpg?1648478576" alt="Пылесос Electrolux EEG43WR">
-                        </div>
-                        <div class="cart-item__info">
-                            <div class="cart-item__title-wrapper">
-                                <div class="cart-item__title">
-                                    <a href="#" target="_blank" class="product-link">Пылесос Electrolux EEG43WR</a>
-                                </div>
-                                <div class="cart-item__remove">
-                                    <div class="cart-item__remove-close"></div>
-                                    <svg viewBox="0 0 30 30" width="12" height="12" class="yyy1">
-                                        <use xlink:href="#close-red"></use>
-                                    </svg>
-                                </div>
-                            </div>
-                            <div class="cart-item__price-wrapper">
-                                <div class="cart-item__quantity">
-                                                <span class="bold xxx1 large price">
-                                                    <span class="value">2 999</span>
-                                                    <span class="currency">грн</span>
-                                                </span>
-                                </div>
-                                <div class="qty-block">
-                                    <button class="qty-btn minus noneEvents">
-                                        <svg viewBox="0 0 30 30" width="9" height="9" class="yyy1">
-                                            <use xlink:href="#minus" class="red"></use>
-                                        </svg>
-                                    </button>
-                                    <span class="qty-value">1</span>
-                                    <button class="qty-btn plus">
-                                        <svg viewBox="0 0 30 30" width="9" height="9" class="yyy1">
-                                            <use xlink:href="#plus" class="green"></use>
-                                        </svg>
-                                    </button>
-                                </div>
-                                <div class="cart-item__price">
-                                                <span class="price large bold  xxx1">
-                                                    <span class="value">2 999</span>
-                                                    <span class="currency">грн</span>
-                                                </span>
-                                    <div class="bonus-holder bonus-holder__cart">
-                                        <div class="bonus-info">
-                                                        <span class="bonus-info__price">
-                                                            <span class="bonus-info__price-value">+30</span>
-                                                            <span class="bonus-info__price-currency">грн</span>
-                                                        </span>
-                                            <span class="bonus-info__description">кэшбек</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <section class="cart-item">
-                    <div class="cart-item__wrapper">
-                        <div class="cart-item__image">
-                            <img src="https://img.moyo.ua/img/products/4848/14_174.jpg?1648478522" alt="Портативная акустика 2E SoundXTube TWS MP3 Wireless Waterproof Black (2E-BSSXTWBK)">
-                        </div>
-                        <div class="cart-item__info">
-                            <div class="cart-item__title-wrapper">
-                                <div class="cart-item__title">
-                                    <a href="#" target="_blank" class="product-link">Портативная акустика 2E SoundXTube TWS MP3 Wireless Waterproof Black (2E-BSSXTWBK)</a>
-                                </div>
-                                <div class="cart-item__remove">
-                                    <div class="cart-item__remove-close"></div>
-                                    <svg viewBox="0 0 30 30" width="12" height="12" class="yyy1">
-                                        <use xlink:href="#close-red"></use>
-                                    </svg>
-                                </div>
-                            </div>
-                            <div class="cart-item__price-wrapper">
-                                <div class="cart-item__quantity">
-                                                <span class="price large bold xxx1">
-                                                    <span class="value">1 449</span>
-                                                    <span class="currency">грн</span>
-                                                </span>
-                                </div>
-                                <div class="qty-block">
-                                    <button class="qty-btn minus">
-                                        <svg viewBox="0 0 30 30" width="9" height="9" class="yyy1">
-                                            <use xlink:href="#minus" class="red"></use>
-                                        </svg>
-                                    </button>
-                                    <span class="qty-value">5</span>
-                                    <button class="qty-btn plus">
-                                        <svg viewBox="0 0 30 30" width="9" height="9" class="yyy1">
-                                            <use xlink:href="#plus" class="green"></use>
-                                        </svg>
-                                    </button>
-                                </div>
-                                <div class="cart-item__price">
-                                                <span class="price large bold xxx1">
-                                                    <span class="value">7 245</span>
-                                                    <span class="currency">грн</span>
-                                                </span>
-                                    <div class="bonus-holder bonus-holder__cart">
-                                        <div class="bonus-info">
-                                                        <span class="bonus-info__price">
-                                                            <span class="bonus-info__price-value">+70</span>
-                                                            <span class="bonus-info__price-currency">грн</span>
-                                                        </span>
-                                            <span class="bonus-info__description">кэшбек</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                    </section>
+                {{~}}
+<!--                <section class="cart-item">-->
+<!--                    <div class="cart-item__wrapper">-->
+<!--                        <div class="cart-item__image">-->
+<!--                            <img src="https://img.moyo.ua/img/products/4986/35_174.jpg?1648478628" alt="Ноутбук HP Pavilion 15-eh1040ua (422K4EA)">-->
+<!--                        </div>-->
+<!--                        <div class="cart-item__info">-->
+<!--                            <div class="cart-item__title-wrapper">-->
+<!--                                <div class="cart-item__title">-->
+<!--                                    <a href="#" target="_blank" class="product-link">Ноутбук HP Pavilion 15-eh1040ua (422K4EA)</a>-->
+<!--                                </div>-->
+<!--                                <div class="cart-item__remove">-->
+<!--                                    <div class="cart-item__remove-close"></div>-->
+<!--                                    <svg viewBox="0 0 30 30" width="12" height="12" class="yyy1">-->
+<!--                                        <use xlink:href="#close-red"></use>-->
+<!--                                    </svg>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="cart-item__price-wrapper">-->
+<!--                                <div class="cart-item__quantity">-->
+<!--                                                <span class="bold xxx1 large price">-->
+<!--                                                    <span class="value">26 999</span>-->
+<!--                                                    <span class="currency">грн</span>-->
+<!--                                                </span>-->
+<!--                                </div>-->
+<!--                                <div class="qty-block">-->
+<!--                                    <button class="qty-btn minus noneEvents">-->
+<!--                                        <svg viewBox="0 0 30 30" width="9" height="9" class="yyy1">-->
+<!--                                            <use xlink:href="#minus" class="red"></use>-->
+<!--                                        </svg>-->
+<!--                                    </button>-->
+<!--                                    <span class="qty-value">1</span>-->
+<!--                                    <button class="qty-btn plus">-->
+<!--                                        <svg viewBox="0 0 30 30" width="9" height="9" class="yyy1">-->
+<!--                                            <use xlink:href="#plus" class="green"></use>-->
+<!--                                        </svg>-->
+<!--                                    </button>-->
+<!--                                </div>-->
+<!--                                <div class="cart-item__price">-->
+<!--                                                <span class="price large bold xxx1">-->
+<!--                                                    <span class="value">26 999</span>-->
+<!--                                                    <span class="currency">грн</span>-->
+<!--                                                </span>-->
+<!--                                    <div class="bonus-holder bonus-holder__cart">-->
+<!--                                        <div class="bonus-info">-->
+<!--                                                        <span class="bonus-info__price">-->
+<!--                                                            <span class="bonus-info__price-value">+270</span>-->
+<!--                                                            <span class="bonus-info__price-currency">грн</span>-->
+<!--                                                        </span>-->
+<!--                                            <span class="bonus-info__description">кэшбек</span>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </section>-->
+<!--                <section class="cart-item">-->
+<!--                    <div class="cart-item__wrapper">-->
+<!--                        <div class="cart-item__image">-->
+<!--                            <img src="https://img.moyo.ua/img/products/4803/45_174.jpg?1648478523" alt="Смартфон Blackview BV5500 2/16GB Dual SIM Black OFFICIAL UA">-->
+<!--                        </div>-->
+<!--                        <div class="cart-item__info">-->
+<!--                            <div class="cart-item__title-wrapper">-->
+<!--                                <div class="cart-item__title">-->
+<!--                                    <a href="#" target="_blank" class="product-link">Смартфон Blackview BV5500 2/16GB Dual SIM Black OFFICIAL UA</a>-->
+<!--                                </div>-->
+<!--                                <div class="cart-item__remove">-->
+<!--                                    <div class="cart-item__remove-close"></div>-->
+<!--                                    <svg viewBox="0 0 30 30" width="12" height="12" class="yyy1">-->
+<!--                                        <use xlink:href="#close-red"></use>-->
+<!--                                    </svg>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="cart-item__price-wrapper">-->
+<!--                                <div class="cart-item__quantity">-->
+<!--                                                <span class="bold xxx1 large price">-->
+<!--                                                    <span class="value">2 999</span>-->
+<!--                                                    <span class="currency">грн</span>-->
+<!--                                                </span>-->
+<!--                                </div>-->
+<!--                                <div class="qty-block">-->
+<!--                                    <button class="qty-btn minus">-->
+<!--                                        <svg viewBox="0 0 30 30" width="9" height="9" class="yyy1">-->
+<!--                                            <use xlink:href="#minus" class="red"></use>-->
+<!--                                        </svg>-->
+<!--                                    </button>-->
+<!--                                    <span class="qty-value">2</span>-->
+<!--                                    <button class="qty-btn plus">-->
+<!--                                        <svg viewBox="0 0 30 30" width="9" height="9" class="yyy1">-->
+<!--                                            <use xlink:href="#plus" class="green"></use>-->
+<!--                                        </svg>-->
+<!--                                    </button>-->
+<!--                                </div>-->
+<!--                                <div class="cart-item__price">-->
+<!--                                                <span class="price large bold xxx1">-->
+<!--                                                    <span class="value">5 998</span>-->
+<!--                                                    <span class="currency">грн</span>-->
+<!--                                                </span>-->
+<!--                                    <div class="bonus-holder bonus-holder__cart">-->
+<!--                                        <div class="bonus-info">-->
+<!--                                                        <span class="bonus-info__price">-->
+<!--                                                            <span class="bonus-info__price-value">+60</span>-->
+<!--                                                            <span class="bonus-info__price-currency">грн</span>-->
+<!--                                                        </span>-->
+<!--                                            <span class="bonus-info__description">кэшбек</span>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </section>-->
+
+<!--                <section class="cart-item">-->
+<!--                    <div class="cart-item__wrapper">-->
+<!--                        <div class="cart-item__image">-->
+<!--                            <img src="https://img.moyo.ua/img/products/4133/49_174.jpg?1648478576" alt="Пылесос Electrolux EEG43WR">-->
+<!--                        </div>-->
+<!--                        <div class="cart-item__info">-->
+<!--                            <div class="cart-item__title-wrapper">-->
+<!--                                <div class="cart-item__title">-->
+<!--                                    <a href="#" target="_blank" class="product-link">Пылесос Electrolux EEG43WR</a>-->
+<!--                                </div>-->
+<!--                                <div class="cart-item__remove">-->
+<!--                                    <div class="cart-item__remove-close"></div>-->
+<!--                                    <svg viewBox="0 0 30 30" width="12" height="12" class="yyy1">-->
+<!--                                        <use xlink:href="#close-red"></use>-->
+<!--                                    </svg>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="cart-item__price-wrapper">-->
+<!--                                <div class="cart-item__quantity">-->
+<!--                                                <span class="bold xxx1 large price">-->
+<!--                                                    <span class="value">2 999</span>-->
+<!--                                                    <span class="currency">грн</span>-->
+<!--                                                </span>-->
+<!--                                </div>-->
+<!--                                <div class="qty-block">-->
+<!--                                    <button class="qty-btn minus noneEvents">-->
+<!--                                        <svg viewBox="0 0 30 30" width="9" height="9" class="yyy1">-->
+<!--                                            <use xlink:href="#minus" class="red"></use>-->
+<!--                                        </svg>-->
+<!--                                    </button>-->
+<!--                                    <span class="qty-value">1</span>-->
+<!--                                    <button class="qty-btn plus">-->
+<!--                                        <svg viewBox="0 0 30 30" width="9" height="9" class="yyy1">-->
+<!--                                            <use xlink:href="#plus" class="green"></use>-->
+<!--                                        </svg>-->
+<!--                                    </button>-->
+<!--                                </div>-->
+<!--                                <div class="cart-item__price">-->
+<!--                                                <span class="price large bold  xxx1">-->
+<!--                                                    <span class="value">2 999</span>-->
+<!--                                                    <span class="currency">грн</span>-->
+<!--                                                </span>-->
+<!--                                    <div class="bonus-holder bonus-holder__cart">-->
+<!--                                        <div class="bonus-info">-->
+<!--                                                        <span class="bonus-info__price">-->
+<!--                                                            <span class="bonus-info__price-value">+30</span>-->
+<!--                                                            <span class="bonus-info__price-currency">грн</span>-->
+<!--                                                        </span>-->
+<!--                                            <span class="bonus-info__description">кэшбек</span>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </section>-->
+<!--                <section class="cart-item">-->
+<!--                    <div class="cart-item__wrapper">-->
+<!--                        <div class="cart-item__image">-->
+<!--                            <img src="https://img.moyo.ua/img/products/4848/14_174.jpg?1648478522" alt="Портативная акустика 2E SoundXTube TWS MP3 Wireless Waterproof Black (2E-BSSXTWBK)">-->
+<!--                        </div>-->
+<!--                        <div class="cart-item__info">-->
+<!--                            <div class="cart-item__title-wrapper">-->
+<!--                                <div class="cart-item__title">-->
+<!--                                    <a href="#" target="_blank" class="product-link">Портативная акустика 2E SoundXTube TWS MP3 Wireless Waterproof Black (2E-BSSXTWBK)</a>-->
+<!--                                </div>-->
+<!--                                <div class="cart-item__remove">-->
+<!--                                    <div class="cart-item__remove-close"></div>-->
+<!--                                    <svg viewBox="0 0 30 30" width="12" height="12" class="yyy1">-->
+<!--                                        <use xlink:href="#close-red"></use>-->
+<!--                                    </svg>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="cart-item__price-wrapper">-->
+<!--                                <div class="cart-item__quantity">-->
+<!--                                                <span class="price large bold xxx1">-->
+<!--                                                    <span class="value">1 449</span>-->
+<!--                                                    <span class="currency">грн</span>-->
+<!--                                                </span>-->
+<!--                                </div>-->
+<!--                                <div class="qty-block">-->
+<!--                                    <button class="qty-btn minus">-->
+<!--                                        <svg viewBox="0 0 30 30" width="9" height="9" class="yyy1">-->
+<!--                                            <use xlink:href="#minus" class="red"></use>-->
+<!--                                        </svg>-->
+<!--                                    </button>-->
+<!--                                    <span class="qty-value">5</span>-->
+<!--                                    <button class="qty-btn plus">-->
+<!--                                        <svg viewBox="0 0 30 30" width="9" height="9" class="yyy1">-->
+<!--                                            <use xlink:href="#plus" class="green"></use>-->
+<!--                                        </svg>-->
+<!--                                    </button>-->
+<!--                                </div>-->
+<!--                                <div class="cart-item__price">-->
+<!--                                                <span class="price large bold xxx1">-->
+<!--                                                    <span class="value">7 245</span>-->
+<!--                                                    <span class="currency">грн</span>-->
+<!--                                                </span>-->
+<!--                                    <div class="bonus-holder bonus-holder__cart">-->
+<!--                                        <div class="bonus-info">-->
+<!--                                                        <span class="bonus-info__price">-->
+<!--                                                            <span class="bonus-info__price-value">+70</span>-->
+<!--                                                            <span class="bonus-info__price-currency">грн</span>-->
+<!--                                                        </span>-->
+<!--                                            <span class="bonus-info__description">кэшбек</span>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </section>-->
             </div>
             <footer class="cart-footer">
                 <div class="cart-footer__total-holder">
                     <div class="cart-footer-price">
-                        <span class="price-text large">Сумма заказа:</span>
+                        <span class="price-text large">{{= i18n.t('cart.footer.sum')}}:</span>
                         <span class="price xxx1">
                                         <span class="value">43 241</span>
-                                        <span class="currency">грн</span>
+                                        <span class="currency">{{= i18n.t('cart.product.currency')}}</span>
                                     </span>
                     </div>
                     <div class="bonus-holder bonus-holder__cart-total">
                         <div class="bonus-info">
                                         <span class="bonus-info__price">
-                                            <span class="bonus-info__price-value">+430</span>
-                                            <span class="bonus-info__price-currency">грн</span>
+                                            <span class="bonus-info__price-value">+{{= product.cashbackAmount}}</span>
+                                            <span class="bonus-info__price-currency">{{= i18n.t('cart.product.currency')}}</span>
                                         </span>
                             <span class="bonus-info__description">кэшбек</span>
                         </div>
@@ -1393,157 +1454,14 @@
                                         <td>{{= i18n.t(`compare.product.props.producingCountry.${product[prop]}`)}}</td>
                                     {{?? prop === 'keyboardBacklit'}}
                                         <td>{{= i18n.t(`compare.product.props.keyboardBacklit.${product[prop]}`)}}</td>
+                                    {{?? prop === 'videoCardDiscrete'}}
+                                        <td>{{= i18n.t(`compare.product.props.videoCardDiscrete.${product[prop]}`)}}</td>
                                     {{??}}
                                         <td>{{= product[prop]}}</td>
                                     {{?}}
                                 {{~}}
                             </tr>
                         {{~}}
-<!--                        <tr class="prop_different">-->
-<!--                            <th>{{= i18n.t('catalog.product.processor')}}</th>-->
-<!--                            {{~ it.products :product:index}}-->
-<!--                                <td>{{= product.processorManufacturer}}</td>-->
-<!--                            {{~}}-->
-<!--                        </tr>-->
-<!--                        <tr class="prop_different">-->
-<!--                            <th>{{= i18n.t('catalog.product.producingCountry')}}</th>-->
-<!--                            {{~ it.products :product:index}}-->
-<!--                                <td>-->
-<!--                                    {{? product.producingCountry === 'China'}}-->
-<!--                                        {{= i18n.t('catalog.product.producingCountry.China')}}-->
-<!--                                    {{?}}-->
-<!--                                </td>-->
-<!--                            {{~}}-->
-<!--                        </tr>-->
-<!--                        <tr class="prop_equal">-->
-<!--                            <th>{{= i18n.t('catalog.product.color')}}</th>-->
-<!--                            {{~ it.products :product:index}}-->
-<!--                                <td>-->
-<!--                                    {{? product.color === 'silver'}}-->
-<!--                                        {{= i18n.t('catalog.product.color.silver')}}-->
-<!--                                    {{?}}-->
-<!--                                    {{? product.color === 'black'}}-->
-<!--                                        {{= i18n.t('catalog.product.color.black')}}-->
-<!--                                    {{?}}-->
-<!--                                    {{? product.color === 'white'}}-->
-<!--                                        {{= i18n.t('catalog.product.color.white')}}-->
-<!--                                    {{?}}-->
-<!--                                    {{? product.color === 'grey'}}-->
-<!--                                        {{= i18n.t('catalog.product.color.grey')}}-->
-<!--                                    {{?}}-->
-<!--                                </td>-->
-<!--                            {{~}}-->
-<!--                        </tr>-->
-<!--                        <tr class="prop_different">-->
-<!--                            <th>{{= i18n.t('catalog.product.warranty')}}</th>-->
-<!--                            {{~ it.products :product:index}}-->
-<!--                                <td>{{= product.warranty}}</td>-->
-<!--                            {{~}}-->
-<!--                        </tr>-->
-<!--                        <tr class="prop_different">-->
-<!--                            <th>{{= i18n.t('catalog.product.diagonal')}}</th>-->
-<!--                            {{~ it.products :product:index}}-->
-<!--                                <td>{{= product.diagonal}}</td>-->
-<!--                            {{~}}-->
-<!--                        </tr>-->
-<!--                        <tr class="prop_different">-->
-<!--                            <th>{{= i18n.t('catalog.product.manufacturer')}}</th>-->
-<!--                            {{~ it.products :product:index}}-->
-<!--                                <td>{{= product.manufacturer}}</td>-->
-<!--                            {{~}}-->
-<!--                        </tr>-->
-<!--                        <tr class="prop_different">-->
-<!--                            <th>{{= i18n.t('catalog.product.RAMCapacity')}}</th>-->
-<!--                            {{~ it.products :product:index}}-->
-<!--                                <td>{{= product.RAMCapacity}}</td>-->
-<!--                            {{~}}-->
-<!--                        </tr>-->
-<!--                        <tr class="prop_equal">-->
-<!--                            <th>{{= i18n.t('catalog.product.videoCardIntegrated')}}</th>-->
-<!--                            {{~ it.products :product:index}}-->
-<!--                                <td>{{= product.videoCardIntegrated}}</td>-->
-<!--                            {{~}}-->
-<!--                        </tr>-->
-<!--                        <tr class="prop_different">-->
-<!--                            <th>{{= i18n.t('catalog.product.videoCardDiscrete')}}</th>-->
-<!--                            {{~ it.products :product:index}}-->
-<!--                                <td>-->
-<!--                                    {{? product.videoCardDiscrete}}-->
-<!--                                        {{= product.videoCardDiscrete}}-->
-<!--                                    {{??}}-->
-<!--                                        {{= i18n.t('catalog.product.keyboardBacklit.no')}}-->
-<!--                                    {{?}}-->
-<!--                                </td>-->
-<!--                            {{~}}-->
-<!--                        </tr>-->
-<!--                        <tr class="prop_different">-->
-<!--                            <th>{{= i18n.t('catalog.product.SSDVolume')}}</th>-->
-<!--                            {{~ it.products :product:index}}-->
-<!--                                <td>{{= product.SSDVolume}}</td>-->
-<!--                            {{~}}-->
-<!--                        </tr>-->
-<!--                        <tr class="prop_different">-->
-<!--                            <th>{{= i18n.t('catalog.product.preinstalledOS')}}</th>-->
-<!--                            {{~ it.products :product:index}}-->
-<!--                                <td>-->
-<!--                                    {{? product.preinstalledOS}}-->
-<!--                                        {{= product.preinstalledOS}}-->
-<!--                                    {{??}}-->
-<!--                                        {{= i18n.t('catalog.product.notPreinstalledOS')}}-->
-<!--                                    {{?}}-->
-<!--                                </td>-->
-<!--                            {{~}}-->
-<!--                        </tr>-->
-<!--                        <tr class="prop_equal">-->
-<!--                            <th>{{= i18n.t('catalog.product.keyboardBacklit')}}</th>-->
-<!--                            {{~ it.products :product:index}}-->
-<!--                                <td>-->
-<!--                                    {{? product.keyboardBacklit}}-->
-<!--                                        {{= i18n.t('catalog.product.keyboardBacklit.yes')}}-->
-<!--                                    {{??}}-->
-<!--                                        {{= i18n.t('catalog.product.keyboardBacklit.no')}}-->
-<!--                                    {{?}}-->
-<!--                                </td>-->
-<!--                            {{~}}-->
-<!--                        </tr>-->
-<!--                        <tr class="prop_different">-->
-<!--                            <th>{{= i18n.t('catalog.product.weight')}}</th>-->
-<!--                            {{~ it.products :product:index}}-->
-<!--                                <td>{{= product.weight}}</td>-->
-<!--                            {{~}}-->
-<!--                        </tr>-->
-
-
-<!--                    <tr class="prop_different">-->
-<!--                        <th>Модельный ряд</th>-->
-<!--                        <td>V</td>-->
-<!--                        <td>ThinkBook 15</td>-->
-<!--                        <td>Flow X13</td>-->
-<!--                    </tr>-->
-<!--                    <tr class="prop_different">-->
-<!--                        <th>Цвет (основной)</th>-->
-<!--                        <td>Серый</td>-->
-<!--                        <td>Серый</td>-->
-<!--                        <td>Черный</td>-->
-<!--                    </tr>-->
-<!--                    <tr class="prop_equal">-->
-<!--                        <th>Страна производитель</th>-->
-<!--                        <td>Китай</td>-->
-<!--                        <td>Китай</td>-->
-<!--                        <td>Китай</td>-->
-<!--                    </tr>-->
-<!--                    <tr class="prop_different">-->
-<!--                        <th>Гарантия, мес.</th>-->
-<!--                        <td>36</td>-->
-<!--                        <td>12</td>-->
-<!--                        <td>24</td>-->
-<!--                    </tr>-->
-<!--                    <tr class="prop_different">-->
-<!--                        <th>Дисплей (диагональ)</th>-->
-<!--                        <td>15,6</td>-->
-<!--                        <td>15,6</td>-->
-<!--                        <td>13,4</td>-->
-<!--                    </tr>-->
                     </tbody>
                 </table>
             </div>
