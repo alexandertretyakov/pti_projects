@@ -1204,6 +1204,10 @@ var CatalogView = BaseView.extend({
         }];
 
         cartModel.set('items', newCartItems);
+
+        new PopupView({
+            content: new CartView().render().$el
+        }).render().$el.appendTo('body');
     },
 
     render() {
@@ -1343,15 +1347,55 @@ var CartView = BaseView.extend({
 
     events: {
         'click .qty-btn.plus': 'onPlusClick',
-        'click .qty-btn.minus': 'onMinusClick'
+        'click .qty-btn.minus': 'onMinusClick',
+        'click .cart-item__remove': 'onItemRemoveClick'
     },
 
-    onPlusClick() {
-        console.log('+');
+    onItemRemoveClick(e) {
+        var productId = e.currentTarget.dataset.product_id;
+        var cartItems = cartModel.get('items');
+
+        var newCartItems = cartItems.filter(function(item) {
+            return item.id !== productId;
+        });
+
+        cartModel.set('items', newCartItems);
     },
 
-    onMinusClick() {
-        console.log('-');
+    onPlusClick(e) {
+        var productId = e.currentTarget.dataset.product_id;
+        var cartItems = cartModel.get('items');
+
+        var newCartItems = cartItems.map(function(item) {
+            if (item.id === productId) {
+                return {
+                    id: item.id,
+                    qty: ++item.qty
+                };
+            } else {
+                return item;
+            }
+        });
+
+        cartModel.set('items', newCartItems);
+    },
+
+    onMinusClick(e) {
+        var productId = e.currentTarget.dataset.product_id;
+        var cartItems = cartModel.get('items');
+
+        var newCartItems = cartItems.map(function(item) {
+            if (item.id === productId) {
+                return {
+                    id: item.id,
+                    qty: --item.qty
+                };
+            } else {
+                return item;
+            }
+        });
+
+        cartModel.set('items', newCartItems);
     },
 
     getTemplateData() {
@@ -1362,11 +1406,23 @@ var CartView = BaseView.extend({
             ...item
         }));
 
+        var _totalAmount = __products.reduce(function(sum, item) {
+            return sum + item.priceWithDiscount;
+        }, 0);
+
+        var _totalProductsCount = cartItems.reduce(function(sum, item) {
+            return sum + item.qty;
+        }, 0);
+
+        var _totalCashbackAmount = __products.reduce(function(sum, item) {
+            return sum + item.cashbackAmount;
+        }, 0);
+
         return {
-            totalProductsCount: 19,
+            totalProductsCount: _totalProductsCount,
             products: __products,
-            totalAmount: 2000,
-            totalCashbackAmount: 222
+            totalAmount: formatPrice(_totalAmount),
+            totalCashbackAmount: formatPrice(_totalCashbackAmount)
         };
     },
 

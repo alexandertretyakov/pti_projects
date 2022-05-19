@@ -991,7 +991,7 @@
                                     <div class="cart-item__title">
                                         <a href="#" target="_blank" class="product-link">{{= product.title}}</a>
                                     </div>
-                                    <div class="cart-item__remove">
+                                    <div class="cart-item__remove" data-product_id="{{= product.id}}">
                                         <div class="cart-item__remove-close"></div>
                                         <svg viewBox="0 0 30 30" width="12" height="12" class="yyy1">
                                             <use xlink:href="#close-red"></use>
@@ -1006,13 +1006,13 @@
                                         </span>
                                     </div>
                                     <div class="qty-block">
-                                        <button class="qty-btn minus noneEvents">
+                                        <button class="qty-btn minus {{? product.qty === 1}}noneEvents{{?}}" data-product_id="{{= product.id}}">
                                             <svg viewBox="0 0 30 30" width="9" height="9" class="yyy1">
                                                 <use xlink:href="#minus" class="red"></use>
                                             </svg>
                                         </button>
-                                        <span class="qty-value">1</span>
-                                        <button class="qty-btn plus">
+                                        <span class="qty-value">{{= product.qty}}</span>
+                                        <button class="qty-btn plus" data-product_id="{{= product.id}}">
                                             <svg viewBox="0 0 30 30" width="9" height="9" class="yyy1">
                                                 <use xlink:href="#plus" class="green"></use>
                                             </svg>
