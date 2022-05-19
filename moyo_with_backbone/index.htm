@@ -36,8 +36,8 @@
                     </div>
                     <div class="item item--wish"></div>
                     <div class="item item--cart">
-                        {{? it.cartItemsCount > 0}}
-                            <div class="item--count">{{= it.cartItemsCount}}</div>
+                        {{? it.totalCartItemsCount > 0}}
+                            <div class="item--count">{{= it.totalCartItemsCount}}</div>
                         {{?}}
                     </div>
                 </div>
@@ -48,7 +48,7 @@
     <script type="text/template" id="catalog-template">
         <div class="catalog-head">
             <h1 class="item--title">Ноутбуки</h1>
-            <div class="item--count">4928 товаров</div>
+            <div class="item--count">TODO: 4928 товаров</div>
         </div>
 
         <div class="catalog-body">
@@ -739,7 +739,7 @@
                                 {{= formatPrice(product.price)}}
                             {{?}}
                             {{? product.available}}
-                                <div class="product-item_price_cashback">+ {{= product.cashbackAmount}} {{= i18n.t('catalog.product.currency')}} {{= i18n.t('catalog.product.cashback')}}</div>
+                                <div class="product-item_price_cashback">+ {{= product.cashback}} {{= i18n.t('catalog.product.currency')}} {{= i18n.t('catalog.product.cashback')}}</div>
                             {{?}}
                         </div>
                         <div class="product-item_price_{{? product.available}}oldprice{{??}}text{{?}}">
@@ -905,7 +905,7 @@
                                     {{= formatPrice(product.price)}}
                                 {{?}}
                                 {{? product.available}}
-                                    <div class="product-item_price_cashback">+ {{= product.cashbackAmount}} {{= i18n.t('catalog.product.currency')}} {{= i18n.t('catalog.product.cashback')}}</div>
+                                    <div class="product-item_price_cashback">+ {{= product.cashback}} {{= i18n.t('catalog.product.currency')}} {{= i18n.t('catalog.product.cashback')}}</div>
                                 {{?}}
                             </div>
                             <div class="product-item_price_{{? product.available}}oldprice{{??}}text{{?}}">
@@ -1020,13 +1020,13 @@
                                     </div>
                                     <div class="cart-item__price">
                                         <span class="price large bold xxx1">
-                                            <span class="value">{{= formatPrice(product.priceWithDiscount)}}</span>
+                                            <span class="value">{{= formatPrice(product.priceWithQty)}}</span>
                                             <span class="currency">{{= i18n.t('cart.product.currency')}}</span>
                                         </span>
                                         <div class="bonus-holder bonus-holder__cart">
                                             <div class="bonus-info">
                                                 <span class="bonus-info__price">
-                                                    <span class="bonus-info__price-value">+ {{= product.cashbackAmount}}</span>
+                                                    <span class="bonus-info__price-value">+ {{= product.cashbackWithQty}}</span>
                                                     <span class="bonus-info__price-currency">{{= i18n.t('cart.product.currency')}}</span>
                                                 </span>
                                                 <span class="bonus-info__description">{{= i18n.t('cart.product.cashback')}}</span>
@@ -1276,7 +1276,7 @@
                     <div class="bonus-holder bonus-holder__cart-total">
                         <div class="bonus-info">
                             <span class="bonus-info__price">
-                                <span class="bonus-info__price-value">+{{= it.totalCashbackAmount}}</span>
+                                <span class="bonus-info__price-value">+{{= it.totalCashback}}</span>
                                 <span class="bonus-info__price-currency">{{= i18n.t('cart.product.currency')}}</span>
                             </span>
                             <span class="bonus-info__description">кэшбек</span>
@@ -1307,7 +1307,7 @@
                     <div class="compare-table-scroller_thumb"></div>
                 </div>
                 <table class="compare-table">
-                    <thead class="compare-table-header compare-table-header-11-compact" style="height: 154px; scroll-behavior: smooth;">
+                    <thead class="compare-table-header compare-table-header--TODO--compact" style="height: 154px; scroll-behavior: smooth;">
                     <tr>
                         <th class="compare-table-header-key">
                             <div class="compare-table-header-actions">
@@ -1446,7 +1446,7 @@
                             'keyboardBacklit',
                             'weight'
                         ] :prop:idx}}
-                            <tr class="prop_different prop_equal">
+                            <tr class="prop_different TODO prop_equal">
                                 <th>{{= i18n.t(`compare.product.props.${prop}`)}}</th>
                                 {{~ it.products :product:index}}
                                     {{? prop === 'color'}}
@@ -1462,6 +1462,15 @@
                                     {{?}}
                                 {{~}}
                             </tr>
+                        {{~}}
+
+                        {{~ [1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9] :num:idx}}
+                        <tr>
+                            <th>xxx</th>
+                            {{~ it.products :product:index}}
+                                <td>xxx</td>
+                            {{~}}
+                        </tr>
                         {{~}}
                     </tbody>
                 </table>

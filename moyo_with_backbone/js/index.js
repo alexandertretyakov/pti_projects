@@ -1067,14 +1067,14 @@ var Products = Backbone.Collection.extend({
             return Math.ceil(price - price * discount / 100);
         };
 
-        var getCashbackAmount = function(price, rate = 0) {
+        var getCashback = function(price, rate = 0) {
             return Math.ceil(price * rate);
         };
 
         var models = Backbone.Collection.prototype.toJSON.apply(this);
         models.forEach(function(model) {
             model.priceWithDiscount = getPriceWithDiscount(model.price, model.discount);
-            model.cashbackAmount = getCashbackAmount(model.price, 0.01);
+            model.cashback = getCashback(model.price, 0.01);
         });
         return models;
     }
@@ -1133,11 +1133,14 @@ var AppView = BaseView.extend({
         var lang = appModel.get('lang');
         var compareItems = compareModel.get('items');
         var cartItems = cartModel.get('items');
+        var totalCartItemsCount = cartItems.reduce(function(sum, product) {
+            return sum + product.qty;
+        }, 0);
 
         this.$('.header-container').html(this.tmpl('header', {
             lang: lang,
             compareItemsCount: compareItems.length,
-            cartItemsCount: cartItems.length
+            totalCartItemsCount: totalCartItemsCount
         }));
     },
 
@@ -1193,15 +1196,16 @@ var CatalogView = BaseView.extend({
         var productId = e.target.dataset.productId;
         var cartItems = cartModel.get('items');
 
-        var newCartItems = cartItems.some(function(el) {
-            return el.id === productId;
-        }) ?
-            cartItems
-           :
-            [...cartItems, {
-            id: productId,
-            qty: 1
-        }];
+        var newCartItems = cartItems.find((item) => item.id === productId) ?
+            // TODO: qty товара должно увеличиться на 1
+            cartItems :
+            [
+                ...cartItems,
+                {
+                    id: productId,
+                    qty: 1
+                }
+            ];
 
         cartModel.set('items', newCartItems);
 
@@ -1304,11 +1308,16 @@ var CompareView = BaseView.extend({
         return _products.filter((i) => ids.includes(i.id));
     },
 
+    isPropEqual(products, prop) {
+        // TODO true or false
+    },
+
     render() {
         var compareItemsIds = compareModel.get('items');
 
         this.$el.html(this.tmpl('compare', {
-            products: this.getProductsByIds(compareItemsIds)
+            products: this.getProductsByIds(compareItemsIds),
+            isPropEqual: this.isPropEqual
         }));
 
         return this;
@@ -1348,10 +1357,10 @@ var CartView = BaseView.extend({
     events: {
         'click .qty-btn.plus': 'onPlusClick',
         'click .qty-btn.minus': 'onMinusClick',
-        'click .cart-item__remove': 'onItemRemoveClick'
+        'click .cart-item__remove': 'onRemoveClick'
     },
 
-    onItemRemoveClick(e) {
+    onRemoveClick(e) {
         var productId = e.currentTarget.dataset.product_id;
         var cartItems = cartModel.get('items');
 
@@ -1370,7 +1379,7 @@ var CartView = BaseView.extend({
             if (item.id === productId) {
                 return {
                     id: item.id,
-                    qty: ++item.qty
+                    qty: item.qty + 1
                 };
             } else {
                 return item;
@@ -1388,7 +1397,7 @@ var CartView = BaseView.extend({
             if (item.id === productId) {
                 return {
                     id: item.id,
-                    qty: --item.qty
+                    qty: item.qty - 1
                 };
             } else {
                 return item;
@@ -1401,28 +1410,34 @@ var CartView = BaseView.extend({
     getTemplateData() {
         var cartItems = cartModel.get('items');
         var _products = products.toJSON();
-        var __products = cartItems.map((item) => ({
-            ..._.findWhere(_products, {id: item.id}),
-            ...item
-        }));
+        var __products = cartItems.map((cartItem) => {
+            let product = _.findWhere(_products, {id: cartItem.id});
 
-        var _totalAmount = __products.reduce(function(sum, item) {
-            return sum + item.priceWithDiscount;
+            return {
+                ...product,
+                ...cartItem,
+                priceWithQty: product.priceWithDiscount*cartItem.qty,
+                cashbackWithQty: product.cashback*cartItem.qty
+            };
+        });
+
+        var _totalAmount = __products.reduce(function(sum, product) {
+            return sum + product.priceWithQty;
         }, 0);
 
-        var _totalProductsCount = cartItems.reduce(function(sum, item) {
-            return sum + item.qty;
+        var _totalProductsCount = cartItems.reduce(function(sum, product) {
+            return sum + product.qty;
         }, 0);
 
-        var _totalCashbackAmount = __products.reduce(function(sum, item) {
-            return sum + item.cashbackAmount;
+        var _totalCashback = __products.reduce(function(sum, product) {
+            return sum + product.cashbackWithQty;
         }, 0);
 
         return {
             totalProductsCount: _totalProductsCount,
             products: __products,
             totalAmount: formatPrice(_totalAmount),
-            totalCashbackAmount: formatPrice(_totalCashbackAmount)
+            totalCashback: _totalCashback
         };
     },
 
