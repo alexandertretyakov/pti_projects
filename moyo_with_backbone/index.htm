@@ -1446,7 +1446,7 @@
                             'keyboardBacklit',
                             'weight'
                         ] :prop:idx}}
-                            <tr class="{{? it.isPropEqual(it.products, prop)}}prop_equal{{??}}prop_different{{?}}">
+                            <tr TODO class="{{? it.isPropEqual(it.products, prop)}}prop_equal{{??}}prop_different{{?}}">
                                 <th>{{= i18n.t(`compare.product.props.${prop}`)}}</th>
                                 {{~ it.products :product:index}}
                                     {{? prop === 'color'}}

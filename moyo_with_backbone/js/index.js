@@ -1058,7 +1058,8 @@ var catalogModel = new Backbone.Model({
 });
 
 var compareModel = new Backbone.Model({
-    items: []           // product IDs
+    items: [],          // product IDs
+    propsFilter: ''     // TODO
 });
 
 var cartModel = new Backbone.Model({
@@ -1295,13 +1296,19 @@ var CatalogView = BaseView.extend({
 var CompareView = BaseView.extend({
     initialize() {
         this.listenTo(compareModel, 'change:items', this.render);
+        this.listenTo(compareModel, 'change:TODO', this.render);
         window.addEventListener('scroll', this.onScroll.bind(this));
     },
 
     className: 'compare',
 
     events: {
-        'click .product-card_remove': 'onRemoveClick'
+        'click .product-card_remove': 'onRemoveClick',
+        'change .category-filter': 'onPropsFilterChange'
+    },
+
+    onPropsFilterChange(e) {
+        // TODO
     },
 
     onRemoveClick(e) {
@@ -1323,17 +1330,11 @@ var CompareView = BaseView.extend({
     },
 
     isPropEqual(products, prop) {
-        return products.every(function(item) {
-            return item[prop] === products[0][prop];
-        });
+        return products.every((product) => product[prop] === products[0][prop]);
     },
 
     onScroll() {
-        if (window.scrollY > 300) {
-            this.$('.compare-table-header').addClass('compare-table-header--compact');
-        } else {
-            this.$('.compare-table-header').removeClass('compare-table-header--compact');
-        }
+        this.$('.compare-table-header').toggleClass('compare-table-header--compact', window.scrollY > 300);
     },
 
     render() {
