@@ -960,6 +960,7 @@ var translationsRU = {
     'compare.product.props.preinstalledOS': 'Предустановленная ОС',
     'compare.product.props.notPreinstalledOS': 'Без ОС',
     'compare.product.props.videoCardDiscrete': 'Видеокарта (дискретная)',
+    'compare.product.props.videoCardDiscrete.false': 'Нет',
     'compare.product.props.videoCardIntegrated': 'Видеокарта (интегрированная)',
     'compare.product.props.keyboardBacklit': 'Клавиатура (подсветка)',
     'compare.product.props.keyboardBacklit.true': 'Есть',
@@ -994,6 +995,7 @@ var translationsUA = {
     'catalog.product.preinstalledOS': 'Попередньо встановлена ОС',
     'catalog.product.notPreinstalledOS': 'Без ОС',
     'catalog.product.videoCardDiscrete': 'Відеокарта (дискретна)',
+    'compare.product.props.videoCardDiscrete.false': 'Ні',
     'catalog.product.videoCardIntegrated': 'Відеокарта (інтегрована)',
     'catalog.product.keyboardBacklit': 'Клавіатура (підсвічування)',
     'catalog.product.warranty': 'Гарантія, міс.',
@@ -1023,6 +1025,8 @@ var translationsUA = {
     'compare.product.props.videoCardDiscrete': 'Відеокарта (дискретна)',
     'compare.product.props.videoCardIntegrated': 'Відеокарта (інтегрована)',
     'compare.product.props.keyboardBacklit': 'Клавіатура (підсвічування)',
+    'compare.product.props.keyboardBacklit.true': 'Є',
+    'compare.product.props.keyboardBacklit.false': 'Ні',
     'compare.product.props.warranty': 'Гарантія, міс.',
     'cart.product.currency': 'грн',
     'cart.product.cashback': 'кешбек',
@@ -1197,8 +1201,17 @@ var CatalogView = BaseView.extend({
         var cartItems = cartModel.get('items');
 
         var newCartItems = cartItems.find((item) => item.id === productId) ?
-            // TODO: qty товара должно увеличиться на 1
-            cartItems :
+            cartItems.map((item) => {
+                if(item.id === productId) {
+                    return {
+                        ...item,
+                        qty: item.qty + 1
+                    };
+                } else {
+                    return item;
+                }
+            })
+             :
             [
                 ...cartItems,
                 {
@@ -1282,6 +1295,7 @@ var CatalogView = BaseView.extend({
 var CompareView = BaseView.extend({
     initialize() {
         this.listenTo(compareModel, 'change:items', this.render);
+        window.addEventListener('scroll', this.onScroll.bind(this));
     },
 
     className: 'compare',
@@ -1309,7 +1323,17 @@ var CompareView = BaseView.extend({
     },
 
     isPropEqual(products, prop) {
-        // TODO true or false
+        return products.every(function(item) {
+            return item[prop] === products[0][prop];
+        });
+    },
+
+    onScroll() {
+        if (window.scrollY > 300) {
+            this.$('.compare-table-header').addClass('compare-table-header--compact');
+        } else {
+            this.$('.compare-table-header').removeClass('compare-table-header--compact');
+        }
     },
 
     render() {

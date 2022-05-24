@@ -1307,7 +1307,7 @@
                     <div class="compare-table-scroller_thumb"></div>
                 </div>
                 <table class="compare-table">
-                    <thead class="compare-table-header compare-table-header--TODO--compact" style="height: 154px; scroll-behavior: smooth;">
+                    <thead class="compare-table-header" style="height: 154px; scroll-behavior: smooth;">
                     <tr>
                         <th class="compare-table-header-key">
                             <div class="compare-table-header-actions">
@@ -1446,7 +1446,7 @@
                             'keyboardBacklit',
                             'weight'
                         ] :prop:idx}}
-                            <tr class="prop_different TODO prop_equal">
+                            <tr class="{{? it.isPropEqual(it.products, prop)}}prop_equal{{??}}prop_different{{?}}">
                                 <th>{{= i18n.t(`compare.product.props.${prop}`)}}</th>
                                 {{~ it.products :product:index}}
                                     {{? prop === 'color'}}
@@ -1455,8 +1455,10 @@
                                         <td>{{= i18n.t(`compare.product.props.producingCountry.${product[prop]}`)}}</td>
                                     {{?? prop === 'keyboardBacklit'}}
                                         <td>{{= i18n.t(`compare.product.props.keyboardBacklit.${product[prop]}`)}}</td>
-                                    {{?? prop === 'videoCardDiscrete'}}
+                                    {{?? prop === 'videoCardDiscrete' && product[prop] === false}}
                                         <td>{{= i18n.t(`compare.product.props.videoCardDiscrete.${product[prop]}`)}}</td>
+                                    {{?? prop === 'preinstalledOS' && product[prop] === null}}
+                                        <td>{{= i18n.t('compare.product.props.notPreinstalledOS')}}</td>
                                     {{??}}
                                         <td>{{= product[prop]}}</td>
                                     {{?}}
