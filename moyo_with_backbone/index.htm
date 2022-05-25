@@ -47,8 +47,8 @@
 
     <script type="text/template" id="catalog-template">
         <div class="catalog-head">
-            <h1 class="item--title">Ноутбуки</h1>
-            <div class="item--count">TODO: 4928 товаров</div>
+            <h1 class="item--title">{{= i18n.t('catalog.header.title')}}</h1>
+            <div class="item--count">{{= it.productsCount}} товаров</div>
         </div>
 
         <div class="catalog-body">
@@ -1295,7 +1295,7 @@
     </script>
 
     <script type="text/template" id="compare-template">
-        <h1 class="compare-title">Сравнение</h1>
+        <h1 class="compare-title">{{= i18n.t('catalog.head.title')}}</h1>
 
         <div class="compare-table-wrap">
             <div class="compare-table-scroll compare-table-scroll--horizontal">
@@ -1313,9 +1313,9 @@
                             <div class="compare-table-header-actions">
                                 <div class="select compare-table-header-action-filter">
                                     <select class="category-filter">
-                                        <option class="category-filter-item" value="">Все характеристики</option>
-                                        <option class="category-filter-item" value="prop_different">Только отличия</option>
-                                        <option class="category-filter-item" value="prop_equal">Только совпадения</option>
+                                        {{~ ['all', 'different', 'equal'] :propsFilter:idx}}
+                                            <option class="category-filter-item" value="{{= propsFilter}}" {{? it.propsFilter === propsFilter}}selected{{?}}>{{= i18n.t(`catalog.head.dropdown.${propsFilter}`)}}</option>
+                                        {{~}}
                                     </select>
                                 </div>
                             </div>
@@ -1446,33 +1446,35 @@
                             'keyboardBacklit',
                             'weight'
                         ] :prop:idx}}
-                            <tr TODO class="{{? it.isPropEqual(it.products, prop)}}prop_equal{{??}}prop_different{{?}}">
-                                <th>{{= i18n.t(`compare.product.props.${prop}`)}}</th>
-                                {{~ it.products :product:index}}
-                                    {{? prop === 'color'}}
-                                        <td>{{= i18n.t(`compare.product.props.color.${product[prop]}`)}}</td>
-                                    {{?? prop === 'producingCountry'}}
-                                        <td>{{= i18n.t(`compare.product.props.producingCountry.${product[prop]}`)}}</td>
-                                    {{?? prop === 'keyboardBacklit'}}
-                                        <td>{{= i18n.t(`compare.product.props.keyboardBacklit.${product[prop]}`)}}</td>
-                                    {{?? prop === 'videoCardDiscrete' && product[prop] === false}}
-                                        <td>{{= i18n.t(`compare.product.props.videoCardDiscrete.${product[prop]}`)}}</td>
-                                    {{?? prop === 'preinstalledOS' && product[prop] === null}}
-                                        <td>{{= i18n.t('compare.product.props.notPreinstalledOS')}}</td>
-                                    {{??}}
-                                        <td>{{= product[prop]}}</td>
-                                    {{?}}
-                                {{~}}
-                            </tr>
+                            {{? it.propsFilter === 'all' || it.propsFilter === it.isPropEqual(it.products, prop) ? 'equal' : 'different'}}
+                                <tr class="{{? it.isPropEqual(it.products, prop)}}prop_equal{{??}}prop_different{{?}}">
+                                    <th>{{= i18n.t(`compare.product.props.${prop}`)}}</th>
+                                    {{~ it.products :product:index}}
+                                        {{? prop === 'color'}}
+                                            <td>{{= i18n.t(`compare.product.props.color.${product[prop]}`)}}</td>
+                                        {{?? prop === 'producingCountry'}}
+                                            <td>{{= i18n.t(`compare.product.props.producingCountry.${product[prop]}`)}}</td>
+                                        {{?? prop === 'keyboardBacklit'}}
+                                            <td>{{= i18n.t(`compare.product.props.keyboardBacklit.${product[prop]}`)}}</td>
+                                        {{?? prop === 'videoCardDiscrete' && product[prop] === false}}
+                                            <td>{{= i18n.t(`compare.product.props.videoCardDiscrete.${product[prop]}`)}}</td>
+                                        {{?? prop === 'preinstalledOS' && product[prop] === null}}
+                                            <td>{{= i18n.t('compare.product.props.notPreinstalledOS')}}</td>
+                                        {{??}}
+                                            <td>{{= product[prop]}}</td>
+                                        {{?}}
+                                    {{~}}
+                                </tr>
+                            {{?}}
                         {{~}}
 
                         {{~ [1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9] :num:idx}}
-                        <tr>
-                            <th>xxx</th>
-                            {{~ it.products :product:index}}
-                                <td>xxx</td>
-                            {{~}}
-                        </tr>
+                            <tr>
+                                <th>xxx</th>
+                                {{~ it.products :product:index}}
+                                    <td>xxx</td>
+                                {{~}}
+                            </tr>
                         {{~}}
                     </tbody>
                 </table>

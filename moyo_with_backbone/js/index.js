@@ -914,6 +914,7 @@ var formatPrice = function(price) {
 var translationsRU = {
     'global.yes': 'Да',
     'global.no': 'Нет',
+    'catalog.header.title': 'Ноутбуки',
     'app.header.lang.ru': 'Рус',
     'app.header.lang.ua': 'Укр',
     'catalog.product.price': 'Цена',
@@ -943,6 +944,10 @@ var translationsRU = {
     'catalog.head.showFirst': 'Показать сначала',
     'catalog.head.ascending_price': 'дешевые',
     'catalog.head.descending_price': 'дорогие',
+    'catalog.head.dropdown.all': 'Все характеристики',
+    'catalog.head.dropdown.different': 'Только отличия',
+    'catalog.head.dropdown.equal': 'Только совпадения',
+    'catalog.head.title': 'Сранение',
     'catalog.product.SSDVolume': 'Объём SSD',
     'compare.product.props.color': 'Цвет',
     'compare.product.props.color.silver': 'Серебристый',
@@ -976,6 +981,7 @@ var translationsRU = {
 var translationsUA = {
     'global.yes': 'Так',
     'global.no': 'Ні',
+    'catalog.header.title': 'Ноутбуки',
     'app.header.lang.ru': 'Рус',
     'app.header.lang.ua': 'Укр',
     'catalog.product.price': 'Ціна',
@@ -1006,6 +1012,10 @@ var translationsUA = {
     'catalog.head.showFirst': 'Показати одразу',
     'catalog.head.ascending_price': 'дешеві',
     'catalog.head.descending_price': 'дорогі',
+    'catalog.head.dropdown.all': 'Усі характеристики',
+    'catalog.head.dropdown.different': 'Тільки відмінності',
+    'catalog.head.dropdown.equal': 'Тільки збіги',
+    'catalog.head.title': 'Порівняння',
     'catalog.product.SSDVolume': 'Об\'єм SSD',
     'compare.product.props.color': 'Колір',
     'compare.product.props.color.silver': 'Сріблястий',
@@ -1059,7 +1069,7 @@ var catalogModel = new Backbone.Model({
 
 var compareModel = new Backbone.Model({
     items: [],          // product IDs
-    propsFilter: ''     // TODO
+    propsFilter: 'all'     // all different equal
 });
 
 var cartModel = new Backbone.Model({
@@ -1229,7 +1239,9 @@ var CatalogView = BaseView.extend({
     },
 
     render() {
-        this.$el.html(this.tmpl('catalog'));
+        this.$el.html(this.tmpl('catalog', {
+            productsCount: products.length
+        }));
 
         this.renderFilter();
         this.renderContentHead();
@@ -1296,7 +1308,7 @@ var CatalogView = BaseView.extend({
 var CompareView = BaseView.extend({
     initialize() {
         this.listenTo(compareModel, 'change:items', this.render);
-        this.listenTo(compareModel, 'change:TODO', this.render);
+        this.listenTo(compareModel, 'change:propsFilter', this.render);
         window.addEventListener('scroll', this.onScroll.bind(this));
     },
 
@@ -1308,7 +1320,9 @@ var CompareView = BaseView.extend({
     },
 
     onPropsFilterChange(e) {
-        // TODO
+        var propsFilter = e.currentTarget.value;
+
+        compareModel.set('propsFilter', propsFilter);
     },
 
     onRemoveClick(e) {
@@ -1339,10 +1353,12 @@ var CompareView = BaseView.extend({
 
     render() {
         var compareItemsIds = compareModel.get('items');
+        var propsFilter = compareModel.get('propsFilter');
 
         this.$el.html(this.tmpl('compare', {
             products: this.getProductsByIds(compareItemsIds),
-            isPropEqual: this.isPropEqual
+            isPropEqual: this.isPropEqual,
+            propsFilter: propsFilter
         }));
 
         return this;
