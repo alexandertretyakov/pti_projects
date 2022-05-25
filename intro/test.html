@@ -83,6 +83,7 @@
     <div class="task-four">
         <h2>Canvas</h2>
         <canvas id="myCanvas" width="400" height="400"></canvas>
+        <canvas id="myCanvas2" width="400" height="400"></canvas>
     </div>
 
     <div class="task-five">
@@ -104,6 +105,21 @@
         ctx.closePath();
         ctx.stroke();
         ctx.fill();
+    </script>
+
+    <script>
+        let canvas2 = document.querySelector('#myCanvas2');
+        let ctx2 = canvas2.getContext('2d');
+
+        let x = 50;
+        while (x < 350) {
+            ctx2.lineTo(x, 40 * Math.sin(x) + 100);
+            x += 3;
+        }
+
+        ctx2.strokeStyle = 'green';
+        ctx2.lineWidth = 1;
+        ctx2.stroke();
     </script>
 
     <div class="task-six">
