@@ -7,7 +7,11 @@
 // isEven(7);
 // => false
 const isEven = (number) => {
-    // write you code here
+     if (number % 2 === 0) {
+         return true;
+     } else {
+         return false;
+     }
 };
 
 
@@ -22,7 +26,14 @@ const isEven = (number) => {
 // indexOf([7, 2, 3], 5);
 // => -1
 const indexOf = (array, value) => {
-    // write you code here
+    var i = 0;
+    while(i < array.length) {
+        if (array[i] === value) {
+            return i;
+        }
+        i++;
+    }
+    return -1;
 };
 
 
@@ -33,7 +44,13 @@ const indexOf = (array, value) => {
 // reverse([1, 'lol', 5, {}, []]);
 // => [[], {}, 5, "lol", 1]
 const reverse = (array) => {
-    // write you code here
+    var i = array.length-1;
+    var arrayCopy = [];
+    while(i >= 0) {
+        arrayCopy[arrayCopy.length] = array[i];
+        i--;
+    }
+    return arrayCopy;
 };
 
 
@@ -45,7 +62,14 @@ const reverse = (array) => {
 // contains([1, 2, 3], 3);
 // => true
 const contains = (array, value) => {
-    // write you code here
+    var i = 0;
+    while(i < array.length) {
+        if (array[i] === value) {
+            return true;
+        }
+        i++;
+    }
+    return false;
 };
 
 
@@ -56,7 +80,13 @@ const contains = (array, value) => {
 // slice(['ant', 'bison', 'camel', 'duck', 'elephant'], 2, 3);
 // => ['camel', 'duck']
 const slice = (array, begin, end) => {
-    // write you code here
+    var i = begin;
+    var arrayCopy = [];
+    while(i <= end) {
+        arrayCopy[arrayCopy.length] = array[i];
+        i++;
+    }
+    return arrayCopy;
 };
 
 
@@ -67,7 +97,15 @@ const slice = (array, begin, end) => {
 // min([10, 5, 100, 2, 1000]);
 // => 2
 const min = (array) => {
-    // write you code here
+    var i = 1;
+    var min = array[0];
+    while(i < array.length) {
+        if (min > array[i]) {
+            min = array[i];
+        }
+        i++;
+    }
+    return min;
 };
 
 
@@ -78,7 +116,13 @@ const min = (array) => {
 // sum([2, 2, 3]);
 // => 7
 const sum = (array) => {
-    // write you code here
+    var i = 0;
+    var sum =0;
+    while(i < array.length) {
+        sum = sum + array[i];
+        i++;
+    }
+    return sum;
 };
 
 
@@ -89,7 +133,12 @@ const sum = (array) => {
 // keys({one: 1, two: 2, three: 3});
 // => ["one", "two", "three"]
 const keys = (object) => {
-    // write you code here
+    var arrayKeys = [];
+    var prop;
+    for(prop in object) {
+        arrayKeys[arrayKeys.length] = prop;
+    }
+    return arrayKeys;
 };
 
 
@@ -100,7 +149,12 @@ const keys = (object) => {
 // pairs({one: 1, two: 2, three: 3});
 // => [["one", 1], ["two", 2], ["three", 3]]
 const pairs = (object) => {
-    // write you code here
+    var arrayPairs = [];
+    var prop;
+    for(prop in object) {
+        arrayPairs[arrayPairs.length] = [prop, object[prop]];
+    }
+    return arrayPairs;
 };
 
 
@@ -112,7 +166,12 @@ const pairs = (object) => {
 // invert({Moe: "Moses", Larry: "Louis", Curly: "Jerome"});
 // => {Moses: "Moe", Louis: "Larry", Jerome: "Curly"}
 const invert = (object) => {
-    // write you code here
+    var prop;
+    var objCopy = {};
+    for(prop in object) {
+        objCopy[object[prop]] = prop;
+    }
+    return objCopy;
 };
 
 
@@ -123,7 +182,13 @@ const invert = (object) => {
 // has({a: 1, b: 2, c: 3}, 'b');
 // => true
 const has = (object, property) => {
-    // write you code here
+    var prop;
+    for(prop in object) {
+        if (prop === property) {
+            return true;
+        }
+    }
+    return false;
 };
 
 
@@ -134,7 +199,14 @@ const has = (object, property) => {
 // omit({name: 'moe', age: 50, userid: 'moe1'}, 'userid');
 // => {name: 'moe', age: 50}
 const omit = (object, property) => {
-    // write you code here
+    var prop;
+    var copyObj = {};
+    for(prop in object) {
+        if (property !== prop) {
+            copyObj[prop] = object[prop];
+        }
+    }
+    return copyObj;
 };
 
 
@@ -146,7 +218,13 @@ const omit = (object, property) => {
 // map([1, 2, 3], function(value) { return value * 3; });
 // => [3, 6, 9]
 const map = (array, iteratee) => {
-    // write you code here
+    var i = 0;
+    var arrayCopy = [];
+    while(i < array.length) {
+        arrayCopy[arrayCopy.length] = iteratee(array[i], i);
+        i++;
+    }
+    return arrayCopy;
 };
 
 
@@ -157,7 +235,14 @@ const map = (array, iteratee) => {
 // find([1, 2, 3, 4, 5, 6], function(num) { return num % 2 === 0; });
 // => 2
 const find = (list, predicate) =>  {
-    // write you code here
+    var i = 0;
+    while(i < list.length) {
+        if (predicate(list[i], i)) {
+            return true;
+        }
+        i++;
+    }
+    return false;
 };
 
 
@@ -168,7 +253,15 @@ const find = (list, predicate) =>  {
 // filter([1, 2, 3, 4, 5, 6], function(num) { return num % 2 === 0; });
 // => [2, 4, 6]
 const filter = (list, predicate) => {
-    // write you code here
+    var i = 0;
+    var listCopy = [];
+    while(i < list.length) {
+        if (predicate(list[i], i)) {
+            listCopy[listCopy.length] = list[i];
+        }
+        i++;
+    }
+    return listCopy;
 };
 
 
@@ -179,7 +272,14 @@ const filter = (list, predicate) => {
 // every([2, 4, 5], function(num) { return num % 2 === 0; });
 // => false
 const every = (list, predicate) => {
-    // write you code here
+    var i = 0;
+    while(i < list.length) {
+        if (predicate(list[i], i) !== true) {
+            return false;
+        }
+        i++;
+    }
+    return true;
 };
 
 
@@ -190,5 +290,16 @@ const every = (list, predicate) => {
 // reduce([1, 2, 3], function(memo, num) { return memo + num; }, 0);
 // => 6
 const reduce = (list, iteratee, memo) => {
-    // write you code here
+    var i = 0;
+
+    if (memo === undefined) {
+        memo = list[0];
+        i = 1;
+    }
+
+    while(i < list.length) {
+        memo = iteratee(memo, list[i]);
+        i++;
+    }
+    return memo;
 };
