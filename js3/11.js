@@ -303,3 +303,31 @@ const reduce = (list, iteratee, memo) => {
     }
     return memo;
 };
+
+const uniq = (list) => {
+    return list.reduce((memo, item) => {
+        if(!memo.includes(item)) {
+            memo.push(item);
+        }
+        return memo;
+    }, []);
+};
+
+const flatten = (list) => {
+    return list.reduce((memo, item) => {
+        return [...memo, ...item];
+    }, []);
+};
+
+const count = (list) => {
+    return list.reduce((memo, fruit) => {
+        memo[fruit] = memo[fruit] ? memo[fruit] + 1 : 1;
+        return memo;
+    }, {});
+};
+
+const pipe = (list, value) => {
+    return list.reduce((memo, fn) => {
+        return fn(memo);
+    }, value);
+};
