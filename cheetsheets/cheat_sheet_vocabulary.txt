@@ -522,8 +522,9 @@ log                             регистрационный журнал
 assign                          назначать
 deploy                          развертывать, развертывание
 build
-RFD
-RFT
+RFD (Ready For Deploy)          готов для деплоя(выливка)
+RFT (Ready For Testing)         готов для тестирования
+STR (Steps To Reproduce)        шаги к воспроизведению
 code review                     обзор кода
 fix                             исправлять, чинить
 share                           делиться
