@@ -548,5 +548,6 @@ merge request                   запрос на слияние
 CR (change request)             запрос на изменение
 collaborator                    сотрудник
 bundle                          пакет
+approve                         одобрять
 
 **************************** General ************************
