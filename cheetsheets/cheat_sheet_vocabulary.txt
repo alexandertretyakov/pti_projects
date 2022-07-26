@@ -500,19 +500,18 @@ load
 readystatechange
 
 xhr
-    open
-    send
-    status
+    open                        открывать
+    send                        отправлять
+    status                      статус
     readyState
     responseText
 
-**************************** General ************************
+**************************** General IT ************************
 
 commit                          фиксировать
 push                            толкать
 pull                            тянуть
 fetch                           приносить
-
 task                            задача
 issue                           проблема
 bug                             ошибка, жук
@@ -522,9 +521,9 @@ log                             регистрационный журнал
 assign                          назначать
 deploy                          развертывать, развертывание
 build
-RFD (Ready For Deploy)          готов для деплоя(выливка)
-RFT (Ready For Testing)         готов для тестирования
-STR (Steps To Reproduce)        шаги к воспроизведению
+RFD (ready for deploy)          готов к развертыванию
+RFT (ready for testing)         готов к тестированию
+STR (steps to reproduce)        шаги по воспроизведению
 code review                     обзор кода
 fix                             исправлять, чинить
 share                           делиться
@@ -533,3 +532,21 @@ mobile                          мобильный, передвижной
 tablet                          планшет, дощечка
 required                        требуемый, необходимый
 instance                        экземпляр
+requirement                     требование
+env (environment)               среда
+effort                          усилие
+expect                          ожидать
+capacity                        вместимость
+feature                         особенность, свойство
+high-level                      высокий уровень
+setup                           настраивать
+track                           следить, отслеживать
+retro (retrospective)           ретроспективный
+branch                          ветка
+merge                           соединять
+merge request                   запрос на слияние
+CR (change request)             запрос на изменение
+collaborator                    сотрудник
+bundle                          пакет
+
+**************************** General ************************
