@@ -562,5 +562,9 @@ internal                        внутренний
 promotion                       поощрение
 support                         поддержка
 redirect                        перенаправить
+ETA (estimated time of arrival) расчётное время прибытия (поезда)
+scope                           рамки, границы, сфера действия
+call                            звонить по телефону
+KYC (know your customer)        знай своего клиента
 
 **************************** General ************************
