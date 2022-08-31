@@ -508,11 +508,161 @@ xhr
 
 **************************** Underscore ************************
 
-TODO
+Коллекции
+    each
+    map
+    reduce
+    reduceRight
+    find
+    filter
+    where
+    findWhere
+    reject              отклонять, отвергать, отказываться
+    every
+    some
+    contains
+    pluck               ощипывать, срывать
+    max
+    min
+    sortBy
+    shuffle             тасовать
+    sample              образец
+    toArray
+    size
+    partition           перегородка
+
+Массивы
+    first
+    last
+    rest
+    compact
+    flatten
+    without             без
+    union
+    intersection        пересечение, перекресток
+    difference          разница, различие
+    uniq
+    indexOf
+    lastIndexOf
+    findIndex
+    findLastIndex
+
+Функции
+    bind
+    throttle            дроссель (ограничитель)
+    once
+    compose
+
+Объекты
+    keys
+    values
+    pairs
+    invert
+    create
+    extend              расширять
+    pick                выбирать, собирать
+    omit                пропускать
+    defaults
+    has
+    isEqual
+    isMatch
+    isEmpty
+    isArray
+    isObject
+    isFunction
+    isString
+    isNumber
+    isBoolean
+    isNull
+    isUndefined
+
+Утилиты
+    noConflict
+    noop
+    random
+    uniqueId
+    result
+    now
 
 **************************** jQuery ****************************
 
-TODO
+Ajax
+    jQuery.ajax()
+    .serialize()
+    .serializeArray()
+
+Attributes
+    .addClass()
+    .attr()
+    .hasClass()
+    .html()
+    .removeAttr()
+    .removeClass()
+    .toggleClass()
+    .val()
+
+Core
+    jQuery()
+    jQuery.noConflict()
+
+CSS
+    .css()
+
+Data
+    .data()
+
+Events
+    .click()
+    .off()
+    .on()
+    .one()
+    trigger             триггер, спусковой крючок
+
+Manipulation
+    .after()
+    append              добавлять, присоединять
+    append to           добавить к
+    .before()
+    .clone()
+    .empty()
+    insert after        вставить после
+    insert before       вставить перед
+    prepend             предварять
+    .prependTo()
+    .remove()
+    .replaceAll()
+    .replaceWith()
+    .text()
+    unwrap              разворачивать, развертывать
+    wrap                обертывать, заворачивать
+    .wrapInner()
+
+Miscellaneous
+    .each()
+    .get()
+    .index()
+    .toArray()
+
+Properties
+    .length
+
+Traversing
+    .add()
+    .children()
+    closest             ближайший
+    .eq()
+    .find()
+    .has()
+    .first()
+    .last()
+    .next()
+    .nextAll()
+    .parent()
+    .prev()
+    .prevAll()
+
+Utilities
+    jQuery.contains()
 
 **************************** General IT ************************
 
