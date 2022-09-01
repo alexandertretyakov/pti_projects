@@ -5,27 +5,27 @@
 
 
 // Создать функции size, last, getPositiveNumbers, without, min, sum, как методы массивов
-Array.prototype.size = function () {
+Array.prototype.size = function() {
     return this.length;
 };
 
-Array.prototype.last = function () {
-    return this[this.length-1];
-}
+Array.prototype.last = function() {
+    return this[this.length - 1];
+};
 
-Array.prototype.getPositiveNumbers = function () {
+Array.prototype.getPositiveNumbers = function() {
     var i = 0;
     var result = [];
     while (i < this.length) {
         if (this[i] > 0) {
             result[result.length] = this[i];
         }
-        i++
+        i++;
     }
     return result;
-}
+};
 
-Array.prototype.without = function (value) {
+Array.prototype.without = function(value) {
     var i = 0;
     var result = [];
     while (i < this.length) {
@@ -35,72 +35,69 @@ Array.prototype.without = function (value) {
         i++;
     }
     return result;
-}
+};
 
-Array.prototype.min = function () {
-    var i = 0;
+Array.prototype.min = function() {
+    var i = 1;
     var result = this[0];
     while (i < this.length) {
         if (this[i] < result) {
             result = this[i];
         }
-        i++
+        i++;
     }
     return result;
-}
+};
 
-Array.prototype.sum = function () {
+Array.prototype.sum = function() {
     var i = 0;
     var sum = 0;
     while (i < this.length) {
-        sum = sum + this[i];
+        sum += this[i];
         i++;
     }
-    return sum
-}
+    return sum;
+};
 
 
 // Создать функции keys, values, pairs, isEmpty, extend, как методы объектов
-Object.prototype.keys = function () {
-    var list = [];
-    var prop;
-    for (prop in this) {
-        list[list.length] = prop;
+Object.prototype.keys = function() {
+    var result = [];
+    for (let prop in this) {
+        result[result.length] = prop;
     }
-}
+    return result;
+};
 
-Object.prototype.values = function () {
-    var key = [];
-    var prop;
-    for (prop in this) {
-        key[key.length] = this[prop];
+Object.prototype.values = function() {
+    var result = [];
+    for (let prop in this) {
+        result[result.length] = this[prop];
     }
-    return key;
-}
+    return result;
+};
 
-Object.prototype.pairs = function () {
-    var list = [];
-    var prop;
-    for (prop in this) {
-        list[list.length] = [prop, this[prop]];
+Object.prototype.pairs = function() {
+    var result = [];
+    for (let prop in this) {
+        result[result.length] = [prop, this[prop]];
     }
-    return list;
-}
+    return result;
+};
 
-Object.prototype.isEmpty = function () {
-    for (prop in this) {
+Object.prototype.isEmpty = function() {
+    for (let prop in this) {
         return true;
     }
     return false;
-}
+};
 
-Object.prototype.extend = function (source) {
-    var prop;
-    for (prop in source) {
-        this[prop] = source[prop]
+Object.prototype.extend = function(source) {
+    for (let prop in source) {
+        this[prop] = source[prop];
     }
     return this;
-}
+};
 
 
 
@@ -181,8 +178,6 @@ arr.join('+')//'11+22+33+44+55';
 arr.join('/')//'11/22/33/44/55' - превращает массив в строку, по умолчанию разделяя элементы запятой,
 // разделитель можно изменить, указав символ в скобках;
 
-arr.indexOf(22)//1;
-
 var arr1 = [11, 22, 33, 44, 55, 22];
 arr1.lastIndexOf(22)//5;
 
@@ -222,17 +217,17 @@ arr.filter(function (el) {
 });//[55] - вернёт те элементы массива, которые подходят по условию выражения,
 // которое вернёт ф-ция;
 
-arr.every(function (el) {
+arr.every(function(el) {
     return el < 50;
 });//false;
-arr.every(function (el) {
+arr.every(function(el) {
     return el < 70;
 });//true - вернёт true если все элементы массива подходят под условие выражения,
 // которое вернёт ф-ция, или false, если хоть одно не подойдёт;
 
-arr.reduce(function () {})//?
+arr.reduce(function() {})//?
 
-arr.reduceRight(function () {})//?
+arr.reduceRight(function() {})//?
 
 
 // Object: keys, values, create, assign
@@ -250,10 +245,10 @@ Object.assign(obj, {hair: 'blonde'})//{name: 'Ира', age: 20, hair: 'blonde'}
 
 
 //Object.prototype: hasOwnProperty
-var Player = function (name, age) {
+var Player = function(name, age) {
     this.name = name;
     this.age = age;
-}
+};
 Player.prototype.hair = 'blonde';
 var ira = new Player('Ира', 20);
 
