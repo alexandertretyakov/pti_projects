@@ -10,40 +10,37 @@
 // Пример работы:
 // keys({one: 1, two: 2, three: 3});
 // => ["one", "two", "three"]
-var keys = function (obj) {
-    var list = [];
-    var prop;
-    for (prop in obj) {
-        list[list.length] = prop;
+var keys = function(obj) {
+    var result = [];
+    for (let prop in obj) {
+        result[result.length] = prop;
     }
-    return list; // Cтыдота 4. 10. 2021 =)
-}
+    return result;
+};
 
 // Создать функцию values которая возвращает массив значений всех свойств принимаемого объекта.
 // Пример работы:
 // values({one: 1, two: 2, three: 3});
 // => [1, 2, 3]
-var values = function (obj) {
-    var key = [];
-    var prop;
-    for (prop in obj) {
-        key[key.length] = obj[prop];
+var values = function(obj) {
+    var result = [];
+    for (let prop in obj) {
+        result[result.length] = obj[prop];
     }
-    return key;
-}
+    return result;
+};
 
 // Создать функцию pairs которая возвращает список пар [свойство, значение] входящего объекта.
 // Пример работы:
 // pairs({one: 1, two: 2, three: 3});
 // => [["one", 1], ["two", 2], ["three", 3]]
-var pairs = function (obj) {
-    var list = [];
-    var prop;
-    for (prop in obj) {
-        list[list.length] = [prop, obj[prop]];
+var pairs = function(obj) {
+    var result = [];
+    for (let prop in obj) {
+        result[result.length] = [prop, obj[prop]];
     }
-    return list;
-}
+    return result;
+};
 
 // Создать функцию invert которая возвращает копию входящего объекта где свойства - значения, а значения - свойства.
 // Чтобы это заработало, нужно, чтобы все значения свойств объекта могли быть уникально преобразованы в строки.
@@ -51,37 +48,34 @@ var pairs = function (obj) {
 // invert({Moe: "Moses", Larry: "Louis", Curly: "Jerome"});
 // => {Moses: "Moe", Louis: "Larry", Jerome: "Curly"}
 
-var invert = function (obj) {
-    var prop;
-    var copyObj = {};
-    for (prop in obj) {
-        copyObj[obj[prop]] = prop;
+var invert = function(obj) {
+    var result = {};
+    for (let prop in obj) {
+        result[obj[prop]] = prop;
     }
-    return copyObj;
-}
+    return result;
+};
 
 // Создать функцию omit которая возвращает копию объекта без указанного свойства.
 // Пример работы:
 // omit({name: 'moe', age: 50, userid: 'moe1'}, 'userid');
 // => {name: 'moe', age: 50}
-function omit (obj, property) {
-    var copyObj = {};
-    var prop;
-    for (prop in obj) {
+function omit(obj, property) {
+    var result = {};
+    for (let prop in obj) {
         if (prop !== property) {
-            copyObj[prop] = obj[prop];
+            result[prop] = obj[prop];
         }
     }
-    return copyObj;
+    return result;
 }
 
 // Создать функцию has которая проверяет, содержит ли объект указанный ключ (свойство). Если да, то возвращает true иначе false.
 // Пример работы:
 // has({a: 1, b: 2, c: 3}, 'b');
 // => true
-function has (obj, key) {
-    var prop;
-    for (prop in obj) {
+function has(obj, key) {
+    for (let prop in obj) {
         if (prop === key) {
             return true;
         }
@@ -93,9 +87,8 @@ function has (obj, key) {
 // Пример работы:
 // isMatch({name: 'moe', age: 32}, {age: 32});
 // => true
-function isMatch (obj, object) {
-    var prop;
-    for (prop in obj) {
+function isMatch(obj, object) {
+    for (let prop in obj) {
         if (obj[prop] === object[prop]) {
             return true;
         }
@@ -113,8 +106,8 @@ function isMatch (obj, object) {
 // => true
 // isEmpty({x: 4});
 // => false
-function isEmpty (obj) {
-    for (prop in obj) {
+function isEmpty(obj) {
+    for (let prop in obj) {
         return false;
     }
     return true;
@@ -125,9 +118,8 @@ function isEmpty (obj) {
 // extend({name: 'moe'}, {age: 50});
 // => {name: 'moe', age: 50}
 function extend(destination, source) {
-    var prop;
-    for (prop in source) {
-        destination[prop] = source[prop]
+    for (let prop in source) {
+        destination[prop] = source[prop];
     }
     return destination;
 }
@@ -136,9 +128,8 @@ function extend(destination, source) {
 // Пример работы:
 // defaults({flavor: "chocolate"}, {flavor: "vanilla", sprinkles: "lots"});
 // => {flavor: "chocolate", sprinkles: "lots"}
-var defaults = function (obj, def) {
-    var prop;
-    for (prop in def) {
+var defaults = function(obj, def) {
+    for (let prop in def) {
         if (obj[prop] === undefined) {
             obj[prop] = def[prop];
         }
