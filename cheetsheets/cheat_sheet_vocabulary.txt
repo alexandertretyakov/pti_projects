@@ -448,14 +448,14 @@ element
         remove                  удалять
         contains                содержит
         toggle                  переключать
-    dataset
+    data set                    набор данных
     get attribute               получить атрибут
     has attribute               имеет атрибут
     set attribute               установить атрибут
     remove attribute            удалить атрибут
-    innerHTML
-    innerText
-    textContent
+    inner HTML                  внутренний HTML
+    inner text                  внутренний текст
+    text content                текстовое содержимое
     clone node                  клонировать узел
     append child                добавить ребенка
     insert before               вставить перед
@@ -468,9 +468,9 @@ event                           событие
     type                        тип
     target                      цель
     current target              текущая цель
-    prevent default
+    prevent default             предотвращать умолчание
     stop propagation            остановить распространение
-    stop immediate propagation
+    stop immediate propagation  остановить немедленное распространение
 
     clientX
     clientY
