@@ -11,10 +11,10 @@
 // и результатом работы этого метода является присваивание этого числа свойству "x" объекта.
 var obj = {
     x: 100,
-    getX: function () {
+    getX: function() {
         return this.x;
     },
-    changeX: function (value) {
+    changeX: function(value) {
         this.x = value;
     }
 };
@@ -63,21 +63,55 @@ console.log(circle.getSquare());
 
 // Создать такие структуры данных чтобы выражение
 // dro[1]().bro вернуло в качестве результата значение true,
-var dro = [0, function () { return { bro: true }}];
+var dro = [
+    0,
+    function() {
+        return {
+            bro: true
+        };
+    }
+];
 
 // выражение a[4][1][1].y вернуло строку 'Север',
-var a = [0, 0, 0, 0, [0, [0, { y: 'Север'}]]];
+var a = [
+    0,
+    0,
+    0,
+    0,
+    [
+        0,
+        [
+            0,
+            { y: 'Север'}
+        ]
+    ]
+];
 
 // выражение b.y().y.z()[3].autor вернуло строку 'Дима'.
-var b = { y: function () { return { y : { z: function() { return [{}, {}, {}, {autor: 'Дима'}]}}}}};
+var b = {
+    y: function() {
+        return {
+            y: {
+                z: function() {
+                    return [
+                        {},
+                        {},
+                        {},
+                        { autor: 'Дима' }
+                    ];
+                }
+            }
+        };
+    }
+};
 
 // Создать функцию charAt которая принимает строку и индекс и возвращает указанный символ из строки.
 // Пример работы:
 // charAt('March', 0);
 // => 'M'
-var charAt = function (string, index) {
+var charAt = function(string, index) {
     return string[index];
-}
+};
 
 // Создать функцию trim которая удаляет пробельные символы с начала и конца строки.
 // Пример работы:
