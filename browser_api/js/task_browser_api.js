@@ -63,12 +63,12 @@ document.querySelector('body').addEventListener('click', function(e) {
 
 //При клике на кнопку перевести текст на английский язык (перевод хранится в атрибуте data-en элемента)
 document.querySelector('.b13').addEventListener('click', function() {
-    var transfer = document.querySelector('.t13').dataset.en;
-    document.querySelector('.t13').innerText = transfer;
+    var translation = document.querySelector('.t13').dataset.en;
+    document.querySelector('.t13').innerText = translation;
 });
 
 //При изменении размеров окна вкладки или браузера изменять фоновый цвет абзаца (использовать RGB и Math.random)
-window.addEventListener('resize', function () {
+window.addEventListener('resize', function() {
     var r = (Math.round(Math.random() * 255));
     var g = (Math.round(Math.random() * 255));
     var b = (Math.round(Math.random() * 255));
@@ -77,13 +77,13 @@ window.addEventListener('resize', function () {
 
 //При изменении значения элемента формы выводить количество символов которое оно содержит
 var input = document.querySelector('.t98 input');
-input.addEventListener('input', function () {
-        document.querySelector('.t98-2').innerText = input.value.length;
+input.addEventListener('input', function() {
+    document.querySelector('.t98-2').innerText = input.value.length;
 });
 
 /*Вывести на экран анкету Жасмин используя переменную Jasmine (смотри исходный код)
 двумя способами (созданием элементов, конкатенацией)*/
-document.querySelector('.b14').addEventListener('click', function () {
+document.querySelector('.b14').addEventListener('click', function() {
     var container = document.querySelector('.whores-container');
 
     var newGirl = document.createElement('div');
@@ -176,9 +176,9 @@ document.querySelector('.b17').addEventListener('click', function() {
     var skier = document.querySelector('.skier');
     var x = 0;
     var interval = setInterval(function() {
-        x = x + 5;
+        x += 5;
         skier.style.left = x + 'px';
-    },16)
+    }, 16);
     document.querySelector('.b17-2').addEventListener('click', function() {
         clearInterval(interval);
     });
@@ -201,7 +201,7 @@ while (i < mikki.length) {
 }
 
 //Создать мир Марио
-document.querySelector('.b18').addEventListener('click', function () {
+document.querySelector('.b18').addEventListener('click', function() {
     var i = 0;
     while (i < map.length) {
         var j = 0;
@@ -242,7 +242,7 @@ document.querySelector('.b18').addEventListener('click', function () {
 });
 
 //Кликая по кнопкам "предыдущая" и "следующая" я хочу чтобы менялись соответственно слайды
-var goTo = function (direction) {
+var goTo = function(direction) {
     var slides = document.querySelectorAll('.slide');
     var activeSlide = document.querySelector('.slide.active');
     var activeSlideIndex = [].indexOf.call(slides, activeSlide);
@@ -253,24 +253,24 @@ var goTo = function (direction) {
     } else {
         nextSlideIndex = activeSlideIndex === 0 ? slidesLength - 1 : activeSlideIndex - 1;
     }
-    var next = slides[nextSlideIndex];
+    var nextSlide = slides[nextSlideIndex];
 
     activeSlide.classList.remove('active');
-    next.classList.add('active');
-}
+    nextSlide.classList.add('active');
+};
 
-document.querySelector('.next').addEventListener('click', function () {
+document.querySelector('.next').addEventListener('click', function() {
     goTo('next');
 });
 
-document.querySelector('.previous').addEventListener('click', function () {
+document.querySelector('.previous').addEventListener('click', function() {
     goTo('previous');
 });
 
 //Кликая вопросам я хочу видеть ответы на них.
 var questions = document.querySelectorAll('.question');
-questions.forEach(function (element) {
-    element.addEventListener('click', function () {
+questions.forEach(function(element) {
+    element.addEventListener('click', function() {
         this.classList.toggle('active');
     });
 });
@@ -279,7 +279,7 @@ questions.forEach(function (element) {
 var xTabs = document.querySelector('.x-tabs');
 var xItems = document.querySelector('.x-items');
 xTabs.querySelectorAll('.x-tab').forEach(function(tab) {
-    tab.addEventListener('click', function () {
+    tab.addEventListener('click', function() {
         xTabs.querySelector('.active').classList.remove('active');
         xItems.querySelector('.active').classList.remove('active');
         this.classList.add('active');
@@ -289,37 +289,32 @@ xTabs.querySelectorAll('.x-tab').forEach(function(tab) {
 
 //Кликая на кнопку Login я хочу чтобы затенялся экран и по середине экрана появлялось окошко
 // для авторизации закрыть которое можно кликнув по кнопке с крестиком
-document.querySelector('.show-login-pop-up').addEventListener('click', function () {
+document.querySelector('.show-login-pop-up').addEventListener('click', function() {
     document.querySelector('.pop-up').classList.remove('hidden');
     document.querySelector('.overlay').classList.remove('hidden');
-
 });
 
-document.querySelector('.close').addEventListener('click', function () {
+document.querySelector('.close').addEventListener('click', function() {
     document.querySelector('.pop-up').classList.add('hidden');
     document.querySelector('.overlay').classList.add('hidden');
 });
 
 //Отменить действие по-умолчанию при клике на ссылку
-document.querySelector('.link-ebanoe').addEventListener('click', function (e) {
+document.querySelector('.link-ebanoe').addEventListener('click', function(e) {
     e.preventDefault();
 });
 
 //Надоела реклама про увеличение члена? При клике на кнопку "Больше не показывать"
 // заноси в localStorage значение которое будешь проверять при загрузке страницы
-var hideAdvertising = function () {
+var hideAdvertising = function() {
     document.querySelector('.t97').style.display = 'none';
 };
 
-var button97 = document.querySelector('.b97');
-
-if (localStorage.getItem('hideAd') === 'none') {
+if (localStorage.getItem('hideAd') === 'true') {
     hideAdvertising();
 }
 
-button97.addEventListener('click', function () {
+document.querySelector('.b97').addEventListener('click', function() {
     hideAdvertising();
-    localStorage.setItem('hideAd', 'none');
+    localStorage.setItem('hideAd', 'true');
 });
-
-
