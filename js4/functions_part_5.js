@@ -8,8 +8,23 @@
 // [1,3,5,7].indexOf(5);
 // [1,3,5,7].join('/');
 
+[].includes.apply([1,3,5,7], [3]);
+[].includes.call([1,3,5,7], 3);
 
+[].indexOf.apply([1,3,5,7], [5]);
+[].indexOf.call([1,3,5,7], 5);
 
+[].join.apply([1,3,5,7], ['/']);
+[].join.call([1,3,5,7], '/');
+
+Array.prototype.includes.apply([1,3,5,7], [3]);
+Array.prototype.includes.call([1,3,5,7], 3);
+
+Array.prototype.indexOf.apply([1,3,5,7], [5]);
+Array.prototype.indexOf.call([1,3,5,7], 5);
+
+Array.prototype.join.apply([1,3,5,7], ['/']);
+Array.prototype.join.call([1,3,5,7], '/');
 
 // Создать функцию sumOfAllArguments которая принимает произвольное количество чисел и возвращает их сумму.
 // Пример работы:
