@@ -68,7 +68,7 @@ $('.b13').on('click', function() {
 });
 
 //При изменении размеров окна вкладки или браузера изменять фоновый цвет абзаца (использовать RGB и Math.random)
-$(window).on('resize', function () {
+$(window).on('resize', function() {
     var r = (Math.round(Math.random() * 255));
     var g = (Math.round(Math.random() * 255));
     var b = (Math.round(Math.random() * 255));
@@ -77,7 +77,7 @@ $(window).on('resize', function () {
 
 //При изменении значения элемента формы выводить количество символов которое оно содержит
 var input = $('.t98 input');
-input.on('input', function () {
+input.on('input', function() {
     $('.t98-2').text(input.val().length);
 });
 
@@ -111,12 +111,12 @@ $('.b14').on('click', function() {
 
     var heightGirl = $('<div>');
     heightGirl.addClass('whore-height');
-    heightGirl.text('Рост:' + Jasmine.weight);
+    heightGirl.text('Рост:' + Jasmine.height);
     newGirl.append(heightGirl);
 
     var weightGirl = $('<div>');
     weightGirl.addClass('whore-weight');
-    weightGirl.text('Вес:' +  Jasmine.height);
+    weightGirl.text('Вес:' +  Jasmine.weight);
     newGirl.append(weightGirl);
 
     var phoneGirl = $('<div>');
@@ -140,7 +140,7 @@ $('.b14').on('click', function() {
 //Переместить рыбу из первого контейнера во второй (при повторном клике из второго в первый и т.д.)
 $('.b15').on('click', function() {
     var fish = $('.fish');
-    if ($('.cat-container-1 .fish')) {
+    if ($('.cat-container-1 .fish').length) {
         $('.cat-container-2').append(fish);
     } else {
         $('.cat-container-1').append(fish);
@@ -158,7 +158,7 @@ $('.b17').on('click', function() {
     var skier = $('.skier');
     var x = 0;
     var intervalId = setInterval(function() {
-        x = x + 5;
+        x += 5;
         skier.css('left', x + 'px');
     }, 16);
 
@@ -184,7 +184,7 @@ while (i < mikki.length) {
 }
 
 //Создать мир Марио
-$('.b18').on('click', function () {
+$('.b18').on('click', function() {
     var i = 0;
     while (i < map.length) {
         var j = 0;
@@ -225,7 +225,7 @@ $('.b18').on('click', function () {
 });
 
 //Кликая по кнопкам "предыдущая" и "следующая" я хочу чтобы менялись соответственно слайды
-var goTo = function (direction) {
+var goTo = function(direction) {
     var slides = $('.slide');
     var activeSlide = $('.slide.active');
     var activeSlideIndex = slides.index(activeSlide);
@@ -236,29 +236,29 @@ var goTo = function (direction) {
     } else {
         nextSlideIndex = activeSlideIndex === 0 ? slidesLength - 1 : activeSlideIndex - 1;
     }
-    var next = slides[nextSlideIndex];
+    var nextSlide = slides.eq(nextSlideIndex);
 
     activeSlide.removeClass('active');
-    $(next).addClass('active');
-}
+    nextSlide.addClass('active');
+};
 
-$('.next').on('click', function () {
+$('.next').on('click', function() {
     goTo('next');
 });
 
-$('.previous').on('click', function () {
+$('.previous').on('click', function() {
     goTo('previous');
 });
 
 // //Кликая вопросам я хочу видеть ответы на них.
-$('.question').on('click', function () {
+$('.question').on('click', function() {
     $(this).toggleClass('active');
 });
 
 //Кликая по вкладкам я хочу видеть связанное содержимое
 var xTabs = $('.x-tabs');
 var xItems = $('.x-items');
-xTabs.find('.x-tab').on('click', function () {
+xTabs.find('.x-tab').on('click', function() {
     xTabs.find('.active').removeClass('active');
     xItems.find('.active').removeClass('active');
     $(this).addClass('active');
@@ -267,34 +267,32 @@ xTabs.find('.x-tab').on('click', function () {
 
 //Кликая на кнопку Login я хочу чтобы затенялся экран и по середине экрана появлялось окошко
 // для авторизации закрыть которое можно кликнув по кнопке с крестиком
-$('.show-login-pop-up').on('click', function () {
+$('.show-login-pop-up').on('click', function() {
     $('.pop-up').removeClass('hidden');
     $('.overlay').removeClass('hidden');
-
 });
 
-$('.close').on('click', function () {
+$('.close').on('click', function() {
     $('.pop-up').addClass('hidden');
     $('.overlay').addClass('hidden');
 });
 
 //Отменить действие по-умолчанию при клике на ссылку
-$('.link-ebanoe').on('click', function (e) {
+$('.link-ebanoe').on('click', function(e) {
     e.preventDefault();
 });
 
 //Надоела реклама про увеличение члена? При клике на кнопку "Больше не показывать"
 // заноси в localStorage значение которое будешь проверять при загрузке страницы
-var hideAdvertising = function () {
+var hideAd = function() {
     $('.t97').css('display', 'none');
 };
 
-var button97 = $('.b97');
-if (localStorage.getItem('hideAd') === 'none') {
-    hideAdvertising();
+if (localStorage.getItem('hideAd') === 'true') {
+    hideAd();
 }
 
-button97.on('click', function () {
-    hideAdvertising();
-    localStorage.setItem('hideAd', 'none');
+$('.b97').on('click', function() {
+    hideAd();
+    localStorage.setItem('hideAd', 'true');
 });
