@@ -161,20 +161,20 @@ class Accordion {
     constructor(options) {
         Object.assign(this, options);
         this.subscribe();
-    };
+    }
 
     subscribe() {
-        if(this.questions) {
+        if (this.questions) {
             this.questions.forEach(function(question) {
                 question.addEventListener('click', this.handleClickOnToggler.bind(this));
-            }.bind(this))
+            }.bind(this));
         }
-    };
+    }
 
     handleClickOnToggler(e) {
         if (this.single) {
             if (e.target.classList.contains('active')) {
-                e.target.classList.toggle('active');
+                e.target.classList.remove('active');
             } else {
                 this.questions.forEach(function(question) {
                     question.classList.remove('active');
@@ -184,7 +184,7 @@ class Accordion {
         } else {
             e.target.classList.toggle('active');
         }
-    };
+    }
 }
 
 // Может иметь несколько открытых вопросов
