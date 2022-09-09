@@ -45,6 +45,14 @@ Array.prototype.join.call([1,3,5,7], '/');
 
 
 
+// Создать функцию trim которая удаляет пробельные символы с начала и конца строки.
+// Пример работы:
+// trim('   Hello world!   ');
+// => 'Hello world!'
+
+
+
+
 // Создать функцию reduce...
 // Пример работы:
 // reduce([1, 2, 3], function(memo, num) { return memo + num; }, 0);
