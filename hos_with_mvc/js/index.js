@@ -22,7 +22,7 @@ var whores = {
     remove: function(whoreId) {
         this.models = this.models.filter(function(whore) {
             return whore.id !== whoreId;
-        })
+        });
         $(this).trigger('change');
     },
 
@@ -93,11 +93,11 @@ var formView = {
     },
 
     handleSave: function() {
-        if(this.isFormDataValid()) {
+        if (this.isFormDataValid()) {
             this.highlightingFields();
             this.collection.add(this.getFormData());
             this.closeTheForm();
-        }else{
+        } else {
             this.highlightingFields();
         }
     },
@@ -108,11 +108,11 @@ var formView = {
     },
 
     handleUpdate: function() {
-        if(this.isFormDataValid()) {
+        if (this.isFormDataValid()) {
             this.highlightingFields();
             this.collection.update(this.getFormData());
             this.closeTheForm();
-        }else{
+        } else {
             this.highlightingFields();
         }
     },
@@ -158,7 +158,7 @@ var formView = {
     },
 
     highlightingFields: function() {
-        this.$fields.each(function (index, field) {
+        this.$fields.each(function(index, field) {
             if (field.value === '') {
                 field.classList.add('invalid');
             } else {
