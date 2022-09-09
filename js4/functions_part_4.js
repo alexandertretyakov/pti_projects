@@ -38,17 +38,38 @@
 // 1. Метод getPriceWithDiscount возвращает цену с учетом скидки. Формула расчета цены с учетом скидки: priceWithDiscount = Math.ceil(price - price * discountRate / 100)
 // 2. Метод getCashbackAmount возвращает сумму кэшбэка. Формула расчета суммы кэшбэка: cashbackAmount = Math.ceil(price * cashbackRate / 100)
 // Пример работы:
-// var apple = new Circle({title: 'Apple', price: 100, discountRate: 5, cashbackRate: 1});
+// var apple = new Product({title: 'Apple', price: 100, discountRate: 5, cashbackRate: 1});
 // apple.getPriceWithDiscount();
 // => ***
 // apple.getCashbackAmount();
 // => ***
-// var pear = new Circle({title: 'Pear', price: 650});
+// var pear = new Product({title: 'Pear', price: 650});
 // apple.getPriceWithDiscount();
 // => ***
 // apple.getCashbackAmount();
 // => ***
 
+class Product {
+    constructor(options) {
+        Object.assign(this, options);
+    }
+
+    getPriceWithDiscount() {
+        if (this.discountRate) {
+            return Math.ceil(this.price - this.price * this.discountRate / 100);
+        } else {
+            return this.price;
+        }
+    }
+
+    getCashbackAmount() {
+        if (this.cashbackRate) {
+            return Math.ceil(this.price * this.cashbackRate / 100);
+        } else {
+            return 0;
+        }
+    }
+}
 
 
 
