@@ -32,6 +32,26 @@
 
 
 
+// Создать класс Product который принимает 2-4 параметра в виде объекта:
+// название, цена, скидка в % (необязательный) и кэшбэк в % (необязательный)
+// Возвращает объект с двумя-четырмя собственными свойствами (title, price, discountRate, cashbackRate) и двумя унаследованными методами.
+// 1. Метод getPriceWithDiscount возвращает цену с учетом скидки. Формула расчета цены с учетом скидки: priceWithDiscount = Math.ceil(price - price * discountRate / 100)
+// 2. Метод getCashbackAmount возвращает сумму кэшбэка. Формула расчета суммы кэшбэка: cashbackAmount = Math.ceil(price * cashbackRate / 100)
+// Пример работы:
+// var apple = new Circle({title: 'Apple', price: 100, discountRate: 5, cashbackRate: 1});
+// apple.getPriceWithDiscount();
+// => ***
+// apple.getCashbackAmount();
+// => ***
+// var pear = new Circle({title: 'Pear', price: 650});
+// apple.getPriceWithDiscount();
+// => ***
+// apple.getCashbackAmount();
+// => ***
+
+
+
+
 // Создать функции size, last, getPositiveNumbers, without, min, sum, как методы массивов
 // Примеры работы:
 // [7, 2, 8].size();
