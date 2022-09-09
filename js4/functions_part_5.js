@@ -45,6 +45,44 @@ Array.prototype.join.call([1,3,5,7], '/');
 
 
 
+// Создать функцию reduce...
+// Пример работы:
+// reduce([1, 2, 3], function(memo, num) { return memo + num; }, 0);
+// => 6
+var reduce = function(list, iteratee, memo) {
+    // write your code here
+};
+
+
+
+
+// Создать функцию uniq... Принимает массив значений и возвращает массив уникальных значений.
+// Можно использовать любые изученные встроенные методы
+// Пример работы:
+// uniq([2, 6, 2, 5, 2]);
+// => [2, 6, 5]
+var uniq = function(list) {
+    return list.reduce((memo, item) => {
+        // write your code here
+    }, []);
+};
+
+
+
+
+// Создать функцию count... Принимает массив значений и возвращает объект где ключи это уникальные значения, а значения это их количество.
+// Пример работы:
+// count(['apple', 'plum', 'apple', 'banana', 'pear', 'pear']);
+// => {apple: 2, plum: 1, banana: 1, pear: 2}
+var count = function(list) {
+    return list.reduce((memo, item) => {
+        // write your code here
+    }, {});
+};
+
+
+
+
 // Написать функцию преобразования getSearchParams которая принимает строку вида '?a=1&b=2&c=3&d=4' и возвращает объект вида {a: '1', b: '2', c: '3', d: '4'}
 // Можно использовать любые изученные встроенные методы
 // Пример работы:
