@@ -40,13 +40,13 @@
             <p>Дел пока нет.</p>
         {{??}}
             {{~ it :task:index }}
-            <div data-id="{{= task.id}}" class="item {{? task.completed}}completed{{?}} {{? task.important}}important{{?}}">
-                <span class="title">{{= task.title}}</span>
-                <div>
-                    <button class="delete">&#10060;</button>
-                    <button class="important">&#128276;</button>
+                <div data-id="{{= task.id}}" class="item {{? task.completed}}completed{{?}} {{? task.important}}important{{?}}">
+                    <span class="title">{{= task.title}}</span>
+                    <div>
+                        <button class="delete">&#10060;</button>
+                        <button class="important">&#128276;</button>
+                    </div>
                 </div>
-            </div>
             {{~}}
         {{?}}
     </script>

@@ -27,7 +27,7 @@ var tasks = {
     remove: function(taskId) {
         this.models = _.filter(this.models, function(task) {
             return task.id !== taskId;
-        })
+        });
         $(this).trigger('change');
     },
 
@@ -81,19 +81,19 @@ var listView = {
     },
 
     handleDelete: function(e) {
-        var taskId = $(e.target).closest('.item').data().id;
+        var taskId = $(e.target).closest('.item').data('id');
         this.collection.remove(taskId);
     },
 
     handleImportant: function(e) {
-        var taskId = $(e.target).closest('.item').data().id;
+        var taskId = $(e.target).closest('.item').data('id');
         var updatedTask = this.collection.get(taskId);
         updatedTask.important = !updatedTask.important;
         this.collection.update(updatedTask);
     },
 
     handleComplete: function(e) {
-        var taskId = $(e.target).closest('.item').data().id;
+        var taskId = $(e.target).closest('.item').data('id');
         var updatedTask = this.collection.get(taskId);
         updatedTask.completed = !updatedTask.completed;
         this.collection.update(updatedTask);
@@ -150,7 +150,7 @@ var appView = {
     },
 
     handleFilter: function(e) {
-        this.collection.filters.filter = $(e.target).data().filter;
+        this.collection.filters.filter = $(e.target).data('filter');
         $('.actions button').removeClass('active');
         $(e.target).addClass('active');
         listView.render();
