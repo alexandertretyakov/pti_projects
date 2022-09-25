@@ -335,9 +335,9 @@ var listView = {
 
     appModel: appModel,
 
-    tmplFnMovieTiles: $('#movie-tiles-template').html(),
-    tmplFnMovieList: $('#movie-list-template').html(),
-    tmplFnPagination: $('#pagination-template').html(),
+    tmplFnMovieTiles: doT.template($('#movie-tiles-template').html()),
+    tmplFnMovieList: doT.template($('#movie-list-template').html()),
+    tmplFnPagination: doT.template($('#pagination-template').html()),
 
     render: function() {
         var {viewType, itemsPerPage, searchText, sortBy, filters: {countries, genres}, page} = appModel;
@@ -355,23 +355,25 @@ var listView = {
         models = this.collection.getItemsByPage(models, itemsPerPage, page);
 
         $('.movies')
-            .html(doT.template(tmplFn)(models))
+            .html(tmplFn(models))
             .removeClass('state-tiles state-list')
             .addClass(viewTypeStateClass);
 
         this.renderPagination(models, itemsPerPage, page);
     },
 
-    renderPagination: function(models, itemsPerPage) {
-        var pagesCount = Math.ceil(this.collection.models.length / Number(itemsPerPage));
+    renderPagination: function(models, itemsPerPage, page) {
+        var pagesCount;
 
         if (itemsPerPage === 'default') {
             pagesCount = 0;
+        } else {
+            pagesCount = Math.ceil(this.collection.models.length / Number(itemsPerPage));
         }
 
-        $('.pagination').html(doT.template(this.tmplFnPagination)({
+        $('.pagination').html(this.tmplFnPagination({
             buttons: Array.from({ length: pagesCount }, (v, i) => i+1),// По сколько кнопок отображать
-            page: appModel.page
+            page: page
         }));
     },
 
@@ -387,8 +389,8 @@ var appView = {
 
     appModel: appModel,
 
-    tmplFnCountries: $('#filter-countries-template').html(),
-    tmplFnGenres: $('#filter-genre-template').html(),
+    tmplFnCountries: doT.template($('#filter-countries-template').html()),
+    tmplFnGenres: doT.template($('#filter-genre-template').html()),
     tmplFnPopUp: listView.tmplFnMovieList,
 
     subscribe: function() {
@@ -408,11 +410,11 @@ var appView = {
         var listOfCountries = this.collection.getListOfCountries();
         var listOfGenres = this.collection.getListOfGenres();
 
-        $('.filter-countries').html(doT.template(this.tmplFnCountries)({
+        $('.filter-countries').html(this.tmplFnCountries({
             countries: Object.keys(listOfCountries),
             counts: Object.values(listOfCountries)
         }));
-        $('.filter-genre').html(doT.template(this.tmplFnGenres)({
+        $('.filter-genre').html(this.tmplFnGenres({
             genres: Object.keys(listOfGenres),
             counts: Object.values(listOfGenres)
         }));
@@ -441,7 +443,7 @@ var appView = {
     showMoviePopUp: function(movieId) {
         $('<div class="overlay">').appendTo('body');
         $('<div class="popup">').appendTo('body');
-        $('.popup').html(doT.template(this.tmplFnPopUp)(this.findMovieById(movieId)))
+        $('.popup').html(this.tmplFnPopUp(this.findMovieById(movieId)));
         $('<button class="close">x</button>').appendTo('.popup');
         this.subscribe();
     },
@@ -459,7 +461,7 @@ var appView = {
     },
 
     handlePagination: function(e) {
-        if ($(e.target)[0].localName !== 'button') {
+        if ($(e.target)[0].tagName !== 'BUTTON') {
             return;
         }
 
