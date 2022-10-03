@@ -94,19 +94,13 @@ var appModel = new Backbone.Model({
     page: 1                         // 1,2,3
 });
 
-
 //----------------------------------------------------------------- List View
 var ListView = Backbone.View.extend({
     initialize: function() {
-        this.renderModels();
+        this.renderMovies();
 
-        this.listenTo(this.model, 'change', function() {
-            this.renderModels();
-        });
-
-        this.listenTo(this.collection, 'all', function() {
-            this.renderModels();
-        });
+        this.listenTo(this.model, 'change', this.renderMovies);
+        this.listenTo(this.collection, 'all', this.renderMovies);
     },
 
     el: '.movies',
@@ -115,11 +109,11 @@ var ListView = Backbone.View.extend({
 
     model: appModel,
 
-    tmplFnMovieTiles: $('#movie-tiles-template').html(),
-    tmplFnMovieList: $('#movie-list-template').html(),
-    tmplFnPagination: $('#pagination-template').html(),
+    tmplFnMovieTiles: doT.template($('#movie-tiles-template').html()),
+    tmplFnMovieList: doT.template($('#movie-list-template').html()),
+    tmplFnPagination: doT.template($('#pagination-template').html()),
 
-    renderModels: function() {
+    renderMovies: function() {
         var {viewType, itemsPerPage, searchText, sortBy, filtersCountries, filtersGenres, page} = this.model.toJSON();
         var tmplFn = viewType === 'tiles' ? this.tmplFnMovieTiles : this.tmplFnMovieList;
         var viewTypeStateClass = viewType === 'tiles' ? 'state-tiles' : 'state-list';
@@ -132,7 +126,7 @@ var ListView = Backbone.View.extend({
         models = this.collection.getItemsByPage(models, itemsPerPage, page);
 
         this.$el
-            .html(doT.template(tmplFn)(models))
+            .html(tmplFn(models))
             .removeClass('state-tiles state-list')
             .addClass(viewTypeStateClass);
 
@@ -140,13 +134,15 @@ var ListView = Backbone.View.extend({
     },
 
     renderPagination: function(models, itemsPerPage, page) {
-        var pagesCount = Math.ceil(this.collection.toJSON().length / Number(itemsPerPage));
+        var pagesCount;
 
         if (itemsPerPage === 'default') {
             pagesCount = 0;
+        } else {
+            pagesCount = Math.ceil(this.collection.models.length / Number(itemsPerPage));
         }
 
-        $('.pagination').html(doT.template(this.tmplFnPagination)({
+        $('.pagination').html(this.tmplFnPagination({
             buttons: Array.from({ length: pagesCount }, (v, i) => i+1),// По сколько кнопок отображать
             page: page
         }));
@@ -160,9 +156,7 @@ var AppView = Backbone.View.extend({
     initialize: function() {
         this.renderFilters();
 
-        this.listenTo(this.collection, 'all', function() {
-            this.renderFilters();
-        });
+        this.listenTo(this.collection, 'all', this.renderFilters);
     },
 
     el: '.app',
@@ -182,18 +176,18 @@ var AppView = Backbone.View.extend({
 
     model: appModel,
 
-    tmplFnCountries: $('#filter-countries-template').html(),
-    tmplFnGenres: $('#filter-genre-template').html(),
+    tmplFnCountries: doT.template($('#filter-countries-template').html()),
+    tmplFnGenres: doT.template($('#filter-genre-template').html()),
 
     renderFilters: function() {
         var listOfCountries = this.collection.getListOfCountries();
         var listOfGenres = this.collection.getListOfGenres();
 
-        $('.filter-countries').html(doT.template(this.tmplFnCountries)({
+        $('.filter-countries').html(this.tmplFnCountries({
             countries: Object.keys(listOfCountries),
             counts: Object.values(listOfCountries)
         }));
-        $('.filter-genre').html(doT.template(this.tmplFnGenres)({
+        $('.filter-genre').html(this.tmplFnGenres({
             genres: Object.keys(listOfGenres),
             counts: Object.values(listOfGenres)
         }));
@@ -279,12 +273,12 @@ var PopUp = Backbone.View.extend({
         });
     },
 
-    tmplFnMovieList: $('#movie-list-template').html(),
+    tmplFnMovieList: doT.template($('#movie-list-template').html()),
 
     render: function() {
         $('<div class="overlay">').appendTo('body');
         $('<div class="popup">').appendTo('body');
-        $('.popup').html(doT.template(this.tmplFnMovieList)(this.movie));
+        $('.popup').html(this.tmplFnMovieList(this.movie));
         $('<button class="close">x</button>').appendTo('.popup');
     },
 
