@@ -19,13 +19,13 @@ var Tasks = Backbone.Collection.extend({
 
     getIncompleted: function() {
         return _.filter(this.toJSON(), function(task) {
-            return task.completed === false;
+            return !task.completed;
         });
     },
 
     getCompleted: function() {
         return _.filter(this.toJSON(), function(task) {
-            return task.completed === true;
+            return task.completed;
         });
     },
 
@@ -51,9 +51,7 @@ var AppView = Backbone.View.extend({
     initialize: function() {
         this.updateStats();
 
-        this.listenTo(this.collection, 'all', function() {
-            this.updateStats();
-        });
+        this.listenTo(this.collection, 'all', this.updateStats);
     },
 
     el: '.app',
@@ -106,13 +104,8 @@ var ListView = Backbone.View.extend({
     initialize: function() {
         this.renderTasks();
 
-        this.listenTo(this.collection, 'all', function() {
-            this.renderTasks();
-        });
-
-        this.listenTo(this.model, 'change', function() {
-            this.renderTasks();
-        });
+        this.listenTo(this.collection, 'all', this.renderTasks);
+        this.listenTo(this.model, 'change', this.renderTasks);
     },
 
     el: '#tasks',
@@ -128,7 +121,7 @@ var ListView = Backbone.View.extend({
     handleDelete: function(e) {
         var taskId = $(e.target).closest('.item').data().id;
 
-        this.collection.remove(taskId).toJSON();
+        this.collection.remove(taskId);
     },
 
     handleImportant: function(e) {
@@ -150,21 +143,23 @@ var ListView = Backbone.View.extend({
     getFiltredModels: function() {
         var {needle, filter} = this.model.toJSON();
 
-        return this.collection.toJSON().filter(function(task) {
-            return task.title.toLowerCase().includes(needle.toLowerCase());
-        }).filter(function(task) {
-            if (filter === 'incompleted') {
-                return task.completed === false;
-            }
+        return this.collection.toJSON()
+            .filter(function(task) {
+                return task.title.toLowerCase().includes(needle.toLowerCase());
+            })
+            .filter(function(task) {
+                if (filter === 'incompleted') {
+                    return !task.completed;
+                }
 
-            if (filter === 'completed') {
-                return task.completed === true;
-            }
+                if (filter === 'completed') {
+                    return task.completed;
+                }
 
-            if (filter === 'all') {
-                return true;
-            }
-        });
+                if (filter === 'all') {
+                    return true;
+                }
+            });
     },
 
     renderTasks: function() {
