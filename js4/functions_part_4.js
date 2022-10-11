@@ -29,6 +29,27 @@
 // circle.getSquare();
 // => 78.53981633974483
 
+class Circle {
+    constructor(options) {
+        Object.assign(this, options);
+    }
+
+    getDiameter() {
+        return 2 * this.radius;
+    }
+
+    getPerimeter() {
+        return 3.14 * this.getDiameter();
+    }
+
+    getSquare() {
+        return 3.14 * (this.radius * this.radius);
+    }
+}
+
+const circle = new Circle({x: 1, y: 2, radius: 3});
+
+
 
 
 

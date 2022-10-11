@@ -33,7 +33,15 @@ Array.prototype.join.call([1,3,5,7], '/');
 // sumOfAllArguments(2, 2, 3, 3, 10);
 // => 20
 
-
+var sumOfAllArguments = function() {
+    var sum = 0;
+    var i = 0;
+    while (i < arguments.length) {
+        sum += arguments[i];
+        i++;
+    }
+    return sum;
+}
 
 
 // Познакомиться с работой следующих встроенных свойств, функций и методов
@@ -49,8 +57,31 @@ Array.prototype.join.call([1,3,5,7], '/');
 // Пример работы:
 // trim('   Hello world!   ');
 // => 'Hello world!'
+var trim = function(string) {
+    var firstIndex;
+    var lastIndex;
+    var result = '';
 
+    for (let i = 0; i < string.length; i++) {
+        if (string[i] !== ' ') {
+            firstIndex = i;
+            break;
+        }
+    }
 
+    for (let i = string.length-1; i >= 0; i--) {
+        if (string[i] !== ' ') {
+            lastIndex = i;
+            break;
+        }
+    }
+
+    for (let i = firstIndex; i <= lastIndex; i++) {
+        result += string[i];
+    }
+
+   return result;
+};
 
 
 // Создать функцию reduce...
@@ -58,7 +89,19 @@ Array.prototype.join.call([1,3,5,7], '/');
 // reduce([1, 2, 3], function(memo, num) { return memo + num; }, 0);
 // => 6
 var reduce = function(list, iteratee, memo) {
-    // write your code here
+    var i = 0;
+
+    if (memo === undefined) {
+        memo = list[0];
+        i = 1;
+    }
+
+    while (i < list.length) {
+        memo = iteratee(memo, list[i]);
+        i++;
+    }
+
+    return memo;
 };
 
 
@@ -71,10 +114,12 @@ var reduce = function(list, iteratee, memo) {
 // => [2, 6, 5]
 var uniq = function(list) {
     return list.reduce((memo, item) => {
-        // write your code here
+        if (!memo.includes(item)) {
+            memo.push(item);
+        }
+        return memo;
     }, []);
 };
-
 
 
 
@@ -84,10 +129,14 @@ var uniq = function(list) {
 // => {apple: 2, plum: 1, banana: 1, pear: 2}
 var count = function(list) {
     return list.reduce((memo, item) => {
-        // write your code here
+        if (memo[item]) {
+            memo[item] += 1;
+        } else {
+            memo[item] = 1;
+        }
+        return memo;
     }, {});
 };
-
 
 
 
@@ -98,3 +147,15 @@ var count = function(list) {
 // => {}
 // getSearchParams('?a=6&b=9');
 // => {a: '6', b: '9'}
+var getSearchParams = function(string) {
+    return string
+        .substring(1)
+        .split('&')
+        .map(function(pair) {
+            return pair.split('=');
+        })
+        .reduce(function(memo, pair) {
+            memo[pair[0]] = pair[1];
+            return memo;
+        }, {});
+};
