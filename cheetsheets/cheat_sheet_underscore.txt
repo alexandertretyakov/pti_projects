@@ -16,10 +16,10 @@
     min
     sortBy
     shuffle
-    sample
+    +sample
     toArray
     size
-    partition
+    +partition
 
 Массивы
     first

@@ -158,12 +158,12 @@ CSS свойства:
     text decoration             оформление текста
         none                    никакой
         underline               подчеркивать
-        line through            зачеркивать
+        line +through            зачеркивать
     text shadow                 тень текста
     text transform              преобразование текста
         uppercase               верхний регистр
         lowercase               строчная буква
-    text indent                 отступ текста
+    text +indent                 отступ текста
     vertical align              вертикальное выравнивание
         baseline                базисная линия, базовая линия
         middle                  середина
@@ -293,7 +293,7 @@ CSS свойства:
     string                      строка
         char                    символ
         concat (concatenate)    соединять
-        includes                включает
+        +includes                включает
         index                   индекс
         last index              последний индекс
         repeat                  повторять
@@ -340,7 +340,7 @@ CSS свойства:
     delete                      удалять
     type                        тип
     void                        пустота
-    instance                    экземпляр
+    +instance                    экземпляр
     in                          в
 Инструкции:
     var (variable)              переменная
@@ -402,7 +402,7 @@ window                          окно
     screen                      экран
     alert                       тревога
     confirm                     подтверждать
-    prompt                      подсказка
+    +prompt                      подсказка
     open                        открыть
     close                       закрыть
     get сomputed style          получить вычисляемый стиль
@@ -536,7 +536,7 @@ xhr
     last                последний
     rest                остаток
     compact             компактный
-    flatten             выравнивать, разглаживать
+    +flatten             выравнивать, разглаживать
     without             без
     union               объединение
     intersection        пересечение, перекресток
@@ -687,11 +687,11 @@ share                           делиться
 desktop                         настольный
 mobile                          мобильный, передвижной
 tablet                          планшет, дощечка
-required                        требуемый, необходимый
++required                        требуемый, необходимый
 instance                        экземпляр
 requirement                     требование
 env (environment)               среда
-effort                          усилие
++effort                          усилие
 expect                          ожидать
 unexpected                      неожиданный, непредвиденный
 capacity                        вместимость
@@ -712,15 +712,15 @@ identity                        личность
 identification                  идентификация
 agile                           гибкий; Гибкая методология разработки программного обеспечения (англ. agile software development, agile-разработка)
 SCRUM — методология управления проектами
-estimate                        оценивать, оценка
++estimate                        оценивать, оценка
 confirm                         подтверждать
 confirmation                    подтверждение
-improve                         улучшать
++improve                         улучшать
 improvement                     улучшение
 internal                        внутренний
 promotion                       поощрение
 support                         поддержка
-redirect                        перенаправить
++redirect                        перенаправить
 ETA (estimated time of arrival) расчётное время прибытия (поезда)
 scope                           рамки, границы, сфера действия
 call                            звонить по телефону
@@ -735,28 +735,73 @@ case                            случай, дело
 relevant                        релевантный, уместный
 mock-up                         макет
 finalize                        завершать, заканчивать
-success                         успех
++success                         успех
 batch                           партия, пакет, серия, группа
 non issue                       не проблема
 notification                    уведомление, оповещение, сообщение
 token                           жетон
 duplicate                       дубликат, копия
-maintenance                     поддержание, уход, техобслуживание
++maintenance                     поддержание, уход, техобслуживание
 grid                            сетка
 publish                         публиковать
 interaction                     взаимодействие
-performance                     производительность, эффективность
++performance                     производительность, эффективность
 roll back                       откат
-credentials                     реквизиты для входа (почта, телефон, пароль)
++credentials                     реквизиты для входа (почта, телефон, пароль)
 sync (synchronize)              синхронизировать
-adjust                          регулировать, приспосабливать
++adjust                          регулировать, приспосабливать
 rough                           грубый, приблизительный
 roughly                         грубо, приблизительно
 conclusion                      вывод, умозаключение
 handler                         обработчик
 purge                           очищать
-deprecated                      устаревший
++deprecated                      устаревший
 inherit                         наследовать
+
+as                              как
+able
+twice
+should
+pass
+attachments
+choose
+flow
+shown
+below
+tooltip
+same
+manual
+described
+customer
+provided
+during
+prefilled
+presented
+according
+overview
+phase
+acceptance
+how
+following
+excluded
+similar
+sent
+increase
+editable
+enough
+reach
+way
+note
+recover
+using
+consist
+mandatory
+sub-headers
+condition
+native
+ident
+regards
+
 
 **************************** Словник молодіжного сленгу ************************
 Аб'юз – фізичне або психологічне насильство в сім'ї або відносинах.

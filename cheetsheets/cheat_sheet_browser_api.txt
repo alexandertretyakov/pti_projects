@@ -104,7 +104,7 @@ event.stopImmediatePropagation()
     event.clientX
     event.clientY
     event.button
-    event.which
+    +event.which
     event.keyCode
     event.key
     event.altKey
@@ -112,7 +112,7 @@ event.stopImmediatePropagation()
     event.shiftKey
 
     https://developer.mozilla.org/en-US/docs/Web/Events             // На сайте есть русская версия
-focus, blur, click, dblclick, change, keyup, keydown, keypress, mousedown, mouseup, mousemove, mouseover, mouseout, mouseenter, mouseleave, load, readystatechange, resize, input, orientationchange, submit
+focus, blur, click, dblclick, change, keyup, keydown, keypress, mousedown, mouseup, mousemove, mouseover, mouseout, mouseenter, mouseleave, load, +readystatechange, resize, input, orientationchange, submit
 
     https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest // На сайте есть русская версия
 xhr.open(method, url)
