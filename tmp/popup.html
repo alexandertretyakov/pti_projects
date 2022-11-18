@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Слон</title>
+    <script src="js/jquery.js"></script>
+    <script src="js/dot.js"></script>
+    <script src="js/underscore-min.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .popup {
+            position: fixed;
+            bottom: 0;
+            top: 0;
+            right: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup-content {
+            width: 300px;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 2px 2px 4px #dddddd;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="c1">Нажми на меня</button>
+    <button class="c2">Нажми на меня</button>
+    <button class="c3">Нажми на меня</button>
+
+    <script type="text/template" id="template-popup">
+        <div class="popup">
+            <div class="popup-content">
+                <h2>{{= it.title}}</h2>
+                <p>
+                    {{= it.description}}
+                </p>
+                <button class="accept">Ok</button>
+                <button class="close">Cancel</button>
+            </div>
+        </div>
+    </script>
+
+    <script>
+        class Popup {
+            constructor(data) {
+                this.$el = $(doT.template(popupTemplate)(data));
+                $('body').append(this.$el);
+
+                this.$el.find('.close').on('click', function() {
+                    this.$el.remove();
+                }.bind(this));
+
+                this.$el.find('.accept').on('click', function() {
+                    data.onAccept();
+                });
+            }
+        }
+
+        var popupTemplate = $('#template-popup').html();
+
+        $('.c1').on('mouseout', function() {
+            // window.p1 = new Popup({
+            //     title: 'Popup1',
+            //     description: '1-На сьомому місяці повномасштабного російського вторгнення в Україну французька компанія TotalEnergies заявила, що продасть свою частку в "Тернефтегаз", спільному підприємстві з російським "Новатек".',
+            //     onAccept: function() {
+            //         console.log(1);
+            //     }
+            // });
+            console.log('!!!')
+        });
+        $('.c2').on('click', function() {
+            window.p2 = new Popup({
+                title: 'Popup2',
+                description: '2-На сьомому місяці повномасштабного російського вторгнення в Україну французька компанія TotalEnergies заявила, що продасть свою частку в "Тернефтегаз", спільному підприємстві з російським "Новатек".',
+                onAccept: function() {
+                    console.log(2);
+                }
+            });
+        });
+        $('.c3').on('click', function() {
+            window.p3 = new Popup({
+                title: 'Popup3',
+                description: '3-На сьомому місяці повномасштабного російського вторгнення в Україну французька компанія TotalEnergies заявила, що продасть свою частку в "Тернефтегаз", спільному підприємстві з російським "Новатек".',
+                onAccept: function() {
+                    console.log(3);
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>

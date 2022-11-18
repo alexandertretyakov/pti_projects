@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Words</title>
+    <script src="js/jquery.js"></script>
+    <script src="js/dot.js"></script>
+    <script src="js/underscore-min.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        .game {
+            display: flex;
+            justify-content: space-between;
+            align-items: stretch;
+            height: 100%;
+            font-size: 30px;
+        }
+
+        .done ol {
+            text-decoration: line-through;
+        }
+
+        .word {
+            margin-bottom: 50px;
+        }
+
+        .stage {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <script type="text/template" id="game-template">
+        <div class="stage">
+            <div class="word">{{= it.currentWord}}</div>
+            <form>
+                <input type="text">
+                <select>
+                    <option>1</option>
+                    <option>2</option>
+                </select>
+            </form>
+        </div>
+        <div class="done">
+            {{? it.doneWords.length}}
+                <ol>
+                    {{~ it.doneWords :item:index}}
+                        <li>{{= item}}</li>
+                    {{~}}
+                </ol>
+            {{??}}
+                <p class="empty"><span>Список </span><br>пуст</p>
+            {{?}}
+        </div>
+    </script>
+
+    <script>
+        class Game {
+            constructor()  {
+               this.setCurrentWord();
+               this.render();
+               $('body').append(this.$el);
+            }
+
+            words = [
+                'red',
+                'green',
+                'yellow',
+                'black',
+                'orange',
+                'blue',
+                'grey',
+                'silver',
+                'tomato'
+            ];
+
+            currentWord = null;
+
+            $el = $('<div class="game">');
+
+            doneWords = [];
+
+            setCurrentWord() {
+               this.currentWord = this.words.pop();
+            }
+
+            subscribe() {
+               this.$el.find('form').on('submit', function(e) {
+                   e.preventDefault();
+                   if (this.$el.find('input').val() === this.currentWord) {
+                       this.doneWords.push(this.currentWord);
+                       this.setCurrentWord();
+                       this.render();
+                   } else {
+                       console.log('bad boy');
+                   }
+               }.bind(this));
+            }
+
+            render() {
+               var gameTemplate = $('#game-template').html();
+
+               this.$el.html(doT.template(gameTemplate)({
+                   currentWord: _.shuffle(this.currentWord).join(''),
+                   doneWords: this.doneWords
+               }));
+               this.subscribe();
+            }
+        }
+
+        new Game;
+    </script>
+</body>
+</html>

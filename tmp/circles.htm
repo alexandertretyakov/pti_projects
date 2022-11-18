@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Circles</title>
+    <script src="js/dot.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/underscore-min.js"></script>
+    <script src="js/backbone.js"></script>
+    <style>
+        .circle {
+            position: absolute;
+            background-color: red;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <script type="text/template" id="circles-template">
+        {{? it.length}}
+            {{~ it :circle:idx}}
+                <div class="circle" data-id="{{= circle.id}}" style="top: {{= circle.y}}px; left: {{= circle.x}}px; width: {{= circle.radius}}px; height: {{= circle.radius}}px;"></div>
+            {{~}}
+        {{??}}
+            <button class="remove">Destroy view</button>
+        {{?}}
+    </script>
+
+    <script>
+        var CircleModel = Backbone.Model.extend({
+            defaults: {
+                radius: 20
+            }
+        });
+
+        var CirclesCollection = Backbone.Collection.extend({
+            comparator: 'radius',
+            model: CircleModel
+        });
+
+        var circlesCollection = new CirclesCollection([
+            {x: 10, y: 10, radius: 10, id: 1},
+            {x: 40, y: 40, radius: 20, id: 2},
+            {x: 100, y: 100, radius: 30, id: 3},
+            {x: 20, y: 100, radius: 70, id: 4},
+            {x: 100, y: 20, radius: 50, id: 5}
+        ]);
+
+        var CirclesView = Backbone.View.extend({
+            initialize: function() {
+                this.render();
+                $('body').append(this.el);
+                this.collection.on('remove', this.render.bind(this));
+            },
+
+            tagName: 'section',
+            className: 'circles',
+            id: 'circles',
+
+            events: {
+                'click .circle': 'onCircleClick',
+                'click .remove': 'remove'
+            },
+
+            onCircleClick(e) {
+                this.collection.remove(e.target.dataset.id);
+            },
+
+            tmplFn: doT.template($('#circles-template').html()),
+
+            render() {
+                this.$el.html(this.tmplFn(this.collection.toJSON()));
+                return this;
+            }
+        });
+
+        var circlesView = new CirclesView({
+            collection: circlesCollection
+        });
+    </script>
+</body>
+</html>

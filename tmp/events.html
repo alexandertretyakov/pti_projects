@@ -1,0 +1,30 @@
+<div class="parent">
+    <div class="child">Child</div>
+</div>
+<style>
+    .parent {
+        border: 1px solid red;
+        padding: 50px;
+    }
+    .child {
+        background: yellow;
+        padding: 50px;
+    }
+</style>
+<script>
+    var parent = document.querySelector('.parent');
+    var child = document.querySelector('.child');
+
+    var handler = function(e) {
+        console.log(e.type);
+    };
+
+    parent.addEventListener('click', handler);
+    parent.addEventListener('mouseup', handler);
+    parent.addEventListener('mousedown', handler);
+    parent.addEventListener('mousemove', handler);
+    parent.addEventListener('mouseover', handler);
+    parent.addEventListener('mouseout', handler);
+    parent.addEventListener('mouseenter', handler);
+    parent.addEventListener('mouseleave', handler);
+</script>
