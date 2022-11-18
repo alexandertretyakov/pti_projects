@@ -53,7 +53,7 @@ Manipulation
 
 Miscellaneous
     .each()
-    +.get()
+    .get()
     .index()
     .toArray()
 
@@ -63,8 +63,8 @@ Properties
 Traversing
     .add()
     .children()
-    +.closest()
-    +.eq()
+    .closest()
+    .eq()
     .find()
     .has()
     .first()
@@ -72,8 +72,8 @@ Traversing
     .next()
     .nextAll()
     .parent()
-    +.prev()
-    +.prevAll()
+    .prev()
+    .prevAll()
 
 Utilities
     jQuery.contains()
