@@ -309,6 +309,8 @@ var movies = {
             return models;
         }
 
+        itemsPerPage = Number(itemsPerPage);
+
         return models.slice((page - 1) * itemsPerPage, (page - 1) * itemsPerPage + itemsPerPage);
     },
 
@@ -340,7 +342,7 @@ var listView = {
     tmplFnPagination: doT.template($('#pagination-template').html()),
 
     render: function() {
-        var {viewType, itemsPerPage, searchText, sortBy, filters: {countries, genres}, page} = appModel;
+        var {viewType, itemsPerPage, searchText, sortBy, filters: {countries, genres}, page} = this.appModel;
 
         var tmplFn = viewType === 'tiles' ? this.tmplFnMovieTiles : this.tmplFnMovieList;
         var viewTypeStateClass = viewType === 'tiles' ? 'state-tiles' : 'state-list';
@@ -465,10 +467,11 @@ var appView = {
             return;
         }
 
-        appModel.page = Number($(e.target).text());
+        this.appModel.page = Number($(e.target).text());
 
         $('.pagination button').removeClass('active');
         $(e.target).addClass('active');
+        listView.render();
     },
 
     handleButtonList: function() {
@@ -489,6 +492,7 @@ var appView = {
 
     handleChangeItemsPerPage: function(e) {
         this.appModel.itemsPerPage = e.target.value;
+        this.appModel.page = 1;
         listView.render();
     },
 
