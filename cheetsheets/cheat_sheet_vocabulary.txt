@@ -52,7 +52,7 @@ HTML элементы:
     button                  кнопка
 
     division                раздел
-    span                    охватывать
+    +span                    охватывать
 
     canvas                  холст
     inline frame            встроенный фрейм (рамка)
@@ -68,9 +68,9 @@ HTML элементы:
 
 Атрибуты HTML элементов:
     charset                 кодировка, набор символов
-    source                  источник
+    +source                  источник
     relationship            отношение, связь
-    hypertext reference     гипертекстовая ссылка
+    hypertext +reference     гипертекстовая ссылка
     target                  цель
     alternative             альтернативный
     column span             диапазон столбцов
@@ -167,12 +167,12 @@ CSS свойства:
     vertical align              вертикальное выравнивание
         baseline                базисная линия, базовая линия
         middle                  середина
-        sub-                    под-
+        +sub-                    под-
         super-                  над-
     color                       цвет
     opacity                     непрозрачность
     background color            фоновый цвет
-        transparent             прозрачный
+        +transparent             прозрачный
     background image            фоновое изображение
         url (Uniform Resource Locator)
         linear gradient         линейный градиент
@@ -185,7 +185,7 @@ CSS свойства:
         left                    левый
         top                     верхний
     background size             размер фона
-        cover                   покрывать, охватывать
+        +cover                   покрывать, охватывать
         contain                 содержать, вмещать
     margin                      поле (страницы)
     padding                     набивка
@@ -221,7 +221,7 @@ CSS свойства:
         disc                    диск, круг
         circle                  круг, окружность
         square                  квадрат
-        decimal                 десятичный
+        +decimal                 десятичный
         lower alpha (alphabet)  нижний алфавит
         upper roman             верхний римский
     list style position         позиция стиля списка
@@ -236,10 +236,10 @@ CSS свойства:
         visible                 видимый
     transform                   изменять, трансформировать, превращать
         translate               перемещать
-        rotate                  вращать
-        scale                   масштаб
+        +rotate                  вращать
+        +scale                   масштаб
     content                     содержимое
-    float                       плавающий
+    +float                       плавающий
     clear                       очищать
         both                    оба
     position                    положение
@@ -266,14 +266,14 @@ CSS свойства:
     animation timing function   функция времени анимации
     animation delay             задержка анимации
     animation iteration count   количество итераций анимации
-        infinite                бесконечный
+        +infinite                бесконечный
     animation direction         направление анимации
         reverse                 обратный
         alternate               чередующийся
     flex direction              flex направление
         row                     строка
         column                  столбец, колонка
-    justify content             выровнять содержимое
+    +justify content             выровнять содержимое
         start                   начало
         end                     конец
         center                  центр, середина
@@ -339,7 +339,7 @@ CSS свойства:
     new                         новый
     delete                      удалять
     type                        тип
-    void                        пустота
+    +void                        пустота
     instance                    экземпляр
     in                          в
 Инструкции:
@@ -353,7 +353,7 @@ CSS свойства:
     break                       перерыв, прерывать
     continue                    продолжать
     return                      возвращать
-    throw                       бросать
+    +throw                       бросать
     try                         попытка
     catch                       ловить
     finally                     в конечном счете
@@ -381,7 +381,7 @@ CSS свойства:
         sqrt (square root)      квадратный корень
         trunc                   усечение
     JSON
-        stringify               создать строку
+        +stringify               создать строку
         parse                   разбирать, структурный анализ
 
 **************************** API браузера *******************
@@ -461,21 +461,21 @@ element
     insert before               вставить перед
     remove child                удалить ребенка
     replace child               заменить ребенка
-    add event listener          добавить слушателя событий
-    remove event listener       удалить слушателя событий
+    add event +listener          добавить слушателя событий
+    remove event +listener       удалить слушателя событий
 
 event                           событие
     type                        тип
     target                      цель
     current target              текущая цель
     prevent default             предотвращать умолчание
-    stop propagation            остановить распространение
-    stop immediate propagation  остановить немедленный распространение
+    stop +propagation            остановить распространение
+    stop +immediate +propagation  остановить немедленный распространение
 
     clientX
     clientY
     button
-    which
+    +which
     keyCode
     key
     altKey
@@ -483,7 +483,7 @@ event                           событие
     shiftKey
 
 focus                           сосредоточивать
-blur                            размытие
++blur                            размытие
 click                           щелчок
 change                          изменение
 key up                          клавиша вверх
@@ -504,14 +504,14 @@ xhr
     send                        отправлять
     status                      статус
     ready state                 состояние готовности
-    response text               текст ответа
+    +response text               текст ответа
 
 **************************** Underscore ************************
 
 Коллекции
     each                каждый
     map (mapping)       отображение, преобразование, соответствие
-    reduce              сокращать, сводить
+    +reduce              сокращать, сводить
     reduceRight
     find                находить
     filter              фильтровать
@@ -690,12 +690,12 @@ tablet                          планшет, дощечка
 required                        требуемый, необходимый
 instance                        экземпляр
 requirement                     требование
-env (environment)               среда
++env (environment)               среда
 effort                          усилие
-expect                          ожидать
++expect                          ожидать
 unexpected                      неожиданный, непредвиденный
 capacity                        вместимость
-feature                         особенность, свойство
++feature                         особенность, свойство
 high-level                      высокий уровень
 setup                           настраивать
 track                           следить, отслеживать
@@ -707,106 +707,106 @@ CR (change request)             запрос на изменение
 collaborator                    сотрудник
 bundle                          пакет
 approve                         одобрять
-SSO (single sign-on)            Технология единого входа — технология, при использовании которой пользователь переходит из одного раздела портала в другой, либо из одной системы в другую, не связанную с первой системой, без повторной аутентификации
++SSO (single sign-on)            Технология единого входа — технология, при использовании которой пользователь переходит из одного раздела портала в другой, либо из одной системы в другую, не связанную с первой системой, без повторной аутентификации
 identity                        личность
 identification                  идентификация
 agile                           гибкий; Гибкая методология разработки программного обеспечения (англ. agile software development, agile-разработка)
-SCRUM — методология управления проектами
-estimate                        оценивать, оценка
++SCRUM — методология управления проектами
++estimate                        оценивать, оценка
 confirm                         подтверждать
 confirmation                    подтверждение
 improve                         улучшать
 improvement                     улучшение
-internal                        внутренний
++internal                        внутренний
 promotion                       поощрение
 support                         поддержка
 redirect                        перенаправить
-ETA (estimated time of arrival) расчётное время прибытия (поезда)
++ETA (estimated time of arrival) расчётное время прибытия (поезда)
 scope                           рамки, границы, сфера действия
 call                            звонить по телефону
 KYC (know your customer)        знай своего клиента
 brand book                      руководство по фирменному стилю компании
 accept                          принимать, соглашаться
-decline                         отказываться, отклонять предложение
++decline                         отказываться, отклонять предложение
 confuse                         путать, сбивать с толку
 confusion                       путаница, замешательство
 skeleton                        скелет, каркас, костяк, набросок
 case                            случай, дело
 relevant                        релевантный, уместный
-mock-up                         макет
++mock-up                         макет
 finalize                        завершать, заканчивать
-success                         успех
++success                         успех
 batch                           партия, пакет, серия, группа
 non issue                       не проблема
-notification                    уведомление, оповещение, сообщение
++notification                    уведомление, оповещение, сообщение
 token                           жетон
 duplicate                       дубликат, копия
-maintenance                     поддержание, уход, техобслуживание
++maintenance                     поддержание, уход, техобслуживание
 grid                            сетка
-publish                         публиковать
-interaction                     взаимодействие
-performance                     производительность, эффективность
++publish                         публиковать
++interaction                     взаимодействие
++performance                     производительность, эффективность
 roll back                       откат
-credentials                     реквизиты для входа (почта, телефон, пароль)
++credentials                     реквизиты для входа (почта, телефон, пароль)
 sync (synchronize)              синхронизировать
-adjust                          регулировать, приспосабливать
-rough                           грубый, приблизительный
++adjust                          регулировать, приспосабливать
++rough                           грубый, приблизительный
 roughly                         грубо, приблизительно
-conclusion                      вывод, умозаключение
-handle                          регулировать, управлять, обращаться
-handler                         обработчик
-purge                           очищать
-deprecated                      устаревший
++conclusion                      вывод, умозаключение
++handle                          регулировать, управлять, обращаться
++handler                         обработчик
++purge                           очищать
++deprecated                      устаревший
 inherit                         наследовать
 
 **************************** Из описаний к заданиям ************************
 
 as                              как
-able                            способный, в состоянии
++able                            способный, в состоянии
 twice                           дважды
 should                          должен
 pass                            проходить, передавать
-attach                          прикреплять
-attachment                      вложение
++attach                          прикреплять
++attachment                      вложение
 choose                          выбирать
 flow                            поток
 shown
 below                           ниже, внизу, под
 tooltip                         подсказка
 same                            такой же
-manual                          ручной, мануальный, руководство
-describe                        описывать
++manual                          ручной, мануальный, руководство
++describe                        описывать
 customer                        клиент, заказчик, покупатель
 provide                         предоставлять
 during                          в течение, во время
 prefill                         предзаполнить
 present                         представлять
-according                       в соответствии
++according                       в соответствии
 overview                        обзор
 phase                           фаза, этап, стадия, период
 accept                          принимать, соглашаться
-acceptance                      прием, принятие
++acceptance                      прием, принятие
 how                             как
-follow                          следовать
-following                       следующий
-exclude                         исключать
-similar                         похожий
++follow                          следовать
++following                       следующий
++exclude                         исключать
++similar                         похожий
 sent
-increase                        увеличивать
-editable                        редактируемый
++increase                        увеличивать
++editable                        редактируемый
 enough                          достаточно
 reach                           достигать
 way                             путь, способ
 note                            примечание
-recover                         восстанавливать
++recover                         восстанавливать
 using
 consist                         состоять
 mandatory                       обязательный
 sub-headers
-condition                       условие
-native                          родной
++condition                       условие
++native                          родной
 ident
-regard                          касаться, иметь отношение
++regard                          касаться, иметь отношение
 
 **************************** Словник молодіжного сленгу ************************
 Аб'юз – фізичне або психологічне насильство в сім'ї або відносинах.

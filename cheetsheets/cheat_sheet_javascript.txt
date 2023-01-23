@@ -19,7 +19,7 @@
     . []
     ()
     new
-    delete typeof void instanceof in ,
+    +delete typeof void instanceof in ,
 
 Инструкции:
     var
@@ -50,11 +50,11 @@
     Boolean
     Array
         Array.prototype: concat, forEach, includes, indexOf, join, lastIndexOf, pop, push, reverse,
-            shift, slice, splice, unshift, length, sort, map, filter, every, some, reduce, reduceRight
-    Object: keys, values, create, assign, entries
+            +shift, slice, splice, +unshift, length, sort, map, filter, every, some, reduce, reduceRight
+    Object: keys, values, create, +assign, +entries
         Object.prototype: hasOwnProperty
     Function
-        Function.prototype: apply, call, bind
+        +Function.prototype: apply, call, bind
 
     Date
         Date.prototype: getFullYear, getMonth, getDate, getHours, getMinutes, getSeconds
