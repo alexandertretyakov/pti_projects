@@ -2,8 +2,8 @@ jQuery API https://api.jquery.com/
 
 Ajax
     jQuery.ajax()
-    +.serialize()
-    +.serializeArray()
+    .serialize()
+    .serializeArray()
 
 Attributes
     .addClass()
@@ -45,11 +45,11 @@ Manipulation
     .prependTo()
     .remove()
     .replaceAll()
-    +.replaceWith()
+    .replaceWith()
     .text()
     .unwrap()
     .wrap()
-    +.wrapInner()
+    .wrapInner()
 
 Miscellaneous
     .each()
@@ -63,8 +63,8 @@ Properties
 Traversing
     .add()
     .children()
-    +.closest()
-    +.eq()
+    .closest()
+    .eq()
     .find()
     .has()
     .first()

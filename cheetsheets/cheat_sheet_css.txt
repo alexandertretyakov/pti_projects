@@ -53,7 +53,7 @@ CSS свойства:
         text-shadow: !none|2px 2px 8px #FF0000;
         text-transform: !none|uppercase|lowercase;
         text-indent: 20px;
-        +text-overflow: ellipsis;
+        text-overflow: ellipsis;
         vertical-align: !baseline|middle|sub|super;
     Color/Background Properties
         color: red|#ff6347|rgb(255, 99, 71)|rgba(255, 99, 71, 0.8);
@@ -96,7 +96,7 @@ CSS свойства:
         box-sizing: !content-box|border-box;
         box-shadow: !none|inset 5px 5px 2px 2px #b2b2b2;
         overflow: !visible|hidden|auto;
-        display: !inline|block|inline-block|none|+table-cell|flex;
+        display: !inline|block|inline-block|none|table-cell|flex;
     List Properties
         list-style: none|square inside url("bullet.png");
             list-style-type: !disc|circle|square|decimal|lower-alpha|upper-roman|none|'+';
@@ -123,21 +123,21 @@ CSS свойства:
     Tables
         border-collapse: !separate|collapse;
         border-spacing: 2px | 2px 10px;
-        +table-layout: !auto|fixed;
+        table-layout: !auto|fixed;
     ?
-        +transition: margin-right 4s ease-in-out 1s;
+        transition: margin-right 4s ease-in-out 1s;
             transition-property: !all|margin-right;
             transition-duration: !0s;
             transition-timing-function: !ease|linear;
             transition-delay: !0ms;
-        +animation: pulse 5s linear 2s infinite alternate;
+        animation: pulse 5s linear 2s infinite alternate;
             animation-name: !none;
             animation-duration: !0s;
             animation-timing-function: !ease|linear;
             animation-delay: !0ms;
             animation-iteration-count: !1|infinite;
             animation-direction: !normal|reverse|alternate|alternate-reverse;
-    +Flexbox
+    Flexbox
         Properties for the Parent (flex container)
             flex-flow: row nowrap;
                 flex-direction: !row|row-reverse|column|column-reverse;
@@ -153,7 +153,7 @@ CSS свойства:
                 flex-basis: !auto|20%|100px;
             align-self: flex-start|flex-end|center|stretch|baseline;
 At-rules:
-    +@media
+    @media
     @font-face
     @keyframes
 

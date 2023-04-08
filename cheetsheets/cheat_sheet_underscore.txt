@@ -5,9 +5,9 @@
     reduceRight
     find
     filter
-    +where
-    +findWhere
-    +reject
+    where
+    findWhere
+    reject
     every
     some
     contains
@@ -15,22 +15,22 @@
     max
     min
     sortBy
-    +shuffle
-    +sample
+    shuffle
+    sample
     toArray
     size
-    +partition
+    partition
 
 Массивы
     first
     last
     rest
-    +compact
-    +flatten
-    +without
+    compact
+    flatten
+    without
     union
     intersection
-    +difference
+    difference
     uniq
     indexOf
     lastIndexOf
@@ -38,10 +38,10 @@
     findLastIndex
 
 Функции
-    +bind
+    bind
     throttle
     once
-    +compose
+    compose
 
 Объекты
     keys
@@ -51,7 +51,7 @@
     create
     extend
     pick
-    +omit
+    omit
     defaults
     has
     isEqual
