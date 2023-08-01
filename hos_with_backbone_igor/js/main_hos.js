@@ -151,4 +151,4 @@ var FormView = Backbone.View.extend({
 
 var formView = new FormView({
     collection: whores
-})
+});

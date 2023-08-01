@@ -173,7 +173,7 @@ var getName = function() {
 };
 getName();
 // => undefined
-getName.bind(user)();
+_.bind(getName, user)();
 // => 37
 
 var throttled = _.throttle(function() {
@@ -212,7 +212,7 @@ _.pairs({one: 1, two: 2, three: 3});
 _.invert({one: 1, two: 2, three: 3});
 // => {1: 'one', 2: 'two', 3: 'three'};
 
-_.create({
+var circle = _.create({
     getDiameter() {
         return 2 * this.radius;
     }

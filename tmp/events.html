@@ -1,6 +1,9 @@
 <div class="parent">
     <div class="child">Child</div>
 </div>
+
+<input type="text">
+
 <style>
     .parent {
         border: 1px solid red;
@@ -26,5 +29,9 @@
     parent.addEventListener('mouseover', handler);
     parent.addEventListener('mouseout', handler);
     parent.addEventListener('mouseenter', handler);
-    parent.addEventListener('mouseleave', handler);
+    document.addEventListener('keyup', handler);
+    document.addEventListener('keydown', handler);
+    document.addEventListener('keypress', handler);
+    document.addEventListener('change', handler);
+    document.addEventListener('input', handler);
 </script>
