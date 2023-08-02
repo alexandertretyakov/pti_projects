@@ -36,6 +36,9 @@ Backbone.Collection     extend
 
     Underscore Methods
 
+    sync
+    parse
+
 Backbone.View           extend
     initialize
     el

@@ -1,6 +1,6 @@
 Встроенные методы
 
-TODO
+TODO: как и underscore, jQuery?
 
 Date
 JSON

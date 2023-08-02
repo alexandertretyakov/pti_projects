@@ -45,8 +45,11 @@ $primaryButtonBgColor: #FFDB01;
         width: 100%;
     }
 
-    & span {
+    span {
         // TODO
+    }
+
+    & span {
         /*
             TODO
         */

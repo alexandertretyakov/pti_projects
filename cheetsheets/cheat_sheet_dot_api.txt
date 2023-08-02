@@ -1,6 +1,7 @@
 var tempFn = doT.template('Hello, {{= it.name}}!');
 var resultText = tempFn({name: 'Вася'});
 
+{{  }}  for evaluation
 {{= }}  for interpolation
 {{? }}  for conditionals
 {{~ }}  for array iteration
