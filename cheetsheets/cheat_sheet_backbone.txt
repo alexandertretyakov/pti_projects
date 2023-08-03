@@ -36,6 +36,7 @@ Backbone.Collection     extend
 
     Underscore Methods
 
+    fetch
     sync
     parse
 
