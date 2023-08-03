@@ -137,7 +137,7 @@ $('.add-movies').on('click', function()  {
 
 
 var ajax = function(method, url) {
-    let xhr = new XMLHttpRequest;
+    const xhr = new XMLHttpRequest;
 
     xhr.open(method, url);
     xhr.addEventListener('readystatechange', function () {
@@ -155,5 +155,5 @@ var ajax = function(method, url) {
 };
 
 ajax('GET', 'http://127.0.0.1:3000/movies')
-    .done(() => console.log('Выполнено'))
+    .done((res) => console.log('Выполнено', res))
     .fail(() => console.log('Ошибка'));
