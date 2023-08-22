@@ -138,20 +138,21 @@ $('.add-movies').on('click', function()  {
 
 var ajax = function(method, url) {
     const xhr = new XMLHttpRequest;
+    const state = $.Deferred();
 
     xhr.open(method, url);
     xhr.addEventListener('readystatechange', function () {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
-                $.Deferred().resolve(xhr.responseText);
+                state.resolve(xhr.responseText);
             } else {
-                $.Deferred().reject();
+                state.reject();
             }
         }
     });
     xhr.send();
 
-    return $.Deferred();
+    return state;
 };
 
 ajax('GET', 'http://127.0.0.1:3000/movies')
