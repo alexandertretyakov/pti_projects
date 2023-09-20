@@ -318,3 +318,52 @@ document.querySelector('.b97').addEventListener('click', function() {
     hideAdvertising();
     localStorage.setItem('hideAd', 'true');
 });
+
+document.querySelector('.b96').addEventListener('click', function() {
+    var form = document.querySelector('.t96');
+    console.log(getData(form));
+});
+
+// var getData = function(form) {
+//     var formData = new FormData(form);
+//     var result = {};
+//
+//     for(let entry of formData.entries()) {
+//         let [name, value] = entry;
+//         result[name] = value;
+//     }
+//
+//     return result;
+// };
+
+const getData = function(form) {
+    var elements = form.elements;
+    var result = {};
+    var i = 0;
+
+    while(i < elements.length) {
+        let el = elements[i];
+
+        if (el.type === 'text' && el.value !== '') {
+            result[el.name] = el.value;
+        }
+
+        if (el.type === 'checkbox' && el.checked) {
+            result[el.name] = el.value;
+        }
+
+        if (el.type === 'radio' && el.checked) {
+            result[el.name] = el.value;
+        }
+
+        if (el.type === 'select-one' && el.value !== '') {
+            result[el.name] = el.value;
+        }
+
+        i++;
+    }
+
+    console.log(elements);
+
+    return result;
+};
