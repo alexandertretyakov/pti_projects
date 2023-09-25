@@ -17,7 +17,7 @@
 // => false
 // isUndefined(5);
 // => false
-
+const isUndefined = (value) => value === undefined;
 
 
 
@@ -30,7 +30,7 @@
 // => false
 // isNull(5);
 // => false
-
+const isNull = (value) => value === null;
 
 
 
@@ -45,7 +45,7 @@
 // => true
 // isBoolean(true);
 // => true
-
+const isBoolean = (value) => value === true || value === false;
 
 
 
@@ -55,7 +55,7 @@
 // => 3
 // size([7, 2, 3, 5, 1]);
 // => 5
-
+const size = (array) => array.length;
 
 
 
@@ -65,7 +65,7 @@
 // => 5
 // first([9, 0, 4, 7, 2]);
 // => 9
-
+const first = (array) => array[0];
 
 
 
@@ -75,7 +75,7 @@
 // => 1
 // last([8, 2, 1, 7, 3]);
 // => 3
-
+const last = (array) => array[array.length-1];
 
 
 
@@ -87,7 +87,7 @@
 // => true
 // isEven(7);
 // => false
-
+const isEven = (number) => number % 2 === 0;
 
 
 
@@ -99,7 +99,15 @@
 // => 0
 // indexOf([7, 2, 3], 5);
 // => -1
+const indexOf = (array, value) => {
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] === value) {
+            return i;
+        }
+    }
 
+    return -1;
+};
 
 
 
@@ -110,7 +118,15 @@
 // => 4
 // lastIndexOf([1, 2, 3, 1, 2, 3], 3);
 // => 5
+const lastIndexOf = (array, value) => {
+    for (let i = array.length - 1; i >= 0; i--) {
+        if (array[i] === value) {
+            return i;
+        }
+    }
 
+    return -1;
+};
 
 
 
@@ -118,7 +134,16 @@
 // Пример работы:
 // push([1, 2, 3, 4], 5);
 // => [1, 2, 3, 4, 5]
+const push = (array, value) => {
+    let result = [];
 
+    for (let i = 0; i < array.length; i++) {
+        result[result.length] = array[i];
+    }
+    result[result.length] = value;
+
+    return result;
+};
 
 
 
@@ -126,7 +151,16 @@
 // Пример работы:
 // unshift([1, 2, 3, 4], 5);
 // => [5, 1, 2, 3, 4]
+const unshift = (array, value) => {
+    let result = [];
 
+    result[0] = value;
+    for (let i = 1; i < array.length; i++) {
+        result[result.length] = array[i];
+    }
+
+    return result;
+};
 
 
 
@@ -134,6 +168,15 @@
 // Пример работы:
 // pop([1, 2, 3, 4]);
 // => [1, 2, 3]
+const pop = (array) => {
+    let result = [];
+
+    for (let i = 0; i < array.length - 1; i++) {
+        result[result.length] = array[i];
+    }
+
+    return result;
+};
 
 
 
@@ -142,7 +185,15 @@
 // Пример работы:
 // shift([1, 2, 3, 4]);
 // => [2, 3, 4]
+const shift = (array) => {
+    let result = [];
 
+    for (let i = 1; i < array.length; i++) {
+        result[result.length] = array[i];
+    }
+
+    return result;
+};
 
 
 
@@ -150,7 +201,17 @@
 // Пример работы:
 // getPositiveNumbers([10, -5, 100, -2, 1000]);
 // => [10, 100, 1000]
+const getPositiveNumbers = (array) => {
+    let result = [];
 
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] > 0) {
+            result[result.length] = array[i];
+        }
+    }
+
+    return result;
+};
 
 
 
@@ -158,7 +219,15 @@
 // Пример работы:
 // reverse([1, 'lol', 5, {}, []]);
 // => [[], {}, 5, "lol", 1]
+const reverse = (array) => {
+    let result = [];
 
+    for (let i = array.length - 1; i >= 0; i--) {
+        result[result.length] = array[i];
+    }
+
+    return result;
+};
 
 
 
@@ -166,7 +235,17 @@
 // Пример работы:
 // compact([10, 1, 4, 2, undefined, 3, null]);
 // => [10, 1, 4, 2, 3, null]
+const compact = (array) => {
+    let result = [];
 
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] !== undefined) {
+            result[result.length] = array[i];
+        }
+    }
+
+    return result;
+};
 
 
 
@@ -175,7 +254,15 @@
 // Пример работы:
 // contains([1, 2, 3], 3);
 // => true
+const contains = (array, value) => {
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] === value) {
+            return true
+        }
+    }
 
+    return false;
+};
 
 
 
@@ -183,7 +270,17 @@
 // Пример работы:
 // without([3, 6, 7, 'rere'], 6);
 // => [3, 7, 'rere']
+const without = (array, value) => {
+    let result = [];
 
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] !== value) {
+            result[result.length] = array[i];
+        }
+    }
+
+    return result;
+};
 
 
 
@@ -191,7 +288,19 @@
 // Пример работы:
 // concat(['a', 'b', 'c'], ['d', 'e', 'f']);
 // => [ "a", "b", "c", "d", "e", "f" ]
+const concat = (array1, array2) => {
+    let result = [];
 
+    for (let i = 0; i < array1.length; i++) {
+        result[result.length] = array1[i];
+    }
+
+    for (let i = 0; i < array2.length; i++) {
+        result[result.length] = array2[i];
+    }
+
+    return result;
+};
 
 
 
@@ -199,7 +308,21 @@
 // Пример работы:
 // slice(['ant', 'bison', 'camel', 'duck', 'elephant'], 2, 3);
 // => ['camel', 'duck']
+const slice = (array, begin, end) => {
+    let result = [];
 
+    if (end) {
+        for (let i = begin; i <= end; i++) {
+            result[result.length] = array[i];
+        }
+    } else {
+        for (let i = begin; i < array.length; i++) {
+            result[result.length] = array[i];
+        }
+    }
+
+    return result;
+};
 
 
 
@@ -207,7 +330,17 @@
 // Пример работы:
 // getMatrixSum([[1, 2], [0, 4], [1, 2]]);
 // => 10
+const getMatrixSum = (matrix) => {
+    let sum = 0;
 
+    for (let i = 0; i < matrix.length; i++) {
+        for (let j = 0; j < matrix[i].length; j++) {
+            sum += matrix[i][j];
+        }
+    }
+
+    return sum;
+};
 
 
 
@@ -220,7 +353,15 @@
 // ];
 // getMatrixSumByDiagonal(matrix);
 // => 3 (1 + 0 + 2)
+const getMatrixSumByDiagonal = (matrix) => {
+    let sumByDiagonal = 0;
 
+    for (let i = 0; i < matrix.length; i++) {
+        sumByDiagonal += matrix[i][i];
+    }
+
+    return sumByDiagonal;
+};
 
 
 
@@ -228,7 +369,17 @@
 // Пример работы:
 // min([10, 5, 100, 2, 1000]);
 // => 2
+const min = (array) => {
+    let min = array[0];
 
+    for (let i = 1; i < array.length; i++) {
+        if (array[i] < min) {
+            min = array[i];
+        }
+    }
+
+    return min;
+};
 
 
 
@@ -236,7 +387,17 @@
 // Пример работы:
 // max([10, 5, 100, 2, 1000]);
 // => 1000
+const max = (array) => {
+    let max = array[0];
 
+    for (let i = 1; i < array.length; i++) {
+        if (array[i] > max) {
+            max = array[i];
+        }
+    }
+
+    return max;
+};
 
 
 
@@ -244,7 +405,15 @@
 // Пример работы:
 // repeat('Work', 6);
 // => 'WorkWorkWorkWorkWorkWork'
+const repeat = (string, count) => {
+    let result = '';
 
+    for (let i = 0; i < count; i++) {
+        result += string;
+    }
+
+    return result;
+};
 
 
 
@@ -252,7 +421,15 @@
 // Пример работы:
 // sum([2, 2, 3]);
 // => 7
+const sum = (array) => {
+    let sum = 0;
 
+    for (let i = 0; i < array.length; i++) {
+        sum += array[i];
+    }
+
+    return sum;
+};
 
 
 
@@ -260,7 +437,15 @@
 // Пример работы:
 // multiply([2, 2, 3]);
 // => 12
+const multiply = (array) => {
+    let composition = 1;
 
+    for (let i = 0; i < array.length; i++) {
+        composition *= array[i];
+    }
+
+    return composition;
+};
 
 
 
@@ -268,7 +453,13 @@
 // Пример работы:
 // abs(-4);
 // => 4
+const abs = (value) => {
+    if (value < 0) {
+        return value* -1;
+    }
 
+    return value;
+};
 
 
 
@@ -278,7 +469,15 @@
 // => 4
 // pow(3, 3);
 // => 27
+const pow = (value, extent) => {
+    let result = 1;
 
+    for (let i = 0; i < extent; i++) {
+        result *= value;
+    }
+
+    return result;
+};
 
 
 
@@ -286,3 +485,16 @@
 // выражение dro[1]().bro вернуло в качестве результата значение true,
 // выражение a[4][1][1].y вернуло строку 'Север',
 // выражение b.y().y.z()[3].autor вернуло строку 'Дима'.
+var dro = ['', () => ({bro: true})];
+
+var a = ['', '', '', '', ['', ['', {y: 'Север'}]]];
+
+var b = {
+    y: () => ({
+        y: {
+            z: () => {
+                return ['', '', '', {autor: 'Дима'}]
+            }
+        }
+    })
+};//TODO: Экран vs return (перенос строки)

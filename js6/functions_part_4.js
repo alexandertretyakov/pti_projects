@@ -8,6 +8,15 @@
 // а getX и changeX это методы которые манипулируют значением этого свойства "x".
 // getX возвращает значение свойства "x", а changeX принимает в качестве аргумента число
 // и результатом работы этого метода является присваивание этого числа свойству "x" объекта.
+var object = {
+    x: 5,
+    getX: () => this.x,
+    changeX: (number) => {
+        this.x = number;
+        console.log(this.x);
+    }
+};//TODO:
+
 
 
 
@@ -25,7 +34,30 @@
 // => 31.41592653589793
 // circle.getSquare();
 // => 78.53981633974483
+const Circle = function(x, y, radius) {
+    this.x = x;
+    this.y = y;
+    this.radius = radius;
 
+    Circle.prototype.getDiameter = function() {
+        let diameter = 2 * this.radius;
+
+        return diameter;
+    };
+
+    Circle.prototype.getPerimeter = function() {
+        let diameter = 2 * this.radius;
+        let perimeter = 3.14 * diameter;
+
+        return perimeter;
+    };
+
+    Circle.prototype.getSquare = function() {
+        let square = 3.14 * (this.radius * this.radius);
+
+        return square;
+    };
+};
 
 
 // Создать класс Product который принимает 2-4 параметра в виде объекта:
@@ -44,44 +76,116 @@
 // => 650
 // pear.getCashbackAmount();
 // => 0
-
+//TODO:
 
 // Создать функции size, last, getPositiveNumbers, without, min, sum, как методы массивов
 // Примеры работы:
 // [7, 2, 8].size();
 // => 3
-
+Array.prototype.size = function() {
+    return this.length;
+};
 
 // [5, 4, 3, 2, 1].last();
 // => 1
-
+Array.prototype.last = function() {
+    return this[this.length-1];
+};
 
 // [10, -5, 100, -2, 1000].getPositiveNumbers();
 // => [10, 100, 1000]
-
+Array.prototype.last = function() {
+    return this[this.length-1];
+};
 
 // [3, 6, 7, 'rere'].without(6);
 // => [3, 7, 'rere']
+Array.prototype.without = function(value) {
+    let result = [];
 
+    for (let i = 0; i < this.length; i++) {
+        if (this[i] !== value) {
+            result[result.length] = this[i];
+        }
+    }
+
+    return result;
+};
 
 // [10, 5, 100, 2, 1000].min();
 // => 2
+Array.prototype.min = function() {
+    let min = this[0];
 
+    for (let i = 1; i < this.length; i++) {
+        if (this[i] < min) {
+            min = this[i];
+        }
+    }
+
+    return min;
+};
 
 // [2, 2, 3].sum();
 // => 7
+Array.prototype.sum = function() {
+    let sum = 0;
 
+    for (let i = 0; i < this.length; i++) {
+        sum += this[i];
+    }
+
+    return sum;
+};
 
 
 // Создать функции keys, values, pairs, extend, как методы объектов
+Object.prototype.keys = function() {
+    let result = [];
 
+    for (let prop in this) {
+        result[result.length] = prop;
+    }
+
+    return result;
+};
+
+Object.prototype.values = function() {
+    let result = [];
+
+    for (let prop in this) {
+        result[result.length] = this[prop];
+    }
+
+    return result;
+};
+
+Object.prototype.pairs = function() {
+    let result = [];
+
+    for (let prop in this) {
+        result[result.length] = [prop, this[prop]];
+    }
+
+    return result;
+};
+
+Object.prototype.extend = function(source) {
+    for (let prop in source) {
+        if (source[prop] !== this[prop]) {
+            this[prop] = source[prop];
+        }
+    }
+
+    return this;
+};
 
 
 // Создать функцию charAt которая принимает строку и индекс и возвращает указанный символ из строки.
 // Пример работы:
 // charAt('March', 0);
 // => 'M'
-
+const charAt = (string, value) => string[value];
 
 // Создать функцию join которая принимает массив и возвращает строку состоящую из его элементов разделенных запятой (по-умолчанию) или любым другим разделителем (строкой) указанным во втором аргументе вызываемой функции.
 // Пример работы:
@@ -89,7 +193,24 @@
 // => "1,lol,5,dro"
 // join([1, 'lol', 5, 'dro'], '+');
 // => "1+lol+5+dro"
+const join = (array, symbol) => {
+    let resultTransitional = '';
+    let result = '';
 
+    for (let i = 0; i < array.length; i++) {
+        if (symbol === undefined) {
+            resultTransitional += array[i] + ',';
+        } else {
+            resultTransitional += array[i] + symbol;
+        }
+    }
+
+    for (let i = 0; i < resultTransitional.length - 1; i++) {
+        result += resultTransitional[i];
+    }
+
+    return result;
+};
 
 
 // Познакомиться с возможностями базовых (встроенных) классов
@@ -236,13 +357,31 @@ obj.hasOwnProperty('name'); // => true
 // Пример работы:
 // uniq([2, 6, 2, 5, 2]);
 // => [2, 6, 5]
+const uniq = (array) => {
+    let result = [];
 
+    for (let i = 0; i < array.length; i++) {
+        if (!result.includes(array[i])) {
+            result[result.length] = array[i];
+        }
+    }
+
+    return result;
+};
 
 // Создать функцию count... Принимает массив значений и возвращает объект где ключи это уникальные значения, а значения это их количество.
 // Пример работы:
 // count(['apple', 'plum', 'apple', 'banana', 'pear', 'pear']);
 // => {apple: 2, plum: 1, banana: 1, pear: 2}
+const count = (array) => {
+    let result = {};
 
+    for (let i = 0; i < array.length; i++) {
+
+    }
+
+    return result;
+};
 
 // Написать функцию преобразования getSearchParams которая принимает строку вида '?a=1&b=2&c=3&d=4' и возвращает объект вида {a: '1', b: '2', c: '3', d: '4'}
 // Можно использовать любые изученные встроенные методы

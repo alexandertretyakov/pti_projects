@@ -11,7 +11,11 @@
 // Пример работы:
 // each([1, 2, 3], function(element, index) { console.log(element, index); });
 // => выведет в консоль все цифры и соответствующие им индексы по очереди
-
+const each = (array, iteratee) => {
+    for (let i = 0; i < array.length; i++) {
+        iteratee(array[i], i);
+    }
+};
 
 
 
@@ -20,7 +24,15 @@
 // Пример работы:
 // map([1, 2, 3], function(value) { return value * 3; });
 // => [3, 6, 9]
+const map = (array, iteratee) => {
+    let result = [];
 
+    for (let i = 0; i < array.length; i++) {
+        result[result.length] = iteratee(array[i], i);
+    }
+
+    return result;
+};
 
 
 
@@ -28,7 +40,15 @@
 // Пример работы:
 // findIndex([4, 6, 8, 12], function(value) { return value === 8; });
 // => 2
+const findIndex = (array, predicate) => {
+    for (let i = 0; i < array.length; i++) {
+        if (predicate(array[i])) {
+            return i;
+        }
+    }
 
+    return -1;
+};
 
 
 
@@ -36,7 +56,15 @@
 // Пример работы:
 // find([1, 2, 3, 4, 5, 6], function(num) { return num % 2 === 0; });
 // => 2
+const find = (list, predicate) => {
+    for (let i = 0; i < list.length; i++) {
+        if (predicate(list[i])) {
+            return list[i];
+        }
+    }
 
+    return undefined;
+};
 
 
 
@@ -44,7 +72,17 @@
 // Пример работы:
 // filter([1, 2, 3, 4, 5, 6], function(num) { return num % 2 === 0; });
 // => [2, 4, 6]
+const filter = (list, predicate) => {
+    let result = [];
 
+    for (let i = 0; i < list.length; i++) {
+        if (predicate(list[i])) {
+            result[result.length] = list[i];
+        }
+    }
+
+    return result;
+};
 
 
 
@@ -52,7 +90,17 @@
 // Пример работы:
 // reject([1, 2, 3, 4, 5, 6], function(num){ return num % 2 === 0; });
 // => [1, 3, 5]
+const reject = (list, predicate) => {
+    let result = [];
 
+    for (let i = 0; i < list.length; i++) {
+        if (!predicate(list[i])) {
+            result[result.length] = list[i];
+        }
+    }
+
+    return result;
+};
 
 
 
@@ -60,7 +108,15 @@
 // Пример работы:
 // every([2, 4, 5], function(num) { return num % 2 === 0; });
 // => false
+const every = (list, predicate) => {
+    for (let i = 0; i < list.length; i++) {
+        if (!predicate(list[i])) {
+            return false;
+        }
+    }
 
+    return true;
+};
 
 
 
@@ -68,7 +124,15 @@
 // Пример работы:
 // some([2, 4, 5], function(num) { return num % 2 === 0; });
 // => true
+const some = (list, predicate) => {
+    for (let i = 0; i < list.length; i++) {
+        if (predicate(list[i])) {
+            return true;
+        }
+    }
 
+    return false;
+};
 
 
 
@@ -76,3 +140,21 @@
 // Пример работы:
 // partition([0, 1, 2, 3, 4, 5], function(num) { return num % 2 === 0; });
 // => [[0, 2, 4], [1, 3, 5]]
+const partition = (array, predicate) => {
+    let getTruePosition = [];
+    let getFalsePosition = [];
+
+    for (let i = 0; i < array.length; i++) {
+        if (predicate(array[i])) {
+            getTruePosition[getTruePosition.length] = array[i];
+        } else {
+            getFalsePosition[getFalsePosition.length] = array[i];
+        }
+    }
+
+    array.length = 0;
+    array[array.length] = getTruePosition;
+    array[array.length] = getFalsePosition;
+
+    return array;
+};

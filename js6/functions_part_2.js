@@ -10,6 +10,15 @@
 // Пример работы:
 // keys({one: 1, two: 2, three: 3});
 // => ["one", "two", "three"]
+const keys = (obj) => {
+    let result = [];
+
+    for (let prop in obj) {
+        result[result.length] = prop;
+    }
+
+    return result;
+};
 
 
 
@@ -18,7 +27,15 @@
 // Пример работы:
 // values({one: 1, two: 2, three: 3});
 // => [1, 2, 3]
+const values = (obj) => {
+    let result = [];
 
+    for (let prop in obj) {
+        result[result.length] = obj[prop];
+    }
+
+    return result;
+};
 
 
 
@@ -26,7 +43,15 @@
 // Пример работы:
 // pairs({one: 1, two: 2, three: 3});
 // => [["one", 1], ["two", 2], ["three", 3]]
+const pairs = (obj) => {
+    let result = [];
 
+    for (let prop in obj) {
+        result[result.length] = [prop, obj[prop]];
+    }
+
+    return result;
+};
 
 
 
@@ -35,7 +60,15 @@
 // Пример работы:
 // invert({Moe: "Moses", Larry: "Louis", Curly: "Jerome"});
 // => {Moses: "Moe", Louis: "Larry", Jerome: "Curly"}
+const invert = (obj) => {
+    let result = {};
 
+    for (let prop in obj) {
+        result[obj[prop]] = prop;
+    }
+
+    return result;
+};
 
 
 
@@ -43,7 +76,17 @@
 // Пример работы:
 // omit({name: 'moe', age: 50, userid: 'moe1'}, 'userid');
 // => {name: 'moe', age: 50}
+const omit = (obj, key) => {
+    let result = {};
 
+    for (let prop in obj) {
+        if (prop !== key) {
+            result[prop] = obj[prop];
+        }
+    }
+
+    return result;
+};
 
 
 
@@ -51,7 +94,15 @@
 // Пример работы:
 // has({a: 1, b: 2, c: 3}, 'b');
 // => true
+const has = (obj, key) => {
+    for (let prop in obj) {
+        if (prop === key) {
+            return true;
+        }
+    }
 
+    return false;
+};
 
 
 
@@ -59,7 +110,15 @@
 // Пример работы:
 // isMatch({name: 'moe', age: 32}, {age: 32});
 // => true
+const isMatch = (obj, objTest) => {
+    for (let prop in obj) {
+        if (obj[prop] === objTest[prop]) {
+            return true;
+        }
+    }
 
+    return false;
+};
 
 
 
@@ -73,7 +132,13 @@
 // => true
 // isEmpty({x: 4});
 // => false
+const isEmpty = (collection) => {
+    if (collection === {} || collection === []) {
+        return true;
+    }
 
+    return false;
+};//TODO:
 
 
 
@@ -81,7 +146,15 @@
 // Пример работы:
 // extend({name: 'moe'}, {age: 50});
 // => {name: 'moe', age: 50}
+const extend = (destination, source) => {
+    for (let prop in source) {
+        if (source[prop] !== destination[prop]) {
+            destination[prop] = source[prop];
+        }
+    }
 
+    return destination;
+};
 
 
 
@@ -89,3 +162,12 @@
 // Пример работы:
 // defaults({flavor: "chocolate"}, {flavor: "vanilla", sprinkles: "lots"});
 // => {flavor: "chocolate", sprinkles: "lots"}
+const defaults = (object, def) => {
+    for (let prop in def) {
+        if (def[prop] !== object[prop]) {
+            object[prop] = def[prop];
+        }
+    }
+
+    return object;
+};//TODO
