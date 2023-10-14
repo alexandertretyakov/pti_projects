@@ -1,6 +1,6 @@
 Типы данных:
     Число           5, 5.17
-    Строка          'Вася', 'Я люблю Киев'
+    Строка          'Вася', 'Я люблю Киев', "Don't"
     Логический      true, false
 
     undefined       undefined
@@ -24,22 +24,37 @@
 Инструкции:
     var
 
-    if [else]
-    switch
+    if (условие) { код } else { код }
+    switch (выражение) {
+        case значение_1:
+            код
+            break;
+        case значение_2:
+            код
+            break;
+        default:
+            код
+    }
 
-    while
-    do/while
-    for
-    for/in
+    while (условие) { код }
+    do { код } while (условие)
+    for (инициализация; условие; финальное_выражение) { код }
+    for (переменная in объект) { код }
 
     break
     continue
     return
     throw
-    try/catch/finally
+    try {
+        код
+    } catch (e) {
+        код
+    } finally {
+        код
+    }
 
     debugger
-    "use strict"
+    'use strict'
 
 Встроенные переменные:
     Number

@@ -3,6 +3,7 @@ var resultText = tmplFn({name: 'Вася'});
 
 {{  }}  for evaluation
 {{= }}  for interpolation
+{{! }}  for interpolation with encoding
 {{? }}  for conditionals
 {{~ }}  for array iteration
 
