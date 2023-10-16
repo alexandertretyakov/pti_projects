@@ -10,12 +10,13 @@
 // и результатом работы этого метода является присваивание этого числа свойству "x" объекта.
 var object = {
     x: 5,
-    getX: () => this.x,
-    changeX: (number) => {
-        this.x = number;
-        console.log(this.x);
+    getX: function () {
+        return this.x;
+    },
+    changeX: function(number) {
+        return this.x = number;
     }
-};//TODO:
+};
 
 
 
@@ -34,30 +35,53 @@ var object = {
 // => 31.41592653589793
 // circle.getSquare();
 // => 78.53981633974483
-const Circle = function(x, y, radius) {
-    this.x = x;
-    this.y = y;
-    this.radius = radius;
+//--------1 вариант---------
+// const Circle = function(x, y, radius) {
+//     this.x = x;
+//     this.y = y;
+//     this.radius = radius;
+// };
+//
+// Circle.prototype.getDiameter = function() {
+//     let diameter = 2 * this.radius;
+//
+//     return diameter;
+// };
+//
+// Circle.prototype.getPerimeter = function() {
+//     let diameter = 2 * this.radius;
+//     let perimeter = 3.14 * diameter;
+//
+//     return perimeter;
+// };
+//
+// Circle.prototype.getSquare = function() {
+//     let square = 3.14 * (this.radius * this.radius);
+//
+//     return square;
+// };
+//--------2 вариант-ES-6-------
+class Circle {
+    constructor(options) {
+        Object.assign(this, options);
+    }
 
-    Circle.prototype.getDiameter = function() {
+    getDiameter() {
+        return 2 * this.radius;
+    }
+
+    getPerimeter() {
         let diameter = 2 * this.radius;
+        return 3.14 * diameter;
+    }
 
-        return diameter;
-    };
+    getSquare() {
+        return 3.14 * (this.radius * this.radius);
+    }
+}
 
-    Circle.prototype.getPerimeter = function() {
-        let diameter = 2 * this.radius;
-        let perimeter = 3.14 * diameter;
+let circle = new Circle({x: 5, y: 5, radius: 5});
 
-        return perimeter;
-    };
-
-    Circle.prototype.getSquare = function() {
-        let square = 3.14 * (this.radius * this.radius);
-
-        return square;
-    };
-};
 
 
 // Создать класс Product который принимает 2-4 параметра в виде объекта:
@@ -76,7 +100,43 @@ const Circle = function(x, y, radius) {
 // => 650
 // pear.getCashbackAmount();
 // => 0
-//TODO:
+//--------1 вариант---------
+// const Product = function(options) {
+//     Object.assign(this, options);
+// };
+//
+// Product.prototype.getPriceWithDiscount = function() {
+//     return this.discountRate ?
+//         this.price - this.price * this.discountRate / 100 :
+//         this.price;
+// };
+//
+// Product.prototype.getCashbackAmount = function() {
+//     return this.cashbackRate ?
+//         this.price * this.cashbackRate / 100 :
+//         0;
+// };
+
+//--------2 вариант-ES-6-------
+// class Product {
+//     constructor(options) {
+//         Object.assign(this, options);
+//     }
+//
+//     getPriceWithDiscount() {
+//         return this.discountRate ?
+//             this.price - this.price * this.discountRate / 100 :
+//             this.price;
+//     }
+//
+//     getCashbackAmount() {
+//         return this.cashbackRate ?
+//             this.price * this.cashbackRate / 100 :
+//             0;
+//     }
+// }
+
+
 
 // Создать функции size, last, getPositiveNumbers, without, min, sum, как методы массивов
 // Примеры работы:
@@ -144,7 +204,9 @@ Object.prototype.keys = function() {
     let result = [];
 
     for (let prop in this) {
-        result[result.length] = prop;
+        if (this.hasOwnProperty(prop)) {
+            result[result.length] = prop;
+        }
     }
 
     return result;
@@ -154,7 +216,9 @@ Object.prototype.values = function() {
     let result = [];
 
     for (let prop in this) {
-        result[result.length] = this[prop];
+        if (this.hasOwnProperty(prop)) {
+            result[result.length] = this[prop];
+        }
     }
 
     return result;
@@ -164,7 +228,9 @@ Object.prototype.pairs = function() {
     let result = [];
 
     for (let prop in this) {
-        result[result.length] = [prop, this[prop]];
+        if (this.hasOwnProperty(prop)) {
+            result[result.length] = [prop, this[prop]];
+        }
     }
 
     return result;
@@ -172,8 +238,10 @@ Object.prototype.pairs = function() {
 
 Object.prototype.extend = function(source) {
     for (let prop in source) {
-        if (source[prop] !== this[prop]) {
-            this[prop] = source[prop];
+        if (this.hasOwnProperty(prop)) {
+            if (source[prop] !== this[prop]) {
+                this[prop] = source[prop];
+            }
         }
     }
 
@@ -350,37 +418,77 @@ obj.hasOwnProperty('name'); // => true
 // Пример работы:
 // reduce([1, 2, 3], function(memo, num) { return memo + num; }, 0);
 // => 6
+const reduce = (array, func, memo) => {
+    let i = 0;
 
+    if (memo === undefined) {
+        memo = array[0];
+        i = 1;
+    }
+
+    for (; i < array.length; i++) {
+        memo = func(memo, array[i]);
+    }
+
+    return memo;
+};
 
 // Создать функцию uniq... Принимает массив значений и возвращает массив уникальных значений.
 // Можно использовать любые изученные встроенные методы
 // Пример работы:
 // uniq([2, 6, 2, 5, 2]);
 // => [2, 6, 5]
+//--------1 вариант---------
+// const uniq = (array) => {
+//     let result = [];
+//
+//     for (let i = 0; i < array.length; i++) {
+//         if (!result.includes(array[i])) {
+//             result[result.length] = array[i];
+//         }
+//     }
+//
+//     return result;
+// };
+
+//--------2 вариант---------
 const uniq = (array) => {
-    let result = [];
-
-    for (let i = 0; i < array.length; i++) {
-        if (!result.includes(array[i])) {
-            result[result.length] = array[i];
+    return array.reduce(function(memo, el) {
+        if (!memo.includes(el)) {
+            memo.push(el);
         }
-    }
-
-    return result;
+        return memo;
+    }, []);
 };
 
 // Создать функцию count... Принимает массив значений и возвращает объект где ключи это уникальные значения, а значения это их количество.
 // Пример работы:
 // count(['apple', 'plum', 'apple', 'banana', 'pear', 'pear']);
 // => {apple: 2, plum: 1, banana: 1, pear: 2}
+//--------1 вариант---------
+// const count = (array) => {
+//     let result = {};
+//
+//     for (let i = 0; i < array.length; i++) {
+//         if (result[array[i]]) {
+//             result[array[i]] += 1;
+//         } else {
+//             result[array[i]] = 1;
+//         }
+//     }
+//
+//     return result;
+// };
+//--------2 вариант---------
 const count = (array) => {
-    let result = {};
-
-    for (let i = 0; i < array.length; i++) {
-
-    }
-
-    return result;
+    return array.reduce(function(memo, el) {
+        if (memo[el]) {
+            memo[el] += 1;
+        } else {
+            memo[el] = 1;
+        }
+        return memo;
+    }, {});
 };
 
 // Написать функцию преобразования getSearchParams которая принимает строку вида '?a=1&b=2&c=3&d=4' и возвращает объект вида {a: '1', b: '2', c: '3', d: '4'}
@@ -390,3 +498,34 @@ const count = (array) => {
 // => {}
 // getSearchParams('?x=6&y=9&radius=69');
 // => {x: '6', y: '9', radius: 69}
+
+// const getSearchParams = (string) => {
+//     let result = {};
+//
+//     if (string !== '') {
+//         string = string.slice(1);
+//         let pairs = string.split('&');
+//
+//         for (let i = 0; i < pairs.length; i++) {
+//             let [key, value] = pairs[i].split('=');
+//             result[key] = value;
+//         }
+//     }
+//
+//     return result;
+// };
+
+const getSearchParams = (string) => {
+    return string
+        .slice(1)
+        .split('&')
+        .map((pair) => pair.split('='))
+        .reduce((memo, pair) => {
+            const [key, value] = pair;
+
+            return {
+                ...memo,
+                [key]: value
+            };
+        }, {});
+};

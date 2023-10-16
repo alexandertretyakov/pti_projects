@@ -133,12 +133,14 @@ const isMatch = (obj, objTest) => {
 // isEmpty({x: 4});
 // => false
 const isEmpty = (collection) => {
-    if (collection === {} || collection === []) {
-        return true;
+    for (let prop in collection) {
+        if (prop) {
+            return false;
+        }
     }
 
-    return false;
-};//TODO:
+    return true;
+};
 
 
 
@@ -148,9 +150,7 @@ const isEmpty = (collection) => {
 // => {name: 'moe', age: 50}
 const extend = (destination, source) => {
     for (let prop in source) {
-        if (source[prop] !== destination[prop]) {
-            destination[prop] = source[prop];
-        }
+        destination[prop] = source[prop];
     }
 
     return destination;
@@ -164,10 +164,10 @@ const extend = (destination, source) => {
 // => {flavor: "chocolate", sprinkles: "lots"}
 const defaults = (object, def) => {
     for (let prop in def) {
-        if (def[prop] !== object[prop]) {
+        if (object[prop] === undefined) {
             object[prop] = def[prop];
         }
     }
 
     return object;
-};//TODO
+};
