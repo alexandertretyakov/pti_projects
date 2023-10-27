@@ -9,14 +9,18 @@ var resultText = tmplFn({name: 'Вася'});
 
 Пример:
 
+{{
+    console.log(it);
+    var listIsEmptyText = 'Список пуст';
+}}
 <div class="todos">
     {{? it.list.length}}
         <ul>
             {{~ it.list :item:index}}
-                <li>{{= item}}</li>
+                <li>{{! item}}</li>
             {{~}}
         </ul>
     {{??}}
-        <p class="empty">Список пуст</p>
+        <p class="empty">{{= listIsEmptyText}}</p>
     {{?}}
 </div>
