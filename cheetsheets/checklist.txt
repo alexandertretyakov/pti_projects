@@ -1,0 +1,65 @@
+Что такое Интернет?
+Для чего нужен Browser? Какие знаешь?
+Для чего нужен HTML? Тэги (одиночные), атрибуты (универсальные), спецсимволы
+Для чего нужен CSS? Селекторы, свойства (их значения), at-rules, !important, em/rem, CSS-спрайты
+Для чего нужен Git? GitHub? GitLab? Разница? Команды clone, pull, commit, push? Что такое branch? Что такое merge request?
+Для чего нужен Photoshop?
+Для чего нужен WebStorm? Горячие сочетания клавиш?
+Для чего нужен SASS? Переменные, примеси, вложенности
+Для чего нужен JS? Типы данных, операторы, инструкции (уловия, циклы, переходы), встроенные переменные, классы. Что такое ES6+?
+Для чего нужен Browser API? Работа с консолью, окном, документом (элементами), с сетью, с хранилищами. События
+Для чего нужен Chrome DevTools? Наиболее используемые вкладки
+Для чего нужен undersore? Альтернативы?
+Для чего нужен jQuery? Альтернативы?
+Для чего нужен doT? Альтернативы?
+Что такое шаблон проектирования? Какие знаешь? Для чего нужны?
+Для чего нужен Backbone?
+Для чего нужен React?
+Что такое Agile, SCRUM? Что такое Grooming, Planning, Daily, Demo, Retro? Jira? Из каких частей состоит JIRA issue? Confluence?
+Кто такой FE developer? Кто такой BE developer? PM? BA? QA? TL? Дизайнер?
+
+Страницы сайта, модули на них, что делают? Где?
+Роли guest, player, admin?
+Для чего нужен DEV, STG, PROD env?
+Что такое CMS? Зачем?
+    Как создать страницу? Основные свойства?
+    Как создать Content? Основные свойства?
+    Как создать TK?
+    Что такое portlet? Как добавить portlet на страницу? Настроить его?
+    Что такое replacer? Как добавить replacer на страницу? Настроить его?
+    В чем отличие portlet от replacer?
+    Что такое DTAG? Где?
+    Что такое externalPagesURLTypes? Где?
+    Что такое Playtech.Variables? Где?
+    ...
+Что такое IMS? Зачем?
+
+Что такое Portal?
+    Application model
+    Page model
+    Content
+    Как забираем данные из CMS? Какие? (HTTP)
+    Как забираем данные из IMS? Какие? (WebSocket)
+    Где лежит SCSS, images, TK, doT шаблоны, js code (backbone, react)?
+
+Что такое СУБД? Какие знаешь?
+Какие языки программирования знаешь? Что такое программиррование? Что такое алгоритм?
+Frameworks?
+Libraries?
+Что такое Node.js, npm, node_modules?
+Что такое Markdown?
+Grunt, Webpack, Require, Babel, eslint,...
+Тесты, Mocha, Jest, Jasmine, Chai, Sinon, библиотека утверждений, ...
+ORM
+CRUD
+GoDaddy, DNS, хостинг, FTP
+SEO
+SMM
+Элементы пользовательского интерфейса
+DOU
+Native app, Google Play, App Store, Веб-приложение
+Учётная запись
+Skype, Teams, ICQ, Telegram, ...
+Github, Twitter, Discord, Reddit, Facebook, Instagram, LinkedIn
+
+------- TMS?
