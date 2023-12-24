@@ -2,9 +2,9 @@
 Для чего нужен Browser? Какие знаешь?
 Для чего нужен HTML? Тэги (одиночные), атрибуты (универсальные), спецсимволы
 Для чего нужен CSS? Селекторы, свойства (их значения), at-rules, !important, em/rem, CSS-спрайты
-Для чего нужен Git? GitHub? GitLab? Разница? Команды clone, pull, commit, push? Что такое branch? Что такое merge request?
-Для чего нужен Photoshop?
-Для чего нужен WebStorm? Горячие сочетания клавиш?
+Для чего нужен Git? GitHub? GitLab? Разница? Какие СКВ знаешь? Команды clone, pull, commit, push? Что такое branch? Что такое merge request?
+Для чего нужен Photoshop? Альтренативы?
+Для чего нужен WebStorm? Альтренативы? Горячие сочетания клавиш?
 Для чего нужен SASS? Переменные, примеси, вложенности
 Для чего нужен JS? Типы данных, операторы, инструкции (уловия, циклы, переходы), встроенные переменные, классы. Что такое ES6+?
 Для чего нужен Browser API? Работа с консолью, окном, документом (элементами), с сетью, с хранилищами. События
@@ -63,3 +63,7 @@ Skype, Teams, ICQ, Telegram, ...
 Github, Twitter, Discord, Reddit, Facebook, Instagram, LinkedIn
 
 ------- TMS?
+Velocity
+PAS
+Bootstrap
+Visual Studio Code

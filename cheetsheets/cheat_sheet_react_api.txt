@@ -78,3 +78,8 @@ React API
         componentDidUpdate(prevProps, prevState)
     Размонтирование
         componentWillUnmount()
+
+Hooks
+    useState
+    useEffect
+    useContext
