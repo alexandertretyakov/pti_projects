@@ -44,6 +44,7 @@ React API
                 'data-id': '_t14ha0nc0'
                 https://ru.reactjs.org/docs/dom-elements.html
             }
+        RE
         React.Component
             props
             state
@@ -81,5 +82,54 @@ React API
 
 Hooks
     useState
+        const [count, setCount] = useState(0);
+        const [count, setCount] = useState(() => calcCount());
+        setCount(prev => prev + 1);
+
+        const [state, setState] = useState(initialState);
+        setState(newState);
     useEffect
+        useEffect(() => {
+            // componentDidMount, componentDidUpdate
+            return () => {
+                // componentWillUnmount
+            };
+        }, [dependencies]);
+        useEffect(() => {
+            // componentDidMount
+        }, []);
+        useEffect(() => {
+            // componentDidMount, componentDidUpdate
+        });
     useContext
+    useRef
+        const countRef = useRef(1);
+        const intervalIdRef = useRef();
+        intervalIdRef.current = setInterval(fn, 1000);
+        const ulRef = useRef();
+        <ul ref={ulRef}>
+    useMemo
+        const value = useMemo(() => calcValue(dependencies), [dependencies]);
+        const obj = useMemo(() => ({dependencies}), [dependencies]);
+    useCallback
+        const fn = useCallback(() => dependencies, [dependencies]);
+        const fn = useCallback(() => {}, []);
+    useReducer
+        const reducer = (state, action) => {
+            switch (action.type) {
+                case '':
+                    return {...state};
+                default:
+                    return state;
+            }
+        };
+        const [state, dispatch] = useReducer(reducer, initialState);
+        dispatch({ type: '', payload: {} });
+
+<SomeContext.Provider value={{}}>
+<SomeContext.Consumer>
+
+HOCs
+    memo(Component, (prevProps, nextProps) => {
+        return nextProps.count === 3 ? false : true;
+    });

@@ -107,7 +107,7 @@ event.stopImmediatePropagation()
     event.button
     event.which
     event.keyCode
-    event.key
+    event.key           'Enter', 'Shift', 'Alt', 'ArrowLeft', 'Escape'
     event.altKey
     event.ctrlKey
     event.shiftKey

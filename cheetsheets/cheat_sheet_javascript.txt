@@ -19,7 +19,7 @@
     . [] ?.
     ()
     new
-    delete typeof void instanceof in ,
+    delete typeof void instanceof in , ??
 
 Инструкции:
     var
