@@ -68,3 +68,26 @@ R.match(/[a-z]a/g, 'bananas')
 // ['ba', 'na', 'na']
 
 // ============================== ???
+
+R.concat('Je', 'sus')
+// 'Jesus'
+
+R.head('Jesus')
+// 'J'
+
+R.last('Jesus')
+// 's'
+
+R.tail('Jesus')
+// 'esus'
+
+R.length('Jesus')
+// 5
+
+
+
+
+
+pipe
+
+
