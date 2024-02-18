@@ -1,0 +1,49 @@
+const dot = { x: 2, y: 4 };
+
+const circle = { x: 8, y: 9, r: 10 };
+
+const man = {
+    name: 'John',
+    age: 35,
+    hair: 'brown',
+    coords: { x: 10, y: 0 }
+};
+
+const bear = {
+    hair: 'brown',
+    coords: { x: 12 }
+};
+
+const pig = {
+    name: 'Peppa',
+    age: 12,
+    hair: 'pink',
+    coords: { x: 14, y: 0 }
+};
+
+// ============================== Collections
+
+_.sample([1, 2, 3, 4, 5, 6], 3)
+// [5, 3, 6]
+
+_.size([1, 2, 1, 2])
+// 4
+_.size({x: 5, y: 6})
+// 2
+
+// ============================== Arrays
+
+_.first([8, 9, 2, 3])
+// 8
+
+// ============================== Functions
+
+// ============================== Objects
+
+_.keys(dot)
+// ['x', 'y']
+
+_.values(dot)
+// [2, 4]
+
+// ============================== Utility
