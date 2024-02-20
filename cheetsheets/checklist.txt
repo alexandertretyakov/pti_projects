@@ -63,7 +63,8 @@ Skype, Teams, ICQ, Telegram, ...
 Github, Twitter, Discord, Reddit, Facebook, Instagram, LinkedIn
 
 ------- TMS?
-Velocity
+Velocity (template engine)
 PAS
-Bootstrap
-Visual Studio Code
+Bootstrap | Tailwind CSS
+Visual Studio Code | Sublime Text
+ESLint | Emmet
