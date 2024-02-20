@@ -58,6 +58,8 @@ React API
                 stateChange
                 (state, props) => stateChange
         React.Fragment
+        React.useState
+        React.useEffect
     ReactDOM
         ReactDOM.render(reactElement, container)
 
