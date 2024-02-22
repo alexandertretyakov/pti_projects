@@ -65,6 +65,38 @@ Github, Twitter, Discord, Reddit, Facebook, Instagram, LinkedIn
 ------- TMS?
 Velocity (template engine)
 PAS
+
 Bootstrap | Tailwind CSS
-Visual Studio Code | Sublime Text
+Visual Studio Code | Sublime Text | WebStorm
 ESLint | Emmet
+Firefox | Chrome | Edge | Safari | Opera | Brave | Internet Explorer
+LESS | Sass | Stylus
+Haml
+CoffeeScript | Dart | TypeScript
+JavaScript | HTML | CSS
+Angular | Backbone | React | Vue
+Git | Mercurial | SVN
+Bitbucket | GitHub | GitLab
+Trello | Jira | Basecamp
+Oracle | MySQL | PostgreSQL | MongoDB | Redis
+Underscore | Lodash | Ramda
+D3 | Chart
+Node |
+npm
+Webpack
+Babel
+Redux
+Handlebars | Mustache | Smarty | Twig | Jinja | Velocity
+Express | CodeIgniter | CakePHP | Symfony | Laravel | Django
+Slack | WhatsApp | Microsoft Teams | Telegram | Viber | Discord | Skype | Signal | ICQ
+Figma | Photoshop
+LinkedIn | Instagram | Facebook | VK | Twitter | Однокласники
+TikTok | YouTube | Spotify | Twitch | SoundCloud
+Zoom
+Reddit
+Dropbox
+Evernote
+Confluence
+
+https://fontawesome.com/
+https://fonts.google.com/
