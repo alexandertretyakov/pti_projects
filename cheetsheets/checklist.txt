@@ -79,15 +79,20 @@ Git | Mercurial | SVN
 Bitbucket | GitHub | GitLab
 Trello | Jira | Basecamp
 Oracle | MySQL | PostgreSQL | MongoDB | Redis
+SQL
+phpMyAdmin
 Underscore | Lodash | Ramda
 D3 | Chart
-Node |
+Markdown
+Node
 npm
 Webpack
 Babel
 Redux
 Handlebars | Mustache | Smarty | Twig | Jinja | Velocity
-Express | CodeIgniter | CakePHP | Symfony | Laravel | Django
+Express | CodeIgniter | CakePHP | Symfony | Laravel | Django | Ruby on Rails
+Python | Java | JavaScript | C++ | Ruby | PHP
+WordPress | Wix | Blogger | Joomla | Drupal | PrestaShop | Magento
 Slack | WhatsApp | Microsoft Teams | Telegram | Viber | Discord | Skype | Signal | ICQ
 Figma | Photoshop
 LinkedIn | Instagram | Facebook | VK | Twitter | Однокласники
@@ -100,3 +105,6 @@ Confluence
 
 https://fontawesome.com/
 https://fonts.google.com/
+
+.gitignore
+package.json
