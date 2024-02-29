@@ -94,7 +94,7 @@ npm
 Webpack
 Babel
 Redux
-Handlebars | Mustache | Smarty | Twig | Jinja | Velocity
+Handlebars | Mustache | Smarty | Twig | Jinja | Velocity | doT
 Express | CodeIgniter | CakePHP | Symfony | Laravel | Django | Ruby on Rails
 Python | Java | JavaScript | C++ | Ruby | PHP
 WordPress | Wix | Blogger | Joomla | Drupal | PrestaShop | Magento
