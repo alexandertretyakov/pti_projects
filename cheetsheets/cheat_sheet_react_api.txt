@@ -104,7 +104,6 @@ Hooks
         useEffect(() => {
             // componentDidMount, componentDidUpdate
         });
-    useContext
     useRef
         const countRef = useRef(1);
         const intervalIdRef = useRef();
@@ -128,9 +127,10 @@ Hooks
         };
         const [state, dispatch] = useReducer(reducer, initialState);
         dispatch({ type: '', payload: {} });
-
-<SomeContext.Provider value={{}}>
-<SomeContext.Consumer>
+    useContext
+        <SomeContext.Provider value={{}}>
+        <SomeContext.Consumer>
+    TODO: свои хуки
 
 HOCs
     memo(Component, (prevProps, nextProps) => {
