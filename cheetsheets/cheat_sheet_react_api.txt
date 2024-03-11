@@ -106,8 +106,10 @@ Hooks
         });
     useRef
         const countRef = useRef(1);
+
         const intervalIdRef = useRef();
         intervalIdRef.current = setInterval(fn, 1000);
+
         const ulRef = useRef();
         <ul ref={ulRef}>
     useMemo
@@ -119,17 +121,34 @@ Hooks
     useReducer
         const reducer = (state, action) => {
             switch (action.type) {
-                case '':
-                    return {...state};
+                case 'add':
+                    return [
+                        ...state,
+                        { id: Date.now(), name: action.payload }
+                    ];
+                case 'remove':
+                    return state.filter((person) => person.id !== action.payload);
                 default:
                     return state;
             }
         };
         const [state, dispatch] = useReducer(reducer, initialState);
-        dispatch({ type: '', payload: {} });
+        dispatch({ type: 'add', payload: 'Вася' });
+        dispatch({ type: 'remove', payload: 1710149562835 });
     useContext
-        <SomeContext.Provider value={{}}>
-        <SomeContext.Consumer>
+        const OloloContext = React.createContext();
+
+        <OloloContext.Provider value={{x: 2, y: 4}}>
+            ...
+        </OloloContext.Provider>
+
+        <OloloContext.Consumer>
+            { ({x, y}) => (
+                <div>x = {x}, y = {y}</div>
+            ) }
+        </OloloContext.Consumer>
+
+        const { x, y } = useContext(OloloContext);
     TODO: свои хуки
 
 HOCs
