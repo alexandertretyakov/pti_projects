@@ -96,7 +96,7 @@ CSS свойства:
         box-sizing: !content-box|border-box;
         box-shadow: !none|inset 5px 5px 2px 2px #b2b2b2;
         overflow: !visible|hidden|auto;
-        display: !inline|block|inline-block|none|table-cell|flex;
+        display: !inline|block|inline-block|none|table-cell|flex|grid;
     List Properties
         list-style: none|square inside url("bullet.png");
             list-style-type: !disc|circle|square|decimal|lower-alpha|upper-roman|none|'+';
@@ -148,13 +148,35 @@ CSS свойства:
             gap: TODO
         Properties for the Children (flex items)
             order: !0|5;
-            flex: 0 1 auto;
+            flex: 0 1 auto|1|30px|1 1|1 30px;
                 flex-grow: !0|4;
                 flex-shrink: !1|3;
                 flex-basis: !auto|20%|100px;
             align-self: flex-start|flex-end|center|stretch|baseline;
     Grid
         TODO
+        grid-template-columns:;
+        grid-template-rows:;
+        grid-gap:;
+            grid-column-gap:;
+            grid-row-gap:;
+        justify-content:;
+        align-content:;
+        justify-items:;
+        align-items:;
+        grid-auto-flow:;
+        grid-area:;
+            grid-column:;
+                grid-column-start:;
+                grid-column-end:;
+            grid-row:;
+                grid-row-start:;
+                grid-row-end:;
+        grid-template-areas:;
+        justify-self:;
+        align-self:;
+        order:;
+
 At-rules:
     @media
     @font-face

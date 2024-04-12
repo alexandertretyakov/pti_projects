@@ -44,8 +44,15 @@ React API
                 'data-id': '_t14ha0nc0'
                 https://ru.reactjs.org/docs/dom-elements.html
             }
-        RE
-            TODO
+        <button className="btn">Click me!</button> {
+            type: 'button',
+            props: {
+                children: 'Click me!',
+                className: 'btn'
+            },
+            key: null,
+            ref: null
+        }
         React.Component
             props
             state
@@ -59,8 +66,14 @@ React API
                 stateChange
                 (state, props) => stateChange
         React.Fragment
+        React.createContext
         React.useState
         React.useEffect
+        React.useRef
+        React.useMemo
+        React.useCallback
+        React.useContext
+        React.useReducer
     ReactDOM
         ReactDOM.render(reactElement, container)
 
@@ -85,35 +98,53 @@ React API
 
 Hooks
     useState
-        const [count, setCount] = useState(0);
-        const [count, setCount] = useState(() => calcCount());
-        setCount(prev => prev + 1);
+        const [qty, setQty] = useState(0);
+        setQty(5);
+        setQty((prev) => prev + 1);
 
-        const [state, setState] = useState(initialState);
-        setState(newState);
+        const [qty, setQty] = useState(() => calcQty());
+
+        const [coords, setCoords] = useState({x: 2, y: 3});
+        setCoords((prev) => ({...prev, y: 4}));
     useEffect
         useEffect(() => {
-            // componentDidMount, componentDidUpdate
+            // make effect
+        });
+        // make effect after componentDidMount, componentDidUpdate
+
+        useEffect(() => {
+            // make effect
+
             return () => {
-                // componentWillUnmount
+                // clean effect
             };
         }, [dependencies]);
-        useEffect(() => {
-            // componentDidMount
-        }, []);
-        useEffect(() => {
-            // componentDidMount, componentDidUpdate
-        });
-    useRef
-        const countRef = useRef(1);
+        // make effect after componentDidMount, componentDidUpdate by dependencies
+        // clean effect before each componentDidUpdate by dependencies, componentWillUnmount
 
-        const intervalIdRef = useRef();
-        intervalIdRef.current = setInterval(fn, 1000);
+        useEffect(() => {
+            // make effect
+
+            return () => {
+                // clean effect
+            };
+        }, []);
+        // make effect after componentDidMount
+        // clean effect before componentWillUnmount
+    useRef
+        const numberOfCallsRef = useRef(1);
+        numberOfCallsRef.current++;
+
+?        const intervalIdRef = useRef();
+?        intervalIdRef.current = setInterval(fn, 1000);
+?        clearInterval
 
         const ulRef = useRef();
         <ul ref={ulRef}>
     useMemo
         const value = useMemo(() => calcValue(dependencies), [dependencies]);
+        const value = useMemo(() => calcValue(), []);
+
         const obj = useMemo(() => ({dependencies}), [dependencies]);
     useCallback
         const fn = useCallback(() => dependencies, [dependencies]);
@@ -149,7 +180,13 @@ Hooks
         </OloloContext.Consumer>
 
         const { x, y } = useContext(OloloContext);
-    TODO: свои хуки
+    Custom hooks
+        const useToggle = (initialValue = false) => {
+            const [value, setValue] = useState(initialValue);
+            const toggle = () => setValue((prev) => !prev);
+            return [value, toggle];
+        };
+        const [isOpen, toggleIsOpen] = useToggle(true);
 
 HOCs
     memo(Component, (prevProps, nextProps) => {

@@ -347,7 +347,7 @@ R.is(String, '')
 
 
 
-pipe
+R.pipe
 
 R.pipe(
     R.inc,
@@ -357,4 +357,23 @@ R.pipe(
     R.inc,
     R.inc
 )(2.1)
+// 7
+
+R.curry
+R.__
+
+const half = R.divide(R.__, 2);
+
+R.pipe(
+    R.add(2),
+    half,
+    R.inc
+)(10)
+// 7
+
+R.pipe(
+    R.add(2),
+    R.divide(R.__, 2),
+    R.inc
+)(10)
 // 7
