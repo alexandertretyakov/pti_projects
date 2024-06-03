@@ -56,7 +56,7 @@ GoDaddy, DNS, хостинг, FTP
 SEO
 SMM
 Элементы пользовательского интерфейса
-DOU
+DOU | Stack Overflow | Хабр
 Native app, Google Play, App Store, Веб-приложение
 Учётная запись
 Skype, Teams, ICQ, Telegram, ...
@@ -94,7 +94,7 @@ npm
 Webpack
 Babel
 Redux
-Handlebars | Mustache | Smarty | Twig | Jinja | Velocity | doT
+Handlebars | Mustache | Smarty | Twig | Jinja | Velocity | doT | Pug
 Express | CodeIgniter | CakePHP | Symfony | Laravel | Django | Ruby on Rails
 Python | Java | JavaScript | C++ | Ruby | PHP
 WordPress | Wix | Blogger | Joomla | Drupal | PrestaShop | Magento
@@ -110,6 +110,7 @@ Confluence
 
 https://fontawesome.com/
 https://fonts.google.com/
+https://codepen.io/
 
 .gitignore
 package.json

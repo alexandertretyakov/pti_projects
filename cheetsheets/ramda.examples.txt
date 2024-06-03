@@ -345,7 +345,7 @@ R.is(String, '')
 // true
 
 
-
+R.flip
 
 R.pipe
 
