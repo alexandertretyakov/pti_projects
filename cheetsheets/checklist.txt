@@ -111,6 +111,7 @@ Confluence
 https://fontawesome.com/
 https://fonts.google.com/
 https://codepen.io/
+https://jsfiddle.net/
 
 .gitignore
 package.json
