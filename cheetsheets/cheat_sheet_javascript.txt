@@ -67,16 +67,17 @@
         Array.prototype: concat, forEach, includes, indexOf, join, lastIndexOf, pop, push, reverse,
             shift, slice, splice, unshift, length, sort, map, filter, every, some, reduce, reduceRight
     Object: keys, values, create, assign, entries
-        Object.prototype: hasOwnProperty
+        Object.prototype: hasOwnProperty, constructor
     Function
         Function.prototype: apply, call, bind
 
-    Date
-        Date.prototype: getFullYear, getMonth, getDate, getHours, getMinutes, getSeconds
+    Date: now
+        Date.prototype: getFullYear, getMonth, getDate, getHours, getMinutes, getSeconds, getTime
     RegExp
         RegExp.prototype: test
-    Promise
-        TODO:
+    Promise: resolve, reject, all
+        Promise.prototype: then, catch, finally
+        new Promise((resolve, reject) => { код })
 
     Math: abs, ceil, floor, max, min, pow, random, round, sqrt, trunc
     JSON: stringify, parse

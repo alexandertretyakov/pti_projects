@@ -136,12 +136,12 @@ $('.add-movies').on('click', function()  {
 });
 
 
-var ajax = function(method, url) {
-    const xhr = new XMLHttpRequest;
+const ajax = function(method, url) {
     const state = $.Deferred();
+    const xhr = new XMLHttpRequest;
 
     xhr.open(method, url);
-    xhr.addEventListener('readystatechange', function () {
+    xhr.addEventListener('readystatechange', function() {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
                 state.resolve(xhr.responseText);
@@ -156,5 +156,29 @@ var ajax = function(method, url) {
 };
 
 ajax('GET', 'http://127.0.0.1:3000/movies')
-    .done((res) => console.log('Выполнено', res))
-    .fail(() => console.log('Ошибка'));
+    .done((res) => console.log('done', res))
+    .fail(() => console.log('fail'))
+    .always(() => console.log('always'));
+
+const fetch = function(method, url) {
+    return new Promise(function(resolve, reject) {
+        const xhr = new XMLHttpRequest;
+
+        xhr.open(method, url);
+        xhr.addEventListener('readystatechange', function() {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    resolve(xhr.responseText);
+                } else {
+                    reject();
+                }
+            }
+        });
+        xhr.send();
+    });
+};
+
+fetch('GET', 'http://127.0.0.1:3000/movies')
+    .then((res) => console.log('done', res))
+    .catch(() => console.log('fail'))
+    .finally(() => console.log('always'));
