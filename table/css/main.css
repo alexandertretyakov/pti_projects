@@ -64,6 +64,17 @@
     color: black;
 }
 
+/* --------------------------------------------- Table-two-grid */
+.table-two-grid {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 200px 200px 200px;
+}
+
+.table-two-grid > * {
+    outline: 1px dotted red;
+}
+
 /* --------------------------------------------- Table-three */
 .table-three {
     border-top: 1px solid #808080;
