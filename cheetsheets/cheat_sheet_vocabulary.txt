@@ -208,7 +208,7 @@ CSS свойства:
         border box              граница коробка
     box shadow                  тень коробки
         inset                   вкладка, вклейка, вставлять, вкладывать
-    overflow                    переполнение
+    +overflow                    переполнение
         visible                 видимый
         hidden                  скрытый
         automatic               автоматический
@@ -537,7 +537,7 @@ xhr
     rest                остаток
     compact             компактный
     flatten             выравнивать, разглаживать
-    without             без
+    +without             без
     union               объединение
     intersection        пересечение, перекресток
     difference          разница, различие
@@ -749,7 +749,7 @@ performance                     производительность, эффек
 roll back                       откат
 credentials                     реквизиты для входа (почта, телефон, пароль)
 sync (synchronize)              синхронизировать
-adjust                          регулировать, приспосабливать
++adjust                          регулировать, приспосабливать
 rough                           грубый, приблизительный
 roughly                         грубо, приблизительно
 conclusion                      вывод, умозаключение
@@ -764,49 +764,49 @@ junior                          младший
 **************************** Из описаний к заданиям ************************
 
 as                              как
-able                            способный, в состоянии
-twice                           дважды
-should                          должен
-pass                            проходить, передавать
++able                            способный, в состоянии
++twice                           дважды
++should                          должен
++pass                            проходить, передавать
 attach                          прикреплять
 attachment                      вложение
 choose                          выбирать
 flow                            поток
-shown
-below                           ниже, внизу, под
++shown                           показано
++below                           ниже, внизу, под
 tooltip                         подсказка
 same                            такой же
 manual                          ручной, мануальный, руководство
-describe                        описывать
++describe                        описывать
 customer                        клиент, заказчик, покупатель
 provide                         предоставлять
 during                          в течение, во время
-prefill                         предзаполнить
++prefill                         предзаполнить
 present                         представлять
-according                       в соответствии
++according                       в соответствии
 overview                        обзор
 phase                           фаза, этап, стадия, период
 accept                          принимать, соглашаться
-acceptance                      прием, принятие
++acceptance                      прием, принятие
 how                             как
 follow                          следовать
-following                       следующий
-exclude                         исключать
-similar                         похожий
++following                       следующий
++exclude                         исключать
++similar                         похожий
 sent
 increase                        увеличивать
-editable                        редактируемый
++editable                        редактируемый
 enough                          достаточно
-reach                           достигать
++reach                           достигать
 way                             путь, способ
 note                            примечание
 recover                         восстанавливать
 using
 consist                         состоять
-mandatory                       обязательный
++mandatory                       обязательный
 sub-headers
 condition                       условие
-native                          родной
++native                          родной
 ident
 regard                          касаться, иметь отношение
 CAPTCHA, reCAPTCHA              компьютерный тест, используемый для того, чтобы определить, кем является пользователь системы: человеком или компьютером
@@ -818,6 +818,42 @@ trust                           доверять
 CVV/CVC (Card Verification Value/Code)
 permission                      разрешение
 ASAP (As Soon As Possible)      как можно скорее
+
+temporary                       временный
+popup                           всплывающее
+forgot                          забыл
+posibility                      возможность
+allowed                         допустимый
+implemented                     реализован
+loss                            ущерб, проигрыш
+appropriate                     соответствующий
+scrollable                      прокручиваемый
+order                           порядок
+accordance                      соответствие
+resolved                        решено
+multichannel                    многоканальный
+implementation                  выполнение
+wrong                           неправельный
+behavior                        поведение
+fill                            Наполнять
+proceed                         продолжить
+citizenship                     гражданство
+does                            делает
+exist                           существовать
+issuer                          эмитент
+hyphens                         дефисы
+otherwise                       в противном случае
+additional                      дополнительный
+pending                         в ожидании
+interfere                       вмешиваться
+purpose                         цель
+loyalty                         верность
+depend                          зависеть
+expiration                      истечение срока действия
+rules                           правила
+plain                           простой
+observe                         наблюдать
+
 
 **************************** Словник молодіжного сленгу ************************
 Аб'юз – фізичне або психологічне насильство в сім'ї або відносинах.
