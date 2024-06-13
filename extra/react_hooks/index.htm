@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>React State</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <style>
+        body {
+            padding-top: 50px;
+        }
+
+        .z {
+            color: red;
+            margin: 1em 0;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .t {
+            font-style: italic;
+        }
+
+        .t99 {
+            padding: 10px;
+            background: #8fff00;
+        }
+
+        .t97 {
+            color: #fff;
+            background: #144d74;
+            padding: 15px;
+            margin: 0;
+            font-style: normal;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+        }
+
+        .t97 a {
+            color: #ffd600;
+        }
+
+        .t97 button {
+            float: right;
+        }
+
+        #ab {
+            border: 1px dashed orange;
+        }
+
+        .hi {
+            background: yellow;
+        }
+    </style>
+
+    <style>
+        .whores-container {
+            background: #751a1a;
+            width: 910px;
+            height:  474px;
+            padding: 10px;
+            overflow: hidden;
+            margin-bottom: 1em;
+        }
+
+        .whore {
+            background: white;
+            padding: 10px;
+            width: 200px;
+            position: relative;
+            font-family: Arial, sans-serif;
+            font-size: 15px;
+            cursor: pointer;
+            float: left;
+            margin: 0 0 10px 10px;
+        }
+
+        .whore:first-child {
+            margin-left: 0;
+        }
+
+        .whore-name {
+            font-size: 22px;
+            font-family: Tahoma, sans-serif;
+            margin-bottom: 5px;
+            color: #7b1e1e;
+        }
+
+        .whore img {
+            margin-bottom: 10px;
+        }
+
+        .whore-teaser {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            box-sizing: border-box;
+            padding: 10px;
+            display: none;
+        }
+
+        .whore:hover .whore-teaser {
+            display: block;
+        }
+
+        .whore-phone {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 5px 0 1px;
+        }
+    </style>
+
+    <script>
+        var jasmine = {
+            name: 'Жасмин',
+            photo: 'images/zhasmin.jpg',
+            age: '18',
+            boobs: '3',
+            weight: '50',
+            height: '168',
+            phone: '+380960000000',
+            can_come: true,
+            teaser: 'Очень нежная девчонка доставит Вам удовольствие по полной программе! Каждый мужчина ищет идеальную женщину - попробуй, может быть я именно та которая тебе нужна... Фото мои 1000%!!! Выезда НЕТ!!! Квартира для встреч ЕСТЬ, 5 мин от ст. метро \"Дворец Украина\"'
+        };
+    </script>
+
+    <style>
+        .cats-container {
+            width: 600px;
+            height: 200px;
+            margin-bottom: 1em;
+        }
+
+        .cat-container-1,
+        .cat-container-2 {
+            float: left;
+            width: 49%;
+            height: 200px;
+            box-sizing: border-box;
+            padding: 10px;
+            border: 1px dashed #000;
+            margin-left: 0.5%;
+        }
+    </style>
+
+    <style>
+        .tooth-container {
+            width: 600px;
+            height: 266px;
+            padding: 5px;
+            border: 1px solid black;
+            margin-bottom: 1em;
+        }
+
+        .tooth + .boy {
+            display: none;
+        }
+    </style>
+
+    <style>
+        .ski-resort {
+            width: 600px;
+            height: 170px;
+            border: 1px solid #000;
+            position: relative;
+            overflow-x: auto;
+            overflow-y: hidden;
+            margin-bottom: 1em;
+        }
+
+        .skier {
+            width: 150px;
+            transform: scale(-1, 1);
+            position: absolute;
+            top: 85px;
+            left: 0;
+        }
+    </style>
+
+    <style>
+        .mikki_tiles {
+            width: 400px;
+            height: 400px;
+            border: 1px solid black;
+        }
+
+        .mikki_tile {
+            width: 20px;
+            height: 20px;
+            float: left;
+        }
+    </style>
+
+    <script>
+        var mikki = [
+            '  XXXX        XXXX  ',
+            ' XXXXXX      XXXXXX ',
+            'XXXX XX XXXX XX XXXX',
+            'XXX  XXXXXXXXXX  XXX',
+            'XXXXXXXXXXXXXXXXXXXX',
+            'XXXXXXX      XXXXXXX',
+            ' XXXXX        XXXXX ',
+            '   XXX  XX XX XXX   ',
+            '    XX  XX XX XX    ',
+            '    XXX X  X  XX    ',
+            '    X         XX    ',
+            '    X    XXX  XX    ',
+            '    XX   XXX  XX    ',
+            '     XX      XX     ',
+            '      X  XX  X      ',
+            '       X    X       ',
+            '     XX XXXX XX     ',
+            '     XX      XX     ',
+            '    XX        XX    ',
+            '   XXXXXXXXXXXXXX   '
+        ];
+    </script>
+
+    <style>
+        .scene {
+            width: 800px;
+            height: 272px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid black;
+            margin-bottom: 1em;
+        }
+
+        .tile {
+            width: 16px;
+            height: 16px;
+            position: absolute;
+            background-image: url('images/mario_tileset.png');
+            background-repeat: no-repeat;
+            background-position: 16px 16px;
+        }
+
+        .tile.x_z {
+            background-position: -96px -112px;
+        }
+        .tile.x_k {
+            background-position: -144px -112px;
+        }
+        .tile.x_c {
+            background-position: -128px -112px;
+        }
+        .tile.x_t {
+            background-position: 0 -48px;
+            width: 32px;
+            height: 48px;
+        }
+        .tile.x_g {
+            background-position: 0 -128px;
+            width: 48px;
+            height: 32px;
+        }
+        .tile.x_b {
+            background-position: -144px -208px;
+            width: 80px;
+            height: 48px;
+        }
+        .tile.x_d {
+            background-position: 0 -96px;
+            width: 80px;
+            height: 32px;
+        }
+        .tile.x_w {
+            background-position: -96px -224px;
+            width: 48px;
+            height: 32px;
+        }
+    </style>
+
+    <script>
+        var map = [
+            '                                                  ',
+            '                                                  ',
+            '                                                  ',
+            '                    w                             ',
+            '                                       w          ',
+            '                                                  ',
+            '                       c                          ',
+            '                                                  ',
+            '                                        c         ',
+            '                                                  ',
+            '                c    kkkkk                        ',
+            ' b                                     t        c ',
+            '            d    g       d                        ',
+            '                                                  ',
+            'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz',
+            'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz',
+            'zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz'
+        ];
+    </script>
+
+    <style>
+        .slide {
+            width: 302px;
+            height: 347px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: none;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        .pagination {
+            margin: 1em 0;
+        }
+    </style>
+
+    <style>
+        .question {
+            color: #0078d7;
+            padding: 10px 20px 10px;
+            border-top: 1px solid #d2d2d2;
+            cursor: pointer;
+        }
+
+        .question:hover {
+            background: #e6e6e6;
+        }
+
+        .answer {
+            padding: 10px 20px 10px;
+            margin: 0;
+            display: none;
+        }
+
+        .question.active + .answer {
+            display: block;
+        }
+    </style>
+
+    <style>
+        .tabs {
+            border-bottom: 1px solid black;
+            width: 400px;
+        }
+
+        .tabs .item {
+            background: grey;
+            border: 1px solid black;
+            border-radius: 10px 10px 0 0;
+            display: inline-block;
+            margin-bottom: -1px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .tabs .item:hover,
+        .tabs .item.active {
+            background: lightgray;
+        }
+
+        .tabs-content .item {
+            display: none;
+        }
+
+        .tabs-content .item.active {
+            display: block;
+        }
+    </style>
+
+    <style>
+        .overlay {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: black;
+            opacity: 0.8;
+        }
+
+        .pop-up {
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            margin-top: -200px;
+            margin-left: -150px;
+            background: white;
+            border-radius: 10px;
+            width: 300px;
+            height: 400px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .pop-up input {
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .pop-up .close {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            background: black;
+            color: white;
+            border-radius: 50%;
+            right: -15px;
+            top: -15px;
+            cursor: pointer;
+            font-family: Tahoma, sans-serif;
+            border: none;
+        }
+
+        .pop-up .close:hover {
+            background: #912626;
+        }
+    </style>
+
+    <div id="app"></div>
+
+    <script type="text/babel">
+        const TaskChangeColor = () => {
+            const [colorText, setColorText] = React.useState('black');
+
+            const onClick = () => {
+                setColorText('red');
+            };
+
+            return (
+                <>
+                    <p className="z">При клике на кнопку изменить цвет текста</p>
+                    <p className="t t1" style={{color: colorText}}>Тест</p>
+                    <button className="b b1" onClick={onClick}>Изменить цвет текста</button>
+                </>
+            );
+        };
+
+        const TaskChangeBackgroundColor = () => {
+            const [backgroundColor, setBackgroundColor] = React.useState('');
+
+            const onClick = () => {
+                setBackgroundColor('yellow');
+            };
+
+            return (
+                <>
+                    <p className="z">При клике на кнопку изменить цвет фона</p>
+                    <p className="t t2" style={{backgroundColor: backgroundColor}}>Тест</p>
+                    <button className="b b2" onClick={onClick}>Изменить цвет фона</button>
+                </>
+            );
+        };
+
+        const TaskChangeHref = () => {
+            const [href, setHref] = React.useState('https://habrahabr.ru/');
+
+            const onClick = () => {
+                setHref('https://www.youtube.com/');
+            };
+
+            return (
+                <>
+                    <p className="z">При клике на кнопку изменить путь ссылки</p>
+                    <p className="t t3"><a href={href}>Тест</a></p>
+                    <button className="b b3" onClick={onClick}>Изменить путь ссылки</button>
+                </>
+            );
+        };
+
+        const TaskChangeSrc = () => {
+            const [src, setSrc] = React.useState('images/kaktus.jpg');
+
+            const onClick = () => {
+                setSrc('images/silvia.jpg');
+            };
+
+            return (
+                <>
+                    <p className="z">При клике на кнопку изменить путь к картинке</p>
+                    <p className="t t4">Тест <img src={src} width="100" /></p>
+                    <button className="b b4" onClick={onClick}>Изменить путь к картинке</button>
+                </>
+            );
+        };
+
+        const TaskChangeId = () => {
+            const [id, setId] = React.useState('ab');
+
+            const onClick = () => {
+                setId('cd');
+            };
+
+            return (
+                <>
+                    <p className="z">При клике на кнопку изменить id элемента</p>
+                    <p className="t t5" id={id}>Тест</p>
+                    <button className="b b5" onClick={onClick}>Изменить id элемента</button>
+                </>
+            );
+        };
+
+        const TaskChangeText = () => {
+            const [fontStyle, setFontStyle] = React.useState('italic');
+
+            const onClick = () => {
+                setFontStyle('normal');
+            };
+
+            return (
+                <>
+                    <p className="z">При клике на кнопку изменить текст</p>
+                    <p className="t t6" style={{fontStyle}}>Тест</p>
+                    <button className="b b6" onClick={onClick}>Изменить текст</button>
+                </>
+            );
+        };
+
+        const TaskChangeHtml = () => {
+            const [changeHTML, setChangeHTML] = React.useState(false);
+
+            const onClick = () => {
+                setChangeHTML(true);
+            };
+
+            return (
+                <>
+                    <p className="z">При клике на кнопку изменить HTML</p>
+                    <p className="t t7">Тест {changeHTML ? <b>Цветы</b> : 'Цветы'}</p>
+                    <button className="b b7" onClick={onClick}>Изменить HTML</button>
+                </>
+            );
+        };
+
+        const TaskChangeFontSize = () => {
+            const [fontSize, setFontSize] = React.useState('16px');
+
+            const onClick = () => {
+                setFontSize('26px');
+            };
+
+            return (
+                <>
+                    <p className="z">При клике на кнопку изменить размер шрифта</p>
+                    <p className="t t8" style={{fontSize}}>Тест</p>
+                    <button className="b b8" onClick={onClick}>Изменить размер шрифта</button>
+                </>
+            );
+        };
+
+        const TaskChangeAddClass = () => {
+            const [className, setClassName] = React.useState('');
+
+            const onClick = () => {
+                setClassName('hi');
+            };
+
+            return (
+                <>
+                    <p className="z">При клике на кнопку добавить класс 'hi'</p>
+                    <p className={`t t9 ${className}`}>Тест</p>
+                    <button className="b b9" onClick={onClick}>Добавить класс 'hi'</button>
+                </>
+            );
+        };
+
+        const TaskChangeRemoveClass = () => {
+            const [className, setClassName] = React.useState('hi');
+
+
+            const onClick = () => {
+                setClassName('');
+            };
+
+            return (
+                <>
+                    <p className="z">При клике на кнопку удалить класс 'hi'</p>
+                    <p className={`t t10 ${className}`}>Тест</p>
+                    <button className="b b10" onClick={onClick}>Удалить класс 'hi'</button>
+                </>
+            );
+        };
+
+        const TaskChangeToggleClass = () => {
+            const [toggleClass, setToggleClass] = React.useState(true);
+
+            const onClick = () => {
+                setToggleClass((toggleClass) => !toggleClass);
+            };
+
+            return (
+                <>
+                    <p className="z">При клике на кнопку добавлять/удалять (в зависимости от наличия) класс 'hi'</p>
+                    <p className={`${toggleClass ? 't t11 hi' : 't t11'}`}>Тест</p>
+                    <button className="b b11" onClick={onClick}>Добавить/удалить (в зависимости от наличия) класс 'hi'</button>
+                </>
+            );
+        };
+
+        const TaskShowClass = () => {
+            const [className, setClassName] = React.useState('');
+
+            React.useEffect(() => {
+                document.addEventListener('click', (e) => {
+                    setClassName(e.target.className);
+                });
+            }, []);
+
+            return (
+                <>
+                    <p className="z">При клике на любом элементе страницы выводить значение атрибута class элемента</p>
+                    <p className="t t12">{className}</p>
+                </>
+            );
+        };
+
+        // Пропускаем!
+        class TaskTodo1 extends React.Component {
+            render() {
+                return (
+                    <>
+                        <p className="z">При клике на кнопку перевести текст на английский язык (перевод хранится в атрибуте data-en элемента)</p>
+                        <p className="t t13" data-en="sun">Солнце</p>
+                        <button className="b b13">Перевести</button>
+                    </>
+                );
+            }
+        }
+
+        const TaskChangeBackgroundColorOnResize = () => {
+            const [backgroundColor, setBackgroundColor] = React.useState('');
+
+            React.useEffect(() => {
+                window.addEventListener('resize', changeBackground);
+            }, []);
+
+            const changeBackground = () => {
+                let r = (Math.round(Math.random() * 255));
+                let g = (Math.round(Math.random() * 255));
+                let b = (Math.round(Math.random() * 255));
+
+                setBackgroundColor(`rgb(${r}, ${g}, ${b})`);
+            };
+
+            return (
+                <>
+                    <p className="z">При изменении размеров окна вкладки или браузера изменять фоновый цвет абзаца (использовать RGB и Math.random)</p>
+                    <p className="t t99" style={{backgroundColor}}>Drugs are bad, m'kay, so, if you do drugs, you're bad, m'kay, because drugs are bad.</p>
+                </>
+            );
+        };
+
+        const TaskInputWithCounter = () => {
+            const [text, setText] = React.useState('Я не касался писи козла!');
+
+            const onChange = (e) => {
+                setText(e.target.value);
+            };
+
+            return (
+                <>
+                    <p className="z">При изменении значения элемента формы выводить количество символов которое оно содержит</p>
+                    <p className="t t98"><input type="text" defaultValue={text} onChange={onChange} /> <span className="t98-2">{text.length}</span></p>
+                </>
+            );
+        };
+
+        const calcValue = () => {
+            console.log('Вызов ф-ции calcValue');
+            return 4;
+        };
+
+        const callbacks = [];
+
+        const Ololo = () => {
+            console.log('Вызов компонента Ololo');
+
+            const [qty, setQty] = React.useState(1);
+
+            const num = React.useMemo(() => calcValue(), []);
+            const onClick = React.useCallback(() => setQty(qty + 1), []);
+
+            callbacks.push(onClick);
+
+            return (
+                <>
+                    {num}
+                    <button onClick={onClick}>+++++++++++{qty}</button>
+                </>
+            )
+        };
+
+        const TaskWhores = (props) => {
+            const [girls, setGirl] = React.useState([]);
+
+            const addGirl = () => {
+                setGirl((girls) => [...girls, props.girls]);
+            };
+
+            return (
+                <>
+                    <p className="z">Вывести на экран анкету Жасмин используя переменную jasmine (смотри исходный код)</p>
+
+                    <div className="whores-container">
+                        <div className="whore">
+                            <div className="whore-name">Сильвия</div>
+                            <img src="images/silvia.jpg" width="200" />
+                            <div className="whore-age">Возраст: 32</div>
+                            <div className="whore-boobs">Размер груди: 3</div>
+                            <div className="whore-height">Рост: 170</div>
+                            <div className="whore-weight">Вес: 60</div>
+                            <div className="whore-phone">+380960000000</div>
+                            <div className="whore-can-come">Выезд: -</div>
+                            <div className="whore-teaser">Я - симпатичная девочка экзотической внешности без
+                                комплексов и с огромной любовью к сексу! Я непревзойденная любовница, страстная,
+                                доступная и яркая! Я невероятно сексуальна и изобретательна, мила и
+                                непосредственна. Не теряй времени, звони мне, мой друг! Я скрашу твоё
+                                одиночество :)
+                            </div>
+                        </div>
+
+                        {
+                            girls.map((girl) => {
+                                return (
+                                    <div className="whore">
+                                        <div className="whore-name">{girl.name}</div>
+                                        <img src={girl.photo} width="200" />
+                                        <div className="whore-age">Возраст: {girl.age}</div>
+                                        <div className="whore-boobs">Размер груди: {girl.boobs}</div>
+                                        <div className="whore-height">Рост: {girl.height}</div>
+                                        <div className="whore-weight">Вес: {girl.weight}</div>
+                                        <div className="whore-phone">{girl.phone}</div>
+                                        <div className="whore-can-come">Выезд: {girl.can_come ? '+' : '-'}</div>
+                                        <div className="whore-teaser">{girl.teaser}</div>
+                                    </div>
+                                );
+                            })
+                        }
+                    </div>
+
+                    <button className="b b14" onClick={addGirl}>Добавить анкету</button>
+                </>
+            );
+        };
+
+        const TaskFish = () => {
+            const [container, setContainer] = React.useState(1);
+
+            const fish = <img src="images/fish.jpg" className="fish" width="50" />;
+
+            const onClick = () => {
+                setContainer((container) => container === 1 ? 2 : 1);
+            };
+
+            return (
+                <>
+                    <p className="z">Переместить рыбу из первого контейнера во второй (при повторном клике из второго в первый и т.д.)</p>
+
+                    <div className="cats-container">
+                        <div className="cat-container-1">
+                            <img className="cat" src="images/kat.png" width="100" />
+                            {container === 1 ? fish : null}
+                        </div>
+
+                        <div className="cat-container-2">
+                            <img className="cat" src="images/kat.png" width="100" />
+                            {container === 2 ? fish : null}
+                        </div>
+                    </div>
+
+                    <button className="b b15" onClick={onClick}>Переместить рыбу</button>
+                </>
+            );
+        };
+
+        const TaskTooth = () => {
+            const [tooth, setTooth] = React.useState(true);
+
+            const toothImg = <img className="tooth" src="images/tooth.jpg" width="200" />;
+            const broImg = <img className="boy" src="images/bro.jpg" width="600" />;
+
+            const onClick = () => {
+                setTooth(false);
+            };
+
+            return (
+                <>
+                    <p className="z">Удалить зуб</p>
+                    <div className="tooth-container">{tooth ? toothImg : broImg}</div>
+                    <button className="b b16" onClick={onClick}>Удалить зуб</button>
+                </>
+            );
+        };
+
+        const TaskSkier = function() {
+            const [x, setX] = React.useState(0);
+            const [isMoving, setIsMoving] = React.useState(false);
+
+            React.useEffect(() => {
+                if (isMoving) {
+                    const intervalId = setInterval(() => {
+                        setX((x) => x + 5);
+                    }, 20);
+
+                    return () => {
+                        clearInterval(intervalId);
+                    }
+                }
+            }, [isMoving]);
+
+            const start = () => {
+                setIsMoving(true);
+            };
+
+            const stop = function() {
+                setIsMoving(false);
+            };
+
+            return (
+                <>
+                    <p className="z">Хочу чтоб лыжник бесконечно ехал вправо (сдвиг на 5px каждые 16ms). При нажатии на кнопку "Стоп!" останавливался.</p>
+                    <div className="ski-resort">
+                        <img className="skier" src="images/skier.gif" style={{left: `${x}px`}} />
+                    </div>
+                    <button className="b b17" onClick={start}>Поехали!</button>
+                    <button className="b b17-2" onClick={stop}>Стоп!</button>
+                </>
+            );
+        };
+
+        const TaskMikki = (props) => {
+            const mikkiTales = () => {
+                const {tiles} = props;
+                const mikki = [];
+                const blackTile = <div className="mikki_tile" style={{backgroundColor: 'black'}}>{null}</div>;
+                const witeTile = <div className="mikki_tile">{null}</div>;
+
+                for(let i = 0; i < tiles.length; i++) {
+                    for(let j = 0; j < tiles[i].length; j++) {
+                        mikki.push(tiles[i][j] === 'X' ? blackTile : witeTile)
+                    }
+                }
+
+                return mikki;
+            };
+
+            return (
+                <>
+                    <p className="z">Хочу такое (смотри исходный код) <img src="images/mikki.png" /></p>
+                    <div className="mikki_tiles">
+                        {mikkiTales()}
+                    </div>
+                </>
+            );
+        };
+
+        const TaskMario = (props) => {
+            const [showWorld, setShowWorld] = React.useState(false);
+
+            const onClick = () => {
+                setShowWorld(true);
+            };
+
+            const createWorld = () => {
+                const {map} = props;
+                const marioWorld = [];
+
+                for(let i = 0; i < map.length; i++) {
+                    for(let j = 0; j < map[i].length; j++) {
+                        let className = 'tile ';
+
+                        let style = {
+                            top: i * 16 + 'px',
+                            left: j * 16 + 'px'
+                        };
+
+                        if (map[i][j] === 'w') {
+                            className += 'x_w';
+                        }
+                        if (map[i][j] === 'c') {
+                            className += 'x_c';
+                        }
+                        if (map[i][j] === 'k') {
+                            className += 'x_k';
+                        }
+                        if (map[i][j] === 'd') {
+                            className += 'x_d';
+                        }
+                        if (map[i][j] === 't') {
+                            className += 'x_t';
+                        }
+                        if (map[i][j] === 'g') {
+                            className += 'x_g';
+                        }
+                        if (map[i][j] === 'b') {
+                            className += 'x_b';
+                        }
+                        if (map[i][j] === 'z') {
+                            className += 'x_z';
+                        }
+
+                        marioWorld.push(<div className={className} style={style}>{null}</div>);
+                    }
+                }
+
+                return marioWorld;
+            };
+
+            return (
+                <>
+                    <p className="z">Создать мир Марио <img src="images/mario.png" /></p>
+                    <div className="scene">{showWorld ? createWorld() : null}</div>
+                    <button className="b b18" onClick={onClick}>Создать мир</button>
+                </>
+            );
+        };
+
+        const TaskSlider = () => {
+            const [activeSlideIndex, setActiveSlideIndex] = React.useState(0);
+
+            const images = [
+                'images/slide1.jpg',
+                'images/slide2.jpg',
+                'images/slide3.jpg',
+                'images/slide4.jpg',
+                'images/slide5.jpg'
+            ];
+
+            const next = () => {
+                setActiveSlideIndex((activeSlideIndex) => {
+                    return activeSlideIndex === images.length - 1 ? 0 : activeSlideIndex + 1
+                });
+            };
+
+            const previous = () => {
+                setActiveSlideIndex((activeSlideIndex) => {
+                    return activeSlideIndex === 0 ? images.length - 1 : activeSlideIndex - 1
+                });
+            };
+
+            return (
+                <>
+                    <p className="z">Кликая по кнопкам "предыдущая" и "следующая" я хочу чтобы менялись соответственно слайды</p>
+                    <div className="slider">
+                        <img src={images[activeSlideIndex]} className="slide active" />
+                    </div>
+
+                    <div className="pagination">
+                        <button className="previous" onClick={previous}>Previous</button>
+                        <button className="next" onClick={next}>Next</button>
+                    </div>
+                </>
+            );
+        };
+
+        const TaskFaq = () => {
+            const [activeQuestionIndex, setActiveQuestionIndex] = React.useState(null);
+
+            const items = [
+                {
+                    question: `В чем разница между 32-разрядной и 64-разрядной версиями Windows?`,
+                    answer: `Термины "32-разрядный" и "64-разрядный" описывают, каким образом процессор компьютера
+                    (он также называется ЦП) обрабатывает информацию. 64-разрядная версия Windows обрабатывает
+                    большие объемы оперативной памяти (ОЗУ) более эффективно по сравнению с 32-разрядной версией.
+                    Не все устройства могут работать под управлением 64-разрядных версий Windows.`
+                },
+                {
+                    question: `Моя копия Windows приобретена через учебное заведение. Можно ли скачать её здесь?`,
+                    answer: `Да, но вам потребуется ключ продукта. Перейдите на страницу загрузок <b>Академические
+                    продукты</b> и выберите версию Windows, чтобы начать.`
+                },
+                {
+                    question: `Что делать после создания носителя с помощью средства создания носителя?`,
+                    answer: `<p>
+                        Чтобы установить Windows, после создания установочного носителя выполните одно из
+                        следующих действий:
+                    </p>
+                    <ul>
+                        <li>
+                            Подключите USB-устройство флэш-памяти к компьютеру, на который необходимо установить
+                            Windows, найдите его в проводнике и откройте файл setup.exe. Выполняйте инструкции,
+                            отображаемые в ходе установки.
+                        </li>
+                        <li>
+                            Если ваш компьютер настроен на загрузку с USB-накопителя, подключите USB-устройство
+                            флэш-памяти к компьютеру, на который необходимо установить Windows, перезагрузите его,
+                            а затем следуйте инструкциям по установке.
+                        </li>
+                        <li>
+                            Если компьютер настроен на загрузку с DVD-дисковода, вставьте DVD-диск в компьютер,
+                            перезагрузите компьютер, а затем следуйте инструкциям по установке.
+                        </li>
+                    </ul>`
+                },
+                {
+                    question: `Этот образ диска загрузочный?`,
+                    answer: `Образ диска с этого сайта можно использовать для создания загрузочных USB-носителей и
+                    DVD-дисков, которые предоставляют доступ к средствам восстановления.`
+                }
+            ];
+
+            const clickOnQuestion = (index) => setActiveQuestionIndex(index);
+
+            return (
+                <>
+                    <p className="z">Кликая вопросам я хочу видеть ответы на них</p>
+
+                    <dl className="faq">
+                        {
+                            items.map((item, index) => {
+                                return (
+                                    <>
+                                        <dt className={`${activeQuestionIndex === index ? 'question active' : 'question'}`} onClick={() => clickOnQuestion(index)}>{item.question}</dt>
+                                        <dd className="answer" dangerouslySetInnerHTML={{ __html: item.answer }}></dd>
+                                    </>
+                                );
+                            })
+                        }
+                    </dl>
+                </>
+            );
+        };
+
+        const TaskTabs = () => {
+            const [id, setId] = React.useState('today');
+
+            const tabs = [
+                {
+                    id: 'today',
+                    title: 'Сегодня',
+                    content: `<ul>
+                                <li>Звёздные войны: Последние джедаи</li>
+                                <li>Счастливый день смерти</li>
+                                <li>Дыши</li>
+                              </ul>`
+                },
+                {
+                    id: 'tomorrow',
+                    title: 'Завтра',
+                    content: `<ul>
+                                <li>Киборги</li>
+                                <li>Земля троллей</li>
+                                <li>За пропастью во ржи</li>
+                              </ul>`
+                },
+                {
+                    id: '23d',
+                    title: '23 декабря',
+                    content: `<ul>
+                                <li>Мой любимый динозавр</li>
+                                <li>Фердинанд</li>
+                                <li>Джуманджи: Зов джунглей</li>
+                            </ul>`
+                }
+            ];
+
+            const onClickOnTab = (e) => setId(e.target.dataset.tabId);
+
+            return (
+                <>
+                    <p className="z">Кликая по вкладкам я хочу видеть связанное содержимое</p>
+                    <h2>Сеансы</h2>
+                    <div className="tabs">
+                        {
+                            tabs.map((tab) => {
+                                return <div className={id === tab.id ? 'item active' : 'item'} data-tab-id={tab.id} onClick={onClickOnTab}>{tab.title}</div>
+                            })
+                        }
+                    </div>
+
+                    <div className="tabs-content">
+                        {
+                            tabs.map((tab) => {
+                                return (
+                                    <div className={id === tab.id ? 'item active' : 'item'} data-tab-id={tab.id} dangerouslySetInnerHTML={{ __html: tab.content }}>{null}</div>
+                                )
+                            })
+                        }
+                    </div>
+                </>
+            );
+        };
+
+        const TaskPopUp = () => {
+            const [openPopUp, showPopUp] = React.useState(false);
+
+            const onClickOpen = () => showPopUp(true);
+
+            const onClickClose = () => showPopUp(false);
+
+            return (
+                <>
+                    <p className="z">Кликая на кнопку Login я хочу чтобы затенялся экран и по середине экрана появлялось окошко для авторизации закрыть которое можно кликнув по кнопке с крестиком</p>
+                        {
+                            openPopUp
+                                ? <>
+                                    <div className="overlay">{null}</div>
+                                    <div className="pop-up pop-up--login">
+                                        <button className="close" onClick={onClickClose}>x</button>
+                                        <input type="text" placeholder="Username" />
+                                        <input type="password" placeholder="Password" />
+                                        <button className="login">Login</button>
+                                    </div>
+                                </>
+                                : null
+                        }
+                    <button className="show-login-pop-up" onClick={onClickOpen}>Login</button>
+                </>
+            );
+        };
+
+        const TaskLink = () => {
+            const onClick = (e) => e.preventDefault();
+
+            return (
+                <>
+                    <p className="z">Отменить действие по-умолчанию при клике на ссылку</p>
+                    <p><a href="https://ebanoe.it/" className="link-ebanoe" target="_blank" onClick={onClick}>Ebanoe.IT — голая правда о нашем айти</a></p>
+                </>
+            );
+        };
+
+        class TaskAd extends React.Component {
+            state = {
+                showAdvertising: true
+            };
+
+            onClick = () => {
+                localStorage.setItem('showAdvertising', 'false');
+                this.setState({
+                    showAdvertising: false
+                })
+            };
+
+            componentDidMount = () => {
+                if (localStorage.getItem('showAdvertising') === 'false') {
+                    this.setState({
+                        showAdvertising: false
+                    });
+                }
+            };
+
+            render() {
+                return (
+                    <>
+                        <p className="z">Надоела реклама про увеличение члена? При клике на кнопку "Больше не показывать" заноси в localStorage значение которое будешь проверять при загрузке страницы</p>
+                        <p className="t t97" style={ { display: this.state.showAdvertising ? 'block' : 'none' } }>Хочешь увеличить член? Заходи <a href="http://pornhub.com" target="_blank">сюда</a>! <button className="b97" onClick={ this.onClick }>Больше не показывать</button></p>
+                    </>
+                );
+            }
+        }
+
+        var App = function() {
+            return (
+                <>
+                    <TaskChangeColor />
+                    <TaskChangeBackgroundColor />
+                    <TaskChangeHref />
+                    <TaskChangeSrc />
+                    <TaskChangeId />
+                    <TaskChangeText />
+                    <TaskChangeHtml />
+                    <TaskChangeFontSize />
+                    <TaskChangeAddClass />
+                    <TaskChangeRemoveClass />
+                    <TaskChangeToggleClass />
+                    <TaskShowClass />
+                    <TaskChangeBackgroundColorOnResize />
+                    <TaskInputWithCounter />
+                    <TaskWhores girls={jasmine} />
+                    <TaskFish />
+                    <TaskTooth />
+                    <TaskSkier />
+                    <TaskMikki tiles={mikki} />
+                    <TaskMario map={map} />
+                    <TaskSlider />
+                    <TaskFaq />
+                    <TaskTabs />
+                    <TaskPopUp />
+                    <TaskLink />
+                    <TaskAd />
+                    <Ololo />
+                </>
+            );
+        };
+
+        ReactDOM.render(<App />, document.querySelector('#app'));
+    </script>
+</body>
+</html>

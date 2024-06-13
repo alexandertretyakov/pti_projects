@@ -529,3 +529,52 @@ const getSearchParams = (string) => {
             };
         }, {});
 };
+
+//Написать ф-цию chink
+//chunk(["Tyrone", "Elie", "Aidan", "Sam", "Katrina", "Billie", "Little Timmy"], 2);
+const chunk = (array, length) => {
+    let result = [];
+
+    for (let i = 0; i < array.length; i+= length) {
+        let sliceArray = array.slice(i, i + length);
+        result.push(sliceArray);
+    }
+
+    return result;
+};
+
+//Написать ф-цию zip
+//zip(['moe', 'larry', 'curly'], [30, 40, 50], [true, false, false]);
+// => [["moe", 30, true], ["larry", 40, false], ["curly", 50, false]];
+const zip = (...pairs) => {
+    const oCount = Math.max(...pairs.map(m => m.length));
+    const pCount = pairs.length;
+    let result = [];
+
+    for (let i = 0; i < oCount; i++) {
+        result[i] = [];
+        for (let j = 0; j < pCount; j++) {
+            result[i].push(pairs[j][i]);
+        }
+    }
+
+    return result;
+};
+
+//Написать ф-цию unzip
+//unzip([["moe", 30, true], ["larry", 40, false], ["curly", 50, false]]);
+// => [['moe', 'larry', 'curly'], [30, 40, 50], [true, false, false]]
+const unzip = (pairs) => {
+    const oCount = Math.max(...pairs.map(m => m.length));
+    const pCount = pairs.length;
+    let result = [];
+
+    for (let i = 0; i < oCount; i++) {
+        result[i] = [];
+        for (let j = 0; j < pCount; j++) {
+            result[i].push(pairs[j][i]);
+        }
+    }
+
+    return result;
+};

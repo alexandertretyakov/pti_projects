@@ -1,0 +1,55 @@
+//-----------------------------------------------------
+Базовые типы: number, string, boolean, array, tuple, any, void, never, enum, null, undefined:
+
+const num: number = 1
+const str: string = "test"
+const isFetching: boolean = true
+
+const numberArray: number[] = [1, 2, 3, 4, 5, 6, 7]
+const numberArray2: Array<number> = [1, 2, 3, 4, 5, 6, 7]
+
+const words: string[] = ["This", "is", "a", "Test"]
+const words2: Array<string> = ["This", "is", "a", "Test"]
+
+//Tuple - тип данных, его идея такова, что мы создаём массив из разных типов данных.
+const contact: [string, number, string] = ["This", 1, "Test"]
+
+//Any - возможность присваивания разных типов данных одной и той же переменной.
+let variable: any = 42
+variable = 'New string'
+variable = []
+
+//Void - когда ф-ция ничего не возвращает.
+function sayMyName(name: string): void {
+    console.log(name);
+};
+sayMyName('Хайзенберг');
+
+//Never - данный тип указывается в двух случаях:
+Первый - это когда ф-ция возвращает нам ошибку и никогда не заканчивает своё выполнение.
+function error(message: string): never {
+    throw new Error(massage);
+};
+Второе - это когда ф-ция бесконечно что-то делает.
+function infinity(message: string): never {
+    while(true) {};
+};
+
+//Type - конструкция, которая позволяет создавать свои, собственные, типы:
+type Login = string
+const login1: Login = 'admin'
+const login2: Login = 2 //ошибка
+
+type ID = string | number
+const id1: ID = 1234
+const id2: ID = '1234'
+const id3: ID = true //ошибка
+
+
+//-----------------------------------------------------
+Интерфейсы
+
+
+
+
+

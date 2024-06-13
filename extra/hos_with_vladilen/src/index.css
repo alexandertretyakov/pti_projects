@@ -1,0 +1,84 @@
+#root .visible {
+      display: block !important
+  }
+
+#root .invalid {
+      border: 2px solid red
+  }
+
+#root button {
+      border-radius: 7px;
+      margin-bottom: 10px;
+      border-color: #efdfff;
+      color: #706f71
+  }
+
+#root button:hover {
+      background-color: #d4d3d3;
+      cursor: pointer
+  }
+
+#root .wrapper {
+      width: 500px;
+      display: flex;
+      flex-direction: row;
+      margin: auto
+  }
+
+#root .column {
+      width: 50%;
+      padding: 20px
+  }
+
+#root .column::after {
+      clear: both;
+      display: block;
+      content: ''
+  }
+
+#root .whoreList,
+#root form {
+      background-color: #bfd9f5;
+      border-radius: 10px;
+      padding: 20px
+  }
+
+#root .whoreList {
+      clear: both
+  }
+
+#root form input {
+      margin-bottom: 10px
+  }
+
+#root form input:focus {
+      outline: none
+  }
+
+#root form .button-save,
+#root form .button-update {
+      float: right;
+      display: none
+  }
+
+#root form .button-delete {
+      float: left;
+      display: none
+  }
+
+#root form::after {
+      content: "";
+      clear: both;
+      display: block
+  }
+
+#root .whore-alias,
+#root .whore-age,
+#root .whore-price {
+      display: inline-block
+  }
+
+#root .whore:hover {
+      text-decoration: underline;
+      cursor: pointer
+  }

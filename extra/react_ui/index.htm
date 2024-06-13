@@ -34,7 +34,7 @@
             clear: left;
             padding: 5px;
         }
-        
+
         .nuts li:nth-child(odd) {
             background: #d1d1d1;
         }
@@ -56,7 +56,7 @@
     </ul>
 
     <script>
-        var nuts = ['Арахис', 'Кешью', 'Фундук', 'Миндаль'];
+        const nuts = ['Арахис', 'Кешью', 'Фундук', 'Миндаль'];
     </script>
 
     <p class="z">
@@ -82,7 +82,59 @@
     </p>
 
     <script type="text/babel">
-        // Write your code here
+        $('.add-list-1').on('click', function() {
+            const ul = React.createElement('ul', {
+                className: 'nuts'
+            }, React.createElement('li', null, 'Арахис'),
+               React.createElement('li', null, 'Кешью'),
+               React.createElement('li', null, 'Фундук'),
+               React.createElement('li', null, 'Миндаль')
+            );
+
+            ReactDOM.render(ul, document.querySelector('#list-1'));
+        });
+
+
+        $('.add-list-2').on('click', function() {
+            const Ul = function(props) {
+                return (
+                    React.createElement('ul', props,
+                        React.createElement('li', null, 'Арахис'),
+                        React.createElement('li', null, 'Кешью'),
+                        React.createElement('li', null, 'Фундук'),
+                        React.createElement('li', null, 'Миндаль')
+                    )
+                );
+            };
+
+            const ul = React.createElement(Ul, {
+                className: 'nuts'
+            });
+
+            ReactDOM.render(ul, document.querySelector('#list-2'));
+        });
+
+
+        $('.add-list-3').on('click', function() {
+            class Ul extends React.Component {
+                render() {
+                    return (
+                        React.createElement('ul', this.props,
+                            React.createElement('li', null, 'Арахис'),
+                            React.createElement('li', null, 'Кешью'),
+                            React.createElement('li', null, 'Фундук'),
+                            React.createElement('li', null, 'Миндаль')
+                        )
+                    );
+                };
+            }
+
+            var ul = React.createElement(Ul, {
+                className: 'nuts'
+            });
+
+            ReactDOM.render(ul, document.querySelector('#list-3'));
+        });
     </script>
 
     <p class="z">
@@ -108,7 +160,58 @@
     </p>
 
     <script type="text/babel">
-        // Write your code here
+        $('.add-list-4').on('click', function() {
+            const ul = React.createElement('ul', {
+                    className: 'nuts'
+                }, nuts.map(function(item) {
+                    return React.createElement('li', null, item);
+                })
+            );
+
+            ReactDOM.render(ul, document.querySelector('#list-4'));
+        });
+
+
+        $('.add-list-5').on('click', function() {
+            const Ul = function() {
+                return (
+                    React.createElement('ul', {
+                            className: 'nuts'
+                        }, nuts.map(function(item) {
+                            return React.createElement('li', null, item);
+                        })
+                    )
+                );
+            };
+
+            const ul = React.createElement(Ul, {
+                items: nuts
+            });
+
+            ReactDOM.render(ul, document.querySelector('#list-5'));
+        });
+
+
+        $('.add-list-6').on('click', function() {
+            class Ul extends React.Component {
+                render() {
+                    return (
+                        React.createElement('ul', {
+                                className: 'nuts'
+                            }, nuts.map(function(item) {
+                                return React.createElement('li', null, item);
+                            })
+                        )
+                    );
+                }
+            }
+
+            const ul = React.createElement(Ul, {
+                items: nuts
+            });
+
+            ReactDOM.render(ul, document.querySelector('#list-6'));
+        });
     </script>
 
     <p class="z">
@@ -134,7 +237,50 @@
     </p>
 
     <script type="text/babel">
-        // Write your code here
+        $('.add-list-7').on('click', function() {
+            const ul = <ul className="nuts">
+                <li>Арахис</li>
+                <li>Кешью</li>
+                <li>Фундук</li>
+                <li>Миндаль</li>
+            </ul>;
+
+            ReactDOM.render(ul, document.querySelector('#list-7'));
+        });
+
+
+        $('.add-list-8').on('click', function() {
+            const Ul = function() {
+                return (
+                    <ul className="nuts">
+                        <li>Арахис</li>
+                        <li>Кешью</li>
+                        <li>Фундук</li>
+                        <li>Миндаль</li>
+                    </ul>
+                )
+            };
+
+            ReactDOM.render(<Ul />, document.querySelector('#list-8'));
+        });
+
+
+        $('.add-list-9').on('click', function() {
+            class Ul extends React.Component{
+                render() {
+                    return (
+                        <ul className="nuts">
+                            <li>Арахис</li>
+                            <li>Кешью</li>
+                            <li>Фундук</li>
+                            <li>Миндаль</li>
+                        </ul>
+                    )
+                }
+            }
+
+            ReactDOM.render(<Ul />, document.querySelector('#list-9'));
+        });
     </script>
 
     <p class="z">
@@ -160,7 +306,53 @@
     </p>
 
     <script type="text/babel">
-        // Write your code here
+        $('.add-list-10').on('click', function() {
+            const ul = <ul className="nuts">
+                {
+                    nuts.map(function(item) {
+                        return <li>{item}</li>
+                    })
+                }
+            </ul>;
+
+            ReactDOM.render(ul, document.querySelector('#list-10'));
+        });
+
+
+        $('.add-list-11').on('click', function() {
+            const Ul = function(props) {
+                return (
+                    <ul className="nuts">
+                        {
+                            props.items.map(function(item) {
+                                return <li>{item}</li>;
+                            })
+                        }
+                    </ul>
+                )
+            };
+
+            ReactDOM.render(<Ul items={nuts} />, document.querySelector('#list-11'));
+        });
+
+
+        $('.add-list-12').on('click', function() {
+            class Ul extends React.Component {
+                render() {
+                    return (
+                        <ul className="nuts">
+                            {
+                                this.props.items.map(function(item) {
+                                    return <li>{item}</li>
+                                })
+                            }
+                        </ul>
+                    )
+                }
+            }
+
+            ReactDOM.render(<Ul items={nuts} />, document.querySelector('#list-12'));
+        });
     </script>
 
     <div class="games"><div class="game"><div class="game-flags"><span class="item item-hot">Hot</span></div><img src="images/games/Batman-v-Superman-Dawn-of-Justice-290x180.jpg"><h6>Batman v Superman Dawn of Justice</h6></div><div class="game"><div class="game-flags"></div><img src="images/games/Batman-Begins-290x180.jpg"><h6>Batman Begins</h6></div><div class="game"><div class="game-flags"><span class="item item-new">New</span></div><img src="images/games/jackpot-giant-290x180.jpg"><h6>Jackpot Giant</h6></div><div class="game"><div class="game-flags"><span class="item item-hot">Hot</span><span class="item item-new">New</span></div><img src="images/games/european-roulette-290x180.jpg"><h6>Premium European Roulette</h6></div><div class="game"><div class="game-flags"></div><img src="images/games/Da-vinci-Vault-290x180.jpg"><h6>Da Vinci’s Vault</h6></div><div class="game"><div class="game-flags"></div><img src="images/games/Murder-Mystery-290x180.jpg"><h6>Murder Mystery</h6></div><div class="game"><div class="game-flags"><span class="item item-new">New</span></div><img src="images/games/PremiumBlackjack-290x180.jpg"><h6>Premium Blackjack</h6></div><div class="game"><div class="game-flags"><span class="item item-hot">Hot</span></div><img src="images/games/Gladiator-road-to-rome-290x180.jpg"><h6>Gladiator 2</h6></div></div>
@@ -174,7 +366,7 @@
     </p>
 
     <script>
-        var games = [
+        const games = [
             {
                 name: 'Batman v Superman Dawn of Justice',
                 imageURL: 'images/games/Batman-v-Superman-Dawn-of-Justice-290x180.jpg',
@@ -217,7 +409,38 @@
     </script>
 
     <script type="text/babel">
-        // Write your code here
+        $('.add-games').on('click', function() {
+            const Game = function(props) {
+                let game = props.game;
+
+                return (
+                    <div className="game">
+                        <div className="game-flags">
+                            { game.flagHot ? <span className="item item-hot">Hot</span> : null }
+                            { game.flagNew ? <span className="item item-new">New</span> : null }
+                        </div>
+                        <img src={game.imageURL} />
+                        <h6>{game.name}</h6>
+                    </div>
+                );
+            };
+
+            const Games = function(props) {
+                let games = props.items;
+
+                return (
+                    <>
+                        {
+                            games.map(function(game) {
+                                return <Game game={game} />
+                            })
+                        }
+                    </>
+                );
+            };
+
+            ReactDOM.render(<Games items={games} />, document.querySelector('#games'));
+        });
     </script>
 
     <style>
@@ -315,7 +538,7 @@
     </p>
 
     <script>
-        var whores = [
+        const whores = [
             {
                 name: 'Сильвия',
                 photo: 'images/whores/silvia.jpg',
@@ -364,7 +587,41 @@
     </script>
 
     <script type="text/babel">
-        // Write your code here
+        $('.add-whores').on('click', function() {
+            const Whore = function(props) {
+                const girl = props;
+
+                return (
+                    <div className="whore">
+                        <div className="whore-name">{ girl.name }</div>
+                        <img src={ girl.photo } />
+                        <div className="whore-age">Возраст: { girl.age }</div>
+                        <div className="whore-boobs">Размер груди: { girl.boobs }</div>
+                        <div className="whore-height">Рост: { girl.height }</div>
+                        <div className="whore-weight">Вес: { girl.weight }</div>
+                        <div className="whore-phone">{ girl.phone }</div>
+                        <div className="whore-can-come">Выезд: { girl.can_come ? '+' : '-' }</div>
+                        <div className="whore-teaser">{ girl.teaser }</div>
+                    </div>
+                );
+            };
+
+            const Whores = function(props) {
+                let girls = props.items;
+
+                return (
+                    <div className="whores">
+                        {
+                            girls.map(function(girl) {
+                                return <Whore {...girl} />
+                            })
+                        }
+                    </div>
+                );
+            };
+
+            ReactDOM.render(<Whores items = { whores } />, document.querySelector('#whores'));
+        })
     </script>
 
     <style>
@@ -442,7 +699,7 @@
     </p>
 
     <script>
-        var movies = [
+        const movies = [
             {
                 title: 'Джентльмены',
                 id: '1580980803_e29f9c3',
@@ -687,7 +944,31 @@
     </script>
 
     <script type="text/babel">
-        // Write your code here
+        $('.add-movies').on('click', function() {
+            const Movie = function(props) {
+                let movie = props.items;
+
+                return (
+                    <div className="movie">
+                        <div className="movie-image-container">
+                            <a href="#"><img src={`images/movies/${ movie.id }.jpg`} /></a>
+                        </div>
+                        <a className="movie-title" href="#">{ movie.title }</a>
+                        <div className="movie-details">
+                            <span>{ movie.year }</span>
+                        </div>
+                    </div>
+                );
+            };
+
+            const Movies = function(props) {
+                let movies = props.items;
+
+                return movies.map((movie) => <Movie items = { movie } />);
+            };
+
+            ReactDOM.render(<Movies items = { movies } />, document.querySelector('#movies'));
+        });
     </script>
 
     <style>
@@ -764,7 +1045,7 @@
     </p>
 
     <script>
-        var rich = {
+        const rich = {
             headings: ['№', 'ФИО', 'Состояние (в млрд $)', 'Источник состояния', 'Возраст', 'Страна'],
             data: [
                 {
@@ -884,7 +1165,39 @@
     </script>
 
     <script type="text/babel">
-        // Write your code here
+        $('.add-rich').on('click', function() {
+            const Rich = function(props) {
+                let headings = props.items.headings;
+                let data = props.items.data;
+
+                return (
+                    <table>
+                        <tbody>
+
+                            <tr>
+                                {
+                                    headings.map((heading) => <th>{ heading }</th>)
+                                }
+                            </tr>
+                            {
+                                data.map((people) => (
+                                    <tr>
+                                        <td>{ people.position }</td>
+                                        <td>{ people.fio }</td>
+                                        <td>{ people.money }</td>
+                                        <td>{ people.sourceOfFunds }</td>
+                                        <td>{ people.age }</td>
+                                        <td>{ people.country }</td>
+                                    </tr>
+                                ))
+                            }
+                        </tbody>
+                    </table>
+                )
+            };
+
+            ReactDOM.render(<Rich items = { rich } />, document.querySelector('#rich'));
+        });
     </script>
 
     <style>
