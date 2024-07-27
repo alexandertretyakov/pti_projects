@@ -56,6 +56,9 @@
     debugger
     'use strict'
 
+    async
+    await
+
 Встроенные переменные:
     Number
         Number.prototype: toFixed

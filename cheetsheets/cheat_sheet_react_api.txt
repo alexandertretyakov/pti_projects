@@ -44,7 +44,7 @@ React API
                 'data-id': '_t14ha0nc0'
                 https://ru.reactjs.org/docs/dom-elements.html
             }
-        <button className="btn">Click me!</button> {
+        <button className="btn">Click me!</button> --> {
             type: 'button',
             props: {
                 children: 'Click me!',
@@ -157,6 +157,8 @@ Hooks
                         ...state,
                         { id: Date.now(), name: action.payload }
                     ];
+                case 'edit':
+                    return state.map((person) => person.id === action.payload.id ? {...person, name: action.payload.name} : person);
                 case 'remove':
                     return state.filter((person) => person.id !== action.payload);
                 default:
@@ -165,6 +167,7 @@ Hooks
         };
         const [state, dispatch] = useReducer(reducer, initialState);
         dispatch({ type: 'add', payload: 'Вася' });
+        dispatch({ type: 'edit', payload: { id: 1, name: 'Женя' } });
         dispatch({ type: 'remove', payload: 1710149562835 });
     useContext
         const OloloContext = React.createContext();

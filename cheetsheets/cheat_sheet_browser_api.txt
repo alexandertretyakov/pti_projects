@@ -129,3 +129,5 @@ xhr.send(body)
 xhr.status          // 200
 xhr.readyState      // 4
 xhr.responseText
+
+fetch(url, options)

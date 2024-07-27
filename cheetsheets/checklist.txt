@@ -86,12 +86,15 @@ SEO
 Oracle | MySQL | PostgreSQL | MongoDB | Redis
 SQL
 phpMyAdmin
+XAMPP
+nginx | Apache
 Underscore | Lodash | Ramda
 D3 | Chart
 Markdown
 Node
-npm
-Webpack
+npm | yarn
+Webpack | Vite
+Gulp | Grunt
 Babel
 Redux
 Handlebars | Mustache | Smarty | Twig | Jinja | Velocity | doT | Pug
@@ -112,8 +115,13 @@ https://fontawesome.com/
 https://fonts.google.com/
 https://codepen.io/
 https://jsfiddle.net/
+https://codesandbox.io/
+https://caniuse.com/
 
 .gitignore
 package.json
 
 https://jsonplaceholder.typicode.com/
+https://roadmap.sh/
+
+Что происходит после ввода URL в адресную строку
