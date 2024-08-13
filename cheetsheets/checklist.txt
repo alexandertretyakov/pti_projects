@@ -89,6 +89,7 @@ phpMyAdmin
 XAMPP
 nginx | Apache
 Underscore | Lodash | Ramda
+jQuery | MooTools | Prototype
 D3 | Chart
 Markdown
 Node

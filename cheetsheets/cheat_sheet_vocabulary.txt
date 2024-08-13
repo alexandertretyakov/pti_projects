@@ -819,6 +819,7 @@ trust                           доверять
 CVV/CVC (Card Verification Value/Code)
 permission                      разрешение
 ASAP (As Soon As Possible)      как можно скорее
+schedule                        расписание
 
 ST----------------------------------------------------
 temporary                       временный
