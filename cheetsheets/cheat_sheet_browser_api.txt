@@ -22,6 +22,7 @@ window.confirm('message')
 window.prompt('message', 'default message')
 window.open(url, windowName, windowFeatures)
 window.close()
+window.postMessage('data', '*')
 window.getComputedStyle(element, pseudoElement)
 window.localStorage
 window.sessionStorage
@@ -88,6 +89,7 @@ element.appendChild(childElement)
 element.insertBefore(newChildElement, referenceChildElement)
 element.parentNode.removeChild(childElement)
 element.replaceChild(newChildElement, oldChildElement)
+element.closest(cssSelector)
 element.getBoundingClientRect()
 element.addEventListener('eventType', listener, useCapture)
 element.addEventListener('click', function(event) {
@@ -120,7 +122,7 @@ click, dblclick,
 change, input,
 keyup, keydown, keypress,
 mousedown, mouseup, mousemove, mouseover, mouseout, mouseenter, mouseleave,
-load, readystatechange, resize, scroll, orientationchange,
+load, readystatechange, resize, scroll, orientationchange, message,
 submit
 
     https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest // На сайте есть русская версия
