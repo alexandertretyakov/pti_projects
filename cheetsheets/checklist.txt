@@ -92,7 +92,7 @@ Underscore | Lodash | Ramda
 jQuery | MooTools | Prototype
 D3 | Chart
 Markdown
-Node
+Node.js
 npm | yarn
 Webpack | Vite
 Gulp | Grunt

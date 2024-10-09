@@ -1,4 +1,4 @@
-const isEven = n => n % 2 === 0;
+const isEven = (n) => n % 2 === 0;
 
 const isOdd = (n) => n % 2 !== 0;
 
@@ -14,6 +14,12 @@ const students = [
 const dot = { x: 2, y: 4 };
 
 const circle = { x: 8, y: 9, r: 10 };
+
+const matrix = [
+    [1, 'a'],
+    [2, 'b'],
+    [3, 'c']
+];
 
 const man = {
     name: 'John',
@@ -144,6 +150,18 @@ R.length('Jesus')
 R.length([2, 3, 4])
 // 3
 
+R.indexOf(7, [9, 8, 7, 6, 5, 4, 3])
+// 2
+
+R.join('/', [2, 7, 2024])
+// '2/7/2024'
+
+R.repeat(1, 5)
+// [1, 1, 1, 1, 1]
+
+R.uniq([1, 1, 1, 2, 3, 3, 4])
+// [1, 2, 3, 4]
+
 R.slice(1, 4, [1, 2, 3, 4, 5, 6])
 // [2, 3, 4]
 
@@ -179,6 +197,24 @@ R.dropLast(3, [1, 2, 3, 4, 5])
 
 R.pluck('name', students)
 // ['Oliver', 'Jack', 'Kyle', 'Joe']
+
+R.flatten([1, 2, [3, 4, [5, 6]], 7])
+// [1, 2, 3, 4, 5, 6, 7]
+
+R.unnest([1, 2, [3, 4, [5, 6]], 7])
+// [1, 2, 3, 4, [5, 6], 7]
+
+R.count(isEven, [1, 1, 1, 8, 8])
+// 2
+
+R.zipObj(['x', 'y', 'z'], [1, 2, 3])
+// {x: 1, y: 2, z: 3}
+
+R.swap(0, -2, [1, 2, 3, 4, 5, 6])
+// [5, 2, 3, 4, 1, 6]
+
+R.move(0, -2, [1, 2, 3, 4, 5, 6])
+// [2, 3, 4, 5, 1, 6]
 
 R.filter(isEven, [1, 2, 3, 4])
 // [2, 4]
@@ -274,6 +310,12 @@ R.assoc('x', 4, dot)
 R.assocPath(['coords', 'y'], 2, man)
 // {name: 'John', age: 35, hair: 'brown', coords: {x: 10, y: 2}}
 
+R.modify('hair', R.toUpper, bear)
+// {hair: 'BROWN', coords: {x: 12}}
+
+R.transpose(matrix)
+// [[1, 2, 3], ['a', 'b', 'c']]
+
 R.mergeLeft(bear, pig)
 // {name: 'Peppa', age: 12, hair: 'brown', coords: {x: 12}}
 
@@ -282,9 +324,6 @@ R.mergeRight(bear, pig)
 
 R.mergeAll([man, bear, pig])
 // {name: 'Peppa', age: 12, hair: 'pink', coords: {x: 14, y: 0}}
-
-TODO: R.mergeDeepLeft
-TODO: R.mergeDeepRight
 
 R.where({
     x: isEven,
@@ -435,6 +474,15 @@ R.equals([1, 2, 3], [1, 2, 3])
 R.propEq('John', 'name', man)
 // true
 
+R.difference([1, 2, 3, 4, 4, 5], [3, 4, 6, 7])
+// [1, 2, 5]
+
+R.intersection([1, 2, 3, 4, 4, 5], [3, 4, 6, 7])
+// [3, 4]
+
+R.union([1, 2, 3, 4, 4, 5], [3, 4, 6, 7])
+// [1, 2, 3, 4, 5, 6, 7]
+
 // ============================== Function
 
 R.identity(8)
@@ -460,6 +508,17 @@ R.isNil(null)
 // true
 R.isNil(undefined)
 // true
+
+R.type(1)
+// 'Number'
+R.type('1')
+// 'String'
+R.type(true)
+// 'Boolean'
+R.type([])
+// 'Array'
+R.type({})
+// 'Object'
 
 R.flip
 tap((x) => console.log('x = ', x))
@@ -495,3 +554,6 @@ R.pipe(
     R.inc
 )(10)
 // 7
+
+ascend
+descend
