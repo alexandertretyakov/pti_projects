@@ -821,37 +821,39 @@ permission                      разрешение
 ASAP (As Soon As Possible)      как можно скорее
 schedule                        расписание
 refinement                      рафинирование, очистка, уточнение
-
-ST----------------------------------------------------
 temporary                       временный
-popup                           всплывающее
-forgot                          забыл
-posibility                      возможность
-allowed                         допустимый
-implemented                     реализован
-loss                            ущерб, проигрыш
+pop-up                          всплывающее (окно)
+forget                          забывать
+forgot                          пр. время от forget
+possibility                     возможность
+allow                           позволять, допускать, разрешать
+allowed                         пр. время от allow
+implement                       осуществлять, выполнять
+implemented                     пр. время от implement
+loss                            убыток, ущерб, проигрыш
 appropriate                     соответствующий
 scrollable                      прокручиваемый
-order                           порядок
+order                           порядок, заказ
 accordance                      соответствие
-resolved                        решено
+resolve                         решать
+resolved                        пр. время от resolve
 multichannel                    многоканальный
-implementation                  выполнение
+implementation                  выполнение, реализация
 wrong                           неправельный
 behavior                        поведение
-fill                            Наполнять
-proceed                         продолжить
+fill                            наполнять
+proceed                         продолжать
 citizenship                     гражданство
-does                            делает
+do                              делать
 exist                           существовать
-issuer                          эмитент
-hyphens                         дефисы
-otherwise                       в противном случае
+issuer                          эмитент, издатель
+hyphen                          дефис
+otherwise                       в противном случае, иначе
 additional                      дополнительный
 pending                         в ожидании
 interfere                       вмешиваться
 purpose                         цель
-loyalty                         верность
+loyalty                         верность, лояльность
 depend                          зависеть
 expiration                      истечение срока действия
 rules                           правила
