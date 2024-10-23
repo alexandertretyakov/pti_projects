@@ -2,8 +2,6 @@ const isEven = (n) => n % 2 === 0;
 
 const isOdd = (n) => n % 2 !== 0;
 
-const numbers = [10, 20, 30, 40, 50, 60];
-
 const students = [
     {name: 'Oliver', age: 20},
     {name: 'Jack', age: 20},
@@ -43,22 +41,22 @@ const pig = {
 // ============================== Math
 
 R.add(2, 3)
-// 2 + 3 = 5
+// 5; 2 + 3
 
 R.subtract(5, 3)
-// 5 - 3 = 2
+// 2; 5 - 3
 
 R.multiply(4, 4)
-// 4 * 4 = 16
+// 16; 4 * 4
 
 R.divide(15, 3)
-// 15 / 3 = 5
+// 5; 15 / 3
 
 R.inc(8)
-// 8 + 1 = 9
+// 9; 8 + 1
 
 R.dec(8)
-// 8 - 1 = 7
+// 7; 8 - 1
 
 R.negate(3)
 // -3
@@ -66,18 +64,18 @@ R.negate(-3)
 // 3
 
 R.sum([1, 2, 3, 4])
-// 1 + 2 + 3 + 4 = 10
+// 10; 1 + 2 + 3 + 4
 
-R.product([2, 2, 4])
-// 2 * 2 * 4 = 16
+R.product([2, 3, 4])
+// 24; 2 * 3 * 4
 
 R.mean([2, 2, 26])
-// (2 + 2 + 26) / 3 = 10
+// 10; (2 + 2 + 26) / 3
 
 R.modulo(5, 3)
-// 5 % 3 = 2
+// 2; 5 % 3
 R.modulo(16, 2)
-// 16 % 2 = 0
+// 0; 16 % 2
 
 // ============================== String
 
@@ -126,8 +124,10 @@ R.last('Jesus')
 R.last([2, 3, 4])
 // 4
 
-R.init([1, 2, 3, 4, 5])
-// [1, 2, 3, 4]
+R.init('Jesus')
+// 'Jesu'
+R.init([2, 3, 4])
+// [2, 3]
 
 R.tail('Jesus')
 // 'esus'
@@ -162,32 +162,32 @@ R.repeat(1, 5)
 R.uniq([1, 1, 1, 2, 3, 3, 4])
 // [1, 2, 3, 4]
 
-R.slice(1, 4, [1, 2, 3, 4, 5, 6])
-// [2, 3, 4]
+R.slice(2, 4, [1, 2, 3, 4, 5, 6])
+// [3, 4]
 
 R.includes(4, [2, 3, 4])
 // true
 
-R.insert(3, 35, numbers)
-// [10, 20, 30, 35, 40, 50, 60]
+R.insert(3, 35, [2, 3, 4, 5, 6])
+// [2, 3, 4, 35, 5, 6]
 
-R.append(5, [1, 2, 3, 4])
-// [1, 2, 3, 4, 5]
+R.append(9, [1, 2, 3, 4])
+// [1, 2, 3, 4, 9]
 
-R.prepend(0, [1, 2, 3, 4])
-// [0, 1, 2, 3, 4]
+R.prepend(9, [1, 2, 3, 4])
+// [9, 1, 2, 3, 4]
 
-R.update(1, 21, numbers)
-// [10, 21, 30, 40, 50, 60]
+R.update(1, 21, [3, 4, 5, 6])
+// [3, 21, 5, 6]
 
 R.adjust(1, R.toUpper, ['a', 'b', 'c'])
 // ['a', 'B', 'c']
 
-R.remove(2, 3, [1, 2, 3, 4, 5, 6])
-// [1, 2, 6]
+R.remove(2, 2, [1, 2, 3, 4, 5, 6])
+// [1, 2, 5, 6]
 
-R.without([1, 4, 5], [1, 2, 3, 4, 5])
-// [2, 3]
+R.without([1, 3, 7], [1, 1, 2, 3, 4, 4, 5])
+// [2, 4, 4, 5]
 
 R.drop(3, [1, 2, 3, 4, 5])
 // [4, 5]
@@ -240,6 +240,9 @@ R.find(isEven, [1, 2, 3, 4])
 R.reduce(R.add, 0, [1, 2, 3, 4])
 // 10
 
+R.transpose(matrix)
+// [[1, 2, 3], ['a', 'b', 'c']]
+
 // ============================== Object
 
 R.prop('x', dot)
@@ -267,13 +270,13 @@ R.pathOr(11, ['coords', 'z'], man)
 // 11
 
 R.pick(['name', 'age', 'ololo'], man)
-// { name: 'John', age: 35 }
+// {name: 'John', age: 35}
 
 R.pickAll(['name', 'age', 'ololo'], man)
-// { name: 'John', age: 35, ololo: undefined }
+// {name: 'John', age: 35, ololo: undefined}
 
 R.pickBy((v, k) => v < 10, circle)
-// { x: 8, y: 9 }
+// {x: 8, y: 9}
 
 R.project(['name', 'age'], [man, pig])
 // [{name: 'John', age: 35}, {name: 'Peppa', age: 12}]
@@ -313,9 +316,6 @@ R.assocPath(['coords', 'y'], 2, man)
 R.modify('hair', R.toUpper, bear)
 // {hair: 'BROWN', coords: {x: 12}}
 
-R.transpose(matrix)
-// [[1, 2, 3], ['a', 'b', 'c']]
-
 R.mergeLeft(bear, pig)
 // {name: 'Peppa', age: 12, hair: 'brown', coords: {x: 12}}
 
@@ -340,13 +340,13 @@ R.whereEq({
 // ============================== Logic
 
 R.or(true, false)
-// true || false => true
+// true; true || false
 
 R.and(true, false)
-// true && false => false
+// false; true && false
 
 R.not(true)
-// !true => false
+// false; !true
 
 R.xor(true, false)
 // true
@@ -405,13 +405,19 @@ R.when(
     101
 )
 // 99
+R.when(
+    (n) => n > 99,
+    () => 99,
+    44
+)
+// 44
 
 R.unless(
-    (n) => n > 16,
-    () => 17,
-    13
+    (n) => n > 2,
+    () => 3,
+    5
 )
-// 17
+// 5
 
 R.cond([
     [(n) => n === 3, (n) => n * n],
@@ -421,11 +427,11 @@ R.cond([
 // 11
 
 R.until(
-    (n) => n > 100,
+    (n) => n > 10,
     (n) => n + 3,
     1
 )
-// 1 + 3 + 3 + 3 + 3 + ... => 103
+// 13; 1 + 3 + 3 + 3 + 3
 
 R.propSatisfies(
     (x) => x === 2,
@@ -443,17 +449,17 @@ R.pathSatisfies(
 
 // ============================== Relation
 
-R.gt(10, 2)
-// 10 > 2 => true
+R.gt(2, 10)
+// false; 2 > 10
 
-R.gte(10, 2)
-// 10 >= 2 => true
+R.gte(2, 10)
+// false; 2 >= 10
 
 R.lt(2, 10)
-// 2 < 10 => true
+// true; 2 < 10
 
 R.lte(2, 10)
-// 2 <= 10 => true
+// true; 2 <= 10
 
 R.min(6, 4)
 // 4
@@ -474,28 +480,28 @@ R.equals([1, 2, 3], [1, 2, 3])
 R.propEq('John', 'name', man)
 // true
 
-R.difference([1, 2, 3, 4, 4, 5], [3, 4, 6, 7])
-// [1, 2, 5]
+R.difference([1, 1, 2, 3, 4, 4, 5], [1, 3, 7])
+// [2, 4, 5]
 
-R.intersection([1, 2, 3, 4, 4, 5], [3, 4, 6, 7])
-// [3, 4]
+R.intersection([1, 1, 2, 3, 4, 4, 5], [1, 3, 7])
+// [1, 3]
 
-R.union([1, 2, 3, 4, 4, 5], [3, 4, 6, 7])
-// [1, 2, 3, 4, 5, 6, 7]
+R.union([1, 1, 2, 3, 4, 4, 5], [1, 3, 7])
+// [1, 2, 3, 4, 5, 7]
 
 // ============================== Function
 
 R.identity(8)
-// (v) => v; 8
+// 8; (v) => v
 
 R.always(8)()
 // 8
 
 R.T()
-// () => true; true
+// true; () => true
 
 R.F()
-// () => false; false
+// false; () => false
 
 // ============================== Type
 
@@ -520,7 +526,9 @@ R.type([])
 R.type({})
 // 'Object'
 
-R.flip
+// ==============================
+
+flip(concat|divide)
 tap((x) => console.log('x = ', x))
 tap(console.log) // вернет оригинал, но вызовет ф с этим аргументом
 R.compose
@@ -557,3 +565,6 @@ R.pipe(
 
 ascend
 descend
+any
+all
+evolve
