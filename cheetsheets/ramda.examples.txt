@@ -207,6 +207,12 @@ R.unnest([1, 2, [3, 4, [5, 6]], 7])
 R.count(isEven, [1, 1, 1, 8, 8])
 // 2
 
+R.any(isEven, [1, 2, 3])
+// true
+
+R.all(isEven, [1, 2, 3])
+// false
+
 R.zipObj(['x', 'y', 'z'], [1, 2, 3])
 // {x: 1, y: 2, z: 3}
 
@@ -315,6 +321,12 @@ R.assocPath(['coords', 'y'], 2, man)
 
 R.modify('hair', R.toUpper, bear)
 // {hair: 'BROWN', coords: {x: 12}}
+
+R.evolve({
+    name: R.toUpper,
+    age: R.inc
+}, man)
+// {name: 'JOHN', age: 36, hair: 'brown', coords: {x: 10, y: 0}}
 
 R.mergeLeft(bear, pig)
 // {name: 'Peppa', age: 12, hair: 'brown', coords: {x: 12}}
@@ -565,6 +577,3 @@ R.pipe(
 
 ascend
 descend
-any
-all
-evolve
