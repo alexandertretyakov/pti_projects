@@ -48,24 +48,21 @@ Frameworks?
 Libraries?
 Что такое Node.js, npm, node_modules?
 Что такое Markdown?
-Grunt, Webpack, Require, Babel, eslint,...
-Тесты, Mocha, Jest, Jasmine, Chai, Sinon, библиотека утверждений, ...
 ORM
 CRUD
 GoDaddy, DNS, хостинг, FTP
 SEO
 SMM
 Элементы пользовательского интерфейса
-DOU | Stack Overflow | Хабр
 Native app, Google Play, App Store, Веб-приложение
 Учётная запись
-Skype, Teams, ICQ, Telegram, ...
-Github, Twitter, Discord, Reddit, Facebook, Instagram, LinkedIn
 
 ------- TMS?
 Velocity (template engine)
 PAS
 
+DOU | Stack Overflow | Хабр
+Mocha | Jest |Jasmine | Chai | Sinon
 Android | iOS | Linux | Microsoft Windows | macOS
 БЭМ | CSS Modules
 Bootstrap | Tailwind CSS | Materialize | Foundation
@@ -97,6 +94,7 @@ npm | yarn
 Webpack | Vite
 Gulp | Grunt
 Babel
+RequireJS
 Redux
 Handlebars | Mustache | Smarty | Twig | Jinja | Velocity | doT | Pug
 Express | CodeIgniter | CakePHP | Symfony | Laravel | Django | Ruby on Rails
@@ -104,10 +102,9 @@ Python | Java | JavaScript | C++ | Ruby | PHP
 WordPress | Wix | Blogger | Joomla | Drupal | PrestaShop | Magento
 Slack | WhatsApp | Microsoft Teams | Telegram | Viber | Discord | Skype | Signal | ICQ
 Figma | Photoshop
-LinkedIn | Instagram | Facebook | VK | Twitter | Однокласники
+LinkedIn | Instagram | Facebook | VK | Twitter | Однокласники | Reddit
 TikTok | YouTube | Spotify | Twitch | SoundCloud
 Zoom
-Reddit
 Dropbox
 Evernote
 Confluence
