@@ -62,12 +62,12 @@ Velocity (template engine)
 PAS
 
 DOU | Stack Overflow | Хабр
-Mocha | Jest |Jasmine | Chai | Sinon
+Mocha | Jest |Jasmine | Chai | Sinon | Vitest
 Android | iOS | Linux | Microsoft Windows | macOS
 БЭМ | CSS Modules
 Bootstrap | Tailwind CSS | Materialize | Foundation
 Visual Studio Code | Sublime Text | WebStorm
-ESLint | Emmet
+ESLint | JSLint | JSHint | Emmet
 Firefox | Chrome | Edge | Safari | Opera | Brave | Internet Explorer
 LESS | Sass | Stylus
 Haml
@@ -88,11 +88,13 @@ nginx | Apache
 Underscore | Lodash | Ramda
 jQuery | MooTools | Prototype
 D3 | Chart
+Postman
+JSDoc
 Markdown
 Node.js
-npm | yarn
+npm | Yarn | pnpm | Bower
 Webpack | Vite
-Gulp | Grunt
+Gulp | Grunt | Jake
 Babel
 RequireJS
 Redux
