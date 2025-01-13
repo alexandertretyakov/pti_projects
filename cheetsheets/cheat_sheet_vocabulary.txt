@@ -761,6 +761,64 @@ inherit                         наследовать
 senior                          старший
 junior                          младший
 use case                        вариант (случай) использования
+legacy                          наследие
+contribute                      делать вклад, способствовать, содействовать
+breakpoint                      точка останова
+breakpoint                      контрольная точка
+entry point                     точка входа
+alias                           псевдоним, кличка, прозвище
+accessibility                   доступность
+batch                           партия, группа, пачка
+queue                           очередь
+NDA (Non-disclosure agreement)  соглашение о неразглашении
+overtime                        сверхурочно
+
+**************************** Аббревиатуры **********************************
+
+AJAX (Asynchronous Javascript and XML)
+REPL (read-eval-print loop)
+AST (abstract syntax tree)
+TDD (test-driven development)
+SSR (server-side rendering)
+CSR (Client-side rendering)
+CDN (Content Delivery Network)
+SPA (single-page application)
+API (Application Programming Interface)
+URL (Uniform Resource Locator)
+URI (Uniform Resource Identifier)
+HTTP (HyperText Transfer Protocol)
+FTP (File Transfer Protocol)
+SMTP (Simple Mail Transfer Protocol)
+REST (Representational State Transfer)
+ASCII (American Standard Code for Information Interchange)
+CMS (Content Management System)
+CORS (Cross-Origin Resource Sharing)
+CRUD (Create, Read, Update, Delete)
+XSS (Cross-site scripting)
+CSS (Cascading Style Sheets)
+DNS (Domain Name System)
+DOM (Document Object Model)
+FPS (frames per second)
+HTML (HyperText Markup Language)
+IDE (Integrated Development Environment)
+IIFE (Immediately Invoked Function Expression)
+JSON (JavaScript Object Notation)
+MVC (Model-View-Controller)
+OOP (Object-Oriented Programming)
+RGB (Red-Green-Blue)
+RSS (Really Simple Syndication)
+SDK (Software Development Kit)
+SEO (Search Engine Optimization)
+SQL (Structured Query Language)
+SVG (Scalable Vector Graphics)
+UI (User Interface)
+UX (User eXperience)
+XML (eXtensible Markup Language)
+IT (information technology)
+XSLT (eXtensible Stylesheet Language Transformations)
+CRM (customer relationship management)
+TL;DR (too long; didn't read)
+CLI (Command line interface)
 
 **************************** Из описаний к заданиям ************************
 

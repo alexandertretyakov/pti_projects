@@ -44,12 +44,13 @@
 
 Что такое СУБД? Какие знаешь?
 Какие языки программирования знаешь? Что такое программиррование? Что такое алгоритм?
-Frameworks?
-Libraries?
-Что такое Node.js, npm, node_modules?
-Что такое Markdown?
-ORM
+Что такое library? Что такое framework? В чем отличие? Какие знаешь?
+Что такое Node.js, npm, node_modules, package.json?
+Что такое Markdown? Где используется?
+ORM | ODM
 CRUD
+CDN
+IDE
 GoDaddy, DNS, хостинг, FTP
 SEO
 SMM
@@ -62,54 +63,64 @@ Velocity (template engine)
 PAS
 
 DOU | Stack Overflow | Хабр
-Mocha | Jest |Jasmine | Chai | Sinon | Vitest
+Mocha | Jest |Jasmine | Chai | Sinon | Vitest | QUnit
 Android | iOS | Linux | Microsoft Windows | macOS
-БЭМ | CSS Modules
+БЭМ | CSS Modules | CSS-in-JS | Atomic CSS
 Bootstrap | Tailwind CSS | Materialize | Foundation
-Visual Studio Code | Sublime Text | WebStorm
-ESLint | JSLint | JSHint | Emmet
+Visual Studio Code | Sublime Text | WebStorm | Atom | Vim
+ESLint | JSLint | JSHint | Stylelint | Prettier | Emmet
 Firefox | Chrome | Edge | Safari | Opera | Brave | Internet Explorer
 LESS | Sass | Stylus
-Haml
+PostCSS
+styled-components | Emotion
+Material UI | Chakra UI
 CoffeeScript | Dart | TypeScript
 JavaScript | HTML | CSS
 Angular | Backbone | React | Vue
-Git | Mercurial | SVN
+Nuxt | Next.js
+Git | Mercurial | SVN/Subversion
 Bitbucket | GitHub | GitLab
+Travis CI | Jenkins | CircleCI | GitLab CI/CD | GitHub Actions | TeamCity | Bamboo
+Docker | Kubernetes
+JSON | XML | YAML
 Trello | Jira | Basecamp
 Scrum
 RWD
 SEO
 Oracle | MySQL | PostgreSQL | MongoDB | Redis
 SQL
+Mongoose
 phpMyAdmin
 XAMPP
 nginx | Apache
 Underscore | Lodash | Ramda
 jQuery | MooTools | Prototype
-D3 | Chart
+D3 | Chart.js | three.js
 Postman
+Socket.IO
 JSDoc
+Axios
 Markdown
 Node.js
 npm | Yarn | pnpm | Bower
-Webpack | Vite
-Gulp | Grunt | Jake
+Webpack | Vite | Gulp | Grunt | Jake
 Babel
-RequireJS
-Redux
-Handlebars | Mustache | Smarty | Twig | Jinja | Velocity | doT | Pug
-Express | CodeIgniter | CakePHP | Symfony | Laravel | Django | Ruby on Rails
+RequireJS | Browserify
+Redux | Zustand
+Handlebars | Mustache | Smarty | Twig | Jinja | Velocity | doT | Pug/Jade | EJS | Haml
+Nest | Express | CodeIgniter | CakePHP | Symfony | Laravel | Django | Ruby on Rails
 Python | Java | JavaScript | C++ | Ruby | PHP
-WordPress | Wix | Blogger | Joomla | Drupal | PrestaShop | Magento
+WordPress | Blogger | Wix | Joomla | Drupal | PrestaShop | Magento | Shopify
 Slack | WhatsApp | Microsoft Teams | Telegram | Viber | Discord | Skype | Signal | ICQ
 Figma | Photoshop
 LinkedIn | Instagram | Facebook | VK | Twitter | Однокласники | Reddit
 TikTok | YouTube | Spotify | Twitch | SoundCloud
 Zoom
+Miro | Google Docs
 Dropbox
 Evernote
 Confluence
+Storybook
 
 https://fontawesome.com/
 https://fonts.google.com/
@@ -123,5 +134,7 @@ package.json
 
 https://jsonplaceholder.typicode.com/
 https://roadmap.sh/
+
+Brand Book | Design System | UI Kit
 
 Что происходит после ввода URL в адресную строку
