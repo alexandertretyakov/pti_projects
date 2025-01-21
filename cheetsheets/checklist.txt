@@ -109,7 +109,8 @@ RequireJS | Browserify
 Redux | Zustand
 Handlebars | Mustache | Smarty | Twig | Jinja | Velocity | doT | Pug/Jade | EJS | Haml
 Nest | Express | CodeIgniter | CakePHP | Symfony | Laravel | Django | Ruby on Rails
-Python | Java | JavaScript | C++ | Ruby | PHP
+Python | Java | JavaScript | C++ | C# | Go | Ruby | PHP
+Shell | Bash
 WordPress | Blogger | Wix | Joomla | Drupal | PrestaShop | Magento | Shopify
 Slack | WhatsApp | Microsoft Teams | Telegram | Viber | Discord | Skype | Signal | ICQ
 Figma | Photoshop
@@ -138,3 +139,9 @@ https://roadmap.sh/
 Brand Book | Design System | UI Kit
 
 Что происходит после ввода URL в адресную строку
+
+Composer, PEAR, pip
+Biome
+Ant Design
+Astro
+shadcn
