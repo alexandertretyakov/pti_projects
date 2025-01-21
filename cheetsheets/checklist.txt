@@ -139,9 +139,3 @@ https://roadmap.sh/
 Brand Book | Design System | UI Kit
 
 Что происходит после ввода URL в адресную строку
-
-Composer, PEAR, pip
-Biome
-Ant Design
-Astro
-shadcn
