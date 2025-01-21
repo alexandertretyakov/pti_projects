@@ -90,8 +90,8 @@ SEO
 Oracle | MySQL | PostgreSQL | MongoDB | Redis
 SQL
 Mongoose
-phpMyAdmin
-XAMPP
+phpMyAdmin | HeidiSQL
+XAMPP | MAMP
 nginx | Apache
 Underscore | Lodash | Ramda
 jQuery | MooTools | Prototype
