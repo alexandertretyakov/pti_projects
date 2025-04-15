@@ -824,6 +824,7 @@ XSLT (eXtensible Stylesheet Language Transformations)
 CRM (customer relationship management)
 TL;DR (too long; didn't read)
 CLI (Command line interface)
+NDA (Non-disclosure agreement)
 
 **************************** Из описаний к заданиям ************************
 
