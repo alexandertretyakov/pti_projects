@@ -293,7 +293,6 @@ Docker
     HolyJS — конференция для JavaScript‑разработчиков
 
 Throttle & debounce
-
     https://www.youtube.com/watch?v=hebOYhtZr28
     How to write a throttle function | Writing a throttle function in Javascript
     Front-end Science with Sergey Puzankov
@@ -305,5 +304,48 @@ Throttle & debounce
     https://www.youtube.com/watch?v=3IYQM0b48nU
     #15. Функции Debounce и Throttle в JavaScript (пишем с нуля и разбираемся как работают)
     Василий Муравьев
+
+PixiJS
+    https://www.youtube.com/watch?v=hpJGJSE41sY&list=PLU25QJOHLmMOLY9scIbEjmzYCEgkMH8yy
+    Базовый курс по PIXI.js и Tween-анимациям
+    LogicJS
+
+Three.js
+    https://www.youtube.com/watch?v=G0sJ--sVTnQ
+    Разбираемся с Three.js | Создание 3д сайтов и игр в браузере
+    epicnull - IT
+
+    https://www.youtube.com/watch?v=nlEmJR7TYdY
+    Webgl Three.js Урок 1. Основы
+    Дмитрий Лаврик
+
+    https://www.youtube.com/watch?v=vCCGZeuseqc
+    Webgl Three.js Урок 2. Создание первой сцены
+    Дмитрий Лаврик
+
+    https://www.youtube.com/watch?v=ngGQD7mIEok
+    WebGL Three.js Урок 3. Работа со сценой, requestAnimationFrame, DAT GUI.
+    Дмитрий Лаврик
+
+    https://www.youtube.com/watch?v=UJjzYK5pRcs&list=PLEXzUhnWfEhgTVL_r3_njztkZdeQGNJCR
+    Three.js курс: с нуля до потрясающих трёхмерных визуализаций
+    Web Dev Sandbox
+
+    https://www.youtube.com/watch?v=bsgypx_JRfQ&list=PL0lO_mIqDDFWjTfZ8RcVz36yNkj76CE5W
+    3D Дизайн на Three.JS / #1 – Разработка веб 3Д Графики на основе WebGl и Three JS
+    Гоша Дударь
+
+Chart.js
+    https://www.youtube.com/watch?v=apgyKUA7NpQ
+    Графики и диаграммы на JavaScript для начинающих. Chart.js и plugin datalabels.
+    Frontend кейс
+
+    https://www.youtube.com/watch?v=fZ0sB2hBGXI
+    ДИАГРАММА НА САЙТЕ ЛЕГКО | CHART JS
+    Mixturka
+
+    https://www.youtube.com/watch?v=xtB0GBuAcEQ
+    JavaScript решает 21. Графики Chart.js
+    WebDev с нуля. Канал Алекса Лущенко
 
 ***
