@@ -1,0 +1,17 @@
+{{? !it.isDataLoaded}}
+    ...
+{{??}}
+    {{? it.posts.length}}
+        <div class="posts">
+            {{~ it.posts :post:index}}
+                <article class="post">
+                    <img src={{= post.image}}>
+                    <h6>{{= post.title}}</h6>
+                    <p>{{= post.body}}</p>
+                </article>
+            {{~}}
+        </div>
+    {{??}}
+        <p>{{= tmpl.i18n('playtech.mobile.system.stModule8.noPosts')}}</p>
+    {{?}}
+{{?}}

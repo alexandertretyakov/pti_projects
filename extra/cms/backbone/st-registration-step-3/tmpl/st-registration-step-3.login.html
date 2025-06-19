@@ -1,0 +1,29 @@
+<div class="registration-step-3-main">
+    <div class="registration-step-3-content">
+        <div class="registration-step-3-content-header">
+            <h1>{{= tmpl.i18n('playtech.mobile.system.registrationStep3.login.message.heading')}}</h1>
+            [WEB_CONTENT(REGISTRATION_STEP_3_HEADER_LOGIN)]
+        </div>
+        <form class="form form-login" action="#" method="POST">
+            <div class="form__fieldset">
+                <div class="field field_name_username fn-validate" data-validation-type="stUsername" data-info-tooltip="{{= tmpl.i18n('playtech.mobile.system.registrationStep3.field.username.hint')}}">
+                    <div class="field__control">
+                        <input type="text" name="userName" placeholder="{{= tmpl.i18n('playtech.mobile.system.registrationStep3.login.placeholder.username')}}">
+                    </div>
+                </div>
+
+                <div class="field field_name_password fn-validate" data-validation-type="stPassword" data-info-tooltip="{{= tmpl.i18n('playtech.mobile.system.registrationStep3.field.password.hint')}}">
+                    <div class="field__control">
+                        <input  type="password" name="password" placeholder="{{= tmpl.i18n('playtech.mobile.system.registrationStep3.login.placeholder.password')}}">
+                        <span class="password-visibility"></span>
+                    </div>
+                </div>
+            </div>
+            <a class="reset-password fn-reset-password" href="#">{{= tmpl.i18n('playtech.mobile.system.registrationStep3.login.link.resetPassword')}}</a>
+            <button class="btn" type="submit">{{= tmpl.i18n('playtech.mobile.system.registrationStep3.login.actions.logIn')}}</button>
+        </form>
+        <div class="registration-step-3-content-support">
+            <a class="support-link" href="#">{{= tmpl.i18n('playtech.mobile.system.registrationStep3.login.link.support')}}</a>
+        </div>
+    </div>
+</div>

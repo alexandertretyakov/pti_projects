@@ -1,0 +1,6 @@
+{{? !it.users}}
+    {{= tmpl['common.loader']()}}
+{{??}}
+    {{= tmpl['st-module-18.users'](it)}}
+    {{= tmpl['st-module-18.pagination'](it)}}
+{{?}}

@@ -1,0 +1,34 @@
+{{~ it :movie:index}}
+    <div class="movie">
+        <div class="movie-image-container">
+            <a href="#"><img src="library/MOVIES/movies/{{= movie.id}}.jpg"></a>
+        </div>
+        <a class="movie-title" href="#">{{= movie.title}}</a>
+        <table class="movie-details">
+            <tbody>
+            <tr>
+                <th>{{= tmpl.i18n('playtech.mobile.system.movies.message.year')}}:</th>
+                <td>{{= movie.year}}</td>
+            </tr>
+            <tr>
+                <th>{{= tmpl.i18n('playtech.mobile.system.movies.message.country')}}:</th>
+                <td>{{= movie.countries}}</td>
+            </tr>
+            <tr>
+                <th>{{= tmpl.i18n('playtech.mobile.system.movies.message.genre')}}:</th>
+                <td>{{= movie.genre}}</td>
+            </tr>
+            <tr>
+                <th>{{= tmpl.i18n('playtech.mobile.system.movies.message.time')}}:</th>
+                <td>{{= movie.time}} мин. /{{= movie.hours}} ч.</td>
+            </tr>
+            <tr>
+                <th>{{= tmpl.i18n('playtech.mobile.system.movies.message.rating')}}:</th>
+                <td>{{= movie.rating}}</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div class="movie-plot">{{= movie.plot}}</div>
+    </div>
+{{~}}

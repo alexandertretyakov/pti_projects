@@ -1,0 +1,51 @@
+<div class="app">
+    <div class="top-bar">
+        {{= tmpl.i18n('playtech.mobile.system.movies.message.search')}}:
+        <input class="search" type="text">
+
+        {{= tmpl.i18n('playtech.mobile.system.movies.message.display')}}:
+        <div class="display-quantity">
+            <select>
+                <option value="default" selected>{{= tmpl.i18n('playtech.mobile.system.movies.dropdowns.allFilms')}}</option>
+                <option value="6">6 {{= tmpl.i18n('playtech.mobile.system.movies.dropdowns.filmsEach')}}</option>
+                <option value="12">12 {{= tmpl.i18n('playtech.mobile.system.movies.dropdowns.filmsEach')}}</option>
+                <option value="18">18 {{= tmpl.i18n('playtech.mobile.system.movies.dropdowns.filmsEach')}}</option>
+            </select>
+        </div>
+
+        <div class="sorting">
+            {{= tmpl.i18n('playtech.mobile.system.movies.message.sorting')}}:
+            <select>
+                <option value="default" selected>{{= tmpl.i18n('playtech.mobile.system.movies.dropdowns.byDefault')}}</option>
+                <option value="ascending_title">{{= tmpl.i18n('playtech.mobile.system.movies.dropdowns.byAlphabetically')}} &uarr;</option>
+                <option value="descending_title">{{= tmpl.i18n('playtech.mobile.system.movies.dropdowns.byAlphabetically')}} &darr;</option>
+                <option value="ascending_rating">{{= tmpl.i18n('playtech.mobile.system.movies.dropdowns.byRating')}} &uarr;</option>
+                <option value="descending_rating">{{= tmpl.i18n('playtech.mobile.system.movies.dropdowns.byRating')}} &darr;</option>
+                <option value="ascending_year">{{= tmpl.i18n('playtech.mobile.system.movies.dropdowns.byYear')}} &uarr;</option>
+                <option value="descending_year">{{= tmpl.i18n('playtech.mobile.system.movies.dropdowns.byYear')}} &darr;</option>
+                <option value="ascending_time">{{= tmpl.i18n('playtech.mobile.system.movies.dropdowns.byDuration')}} &uarr;</option>
+                <option value="descending_time">{{= tmpl.i18n('playtech.mobile.system.movies.dropdowns.byDuration')}} &darr;</option>
+            </select>
+        </div>
+
+        {{= tmpl.i18n('playtech.mobile.system.movies.message.displayType')}}:
+        <button class="button-list">{{= tmpl.i18n('playtech.mobile.system.movies.actions.list')}}</button>
+        <button class="button-tiles active">{{= tmpl.i18n('playtech.mobile.system.movies.actions.tiles')}}</button>
+    </div>
+
+    <div class="filters">
+        <h4>{{= tmpl.i18n('playtech.mobile.system.movies.message.filters')}}</h4>
+
+        <div>{{= tmpl.i18n('playtech.mobile.system.movies.message.country')}}:
+            <div class="filter-countries"></div>
+        </div>
+
+        <div>{{= tmpl.i18n('playtech.mobile.system.movies.message.genre')}}:
+            <div class="filter-genre"></div>
+        </div>
+    </div>
+
+    <div class="pagination"></div>
+
+    <div class="movies"></div>
+</div>

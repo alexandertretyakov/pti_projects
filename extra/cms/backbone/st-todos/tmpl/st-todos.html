@@ -1,0 +1,22 @@
+<div class="app">
+    <div class="heading">
+        <h1>{{= tmpl.i18n('playtech.mobile.system.todos.message.tasksList')}}</h1>
+        <h4 class="stats">{{= tmpl.i18n('playtech.mobile.system.todos.message.incompleted')}} <span class="item-incompleted">0</span>, {{= tmpl.i18n('playtech.mobile.system.todos.message.completed')}} <span class="item-completed">0</span></h4>
+    </div>
+
+    <div class="filters">
+        <input type="text" placeholder={{= tmpl.i18n('playtech.mobile.system.todos.field.searchTask.placeholder')}} id="needle">
+
+        <div class="actions">
+            <button class="active" data-filter="all">{{= tmpl.i18n('playtech.mobile.system.todos.actions.all')}}</button>
+            <button data-filter="incompleted">{{= tmpl.i18n('playtech.mobile.system.todos.actions.incompleted')}}</button>
+            <button data-filter="completed">{{= tmpl.i18n('playtech.mobile.system.todos.actions.completed')}}</button>
+        </div>
+    </div>
+
+    <div class="source">
+        <input class="title" type="text" placeholder={{= tmpl.i18n('playtech.mobile.system.todos.field.addTask.placeholder')}}>
+    </div>
+
+    <div class="items" id="tasks"></div>
+</div>

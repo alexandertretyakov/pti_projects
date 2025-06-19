@@ -1,0 +1,9 @@
+{{? !it.isDataLoaded}}
+    {{= tmpl['common.loader']()}}
+{{??}}
+    {{? it.breeds.length}}
+        {{= tmpl['st-module-9.accordion'](it)}}
+    {{??}}
+        <p>{{= tmpl.i18n('playtech.mobile.system.stModule9.noBreeds')}}</p>
+    {{?}}
+{{?}}

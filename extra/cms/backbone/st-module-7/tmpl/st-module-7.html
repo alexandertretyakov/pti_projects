@@ -1,0 +1,19 @@
+{{? it.comments === null}}
+    ...
+{{??}}
+    {{? !it.comments.length}}
+        <div class="no-comments">{{= tmpl.i18n('playtech.mobile.system.stModule7.noComments')}}</div>
+    {{??}}
+        <div class="comments">
+            {{~ it.comments :comment:index}}
+                <article class="comment">
+                    <header>
+                        <strong class="email">{{= comment.email}}</strong>
+                        <strong class="date">{{= comment.date}}</strong>
+                    </header>
+                    <p>{{= comment.body}}</p>
+                </article>
+            {{~}}
+        </div>
+    {{?}}
+{{?}}

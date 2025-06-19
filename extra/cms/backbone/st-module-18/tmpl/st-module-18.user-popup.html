@@ -1,0 +1,39 @@
+<div class="iPopupWrap">
+    <div class="iPopupOverlay fn-close"></div>
+
+    <div class="iPopup">
+        <div class="iPopupHeader">
+            <h3>{{= tmpl.i18n('playtech.mobile.system.stModule18.popup.h2.userDetails')}}</h3>
+            <button class="iPopupClose fn-close"></button>
+        </div>
+
+        <div class="iPopupContent">
+            <table>
+                <tr>
+                    <th>{{= tmpl.i18n('playtech.mobile.system.stModule18.popup.table.firstName')}}</th>
+                    <td>{{= it.user.name.first}}</td>
+                </tr>
+                <tr>
+                    <th>{{= tmpl.i18n('playtech.mobile.system.stModule18.popup.table.lastName')}}</th>
+                    <td>{{= it.user.name.last}}</td>
+                </tr>
+                <tr>
+                    <th>{{= tmpl.i18n('playtech.mobile.system.stModule18.popup.table.country')}}</th>
+                    <td>{{= it.user.location.country}}</td>
+                </tr>
+                <tr>
+                    <th>{{= tmpl.i18n('playtech.mobile.system.stModule18.popup.table.city')}}</th>
+                    <td>{{= it.user.location.city}}</td>
+                </tr>
+                <tr>
+                    <th>{{= tmpl.i18n('playtech.mobile.system.stModule18.popup.table.dateOfBirth')}}</th>
+                    <td>{{= it.formatDate(it.user.dob.date)}}</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="iPopupFooter">
+            <button class="btn fn-close">{{= tmpl.i18n('playtech.mobile.system.stModule18.popup.btn.ok')}}</button>
+        </div>
+    </div>
+</div>

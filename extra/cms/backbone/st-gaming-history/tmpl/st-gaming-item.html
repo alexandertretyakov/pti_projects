@@ -1,0 +1,8 @@
+{{~ it.transactions :transaction:index}}
+    <div class="gaming-item">
+        <p><b>{{= tmpl.i18n('playtech.mobile.system.gaming-history.gameName')}}:</b> {{= transaction.templateTags.game_category}}</p>
+        <p><b>{{= tmpl.i18n('playtech.mobile.system.gaming-history.time')}}:</b> {{= transaction.transactionDateInUms}}</p>
+        <p><b>{{= tmpl.i18n('playtech.mobile.system.gaming-history.win')}}:</b> {{= tmpl.formatter.formatCurrency(transaction.amount.amount, {currencyCode: transaction.amount.currencyCode})}}</p>
+    </div>
+{{~}}
+

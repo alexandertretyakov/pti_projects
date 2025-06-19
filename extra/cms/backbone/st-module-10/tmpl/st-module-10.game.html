@@ -1,0 +1,7 @@
+<div class="game">
+    {{? tmpl.device.formFactor === 'desktop'}}
+        <img src={{= 'https://portal-admin-casino-build.ifortuna.cz' + it.imageURL}}>
+    {{??}}
+        <div>{{= it.name}}</div>
+    {{?}}
+</div>

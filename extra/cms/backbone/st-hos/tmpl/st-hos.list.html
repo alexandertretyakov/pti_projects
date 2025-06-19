@@ -1,0 +1,14 @@
+{{? it.length === 0}}
+    <p>{{= tmpl.i18n('playtech.mobile.system.hos.message.noHos')}}</p>
+{{??}}
+    {{~ it :whore:index}}
+        <div class="whore" data-id="{{= whore.id}}">
+            {{= whore.alias}} {{= whore.age}}, {{= tmpl.formatter.formatCurrency(whore.price, {
+                currencyCode: 'US',
+                symbolAtTheLeft: true,
+                thSeparator: ' ',
+                decSeparator: '.'
+            })}}
+        </div>
+    {{~}}
+{{?}}

@@ -1,0 +1,36 @@
+<div class="users">
+    {{~ it.users :user:index}}
+        <div class="user">
+            {{? tmpl.device.formFactor === 'desktop'}}
+                <div class="wrapper-avatar">
+                    <img class="fn-avatar" src="{{= user.picture.medium}}" alt="user picture">
+                    <div class="online-status online-status--{{= user.onlineStatus}}"></div>
+                </div>
+
+                <div class="name">{{= user.name.first}} {{= user.name.last}}</div>
+
+                <div class="email">{{= user.email}}</div>
+
+                <button class="btn-profile fn-view-profile" data-uid="{{= user.uid}}">{{= tmpl.i18n('playtech.mobile.system.stModule18.user.btn.viewProfile')}}</button>
+            {{??}}
+                <img class="fn-avatar" src="{{= user.picture.medium}}" alt="user picture">
+
+                <div class="wrapper">
+                    <div class="name">{{= user.name.first}} {{= user.name.last}}</div>
+                    <div class="email">{{= user.email}}</div>
+                </div>
+
+                <div class="wrapper-status">
+                    <div class="online-status online-status--{{= user.onlineStatus}}"></div>
+                    <span class="online-status-text">{{= user.onlineStatus}}</span>
+                </div>
+
+                <div class="city">{{= user.location.city}}</div>
+
+                <div class="telephone">{{= user.phone}}</div>
+
+                <button class="btn-profile fn-view-profile" data-uid="{{= user.uid}}">{{= tmpl.i18n('playtech.mobile.system.stModule18.user.btn.viewProfile')}}</button>
+            {{?}}
+        </div>
+    {{~}}
+</div>

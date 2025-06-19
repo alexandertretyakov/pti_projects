@@ -1,0 +1,7 @@
+<p>{{= it.telephoneNumber}}</p>
+
+{{? it.isTelephoneNumberHidden}}
+    <button class="btn fn-btn">{{= tmpl.i18n('playtech.mobile.system.stModule11.hide')}}</button>
+{{??}}
+    <button class="btn fn-btn">{{= tmpl.i18n('playtech.mobile.system.stModule11.display')}}</button>
+{{?}}

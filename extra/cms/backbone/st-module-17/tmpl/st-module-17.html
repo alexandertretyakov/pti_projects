@@ -1,0 +1,19 @@
+<div class="filters-menu">
+    <div class="categories">
+        {{~ it.categories :category:index}}
+            <button class="category category-{{= category.code}} fn-category" data-rank="{{= category.code}}">
+                <div class="category-close">&#x2716;</div>
+                {{= tmpl.i18n('playtech.mobile.system.stModule17.category.' + category.code)}}
+                <span class="category-comments-qty">{{= category.quantityOfComments}}</span>
+            </button>
+        {{~}}
+    </div>
+
+    <div class="swear-toggler-section">
+        <span>{{= tmpl.i18n('playtech.mobile.system.stModule17.hideSwear')}}</span>
+        <input type="checkbox" id="{{= 'switch' + it.uniqId}}" {{? it.isSwearOn}}checked{{?}} class="fn-swear-toggler-input">
+        <label for="{{= 'switch' + it.uniqId}}"></label>
+    </div>
+</div>
+
+<div class="comments"></div>

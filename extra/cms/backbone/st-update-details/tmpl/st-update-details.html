@@ -1,0 +1,72 @@
+<div class="update-details-main">
+    <form>
+        <h2>{{= tmpl.i18n('playtech.mobile.system.update-details.heading.noneditableInformation')}}</h2>
+
+        <div class="form__fieldset form__fieldset_name_noneditable-info">
+            <div class="field">
+                <div class="field__label">{{= tmpl.i18n('playtech.mobile.system.update-details.label.firstName')}}:</div>
+                <div class="field__control">{{= it.firstName}}</div>
+            </div>
+
+            <div class="field">
+                <div class="field__label">{{= tmpl.i18n('playtech.mobile.system.update-details.label.lastName')}}:</div>
+                <div class="field__control">{{= it.lastName}}</div>
+            </div>
+
+            <div class="field">
+                <div class="field__label">{{= tmpl.i18n('playtech.mobile.system.update-details.label.username')}}:</div>
+                <div class="field__control">{{= it.username}}</div>
+            </div>
+
+            <div class="field">
+                <div class="field__label">{{= tmpl.i18n('playtech.mobile.system.update-details.label.citizenship')}}:</div>
+                <div class="field__control">{{= it.citizenship}}</div>
+            </div>
+
+            <div class="field">
+                <div class="field__label">{{= tmpl.i18n('playtech.mobile.system.update-details.label.birthNumber')}}:</div>
+                <div class="field__control">{{= it.birthDate}}</div>
+            </div>
+
+            <div class="field">
+                <div class="field__label">{{= tmpl.i18n('playtech.mobile.system.update-details.label.gender')}}:</div>
+                <div class="field__control">{{= it.sex}}</div>
+            </div>
+
+            <div class="field">
+                <div class="field__label">{{= tmpl.i18n('playtech.mobile.system.update-details.label.address')}}:</div>
+                <div class="field__control">{{= it.address}}</div>
+            </div>
+
+            <div class="field">
+                <div class="field__label">{{= tmpl.i18n('playtech.mobile.system.update-details.label.city')}}:</div>
+                <div class="field__control">{{= it.city}}</div>
+            </div>
+
+            <div class="field">
+                <div class="field__label">{{= tmpl.i18n('playtech.mobile.system.update-details.label.email')}}:</div>
+                <div class="field__control">{{= it.email}}</div>
+            </div>
+
+            <div class="field">
+                <div class="field__label">{{= tmpl.i18n('playtech.mobile.system.update-details.label.cellPhone')}}:</div>
+                <div class="field__control">{{= it.phone}}</div>
+            </div>
+        </div>
+
+        <h2>{{= tmpl.i18n('playtech.mobile.system.update-details.heading.editableInformation')}}</h2>
+
+        <div class="form__fieldset form__fieldset_name_editable-info">
+            <div class="field">
+                <div class="field__label">{{= tmpl.i18n('playtech.mobile.system.update-details.label.nickname')}}:</div>
+                <div class="field__control">
+                    <input type="text" name="casinoNickname" value="{{= it.casinoNickname}}">
+                </div>
+            </div>
+
+            <div class="form__actions">
+                <button class="btn fn-submit" type="button">{{= tmpl.i18n('playtech.mobile.system.update-details.form.actions.updateDetails')}}</button>
+            </div>
+        </div>
+    </form>
+</div>

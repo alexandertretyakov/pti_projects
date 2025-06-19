@@ -1,0 +1,13 @@
+{{~ it :movie:index}}
+    <div class="movie" data-id="{{= movie.id}}">
+        <div class="movie-image-container">
+            <a href="#"><img src="library/MOVIES/movies/{{= movie.id}}.jpg"></a>
+        </div>
+
+        <a class="movie-title" href="#">{{= movie.title}}</a>
+
+        <div class="movie-details">
+            <span>{{= movie.year}}</span>
+        </div>
+    </div>
+{{~}}

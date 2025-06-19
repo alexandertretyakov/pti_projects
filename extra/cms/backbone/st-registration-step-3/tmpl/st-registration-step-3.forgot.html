@@ -1,0 +1,38 @@
+<div class="password-reset-main">
+    <div class="password-reset-content">
+        <div class="password-reset-content-header">
+            {{? tmpl.device.formFactor === 'desktop'}}
+                <h1>{{= tmpl.i18n('playtech.mobile.system.registrationStep3.forgot.message.heading')}}</h1>
+                [WEB_CONTENT(REGISTRATION_STEP_3_DESKTOP_FORGOT_HEADER)]
+            {{??}}
+                [WEB_CONTENT(REGISTRATION_STEP_3_MOBILE_FORGOT_HEADER)]
+            {{?}}
+        </div>
+        <form class="form form-reset" action="#" method="POST">
+            <div class="form__fieldset">
+                <div class="field field_name_username fn-validate" data-validation-type="stUsername" data-info-tooltip="{{= tmpl.i18n('playtech.mobile.system.registrationStep3.field.username.hint')}}">
+                    <div class="field__label">{{= tmpl.i18n('playtech.mobile.system.registrationStep3.forgot.label.username')}}</div>
+                    <div class="field__control">
+                        <input type="text" name="userName">
+                    </div>
+                </div>
+
+                <div class="fieldset fieldset_name_birthdate fn-validate">
+                    <div class="fieldset__legend">{{= tmpl.i18n('playtech.mobile.system.registrationStep3.forgot.label.dateOfBirth')}} *</div>
+                    {{= tmpl['common.birthDate'](it)}}
+
+                    <input type="hidden" name="birthdate">
+                </div>
+            </div>
+            {{? tmpl.device.formFactor === 'desktop'}}
+                <a class="fn-back-to-login" href="#">{{= tmpl.i18n('playtech.mobile.system.registrationStep3.forgot.link.backToLogin')}}</a>
+                <button class="btn" type="submit">{{= tmpl.i18n('playtech.mobile.system.registrationStep3.forgot.actions.send')}}</button>
+            {{??}}
+                <button class="btn" type="submit">{{= tmpl.i18n('playtech.mobile.system.registrationStep3.forgot.actions.send')}}</button>
+                <div class="back-to-login-wrapper">
+                    <a class="fn-back-to-login" href="#">{{= tmpl.i18n('playtech.mobile.system.registrationStep3.forgot.link.backToLogin')}}</a>
+                </div>
+            {{?}}
+        </form>
+    </div>
+</div>

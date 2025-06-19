@@ -1,0 +1,12 @@
+<div class="accordion">
+    {{~ it.breeds :breed:index}}
+        <div class="accordionItem fn-accordionItem">
+            <h2 class="accordionItemHead">{{= tmpl.i18n('playtech.mobile.system.stModule9.heading.' + breed.name)}}</h2>
+            <div class="accordionItemBody fn-accordionItemBody {{? index === 0}}active{{?}}">
+                {{~ breed.images :breedImage:j}}
+                    <img src={{= breedImage}}>
+                {{~}}
+            </div>
+        </div>
+    {{~}}
+</div>

@@ -1,0 +1,38 @@
+{{~ it.comments :comment:index}}
+    <div class="comment comment-rank-{{= comment.rank}}">
+        {{? tmpl.device.formFactor === 'desktop'}}
+            <div class="comment-classification">
+                <span class="comment-rank">{{= tmpl.i18n('playtech.mobile.system.stModule17.category.' + comment.rank)}}</span>
+            </div>
+
+            <div class="comment-main">
+                <div class="comment-text">{{= comment.text}}</div>
+
+                <div class="comment-footer">
+                    <div>
+                        <span class="comment-date">{{= comment.date}}</span>
+
+                        <div class="comment-rating">
+                            <button class="comment-like">&uArr;<span>{{= comment.like}}</span></button>
+                            <button class="comment-dislike">&dArr;<span>{{= comment.dislike}}</span></button>
+                        </div>
+                    </div>
+
+                    <div>
+                        <button class="comment-answer">{{= tmpl.i18n('playtech.mobile.system.stModule17.comment.action.answer')}}</button>
+                        <button class="comment-delete">&#9746;</button>
+                    </div>
+                </div>
+            </div>
+        {{??}}
+            <div class="comment-text">{{= comment.text}}</div>
+
+            <div class="comment-classification">
+                <span class="comment-rank">{{= tmpl.i18n('playtech.mobile.system.stModule17.category.' + comment.rank)}}</span>
+            </div>
+
+            <span class="comment-date">{{= comment.date}}</span>
+            <button class="comment-delete">&#9746;</button>
+        {{?}}
+    </div>
+{{~}}

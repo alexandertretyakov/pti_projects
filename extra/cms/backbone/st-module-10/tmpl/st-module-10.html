@@ -1,0 +1,13 @@
+{{? !it.isDataLoaded}}
+    {{= tmpl['common.loader']()}}
+{{??}}
+    {{? it.games.length}}
+        <div class="games">
+            {{~ it.games :game:index}}
+                {{= tmpl['st-module-10.game'](game)}}
+            {{~}}
+        </div>
+    {{??}}
+        <p>{{= tmpl.i18n('playtech.mobile.system.stModule10.noGames')}}</p>
+    {{?}}
+{{?}}

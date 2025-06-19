@@ -1,0 +1,41 @@
+<div class="transaction-history-main">
+    <form class="transaction-history-filters">
+        <div class="fieldset-legend"><b>{{= tmpl.i18n('playtech.mobile.system.transactions-history.message.view')}}:</b></div>
+        <div class="field field__control">
+            <input id="filter-all" type="radio" name="transactionType" value="all" checked>
+            <span class="field__control-label">
+                <label for="filter-all">{{= tmpl.i18n('playtech.mobile.system.transactions-history.label.all')}}</label>
+            </span>
+        </div>
+
+        <div class="field field__control">
+            <input id="filter-deposits" type="radio" name="transactionType" value="deposit">
+            <span class="field__control-label">
+                <label for="filter-deposits">{{= tmpl.i18n('playtech.mobile.system.transactions-history.label.deposit')}}</label>
+            </span>
+        </div>
+
+        <div class="field field__control">
+            <input id="filter-withdrawals" type="radio" name="transactionType" value="withdraw">
+            <span class="field__control-label">
+                <label for="filter-withdrawals">{{= tmpl.i18n('playtech.mobile.system.transactions-history.label.withdraw')}}</label>
+            </span>
+        </div>
+    </form>
+
+    <div class="transaction-history-table">
+        <div class="table-header">
+            {{? tmpl.device.formFactor === 'desktop'}}
+                <span class="field-information transactions-date">{{= tmpl.i18n('playtech.mobile.system.transactions-history.field.date')}}</span>
+                <span class="field-information transactions-amount">{{= tmpl.i18n('playtech.mobile.system.transactions-history.field.amount')}}</span>
+                <span class="field-information transactions-method">{{= tmpl.i18n('playtech.mobile.system.transactions-history.field.method')}}</span>
+                <span class="field-information transactions-status">{{= tmpl.i18n('playtech.mobile.system.transactions-history.field.status')}}</span>
+            {{??}}
+                <span class="field-information transactions-date">{{= tmpl.i18n('playtech.mobile.system.transactions-history.field.date')}}</span>
+                <span class="field-information transactions-type-status">{{= tmpl.i18n('playtech.mobile.system.transactions-history.field.type')}} / {{= tmpl.i18n('playtech.mobile.system.transactions-history.field.status')}}</span>
+                <span class="field-information transactions-amount">{{= tmpl.i18n('playtech.mobile.system.transactions-history.field.amount')}}</span>
+            {{?}}
+        </div>
+        <div class="table-content"></div>
+    </div>
+</div>

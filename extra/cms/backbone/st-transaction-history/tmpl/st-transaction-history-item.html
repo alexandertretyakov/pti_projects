@@ -1,0 +1,20 @@
+{{~ it.transactions :item:index}}
+    {{? tmpl.device.formFactor === 'desktop'}}
+        <div class="field-information-row">
+            <span class="field-information transactions-date">{{= item.time.slice(0, 10)}}<br><span class="transactions-time">{{= item.time.slice(11, 19)}}</span></span>
+            <span class="field-information transactions-amount">{{= tmpl.formatter.formatCurrency(item.amount.amount, {currencyCode: item.amount.currencyCode})}}</span>
+            <span class="field-information transactions-method">{{= item.methodName}}</span>
+            <span class="field-information transactions-status">{{= tmpl.i18n('playtech.mobile.system.transactions-history.field.status.' + item.status)}}</span>
+        </div>
+    {{??}}
+        <div class="field-information-row">
+            <span class="field-information transactions-date">{{= item.time.slice(0, 10)}}<br><span class="transactions-time">{{= item.time.slice(11, 19)}}</span></span>
+            <span class="field-information transactions-type">
+                {{= item.type[0].toUpperCase() + item.type.slice(1)}}-
+                <span class="transactions-method">{{= item.methodName}}</span><br>
+                <span class="transactions-status">{{= tmpl.i18n('playtech.mobile.system.transactions-history.field.status.' + item.status)}}</span>
+            </span>
+            <span class="field-information transactions-amount">{{= tmpl.formatter.formatCurrency(item.amount.amount, {currencyCode: item.amount.currencyCode})}}</span>
+        </div>
+    {{?}}
+{{~}}

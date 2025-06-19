@@ -1,0 +1,9 @@
+<div class="pagination">
+    <button class="btn-previous-page fn-previous-page">{{= tmpl.i18n('playtech.mobile.system.stModule18.pagination.btn.previous')}}</button>
+
+    {{~ it.pagination :pageNumber:idx}}
+        <button class="btn-page fn-page {{? pageNumber === it.currentPage}}active{{?}}">{{= pageNumber}}</button>
+    {{~}}
+
+    <button class="btn-next-page fn-next-page">{{= tmpl.i18n('playtech.mobile.system.stModule18.pagination.btn.next')}}</button>
+</div>

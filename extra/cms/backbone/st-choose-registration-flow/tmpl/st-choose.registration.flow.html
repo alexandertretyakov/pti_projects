@@ -1,0 +1,24 @@
+<div class="choose-registration-flow-main">
+    {{? tmpl.device.formFactor === 'desktop'}}
+        <a href="#" class="choose-registration-flow-main-login">{{= tmpl.i18n('playtech.mobile.system.choose.registration.flow.ancher.logIn')}}</a>
+        <h1>{{= tmpl.i18n('playtech.mobile.system.choose.registration.flow.message.heading')}}</h1>
+    {{?}}
+    <div class="choose-registration-flow-content-wrapper">
+        <div class="choose-registration-flow-content">
+            <div class="choose-registration-flow-content-flex">
+                <div class="choose-registration-flow-content-bank">
+                    <h2>{{= tmpl.i18n('playtech.mobile.system.choose.registration.flow.message.headingBank')}}</h2>
+                    [WEB_CONTENT(CHOOSE_REGISTRATION_METHOD_BANK_UL)]
+                    <button class="btn" type="button">{{= tmpl.i18n('playtech.mobile.system.choose.registration.flow.actions.registerBank')}}</button>
+                </div>
+
+                <div class="choose-registration-flow-content-form">
+                    <h2>{{= tmpl.i18n('playtech.mobile.system.choose.registration.flow.message.headingForm')}}</h2>
+                    [WEB_CONTENT(CHOOSE_REGISTRATION_METHOD_FORM_UL)]
+                    <button class="btn" type="button">{{= tmpl.i18n('playtech.mobile.system.choose.registration.flow.actions.manualForm')}}</button>
+                </div>
+            </div>
+            <p>{{= tmpl.i18n('playtech.mobile.system.choose.registration.flow.message.explanationMojeID')}}</p>
+        </div>
+    </div>
+</div>

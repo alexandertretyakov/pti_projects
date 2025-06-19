@@ -1,0 +1,20 @@
+<div class="iPopupWrap">
+    <div class="iPopupOverlay fn-close"></div>
+
+    <div class="iPopup">
+        <div class="iPopupHeader">
+            <h3>{{= it.title}}</h3>
+            {{? it.showCloseBtn}}
+                <button class="iPopupClose fn-close"></button>
+            {{?}}
+        </div>
+
+        <div class="iPopupContent">
+            {{= it.content}}
+        </div>
+
+        <div class="iPopupFooter">
+            <button class="btn fn-close">{{= tmpl.i18n('playtech.mobile.system.stModule18.popup.btn.ok')}}</button>
+        </div>
+    </div>
+</div>

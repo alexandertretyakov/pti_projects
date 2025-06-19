@@ -1,0 +1,56 @@
+{{
+    var statuses = tmpl._.object(tmpl._.range(1,9),[
+        {'modificator': 'active', 'translation': tmpl.i18n('playtech.mobile.system.balance.issued')},
+        {'modificator': 'active', 'translation': tmpl.i18n('playtech.mobile.system.balance.accepted')},
+        {'modificator': 'active', 'translation': tmpl.i18n('playtech.mobile.system.balance.active')},
+        {'modificator': 'pending', 'translation': tmpl.i18n('playtech.mobile.system.balance.wageringCompleted')},
+        {'modificator': 'pending', 'translation': tmpl.i18n('playtech.mobile.system.balance.expired')},
+        {'modificator': 'declined', 'translation': tmpl.i18n('playtech.mobile.system.balance.declined')},
+        {'modificator': 'declined', 'translation': tmpl.i18n('playtech.mobile.system.balance.cancelled')},
+        {'modificator': 'active', 'translation': tmpl.i18n('playtech.mobile.system.balance.redeemed')}
+    ]);
+}}
+
+<div class="st-bonus-history">
+    <div class="st-bonus-history-container">
+        {{~ it.bonuses :bonus:index}}
+            <div class="bonus-info-header fn-bonus-info-header">
+                <div class="bonus-info-header-item">
+                    <div class="item-header">
+                        <span class="bonusName">{{= bonus.bonusName}}</span>
+                        <span class="bonusStatus status--{{= statuses[bonus.status]['modificator']}}">{{= statuses[bonus.status]['translation']}}</span>
+                    </div>
+
+                    <div class="item-content">
+                        <span class="bonusAmount">
+                            {{? bonus.freeSpinsCount !== undefined}}
+                                {{= bonus.freeSpinsCount}}
+                            {{??}}
+                                {{= tmpl.formatter.formatCurrency(bonus.amount.amount, {currencyCode: bonus.amount.currencyCode})}}
+                            {{?}}
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bonus-info-footer">
+                <div class="bonus-info-footer-item">
+                    <span class="item-header">{{= tmpl.i18n('playtech.mobile.st-bonus-history.bonusType')}}</span>
+                    <span class="item-content">{{= bonus.playType}}</span>
+                </div>
+
+                <div class="bonus-info-footer-item">
+                    <span class="item-header">{{= tmpl.i18n('playtech.mobile.st-bonus-history.wagerType')}}</span>
+                    <span class="item-content">{{= bonus.wagerType}}</span>
+                </div>
+
+                {{? bonus.freeSpinsCount !== undefined}}
+                    <div class="bonus-info-footer-item">
+                        <span class="item-header">{{= tmpl.i18n('playtech.mobile.st-bonus-history.freeSpinsCount')}}</span>
+                        <span class="item-content">{{= bonus.freeSpinsCount}}</span>
+                    </div>
+                {{?}}
+            </div>
+        {{~}}
+    </div>
+</div>
