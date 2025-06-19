@@ -28,70 +28,70 @@ var motorcycle = {
     color: "red",
     model: "XVS",
     year: 1999
-}
+};
 
 var monitor = {
     brand: "LG",
     model: "Flatron",
     color: "black",
     year: 2013
-}
+};
 
 var krivbass = {
     city: "Кривой Рог",
     district: "Днепропетровская",
     age: 246,
     length: "126 км"
-}
+};
 
 var telephone = {
     brand: "Siemens",
     model: "M55",
     year: 2002,
     standart: "GSM"
-}
+};
 
 var bike = {
     model: "Crossride",
     year: 2019,
     wheel: 29,
     frame: 21
-}
+};
 
 var capitals = {
     ukraine: "Kiev",
     italy: "Rome",
     france: "Paris",
     germany: "Berlin"
-}
+};
 
 var weapon = {
     view: "Rifle Sniper",
     model: "AR-15",
     caliber: 7.62,
     SightingRange: 3000
-}
+};
 
 var car = {
     model: "Skoda",
     color: "black",
     body: "sedan",
     class: "hybrid"
-}
+};
 
 var game = {
     name: "crossout",
     developer: "Targem Games",
     release: 2017,
     genre: "action"
-}
+};
 
 var tank = {
     name: "Tiger",
     class: "Heavy Tank",
     caliberSM: 8.8,
     country: "Germany"
-}
+};
 
 // 4. Создать 10 массивов представляющих массивы некоторых значений из реальной жизни. В каждом массиве должно быть не меньше 4 элементов.
 ["сало", "молоко", "рыба", "хлеб", "водка"]
@@ -120,7 +120,7 @@ var d = {};
 var e = [];
 
 // 7. Создать массив из элементов, значения которых представлены всеми изученными типами данных в JavaScript.
-var mix = [1,"row", true, false, {},[],null,undefined]
+var mix = [1,"row", true, false, {},[],null,undefined];
 
 // 8. Создать объект из четырех свойств. Три свойства должны иметь значения простых типов данных. Два остальных свойства должны иметь значения составного (объектного) типа данных.
 var pocket = {
@@ -137,7 +137,7 @@ var pocket = {
         filter: false,
         mark: "Прима"
     }
-}
+};
 
 // 9. Написать выражения использующие все изученные арифметические операторы
 5 + 5;
@@ -197,7 +197,7 @@ var car = {
     color: "black",
     body: "sedan",
     class: "hybrid"
-}
+};
 
 car.model;
 car.color;
@@ -209,7 +209,7 @@ var car = {
     color: "black",
     body: "sedan",
     class: "hybrid"
-}
+};
 
 a.model = "Audi";
 a.color = "red";

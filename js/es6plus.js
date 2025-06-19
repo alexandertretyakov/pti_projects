@@ -107,7 +107,7 @@ var f2 = (x) => x*x;
 var f3 = (a, b) => {
     var c = a + b;
     return c*c;
-}
+};
 var f4 = () => 'Хуй мусорам!';
 
 
