@@ -1,0 +1,24 @@
+<div class="st-top-winners">
+    {{? tmpl.device.formFactor === 'desktop'}}
+        <h1>Top Wins</h1>
+    {{?}}
+    <div class="st-top-winners-main">
+        <div class="st-top-winners-filters">
+            <button class="active" data-id="recent">Recent Wins</button>
+            <button data-id="week">Top Wins Of The Week</button>
+            <button data-id="month">Top Wins Of The Month</button>
+            <button data-id="hallOfFame">Hall Of Fame</button>
+        </div>
+
+        <div class="st-top-winners-table">
+            {{? tmpl.device.formFactor === 'desktop'}}
+                <div class="st-top-winners-table-header">
+                    <span class="header-field header-field-game">Game</span>
+                    <span class="header-field header-field-user">User</span>
+                    <span class="header-field header-field-win">Win</span>
+                </div>
+            {{?}}
+            <div class="st-top-winners-table-content"></div>
+        </div>
+    </div>
+</div>

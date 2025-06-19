@@ -1,0 +1,25 @@
+{{~ it :game:index}}
+    <div class="game fn-game" data-game-code="{{= game.gameCode}}">
+        <div class="gameInner" style="background-image: url({{= game.imageURLs.c1x1}})">
+            {{~ ['exclusive', 'new', 'hot', 'popular'] :label}}
+                {{? game[label]}}
+                    <span class="gameLabel gameLabel-{{= label}}">{{= tmpl.i18n('playtech.mobile.system.st-games.game.flag.' + label)}}</span>
+                {{?}}
+            {{~}}
+            {{? tmpl.device.formFactor === 'desktop'}}
+                <div class="gameInfo-wrapper">
+                    <div class="gameName">{{= game.name}}</div>
+
+                    <div class="gameControl">
+                        <button class="btn btn-info fn-btn-info" data-game-code="{{= game.gameCode}}">{{= tmpl.i18n('playtech.mobile.system.st-games.game.btn.info')}}</button>
+                        <button class="btn btn-play fn-launch-game" data-game-code="{{= game.gameCode}}">{{= tmpl.i18n('playtech.mobile.system.st-games.game.btn.play')}}</button>
+                    </div>
+
+                    <div class="gameProvider">{{= tmpl.i18n('playtech.mobile.system.st-games.game.provider')}} {{= game.gameType}}</div>
+
+                    <div class="gameDescription">{{= game.articleId}}</div>
+                </div>
+            {{?}}
+        </div>
+    </div>
+{{~}}

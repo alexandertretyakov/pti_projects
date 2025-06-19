@@ -1,0 +1,7 @@
+<div class="gamePopupContent">
+    <div class="gamePopupImage" style="background-image: url({{= it.imageURLs.c1x1}})"></div>
+    <div class="gamePopupName">{{= it.name}}</div>
+    <div class="gamePopupProvider">{{= tmpl.i18n('playtech.mobile.system.st-games.game-popup.provider')}} {{= it.gameType}}</div>
+    <button class="btn gamePopupBtnPlay fn-launch-game" data-game-code="{{= it.gameCode}}">{{= tmpl.i18n('playtech.mobile.system.st-games.game-popup.btn.play')}}</button>
+    <div class="gamePopupDescription">[WEB_CONTENT({{= it.articleId}})]</div>
+</div>

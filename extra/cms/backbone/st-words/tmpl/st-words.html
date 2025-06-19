@@ -1,0 +1,24 @@
+<div class="game">
+    <div class="stage">
+        <div class="word">{{= it.currentWord}}</div>
+        <form>
+            <input type="text">
+            <select>
+                <option>1</option>
+                <option>2</option>
+            </select>
+        </form>
+    </div>
+
+    <div class="done">
+        {{? it.doneWords.length}}
+            <ol>
+                {{~ it.doneWords :item:index}}
+                    <li>{{= item}}</li>
+                {{~}}
+            </ol>
+        {{??}}
+            <p class="empty"><span>Список </span><br>пуст</p>
+        {{?}}
+    </div>
+</div>

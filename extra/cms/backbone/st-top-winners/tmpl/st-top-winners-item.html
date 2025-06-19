@@ -1,0 +1,21 @@
+{{~ it.winners :winner:index}}
+    {{? tmpl.device.formFactor === 'desktop'}}
+        <div class="st-top-winners-game">
+            <div class="field-game-wrapper">
+                <img src="{{= Playtech.Variables.gamesConfiguration[winner.gameType].imageURLs.c1x1}}">
+                <span class="field-game-name fn-launch-game" data-game-code="{{= Playtech.Variables.gamesConfiguration[winner.gameType].gameCode}}">{{= Playtech.Variables.gamesConfiguration[winner.gameType].name}}</span>
+            </div>
+            <span class="field-game-user">{{= it.hideSymbolsOfNickname(winner.nickname)}}</span>
+            <span class="field-game-win">{{= tmpl.formatter.formatCurrency(winner.winAmount.amount, { currencyCode: winner.winAmount.currencyCode })}}</span>
+        </div>
+    {{??}}
+        <div class="st-top-winners-game">
+            <div class="field-game-wrapper">
+                <img src="{{= Playtech.Variables.gamesConfiguration[winner.gameType].imageURLs.c1x1}}">
+                <span class="field-game-name fn-launch-game" data-game-code="{{= Playtech.Variables.gamesConfiguration[winner.gameType].gameCode}}">{{= Playtech.Variables.gamesConfiguration[winner.gameType].name}}</span><br>
+                <span class="field-game-user">{{= it.hideSymbolsOfNickname(winner.nickname)}}</span>
+            </div>
+            <span class="field-game-win">{{= tmpl.formatter.formatCurrency(winner.winAmount.amount, { currencyCode: winner.winAmount.currencyCode })}} </span>
+        </div>
+    {{?}}
+{{~}}

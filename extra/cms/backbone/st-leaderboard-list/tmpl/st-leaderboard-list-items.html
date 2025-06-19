@@ -1,0 +1,33 @@
+{{~ it.leaderboards :item:index}}
+    <div class="leaderboard-item">
+        <div class="leaderboard-item-board" style="background-image: url({{= item.bannerUrl}})">
+            <div class="item-board-wrapper">
+                <div class="item-board-flag item-board-flag-{{= item.status}}">{{= tmpl.i18n('playtech.mobile.system.leaderboard.card.flag.' + item.status)}}</div>
+
+                <div class="item-board-countTime">
+                    <span>{{= tmpl.i18n('playtech.mobile.system.leaderboard.card.raceEndsIn')}}</span>
+                    <span class="info-count">{{= item.leaderboardEndTime}}</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="leaderboard-item-info">
+            <div class="item-info item-info-heading">{{= item.name}}</div>
+
+            <div class="item-info item-info-countTime">
+                <span>{{= tmpl.i18n('playtech.mobile.system.leaderboard.card.registrationEndsIn')}}</span>
+                <span class="info-count">{{= item.leaderboardEndTime}}</span>
+            </div>
+
+            <div class="item-info item-info-registered">
+                <span>{{= tmpl.i18n('playtech.mobile.system.leaderboard.card.registered')}}</span>
+                <span class="info-count">{{= item.participantsCount}}</span>
+            </div>
+
+            <div class="item-info item-info-buttons">
+                <button class="btn btn-moreDetails" type="button">{{= tmpl.i18n('playtech.mobile.system.leaderboard.card.action.moreDetails')}}</button>
+                <button class="btn btn-joinRace" type="button">{{= tmpl.i18n('playtech.mobile.system.leaderboard.card.action.joinRace')}}</button>
+            </div>
+        </div>
+    </div>
+{{~}}
