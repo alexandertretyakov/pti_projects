@@ -825,6 +825,7 @@ CRM (customer relationship management)
 TL;DR (too long; didn't read)
 CLI (Command line interface)
 NDA (Non-disclosure agreement)
+MFA (multi-factor authentication)
 
 **************************** Из описаний к заданиям ************************
 

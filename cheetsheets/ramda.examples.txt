@@ -3,10 +3,10 @@ const isEven = (n) => n % 2 === 0;
 const isOdd = (n) => n % 2 !== 0;
 
 const students = [
-    {name: 'Oliver', age: 20},
-    {name: 'Jack', age: 20},
     {name: 'Kyle', age: 22},
-    {name: 'Joe', age: 23}
+    {name: 'Oliver', age: 20},
+    {name: 'Joe', age: 23},
+    {name: 'Jack', age: 20}
 ];
 
 const dot = { x: 2, y: 4 };
@@ -202,7 +202,7 @@ R.dropLast(3, [1, 2, 3, 4, 5])
 // [1, 2]
 
 R.pluck('name', students)
-// ['Oliver', 'Jack', 'Kyle', 'Joe']
+// ['Kyle', 'Oliver', 'Joe', 'Jack']
 
 R.flatten([1, 2, [3, 4, [5, 6]], 7])
 // [1, 2, 3, 4, 5, 6, 7]
@@ -608,8 +608,15 @@ half(10);
 R.tap((x) => console.log('x =', x), 3)
 // 3; в консоли: x = 3
 
-const byAge = R.ascend(R.prop('age'));
-R.sort(byAge, students);
+const ascendingByAge = R.ascend(R.prop('age'));
+R.sort(ascendingByAge, students);
 
-const byAge = R.descend(R.prop('age'));
-R.sort(byAge, students);
+const descendingByAge = R.descend(R.prop('age'));
+R.sort(descendingByAge, students);
+
+R.pipe(
+    R.inc,
+    R.divide(100),
+    R.divide(R.__, 2)
+)(4)
+// 10
