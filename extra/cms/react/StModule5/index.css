@@ -1,0 +1,20 @@
+.dogs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.dogs img {
+    width: 200px;
+    height: 200px;
+    border: 6px solid white;
+    transition: border 0.5s;
+    object-fit: cover;
+
+    @nest :global(.desktop) & {
+        &:hover {
+            border: 6px solid black;
+        }
+    }
+}
+

@@ -1,0 +1,433 @@
+.stModule17React {
+    margin-bottom: 20px;
+
+    @nest :global(.mobile) &, :global(.tablet) & {
+        padding: 6px;
+    }
+
+    /*----------------------------------------------- Filters Menu*/
+    & .filtersMenu {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+
+        @nest :global(.mobile) &, :global(.tablet) & {
+            overflow-x: auto;
+        }
+
+        & .categories {
+            display: flex;
+            align-items: center;
+            border-radius: 10px;
+            margin-right: 10px;
+            height: 40px;
+
+            @nest :global(.mobile) &, :global(.tablet) & {
+                margin-bottom: 10px;
+            }
+        }
+
+        & .category {
+            display: flex;
+            align-items: baseline;
+            border: none;
+            background-color: #ffffff;
+            line-height: 40px;
+            padding: 0 14px;
+
+            &:first-child {
+                border-radius: 10px 0 0 10px;
+            }
+
+            &:last-child {
+                border-radius: 0 10px 10px 0;
+            }
+
+            & .categoryClose {
+                font-size: 12px;
+                color: #ffffff;
+                font-weight: bold;
+                padding: 0 14px;
+                margin-right: 14px;
+                background-color: rgba(255, 255, 255, 0.07);
+                display: none;
+            }
+
+            & .categoryCommentsQty {
+                padding: 3px 6px;
+                border: none;
+                border-radius: 10px;
+                margin-left: 5px;
+                font-weight: bold;
+                line-height: normal;
+            }
+
+            &:hover {
+                cursor: pointer;
+                transition: all 0.15s ease-out;
+            }
+
+            &.active {
+                color: #ffffff;
+                padding-left: 0;
+
+                &:first-child {
+                    border-radius: 10px 0 0 10px;
+                }
+
+                & .categoryClose {
+                    display: block;
+                }
+
+                & .categoryCommentsQty {
+                    background-color: #ffffff;
+                }
+            }
+
+            &.categoryR1 {
+
+                & .categoryCommentsQty {
+                    color: #af1c6b;
+                    background-color: #f3dde9;
+                }
+
+                &:not(.active) {
+                    &:hover {
+                        color: #af1c6b;
+                        background-color: #f3dde9;
+
+                        & .categoryCommentsQty {
+                            color: #f3dde9;
+                            background-color: #af1c6b;
+                        }
+                    }
+                }
+
+                &.active {
+                    background-color: #af1c6b;
+
+                    & .categoryClose {
+                        border-radius: 10px 0 0 10px;
+                    }
+
+                    & .categoryCommentsQty {
+                        color: #af1c6b;
+                    }
+                }
+            }
+
+            &.categoryR2 {
+
+                & .categoryCommentsQty {
+                    color: #e6523e;
+                    background-color: #fbe5e2;
+                }
+
+                &:not(.active) {
+                    &:hover {
+                        color: #e6523e;
+                        background-color: #fbe5e2;
+
+                        & .categoryCommentsQty {
+                            color: #fbe5e2;
+                            background-color: #e6523e;
+                        }
+                    }
+                }
+
+                &.active {
+                    background-color: #e6523e;
+
+                    & .categoryCommentsQty {
+                        color: #e6523e;
+                    }
+                }
+            }
+
+            &.categoryR3 {
+
+                & .categoryCommentsQty {
+                    color: #169dc4;
+                    background-color: #dcf0f6;
+                }
+
+                &:not(.active) {
+                    &:hover {
+                        color: #169dc4;
+                        background-color: #dcf0f6;
+
+                        & .categoryCommentsQty {
+                            color: #dcf0f6;
+                            background-color: #169dc4;
+                        }
+                    }
+                }
+
+                &.active {
+                    background-color: #169dc4;
+
+                    & .categoryCommentsQty {
+                        color: #169dc4;
+                    }
+                }
+            }
+
+            &.categoryR4 {
+
+                & .categoryCommentsQty {
+                    color: #4d9981;
+                    background-color: #e4f0ec;
+                }
+
+                &:not(.active) {
+                    &:hover {
+                        color: #4d9981;
+                        background-color: #e4f0ec;
+
+                        & .categoryCommentsQty {
+                            color: #e4f0ec;
+                            background-color: #4d9981;
+                        }
+                    }
+                }
+
+                &.active {
+                    background-color: #4d9981;
+
+                    & .categoryCommentsQty {
+                        color: #4d9981;
+                    }
+                }
+            }
+
+            &.categoryR5 {
+
+                & .categoryCommentsQty {
+                    color: #23b54f;
+                    background-color: #e2f7e8;
+                }
+
+                &:not(.active) {
+                    &:hover {
+                        color: #23b54f;
+                        background-color: #e2f7e8;
+
+                        & .categoryCommentsQty {
+                            color: #e2f7e8;
+                            background-color: #23b54f;
+                        }
+                    }
+                }
+
+                &.active {
+                    background-color: #23b54f;
+
+                    & .categoryCommentsQty {
+                        color: #23b54f;
+                    }
+                }
+            }
+        }
+
+        /*----------------------------------------------- Switch in Filters Menu*/
+        & .swearTogglerSection {
+            display: flex;
+            align-items: center;
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 0 15px;
+
+            & input[type=checkbox] {
+                height: 0;
+                width: 0;
+                visibility: hidden;
+            }
+
+            & label {
+                cursor: pointer;
+                text-indent: -9999px;
+                width: 50px;
+                height: 25px;
+                background: grey;
+                display: block;
+                border-radius: 15px;
+                position: relative;
+            }
+
+            & label::after {
+                content: '';
+                position: absolute;
+                top: 5px;
+                left: 5px;
+                width: 15px;
+                height: 15px;
+                background: #fff;
+                border-radius: 90px;
+                transition: 0.3s;
+            }
+
+            & input:checked + label {
+                background: #79c2f2;
+            }
+
+            & input:checked + label::after {
+                left: calc(100% - 5px);
+                transform: translateX(-100%);
+            }
+
+            & label:active::after {
+                width: 25px;
+            }
+        }
+    }
+
+    /*----------------------------------------------- Comments*/
+    & .comment {
+        display: flex;
+        margin-bottom: 1px;
+        background-color: #ffffff;
+
+        &:first-child {
+            border-radius: 10px 10px 0 0;
+        }
+
+        &:last-child {
+            border-radius: 0 0 10px 10px;
+        }
+
+        @nest :global(.mobile) &, :global(.tablet) & {
+            display: block;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+
+        & .commentLike,
+        & .commentDislike,
+        & .commentAnswer,
+        & .commentDelete {
+            border: none;
+            cursor: pointer;
+        }
+
+        & .commentClassification {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+
+            @nest :global(.mobile) &, :global(.tablet) & {
+                display: inline-block;
+                padding: 0;
+            }
+
+            & .commentRank {
+                padding: 11px 0;
+                border-radius: 20px;
+                width: 120px;
+                text-align: center;
+
+                @nest :global(.mobile) &, :global(.tablet) & {
+                    padding: 5px 10px;
+                    font-weight: bold;
+                    margin-right: 20px;
+                }
+            }
+        }
+
+        & .commentMain {
+            padding: 15px 25px 10px 0;
+
+            & .commentFooter {
+                display: flex;
+                justify-content: space-between;
+
+                & .commentDate {
+                    margin-right: 30px;
+                }
+
+                & .commentRating {
+                    display: inline-block;
+
+                    & .commentLike,
+                    & .commentDislike {
+                        padding: 5px;
+                        border-radius: 10px;
+                        margin-right: 10px;
+                        background-color: #ffffff;
+
+                        &:hover {
+                            background-color: #e8e9ec;
+                            transition: all 0.15s ease-out;
+                        }
+                    }
+
+                    & .commentLike span,
+                    & .commentDislike span {
+                        margin-left: 5px;
+                    }
+                }
+
+                & .commentAnswer {
+                    padding: 5px 10px;
+                    border-radius: 10px;
+                    margin-right: 20px;
+                    background-color: #f9f9fa;
+
+                    &:hover {
+                        background-color: #ffdf61;
+                        transition: all 0.15s ease-out;
+                    }
+                }
+            }
+        }
+
+         & .commentText {
+            margin-bottom: 15px;
+
+            & img {
+                width: 20px;
+                height: 20px;
+                vertical-align: middle;
+            }
+        }
+
+        & .commentDelete {
+            padding: 5px 10px;
+            background-color: #f9f9fa;
+            border-radius: 10px;
+
+            &:hover {
+                background-color: #ffdf61;
+                transition: all 0.15s ease-out;
+            }
+
+            @nest :global(.mobile) &, :global(.tablet) & {
+                float: right;
+            }
+        }
+
+        &.commentRankR1 .commentRank {
+            color: #af1c6b;
+            background-color: #f3dde9;
+        }
+
+        &.commentRankR2 .commentRank {
+            color: #e6523e;
+            background-color: #fbe5e2;
+        }
+
+        &.commentRankR3 .commentRank {
+            color: #169dc4;
+            background-color: #dcf0f6;
+        }
+
+        &.commentRankR4 .commentRank {
+            color: #4d9981;
+            background-color: #e4f0ec;
+        }
+
+        &.commentRankR5 .commentRank {
+            color: #23b54f;
+            background-color: #e2f7e8;
+        }
+    }
+}

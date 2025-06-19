@@ -1,0 +1,197 @@
+.root {
+    background-image: url("./images/1.png");
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    color: #ffffff;
+    font-family: Verdana, sans-serif;
+    height: 100%;
+
+    & .img {
+        display: inline-block;
+    }
+}
+
+/* --------------------------------------------- Header */
+.header {
+    height: 31px;
+    background-color: #000000;
+    border-bottom: 1px solid #6a4101;
+
+    & .img3 {
+        margin-top: -1px;
+        width: 202px;
+        height: 31px;
+        background-image: url("./images/3.png");
+    }
+
+    & .location {
+        float: right;
+        font-size: 10px;
+        padding: 7px 0;
+    }
+
+    & .location label {
+        margin-right: 20px;
+    }
+
+    & .location .country {
+        font-size: 12px;
+        margin-right: 20px;
+    }
+}
+
+/* --------------------------------------------- Main */
+.main {
+    width: 719px;
+    margin: 0 auto;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+
+    & .page {
+        background-color: #000000;
+        border-left: 1px solid #a36917;
+        border-right: 1px solid #a36917;
+        position: relative;
+        flex-grow: 1;
+        padding-bottom: 50px;
+    }
+
+    & .img5 {
+        width: 719px;
+        height: 125px;
+        background-image: url("./images/5.png");
+    }
+
+    & .content {
+        padding: 10px 16px;
+        font-family: Tahoma, sans-serif;
+        font-size: 12px;
+        color: #cccccc;
+        min-height: 600px;
+    }
+
+    & .content .img2 {
+        float: left;
+        margin-right: 13px;
+        background-image: url("./images/2.png");
+    }
+
+    & .content p {
+        margin: 0 0 10px 0;
+    }
+
+    & .content::after {
+        content: "";
+        clear: both;
+        display: block;
+    }
+
+    & .navigationOne {
+        height: 30px;
+        padding: 8px 0 0 0;
+        text-align: right;
+        font-size: 10px;
+    }
+
+    & .navigationOne a {
+        color: #ffffff;
+        text-decoration: none;
+        margin: 0 0 10px 10px;
+    }
+
+    & .navigationOne a:hover {
+        text-decoration: underline;
+    }
+
+    & .navigationOne a:nth-child(1) {
+        position: relative;
+    }
+
+    & .navigationOne a:nth-child(1)::before {
+        content: "";
+        background-image: url("./images/4.png");
+        display: inline-block;
+        width: 19px;
+        height: 16px;
+        position: absolute;
+        left: -22px;
+        top: -1px;
+    }
+
+    & .navigationTwo {
+        padding: 6px;
+        font-family: "Times New Roman", serif;
+    }
+
+    & .navigationTwo a {
+        padding: 0 37px 0 34px;
+        border-left: 1px solid #c59e52;
+        color: #ffffff;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 12px;
+    }
+
+    & .navigationTwo a.active,
+    & .navigationTwo a:hover {
+        color: #c59e52;
+    }
+
+    & .navigationTwo a:first-child {
+        border: none;
+    }
+
+    & .navigationThree {
+        padding: 14px 15px;
+        font-family: "Times New Roman", serif;
+        font-size: 12px;
+        position: absolute;
+        bottom: 0;
+    }
+
+    & .navigationThree a {
+        text-decoration: none;
+        border-left: 1px solid #d08900;
+        padding: 0 3px;
+        color: #9f7526;
+    }
+
+    & .navigationThree a:first-child {
+        border-left: none;
+    }
+
+    & .navigationThree a:hover {
+        text-decoration: underline;
+    }
+}
+
+/* --------------------------------------------- Footer */
+.footer {
+    font-size: 10px;
+    background-color: #000000;
+    border-top: 1px solid #6a4101;
+    padding: 10px 4px 10px 30px;
+
+    &::after {
+        content: "";
+        clear: both;
+        display: block;
+    }
+
+    & .footerNavigation {
+        float: right;
+    }
+
+    & .footerNavigation a {
+        margin-right: 16px;
+        color: #ffffff;
+        text-decoration: none;
+    }
+
+    & .footerNavigation a:hover {
+        text-decoration: underline;
+    }
+}

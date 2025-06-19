@@ -1,0 +1,16 @@
+.btn {
+    border: none;
+
+    @nest :global(.desktop) & {
+        padding: 5px;
+        border-radius: 1px;
+        background-color: #d3d3d3;
+    }
+
+    @nest :global(.mobile) &, :global(.tablet) & {
+        padding: 25px;
+        border-radius: 5px;
+    }
+}
+
+

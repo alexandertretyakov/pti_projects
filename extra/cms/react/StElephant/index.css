@@ -1,0 +1,192 @@
+.root {
+    font: 11px Tahoma, sans-serif;
+    background-color: #e7e5c8;
+    color: #918e75;
+    width: 706px;
+    margin: 0 auto;
+
+    & h1, & h4 {
+        font-size: 14px;
+        font-family: "Times New Roman", serif;
+        color: #6e6b3d;
+    }
+
+    & h1 {
+        margin: 22px 0 21px 38px;
+    }
+
+    & h4 {
+        margin-bottom: 7px;
+    }
+
+
+    /* --------------------------------------------- Main */
+    & main {
+        border-top: 1px solid #f1f0e0;
+
+        & .ourCompany {
+              height: 329px;
+              border-bottom: 1px solid #c0bd9a;
+              background-image: url("./images/ho.png");
+              background-repeat: no-repeat;
+              background-position: left;
+              padding-left: 390px;
+        }
+
+        & .firstLetter,
+        & strong {
+              color: #90aa1f;
+        }
+
+        & b {
+              color: #6e6b3d;
+        }
+
+        & a {
+              color: #90aa1f;
+        }
+
+        & a:hover {
+              text-decoration: none;
+        }
+
+        & .services {
+              border-top: 1px solid #f1f0e0;
+              padding: 10px 0;
+              background-color: #dedbbb;
+              border-radius: 5px;
+        }
+
+        & .services::after {
+              content: "";
+              display: block;
+              clear: both;
+        }
+
+        & .gallery,
+        & .ourOffer {
+              width: 35%;
+              height: 165px;
+              border-right: 1px solid #f1f0e0;
+              background-color: #dedbbb;
+              float: left;
+              padding-left: 16px;
+        }
+
+        & .product {
+            width: 95px;
+            height: 54px;
+            padding: 3px 18px 3px 3px;
+            border-radius: 5px;
+            margin: 0 7px 8px 0;
+            display: inline-block;
+            background-size: cover;
+        }
+
+        & .productOne {
+            background-image: url("./images/room_1.png");
+        }
+
+        & .productTwo {
+            background-image: url("./images/room_2.png");
+        }
+
+        & .productThree {
+            background-image: url("./images/room_3.png");
+        }
+
+        & .productFour {
+            background-image: url("./images/room_4.png");
+        }
+
+        & .ourOffer {
+            border-left: 1px solid #c0bd9a;
+        }
+
+        & .tree {
+            border-radius: 5px;
+            border: 3px solid #b7b192;
+            margin-bottom: 15px;
+            display: inline-block;
+            background-image: url("./images/tree.png");
+            width: 205px;
+            height: 48px;
+        }
+
+        & .ourOffer em {
+            color: #90aa1f;
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        & .ourServices {
+            width: 30%;
+            height: 165px;
+            border-left: 1px solid #c0bd9a;
+            float: left;
+            background-color: #dedbbb;
+            padding-left: 17px;
+            background-image: url("./images/elephant.png");
+            background-repeat: no-repeat;
+            background-position: right bottom;
+        }
+
+        & ul {
+            margin-left: 7px;
+            color: #6e6b3d;
+            text-decoration: underline;
+            margin-bottom: 22px;
+            list-style-image: url("./images/dot.png");
+        }
+    }
+}
+
+/* --------------------------------------------- Header */
+.header {
+    height: 87px;
+    border-bottom: 1px solid #c0bd9a;
+    position: relative;
+
+    & .logo {
+        position: absolute;
+        top: 28px;
+        left: 22px;
+        width: 82px;
+        height: 36px;
+        background-image: url("./images/logo.png");
+    }
+
+    & .telephone {
+        position: absolute;
+        top: 0;
+        right: -26px;
+        width: 274px;
+        height: 87px;
+        background-image: url("./images/phone.png");
+        padding: 25px 0 0 109px;
+        color: #ffffff;
+        font-weight: bold;
+        text-indent: -12px;
+    }
+}
+
+/* --------------------------------------------- Footer */
+.footer {
+    min-height: 179px;
+    background-image: url("./images/welcome.png");
+    background-repeat: no-repeat;
+    background-position: 11px 19px;
+    position: relative;
+
+    & .roadMap {
+        width: 259px;
+        height: 70px;
+        background-image: url("./images/map.png");
+        background-repeat: no-repeat;
+        background-position: left;
+        position: absolute;
+        right: 0;
+        top: 8px;
+        padding: 20px 0 0 65px;
+    }
+}

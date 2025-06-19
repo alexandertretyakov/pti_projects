@@ -1,0 +1,25 @@
+.root {
+    display: flex;
+}
+
+.field {
+    width: 50%;
+}
+
+.output {
+    font-size: 1.5rem;
+    width: 50%;
+    padding: 20px;
+    border-left: 5px solid blue;
+
+    @nest :global(.desktop) & {
+        background-color: #b4dcec;
+        color: #4966b3;
+    }
+
+    @nest :global(.mobile) &, :global(.tablet) & {
+        background-color: #ecb1b3;
+        color: #b3364e;
+    }
+}
+

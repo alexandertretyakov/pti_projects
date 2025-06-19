@@ -1,0 +1,16 @@
+.wrapper {
+
+    & input {
+        transition: border 1s;
+
+        &:focus {
+            @nest :global(.desktop) & {
+                border: 1px solid blue;
+            }
+
+            @nest :global(.mobile) &, :global(.tablet) & {
+                border: 1px solid green;
+            }
+        }
+    }
+}

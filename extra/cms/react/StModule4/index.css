@@ -1,0 +1,6 @@
+.emails {
+
+    @nest :global(.mobile) &, :global(.tablet) & {
+        list-style-type: decimal;
+    }
+}

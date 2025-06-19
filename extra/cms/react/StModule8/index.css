@@ -1,0 +1,46 @@
+.posts {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #8acbcd;
+    padding: 10px;
+    width: 760px;
+    gap: 10px;
+
+    @nest :global(.mobile) &, :global(.tablet) & {
+        flex-direction: column;
+        width: 100%;
+    }
+}
+
+.post {
+    width: 240px;
+    border-radius: 3%;
+    background-color: #ebebeb;
+    padding: 10px 20px;
+
+    @nest :global(.mobile) &, :global(.tablet) & {
+        width: 100%;
+    }
+
+    h6,
+    p {
+        @nest :global(.desktop) & {
+            text-align: center;
+        }
+    }
+
+    img {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 100%;
+        margin-bottom: 10px;
+
+        @nest :global(.mobile) &, :global(.tablet) & {
+            width: 150px;
+            height: 150px;
+            margin: 40px 10px 0 0;
+            float: left;
+        }
+    }
+}
