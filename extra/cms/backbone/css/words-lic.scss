@@ -1,0 +1,26 @@
+.st-words-replacer {
+    .game {
+        display: flex;
+        justify-content: space-between;
+        align-items: stretch;
+        height: 100%;
+        font-size: 30px;
+
+        .done {
+            ol {
+                text-decoration: line-through;
+            }
+        }
+
+        .word {
+            margin-bottom: 50px;
+        }
+
+        .stage {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    }
+}
+

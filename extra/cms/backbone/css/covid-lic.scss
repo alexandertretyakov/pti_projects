@@ -1,0 +1,64 @@
+.st-covid-replacer {
+    .scene {
+        width: 800px;
+        height: 800px;
+        outline: 1px solid black;
+        position: relative;
+        margin: 0 auto 10px auto;
+    }
+
+    .covid {
+        width: 20px;
+        height: 20px;
+        background-image: url($image-root  + "covid.png");
+        background-size: 20px;
+        position: absolute;
+    }
+
+    .theEnd,
+    .gameOver {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        background: rgba(160, 160, 160, 0.5);
+        display: none;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .info-covid {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .manipulation {
+        display: flex;
+        justify-content: center;
+    }
+
+    .start {
+        padding: 10px 30px;
+        color: #ffffff;
+        background-color: #ff3f10;
+        border-radius: 5px;
+        margin-right: 10px;
+    }
+
+    .start:hover {
+        cursor: pointer;
+        background-color: #A62F10;
+    }
+
+    .pause {
+        padding: 10px 30px;
+        border-radius: 5px;
+        background-color: #FFF525;
+    }
+
+    .pause:hover {
+        cursor: pointer;
+        background-color: #C0B624;
+    }
+}

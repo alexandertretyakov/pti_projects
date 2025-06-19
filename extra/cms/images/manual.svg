@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>registration/dark/svg/manual</title>
+    <g id="Export-Artboards" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Registration-/dark-/-illustrations" transform="translate(-16.000000, -416.000000)">
+            <g id="Group" transform="translate(16.000000, 416.000000)">
+                <g id="manual-form" transform="translate(9.000000, 6.000000)">
+                    <g id="paper">
+                        <path d="M3,0 L27,0 C28.6568542,-3.04359188e-16 30,1.34314575 30,3 L30,25.5166499 L30,25.5166499 L19.5517754,36 L3,36 C1.34314575,36 6.46995335e-16,34.6568542 0,33 L0,3 C-2.02906125e-16,1.34314575 1.34314575,3.04359188e-16 3,0 Z" id="Rectangle" fill="#ababad"></path>
+                        <rect id="Rectangle" fill="#ffffff" fill-rule="nonzero" x="5" y="8" width="20" height="4" rx="2"></rect>
+                        <rect id="Rectangle-Copy" fill="#ffffff" fill-rule="nonzero" x="5" y="16" width="20" height="4" rx="2"></rect>
+                        <rect id="Rectangle-Copy-2" fill="#ffffff" fill-rule="nonzero" x="5" y="24" width="20" height="4" rx="2"></rect>
+                    </g>
+                    <g id="pen" transform="translate(20.000000, 23.000000)">
+                        <path d="M14.8569583,0 C14.9668378,0 15.0728954,0.0348217217 15.1606929,0.098519993 L15.2228916,0.151615156 L18.8483848,3.77710843 C18.9455911,3.87431465 19,4.0060241 19,4.14337349 C19,4.25325301 18.9651783,4.35952296 18.90148,4.44740534 L18.8483848,4.50963855 L4.50963855,18.8483848 C4.43187358,18.9261498 4.33223887,18.9765245 4.22517269,18.9935638 L4.14370526,19 L0.518211978,19 C0.380862581,19 0.248821372,18.9455911 0.151946918,18.8483848 C0.0744473546,18.7706199 0.0237010651,18.6707728 0.00650253187,18.5636217 L0,18.4821198 L0,14.8566265 C0,14.746747 0.0352463768,14.640477 0.0989446482,14.5525947 L0.151946918,14.4903614 L14.4906932,0.151615156 C14.5875677,0.0544089401 14.7196089,0 14.8569583,0 Z" id="Path" fill="#ababad" fill-rule="nonzero"></path>
+                        <path d="M0,16 L3,19 L0.518211978,19 C0.229746164,19 0,18.7730273 0,18.4821198 L0,16 Z" id="Fill-6" fill="#ffffff"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
