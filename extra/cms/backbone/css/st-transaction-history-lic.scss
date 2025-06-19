@@ -1,0 +1,106 @@
+.desktop .transaction-history-main {
+    .transaction-history-filters {
+        margin-bottom: 30px;
+
+        .fieldset-legend,
+        .field {
+            display: inline-block;
+            margin-right: 20px;
+        }
+    }
+
+    .transaction-history-table {
+        .table-header {
+            font-weight: bold;
+        }
+
+        .table-content {
+            border: 1px solid #3c3d41;
+            background-color: #fff;
+        }
+
+        .table-header,
+        .field-information-row {
+            display: flex;
+            border-bottom: 1px solid #d4d5d6;
+
+            .field-information {
+                display: inline-block;
+                padding: 5px 15px;
+                text-align: center;
+                width: 25%;
+            }
+
+            .transactions-time {
+                color: #abacad;
+            }
+
+            .transactions-status,
+            .transactions-method,
+            .transactions-amount {
+                line-height: 30px;
+            }
+        }
+
+        .table-header .field-information {
+            line-height: 30px;
+        }
+    }
+}
+
+.mobile .transaction-history-main,
+.tablet .transaction-history-main {
+    .transaction-history-filters {
+        margin: 1rem;
+
+        .fieldset-legend,
+        .field {
+            display: inline-block;
+            margin-right: 2rem;
+        }
+    }
+
+    .transaction-history-table {
+        .table-header {
+            background-color: #fff;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .field-information-row {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .table-header,
+        .field-information-row {
+            border-bottom: 1px solid #c1c1c3;
+        }
+
+        .field-information {
+            padding: 1rem 1.5rem 1rem 1.5rem;
+            width: 33.33%;
+        }
+
+        .table-header {
+            .transactions-amount {
+                text-align: right;
+            }
+        }
+
+        .table-content {
+            background-color: #d4d5d6;
+
+            .transactions-time,
+            .transactions-status,
+            .transactions-amount {
+                color: #abacad;
+            }
+
+            .transactions-amount {
+                text-align: right;
+                align-self: center;
+            }
+        }
+    }
+}

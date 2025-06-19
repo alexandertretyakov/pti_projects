@@ -1,0 +1,17 @@
+.st-registration-replacer,
+.portlet_name_st-registration {
+    .form__fieldset {
+        display: flex;
+        justify-content: space-between;
+
+        .grid {
+            width: 30%;
+        }
+
+        .registration-marketing-area-1,
+        .registration-marketing-area-2,
+        .registration-marketing-area-3 {
+            margin-bottom: 2.5rem;
+        }
+    }
+}

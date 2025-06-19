@@ -1,0 +1,144 @@
+.st-top-winners {
+    padding: 0 2rem;
+    background-color: #e2e2e4;
+
+    @include respondTo(mobile) {
+        background-color: #ffffff;
+        padding: 0;
+    }
+
+    h1 {
+        margin: 2rem 0;
+    }
+
+    .st-top-winners-filters {
+        margin-bottom: 0.5rem;
+        display: flex;
+        white-space: nowrap;
+        overflow: auto;
+
+        button {
+            padding: 1rem;
+            border: 0.2rem solid #e2e2e4;
+            background-color: #e2e2e4;
+            font-weight: bold;
+
+            @include respondTo(mobile) {
+                background-color: #ffffff;
+                border: 0.2rem solid #ffffff;
+            }
+
+            &:hover {
+                color: #4c6c95;
+                border-bottom: 0.2rem solid #4c6c95;
+                cursor: pointer;
+            }
+        }
+
+        button[class='active'] {
+            color: #4c6c95;
+            border-bottom: 0.2rem solid #4c6c95;
+        }
+    }
+
+    .st-top-winners-table {
+        .st-top-winners-table-header {
+            padding: 1rem;
+            display: flex;
+            background-color: #efeff1;
+            color: #58585e;
+
+            .header-field {
+                font-weight: bold;
+            }
+
+            .header-field-game {
+                width: 50%;
+            }
+
+            .header-field-user {
+                width: 25%;
+            }
+
+            .header-field-win {
+                width: 25%;
+                text-align: right;
+            }
+        }
+
+        .st-top-winners-table-content {
+            padding: 0 1rem;
+            background-color: #ffffff;
+
+            .st-top-winners-game {
+                display: flex;
+                align-items: center;
+                border-bottom: 0.2rem solid #ededed;
+                padding: 0.5rem 0;
+                background-color: #ffffff;
+
+                &:last-child {
+                    border-bottom: none;
+                }
+
+                @include respondTo(mobile) {
+                    padding: 0.5rem 0 0.3rem 0;
+                    border-bottom: 0.2rem solid #d8d8da;
+
+                    &::after {
+                        clear: both;
+                        display: block;
+                        content: '';
+                    }
+                }
+
+                .field-game-wrapper {
+                    width: 50%;
+                    display: flex;
+                    align-items: center;
+
+                    @include respondTo(mobile) {
+                        width: 75%;
+                        display: block;
+                    }
+
+                    img {
+                        width: 6rem;
+                        height: 4.5rem;
+                        margin-right: 1rem;
+
+                        @include respondTo(mobile) {
+                            float: left;
+                        }
+                    }
+
+                    .field-game-name {
+                        font-weight: bold;
+                        color: #57789d;
+
+                        @include respondTo(mobile) {
+                            margin-bottom: 0.3rem;
+                            display: inline-block;
+                            padding-top: 0.2rem;
+                        }
+                    }
+                }
+
+                .field-game-user {
+                    width: 25%;
+                    color: #68696e;
+
+                    @include respondTo(mobile) {
+                        padding: 0;
+                    }
+                }
+
+                .field-game-win {
+                    width: 25%;
+                    text-align: right;
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+}

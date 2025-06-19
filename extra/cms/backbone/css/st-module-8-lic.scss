@@ -1,0 +1,49 @@
+.st-module-8-replacer {
+
+    .posts {
+        display: flex;
+        flex-wrap: wrap;
+        background-color: #8acbcd;
+        padding: 10px;
+        width: 760px;
+        gap: 10px;
+
+        @include respondTo(mobile) {
+            flex-direction: column;
+            width: 100%;
+        }
+    }
+
+    .post {
+        width: 240px;
+        border-radius: 3%;
+        background-color: #ebebeb;
+        padding: 10px 20px;
+
+        @include respondTo(mobile) {
+            width: 100%;
+        }
+    }
+
+    h6,
+    p {
+        @include respondTo(desktop) {
+            text-align: center;
+        }
+    }
+
+    img {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 100%;
+        margin-bottom: 10px;
+
+        @include respondTo(mobile) {
+            width: 150px;
+            height: 150px;
+            margin: 40px 10px 0 0;
+            float: left;
+        }
+    }
+}

@@ -1,0 +1,60 @@
+.st-poker-exchange-rate {
+    background-color: #000000;
+    color: #ffffff;
+
+    .st-poker-exchange-rate-wrapper {
+        margin: 0 auto;
+        width: 40%;
+
+        @include respondTo(mobile) {
+            margin: 0;
+            width: 100%;
+        }
+
+        .poker-exchange-rate-header {
+            text-align: center;
+            padding-top: 6rem;
+            border-radius: 0.5rem 0 0 0.5rem;
+        }
+
+        .poker-exchange-rate-main {
+            width: 70%;
+            margin: 0 auto;
+
+            @include respondTo(mobile) {
+                width: 100%;
+                padding: 0 0.5rem;
+            }
+
+            .poker-exchange-rate-table-header {
+                background-color: #2e2e38;
+                padding: 0.5rem 1rem;
+                border-radius: 0.5rem 0.5rem 0 0;
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 0.3rem;
+            }
+
+            .poker-exchange-rate-table-content {
+                margin-bottom: 5rem;
+
+                .poker-exchange-rate-table-items {
+                    background-color: #2e2e38;
+                    padding: 1.5rem 1rem;
+                    border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 0.3rem;
+                }
+            }
+        }
+
+        .poker-exchange-rate-footer {
+            padding-bottom: 3rem;
+
+            h5 {
+                margin-left: 0.5rem;
+            }
+        }
+    }
+}

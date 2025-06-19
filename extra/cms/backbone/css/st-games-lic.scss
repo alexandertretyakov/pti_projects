@@ -1,0 +1,250 @@
+@mixin button_yellow {
+    color: #000000;
+    background-color: #FFDB01;
+
+    &:hover {
+        background-color: #E8B20B;
+    }
+}
+
+.desktop .st-games-main {
+    .st-games-container {
+        display: flex;
+        gap: 24px 16px;
+        flex-wrap: wrap;
+
+        .game {
+            width: calc((100% - 64px)/5);
+            aspect-ratio: 1 / 0.8;
+            position: relative;
+        }
+
+        @media (max-width: 1500px) {
+            .game {
+                width: calc((100% - 48px)/4);
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .game {
+                width: calc((100% - 32px)/3);
+            }
+        }
+
+        @media (max-width: 500px) {
+            .game {
+                width: calc((100% - 16px)/2);
+            }
+        }
+
+        .gameInner {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            cursor: pointer;
+            background-size: cover;
+            text-align: center;
+            color: #ffffff;
+
+            &:hover {
+                transform: scale(1.3, 1.3);
+                transition: all 0.5s;
+                z-index: 1;
+                border-radius: 5px;
+
+                .gameInfo-wrapper {
+                    display: flex;
+                }
+
+            }
+        }
+
+        .gameInfo-wrapper {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .gameName {
+            font-size: 18px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .gameLabel {
+            text-transform: uppercase;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        .gameLabel-new {
+            background-color: #0225ff;
+        }
+
+        .gameLabel-exclusive {
+            background-color: #127d59;
+        }
+
+        .gameLabel-hot {
+            background-color: #d5341a;
+        }
+
+        .gameLabel-popular {
+            background-color: #14b1a4;
+        }
+
+        .gameControl {
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: center;
+
+            .btn {
+                margin: 0 2.5px;
+            }
+
+            .btn-info {
+                @include button_grey;
+            }
+
+            .btn-play {
+                @include button_yellow;
+            }
+        }
+    }
+}
+
+.desktop .gamePopupContent {
+    padding: 0 15px;
+    min-height: 280px;
+    text-align: center;
+
+    .gamePopupImage {
+        width: 200px;
+        height: 100px;
+        border-radius: 5px;
+        margin: 0 auto 20px auto;
+        box-shadow: #4f5155 0 3px 8px;
+        background-size: cover;
+        background-position-y: center;
+    }
+
+    .gamePopupName {
+        font-size: 18px;
+        color: #41417c;
+    }
+
+    .gamePopupBtnPlay {
+        background-color: #ffdb01;
+        color: #111111;
+        width: 50%;
+        margin: 30px 0;
+
+        &:hover {
+            background-color: #d6b927;
+        }
+    }
+}
+
+//-------------------------------------------------Mobile, Tablet
+.mobile .st-games-main,
+.tablet .st-games-main {
+    .st-games-container {
+        display: flex;
+        gap: 1.5rem 1.1rem;
+        flex-wrap: wrap;
+
+        .game {
+            width: calc((100% - 4rem)/5);
+            aspect-ratio: 1 / 0.8;
+            position: relative;
+        }
+
+        @media (max-width: 100rem) {
+            .game {
+                width: calc((100% - 4rem)/4);
+            }
+        }
+
+        @media (max-width: 75rem) {
+            .game {
+                width: calc((100% - 4rem)/3);
+            }
+        }
+
+        @media (max-width: 30rem) {
+            .game {
+                width: calc((100% - 4rem)/2);
+            }
+        }
+
+        .gameInner {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            cursor: pointer;
+            background-size: cover;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .gameLabel {
+            text-transform: uppercase;
+            padding: 0.3rem;
+            border-radius: 0.3rem;
+        }
+
+        .gameLabel-new {
+            background-color: #0225ff;
+        }
+
+        .gameLabel-exclusive {
+            background-color: #127d59;
+        }
+
+        .gameLabel-hot {
+            background-color: #d5341a;
+        }
+
+        .gameLabel-popular {
+            background-color: #14b1a4;
+        }
+    }
+}
+
+.mobile .gamePopupContent,
+.tablet .gamePopupContent {
+    padding: 0 0.9rem;
+    min-height: 17rem;
+    text-align: center;
+
+    .gamePopupImage {
+        width: 17.5rem;
+        height: 6rem;
+        border-radius: 0.5rem;
+        margin: 0 auto 1.2rem auto;
+        box-shadow: #4f5155 0 0.1rem 0.5rem;
+        background-size: cover;
+        background-position-y: center;
+    }
+
+    .gamePopupName {
+        font-size: 1.4rem;
+        color: #41417c;
+    }
+
+    .gamePopupBtnPlay {
+        background-color: #ffdb01;
+        color: #111111;
+        width: 50%;
+        margin: 1.9rem 0;
+
+        &:hover {
+            background-color: #d6b927;
+        }
+    }
+}

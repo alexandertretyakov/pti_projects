@@ -1,0 +1,37 @@
+.st-module-10-replacer {
+
+        .games {
+
+            @include respondTo(desktop) {
+                display: grid;
+                gap: 5px;
+                grid-template-columns: repeat(2, 1fr);
+
+                @media screen and (min-width: 900px) {
+                    grid-template-columns: repeat(3, 1fr);
+                }
+
+                @media screen and (min-width: 1200px) {
+                    grid-template-columns: repeat(4, 1fr);
+                }
+            }
+
+            .game {
+                @include respondTo(desktop) {
+                    display: grid;
+                }
+
+                @include respondTo(mobile) {
+                    &:nth-child(even) {
+                        background-color: #b9ced9;
+                    }
+                }
+
+                img {
+                    width: 100%;
+                    object-fit: cover;
+                    aspect-ratio: 1 / 1;
+                }
+            }
+        }
+}

@@ -1,0 +1,16 @@
+.st-module-15-replacer {
+
+    input {
+        &:focus {
+            @include respondTo(desktop) {
+                border: 1px solid blue;
+                transition: border 1s;
+            }
+
+            @include respondTo(mobile) {
+                border: 1px solid green;
+                transition: border 1s;
+            }
+        }
+    }
+}

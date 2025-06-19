@@ -1,0 +1,180 @@
+.st-bonus-history-container {
+    padding: 25px 45px;
+
+    .mobile &, .tablet & {
+        padding: 0;
+    }
+
+    .bonus-info-header {
+        position: relative;
+
+        &::after {
+            position: absolute;
+            display: inline-block;
+            background-image: url(../images/icon.down.svg);
+            height: 1.4em;
+            width: 1.4em;
+            content: '';
+            top: 15px;
+            right: 10px;
+
+            .mobile &, .tablet & {
+                top: 1.8rem;
+            }
+        }
+
+        &.open::after {
+            transform: rotate(180deg);
+        }
+    }
+
+    .bonus-info-header-item {
+        display: flex;
+        margin-bottom: 1px;
+        background-color: #ffffff;
+        position: relative;
+
+        .item-header {
+            width: 60%;
+            padding: 8px 8px 8px 30px;
+            display: flex;
+            flex-direction: column;
+
+            .mobile &, .tablet & {
+                font-size: 1.25rem;
+                font-family: "Roboto",sans-serif;
+                padding: 0.9rem 0.5rem 0.9rem 3.2rem;
+            }
+        }
+
+        .item-content {
+            width: 40%;
+            padding: 8px 40px 8px 8px;
+            text-align: right;
+            font-weight: bold;
+
+            .mobile &, .tablet & {
+                padding-top: 1.6rem;
+            }
+        }
+
+        .bonusStatus {
+            font-size: 0.85em;
+            line-height: 1;
+            color: #a2a2a2;
+        }
+
+        .bonusName {
+            .mobile &, .tablet & {
+                margin-bottom: 0.2rem;
+            }
+        }
+
+        .status--active,
+        .status--declined,
+        .status--pending {
+            &::before {
+                content: '';
+                width: .55em;
+                height: .55em;
+                padding: 0;
+                display: inline-block;
+                border-radius: 1em;
+                position: absolute;
+                left: 1em;
+                top: 1.5em;
+            }
+
+            .mobile &, .tablet & {
+                margin-bottom: 0.2rem;
+
+                &::before {
+                    content: '';
+                    width: .55em;
+                    height: .55em;
+                    padding: 0;
+                    display: inline-block;
+                    border-radius: 1em;
+                    position: absolute;
+                    left: 1.2em;
+                    top: 2em;
+                }
+            }
+        }
+
+        .status--active {
+            color: #67d28d;
+
+            &::before {
+                background-color: #67d28d;
+            }
+        }
+
+        .status--pending {
+            color: #bababa;
+
+            &::before {
+                background-color: #bababa;
+            }
+        }
+
+        .status--declined {
+            color: #fe7474;
+
+            &::before {
+                background-color: #fe7474;
+            }
+        }
+
+        .bonusAmount {
+            vertical-align: sub;
+
+            .mobile &, .tablet & {
+                font-size: 1.3rem;
+            }
+        }
+    }
+
+    .bonus-info-header.open + .bonus-info-footer {
+        display: block;
+    }
+
+    .bonus-info-footer {
+        padding: 0 8px;
+        display: none;
+
+        .mobile &, .tablet & {
+            font-size: 1.25rem;
+            padding: 0 1.2rem;
+        }
+
+        .bonus-info-footer-item {
+            display: flex;
+            padding: 10px 5px;
+            border-bottom: 1px solid #d4d5d6;
+
+            .mobile &, .tablet & {
+                padding: 1.3rem 0.5rem;
+                border-bottom: 1px solid #abacad;
+            }
+
+            &:last-child {
+                border-bottom: none;
+            }
+
+            .item-header {
+                width: 70%;
+
+                .mobile &, .tablet & {
+                    font-size: 1.25rem;
+                }
+            }
+
+            .item-content {
+                width: 30%;
+                text-align: right;
+                font-weight: bold;
+            }
+        }
+    }
+}

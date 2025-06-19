@@ -1,0 +1,10 @@
+.st-module-11-replacer {
+
+    @include respondTo(mobile) {
+        text-align: center;
+    }
+
+    .btn {
+        width: 100px;
+    }
+}

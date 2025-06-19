@@ -1,0 +1,30 @@
+.st-module-16-replacer {
+
+    .wrapper {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        .count {
+            font-size: 25px;
+            padding: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 18px;
+            background-size: 200% 100%;
+            background-repeat: no-repeat;
+            background-position: 100% 0;
+
+            @include respondTo(desktop) {
+                background-image: linear-gradient(to right, #d01111 0%, #950800 50%, transparent 50%, transparent 100%);
+            }
+
+            @include respondTo(mobile) {
+                background-image: linear-gradient(to right, #20afd0 0%, #225295 50%, transparent 50%, transparent 100%);
+            }
+        }
+    }
+}

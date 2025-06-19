@@ -1,0 +1,55 @@
+//Device = desktop
+.desktop .registration-step-2-main {
+    background-color: #f1f1f2;
+
+    .registration-step-2-content {
+        width: 400px;
+        margin: 0 auto;
+        text-align: center;
+        background: url("../images/mail-sent.svg") 136px 43px no-repeat;
+        background-size: 134px;
+        padding: 213px 15px 56px 15px;
+
+        h1 {
+            font-size: 23px;
+            margin-left: 8px;
+            margin-bottom: 26px;
+        }
+
+        p {
+            font-size: 18px;
+            margin-left: 5px;
+            margin-bottom: 24px;
+        }
+
+        a {
+            font-size: 18px;
+            margin-left: 5px;
+        }
+    }
+}
+
+//Device = mobile
+.mobile .registration-step-2-main {
+    .registration-step-2-content {
+        margin: 0 auto;
+        text-align: center;
+        background: url("../images/mail-sent.svg") 9.95rem 2.1rem no-repeat;
+        background-size: 7.5rem;
+        padding-top: 11.7rem;
+
+        h1 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        p {
+            font-size: 1.25rem;
+            margin-bottom: 1.75rem;
+        }
+
+        a {
+            font-size: 1.25rem;
+        }
+    }
+}

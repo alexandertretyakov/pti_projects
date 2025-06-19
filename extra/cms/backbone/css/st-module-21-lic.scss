@@ -1,0 +1,25 @@
+.st-module-21-replacer {
+
+    .dashboard {
+        background-color: #eaebeb;
+        display: flex;
+        justify-content: space-between;
+        padding: 15px;
+        gap: 15px;
+
+        .canvasWrapper {
+            border-radius: 10px;
+            background-color: #ffffff;
+            box-shadow: 0 0 15px grey;
+            width: calc(100% - 7.5px);
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+
+            canvas {
+                width: 300px !important;
+                height: 300px !important;
+            }
+        }
+    }
+}

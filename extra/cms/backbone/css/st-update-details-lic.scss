@@ -1,0 +1,63 @@
+.desktop .update-details-main {
+    .field {
+        display: flex;
+
+        .field__label {
+            width: 30%;
+        }
+
+        .field__control {
+            width: 40%;
+            font-weight: bold;
+        }
+    }
+
+    .form__actions {
+        padding-left: 30%;
+        text-align: left;
+    }
+}
+
+.mobile .update-details-main,
+.tablet .update-details-main {
+    h2 {
+        text-transform: uppercase;
+        font-weight: normal;
+        font-size: 1rem;
+        padding: 1.2rem 0 1.2rem 1.5rem;
+        background-color: #ffffff;
+    }
+
+    .field {
+        display: flex;
+        padding-left: 1.5rem;
+        font-size: 1.2rem;
+
+        .field__label {
+            width: 46%;
+            color: #76777a;
+            transform: none !important;
+        }
+
+        .field__control {
+            width: 54%;
+            font-weight: bold;
+        }
+    }
+
+    .form__fieldset_name_editable-info {
+        padding: 0 1.5rem 1.5rem 0;
+
+        .field {
+            display: block;
+
+            .field__control {
+                width: 100%;
+            }
+        }
+
+        .form__actions {
+            padding-left: 1.5rem;
+        }
+    }
+}

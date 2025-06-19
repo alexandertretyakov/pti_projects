@@ -1,0 +1,41 @@
+.st-module-13-replacer {
+    background-size: cover;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background-image: url(../images/usa.flag.png);
+
+    .wrapper {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        transform: perspective(200px) rotateX(15deg);
+    }
+
+    h1 {
+        position: relative;
+        top: 5px;
+    }
+
+    h1,
+    .debt,
+    .date {
+        padding: 5px 25px;
+        border: 2px solid #cdd9d3;
+        border-radius: 10px;
+        background-color: #ebebeb;
+
+        @include respondTo(mobile) {
+            border-color: #1EA200;
+        }
+    }
+
+    .debt {
+        color: tomato;
+        font-size: 20px;
+        font-weight: bold;
+    }
+}

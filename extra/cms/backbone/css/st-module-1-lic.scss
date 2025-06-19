@@ -1,0 +1,21 @@
+.st-module-1-replacer {
+
+    @include respondTo(mobile) {
+        margin: 1.5rem;
+    }
+
+    button {
+        border: none;
+
+        @include respondTo(desktop) {
+            padding: 5px;
+            border-radius: 1px;
+            background-color: #d3d3d3;
+        }
+
+        @include respondTo(mobile) {
+            padding: 25px;
+            border-radius: 5px;
+        }
+    }
+}

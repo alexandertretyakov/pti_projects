@@ -1,0 +1,335 @@
+.st-module-18-replacer {
+
+    @include respondTo(desktop) {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .users {
+        padding: 10px;
+        margin-bottom: 15px;
+
+        @include respondTo(mobile) {
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+    }
+
+    .user {
+        width: 23%;
+        border-radius: 10px;
+        box-shadow: 0 0 6px #b0bcb6;
+        display: inline-block;
+        justify-items: center; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        padding: 20px;
+        margin: 5px;
+        background-color: #ffffff;
+
+        @include respondTo(mobile) {
+            display: flex;
+            width: 100%;
+            align-items: center;
+            padding: 1rem;
+            margin: 0 0 1rem 0;
+            justify-content: space-between;
+
+            @media screen and (max-width: 500px) {
+                .city,
+                .telephone,
+                .email {
+                    display: none;
+                }
+            }
+
+            @media screen and (max-width: 575px) {
+                .city,
+                .telephone {
+                    display: none;
+                }
+            }
+
+            @media screen and (max-width: 700px) {
+                .telephone {
+                    display: none;
+                }
+            }
+
+            img {
+                border-radius: 100%;
+                margin-right: 1rem;
+            }
+
+            .wrapper,
+            .wrapper-status,
+            .city,
+            .telephone {
+                margin-right: 1rem;
+            }
+
+            .wrapper-status {
+                position: relative;
+
+                .online-status-text {
+                    margin-left: 0.8rem;
+                }
+            }
+
+            .online-status {
+                border-radius: 100%;
+                width: 0.5rem;
+                height: 0.5rem;
+                position: absolute;
+                top: 0.4rem;
+            }
+        }
+
+        .wrapper-avatar {
+            width: 79px;
+            height: 79px;
+            border-radius: 100%;
+            border: 1px solid #b0bcb6;
+            margin-bottom: 15px;
+            position: relative;
+
+            img {
+                border-radius: 100%;
+                position: absolute;
+                top: 3px;
+                left: 2px;
+            }
+
+            .online-status {
+                border-radius: 100%;
+                width: 15px;
+                height: 15px;
+                position: absolute;
+                bottom: 10px;
+                right: 0;
+            }
+        }
+
+        .online-status--online {
+            background-color: #1EA200;
+        }
+
+        .online-status--offline {
+            background-color: #ffffff;
+            border: 1px solid #b0bcb6;
+        }
+
+        .online-status--away {
+            background-color: #F4FF38;
+        }
+
+        .online-status--busy {
+            background-color: #DE0418;
+        }
+
+        .name {
+            font-weight: bold;
+        }
+
+        .email {
+            margin-bottom: 15px;
+            font-size: 12px;
+            color: #808080;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 100%;
+
+            @include respondTo(mobile) {
+                margin-bottom: 0;
+            }
+        }
+
+        .btn-profile {
+            padding: 10px 25px;
+            color: #ffffff;
+            background-color: #AFA6F5;
+            border-radius: 20px;
+            border: none;
+
+            &:hover {
+                cursor: pointer;
+                background-color: #938AD4;
+                transition: 0.5s;
+            }
+
+            @include respondTo(mobile) {
+                border-radius: 0.5rem;
+                padding: 1rem 1.5rem;
+            }
+        }
+    }
+
+    .pagination {
+        border-radius: 10px;
+        box-shadow: 0 0 6px #b0bcb6;
+        background-color: #ffffff;
+        padding: 15px 25px;
+        display: flex;
+        justify-content: space-between;
+        min-width: 50%;
+
+        .btn-previous-page,
+        .btn-next-page,
+        .btn-page {
+            border: none;
+            background-color: #ffffff;
+
+            &:hover {
+                cursor: pointer;
+                color: #938AD4;
+            }
+        }
+
+        .btn-page {
+            border-radius: 100%;
+            padding: 3px 7px;
+
+            &.active {
+                background-color: #000000;
+                color: #ffffff;
+            }
+        }
+    }
+}
+
+/* --------------------------------------------- Pop-ups */
+
+.popup_name_ololo,
+.popup_name_users {
+
+    @mixin button_base {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0.6rem;
+        box-shadow: 0 4px 6px 1px rgba(0, 0, 0, 0.1);
+        font-size: 1.1rem;
+        line-height: normal;
+        height: 3.12rem;
+    }
+
+    @mixin button_blue {
+        color: #FFFFFF;
+        background-color: #19457A;
+
+        &:hover {
+            background-color: #112E52;
+        }
+    }
+
+    @mixin button_blue_mobile {
+        color: #FFFFFF;
+        background-color: #19457A;
+    }
+
+    .iPopupWrap {
+        position: fixed;
+        z-index: 9999;
+        background: rgba(0, 0, 0, 0.7);
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        @include respondTo(mobile) {
+            padding: 1.5rem;
+        }
+    }
+
+    .iPopupOverlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+    .iPopup {
+        width: 436px;
+        color: #000000;
+        background: #ffffff;
+        border-radius: 1rem;
+        overflow: hidden;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        padding: 1.3rem;
+        max-height: 80%;
+        font-size: 1.1rem;
+        line-height: 1.45;
+
+        @include respondTo(mobile) {
+            width: 100%;
+            max-width: 34rem;
+        }
+    }
+
+    .iPopupHeader {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 1rem;
+        padding-bottom: 1.3rem;
+
+        h3 {
+            color: #000000;
+            font-size: 1.56rem;
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        .iPopupClose {
+            @include svgIcon('icon.close.black.svg', 1.9rem);
+            cursor: pointer;
+            margin-top: 0.2rem;
+        }
+    }
+
+    .iPopupContent {
+        flex-grow: 1;
+        overflow-y: auto;
+    }
+
+    .iPopupContent {
+        table {
+            border-collapse: collapse;
+            margin-bottom: 20px;
+
+            th {
+                width: 25%;
+            }
+
+            th,
+            td {
+                padding: 15px;
+                border: 1px solid #918e75;
+                text-align: left;
+            }
+        }
+    }
+
+    .iPopupFooter {
+        padding-top: 1.3rem;
+
+        .btn {
+            @include button_base;
+            width: 100%;
+
+            @include respondTo(desktop) {
+                @include button_blue;
+            }
+
+            @include respondTo(mobile) {
+                @include button_blue_mobile;
+            }
+        }
+    }
+}

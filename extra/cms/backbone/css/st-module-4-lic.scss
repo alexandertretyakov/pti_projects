@@ -1,0 +1,8 @@
+.st-module-4-replacer {
+
+    ul {
+        @include respondTo(mobile) {
+            list-style-type: decimal;
+        }
+    }
+}

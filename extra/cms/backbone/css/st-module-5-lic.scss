@@ -1,0 +1,22 @@
+.st-module-5-replacer {
+
+    .dogs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .dogs img {
+        width: 200px;
+        height: 200px;
+        border: 6px solid white;
+        transition: border 0.5s;
+        object-fit: cover;
+
+        @include respondTo(desktop) {
+            &:hover {
+                border-color: black;
+            }
+        }
+    }
+}
