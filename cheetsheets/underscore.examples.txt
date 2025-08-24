@@ -1,3 +1,16 @@
+const isEven = (n) => n % 2 === 0;
+
+const inc = (n) => n + 1;
+
+const add = (a, b) => a + b;
+
+const students = [
+    {name: 'Kyle', age: 22},
+    {name: 'Oliver', age: 20},
+    {name: 'Joe', age: 23},
+    {name: 'Jack', age: 20}
+];
+
 const dot = { x: 2, y: 4 };
 
 const circle = { x: 8, y: 9, r: 10 };
@@ -23,13 +36,123 @@ const pig = {
 
 // ============================== Collections
 
-_.sample([1, 2, 3, 4, 5, 6], 3)
-// [5, 3, 6]
+_.each([5, 6, 7], console.log)
+//=> [5, 6, 7]
+// В консоли:
+// 5 0 [5, 6, 7]
+// 6 1 [5, 6, 7]
+// 7 2 [5, 6, 7]
 
-_.size([1, 2, 1, 2])
-// 4
+_.map([5, 6, 7], inc)
+// [6, 7, 8]
+
+_.reduce([5, 6, 7], add, 0)
+// 18
+
+_.find([1, 2, 3, 4], isEven)
+// 2
+
+_.filter([1, 2, 3, 4], isEven)
+// [2, 4]
+
+_.findWhere(students, {age: 20})
+// {name: 'Oliver', age: 20}
+
+_.where(students, {age: 20})
+// [{name: 'Oliver', age: 20}, {name: 'Jack', age: 20}]
+
+_.reject([1, 2, 3, 4], isEven)
+// [1, 3]
+
+_.every([1, 2, 3], isEven)
+// false
+
+_.some([1, 2, 3], isEven)
+// true
+
+_.contains([2, 3, 4], 4)
+// true
+_.contains([2, 3, 4], 4, 3)
+// false
+
+_.invoke([[5, 6, 7], [7, 6, 5]], 'indexOf', 5)
+// [0, 2]
+
+_.pluck(students, 'name')
+// ['Kyle', 'Oliver', 'Joe', 'Jack']
+
+_.max([5, 6, 7])
+// 7
+_.max(students, (student) => student.age)
+// {name: 'Joe', age: 23}
+
+_.min([5, 6, 7])
+// 5
+_.min(students, (student) => student.age)
+// {name: 'Oliver', age: 20}
+
+_.sortBy([4, 2, 8, 6], (n) => -n)
+// [8, 6, 4, 2]
+_.sortBy(students, (student) => student.age)
+// [
+//   {name: 'Oliver', age: 20},
+//   {name: 'Jack', age: 20},
+//   {name: 'Kyle', age: 22},
+//   {name: 'Joe', age: 23}
+// ]
+_.sortBy(students, 'age')
+// -//-
+
+_.groupBy([1, 2, 3, 4, 5, 6, 7], (n) => isEven(n) ? 'even' : 'odd')
+// {odd: [1, 3, 5, 7], even: [2, 4, 6]}
+_.groupBy(['cat', 'elephant', 'dog'], 'length')
+// {3: ['cat', 'dog'], 8: ['elephant']}
+
+_.indexBy(['cat', 'elephant', 'dog'], (str) => str.length)
+// {3: 'dog', 8: 'elephant'}
+_.indexBy(['cat', 'elephant', 'dog'], 'length')
+// -//-
+_.indexBy([
+    {ticker: 'AAPL', title: 'Apple'},
+    {ticker: 'MSFT', title: 'Microsoft'},
+    {ticker: 'TSLA', title: 'Tesla'}
+], 'ticker')
+// {
+//   AAPL: {ticker: 'AAPL', title: 'Apple'},
+//   MSFT: {ticker: 'MSFT', title: 'Microsoft'},
+//   TSLA: {ticker: 'TSLA', title: 'Tesla'}
+// }
+
+_.countBy([1, 2, 3, 4, 5, 6, 7], (n) => isEven(n) ? 'even' : 'odd')
+// {odd: 4, even: 3}
+_.countBy(['cat', 'elephant', 'dog'], 'length')
+// {3: 2, 8: 1}
+
+_.shuffle([1, 2, 3, 4, 5, 6, 7])
+// [2, 6, 5, 4, 1, 3, 7]
+_.shuffle([1, 2, 3, 4, 5, 6, 7])
+// [3, 4, 1, 6, 5, 7, 2]
+
+_.sample([1, 2, 3, 4, 5, 6, 7], 3)
+// [5, 4, 2]
+_.sample([1, 2, 3, 4, 5, 6, 7], 3)
+// [2, 7, 4]
+
+_.toArray({0: 'a', 1: 'b', length: 2})
+// ['a', 'b']
+
+_.size([5, 6, 7])
+// 3
+_.size('Jesus')
+// 5
 _.size({x: 5, y: 6})
 // 2
+
+_.partition([1, 2, 3, 4], isEven)
+// [[2, 4], [1, 3]]
+
+_.compact([0, 1, false, null, undefined, 2, 3, ''])
+// [1, 2, 3]
 
 // ============================== Arrays
 
