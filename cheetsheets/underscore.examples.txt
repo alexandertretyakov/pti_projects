@@ -269,4 +269,75 @@ _.keys(dot)
 _.values(dot)
 // [2, 4]
 
+_.mapObject(dot, inc)
+// {x: 3, y: 5}
+
+_.pairs(dot)
+// [['x', 2], ['y', 4]]
+
+_.invert({a: 'b', c: 'd', e: 'f'})
+// {b: 'a', d: 'c', f: 'e'}
+
+_.functions({
+    c() {},
+    a() {},
+    b() {}
+})
+// ['a', 'b', 'c']
+
+_.findKey(dot, isEven)
+// 'x'
+
+_.extend({}, {x: 1}, {x: 2}, {y: 4})
+// {x: 2, y: 4}
+
+_.pick(man, ['name', 'age', 'ololo'])
+// {name: 'John', age: 35}
+_.pick(man, 'name', 'age', 'ololo')
+// -//-
+_.pick(circle, (v, k, o) => v < 10)
+// {x: 8, y: 9}
+
+_.omit(man, ['coords', 'hair'])
+// {name: 'John', age: 35}
+_.omit(man, 'coords', 'hair')
+// -//-
+_.omit(circle, (v, k, o) => v < 10)
+// {r: 10}
+
+_.defaults({}, {x: 1}, {x: 2}, {y: 4})
+// {x: 1, y: 4}
+
+_.clone(dot)
+// {x: 2, y: 4}
+
+_.tap(3, console.log)
+//=> 3
+// В консоли:
+// 3
+
+_.get(man, 'name')
+// 'John'
+_.get(man, ['coords', 'x'])
+// 10
+_.get(man, ['coords', 'z'])
+// undefined
+_.get(man, ['coords', 'z'], 11)
+// 11
+
+_.has(dot, 'x')
+// true
+_.has(dot, 'hasOwnProperty')
+// false
+
+const head = _.property(0);
+head('Jesus');
+// 'J'
+
+_.matcher({
+    x: 8,
+    y: 9
+})(circle)
+// true
+
 // ============================== Utility
