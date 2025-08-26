@@ -341,3 +341,78 @@ _.matcher({
 // true
 
 // ============================== Utility
+
+const underscore = _.noConflict();
+underscore.size('Jesus');
+// 5
+_;
+// undefined
+
+_.identity(8)
+// 8; (v) => v
+
+_.constant(8)()
+// 8
+
+_.noop()
+// undefined; () => {}
+
+_.times(3, (idx) => idx + 1)
+// [1, 2, 3]
+
+_.random(5, 10)
+// 9
+_.random(5, 10)
+// 5
+_.random(5, 10)
+// 6
+_.random(5, 10)
+// 10
+
+_.mixin({
+    inc: (n) => n + 1,
+    add: (a, b) => a + b
+});
+_.inc(8);
+// 9
+_.add(5, 3);
+// 8
+
+_.uniqueId()
+// '1'
+_.uniqueId()
+// '2'
+_.uniqueId('checkbox_')
+// 'checkbox_3'
+
+_.escape('abc&<>"`\'')
+// 'abc&amp;&lt;&gt;&quot;&#x60;&#x27;'
+
+_.unescape('abc&amp;&lt;&gt;&quot;&#x60;&#x27;')
+// 'abc&<>"`\''
+
+const o = {
+    x: 2,
+    y: function() { return this.x * 2; }
+};
+_.result(o, 'x');
+// 2
+_.result(o, 'y');
+// 4
+_.result(o, 'z', 11);
+// 11
+
+_.now()
+// 1756202121973
+
+_.template('Hi, <%= name%>!')({
+    name: 'Oliver'
+});
+// 'Hi, Oliver!'
+_.template('<%- title%>')({
+    title: 'Tom & Jerry'
+});
+// 'Tom &amp; Jerry'
+
+_.VERSION
+// '1.13.7'
