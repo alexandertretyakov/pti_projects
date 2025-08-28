@@ -416,3 +416,21 @@ _.template('<%- title%>')({
 
 _.VERSION
 // '1.13.7'
+
+// ============================== OOP Style
+
+_([5, 6, 7]).map(inc)
+// [6, 7, 8]
+
+// ============================== Chaining
+
+_.chain([4, 5, 6])
+    .filter(isEven)
+    .map(inc)
+    .push(3)
+    .tap(console.log)
+    .reduce(add)
+    .value()
+//=> 15
+// В консоли:
+// [5, 7, 3]
