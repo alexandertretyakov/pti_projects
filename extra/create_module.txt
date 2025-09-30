@@ -44,8 +44,60 @@ Checklist (30 мин): 1 - 30
 Алгоритмы (1 час): juxt
 Writing (10 мин): The magic of Oz (740 letters)
 Работа (6 часов): ST Module 17 (Backbone)
+Grammar (30 минут): Сущ., При., Нар., Мес., Чис., Гла.
 CS/Vocabulary (30 мин): 1 - 80
 Книга и слова (1 час): The magic of Oz (1, 2 глава)
+
+// ===========================================================================
+
+ТЗ для модуля №22
+
+[ST_MODULE_22]
+/stm22
+
+Тырять тут
+https://starkscan.co/txs
+
+Плашка с кнопкой
+  Кнопка с солнцем и луной (переключает тему)
+  Переключение темы реализовать с помощью CSS Variables
+    var(--ololo)
+
+Плашка с заголовком и текстом
+
+Блок со списком транзакций (20 штук)
+  Для сетки использовать CSS Grid
+  Хэш транзакции и адреса полный, дата полная
+  При выводе на экран обрезать
+
+Иконки Copy, Info
+Разные Status и Type
+
+TK
+
+Мобильной версии не будет
+
+Эта задача про SVG, CSS Grid, CSS Variables
+
+// ===========================================================================
+
+ТЗ для модуля №21
+
+[ST_MODULE_21]
+/stm21
+
+https://www.chartjs.org/docs/latest/getting-started/
+https://www.chartjs.org/docs/latest/charts/bar.html
+https://www.chartjs.org/docs/latest/charts/doughnut.html
+
+type: 'bar'
+type: 'doughnut'
+
+HTML - 10%
+CSS - 20%
+JS - 30%
+Python - 30%
+Shell - 10%
 
 // ===========================================================================
 

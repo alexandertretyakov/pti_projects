@@ -335,6 +335,9 @@ Three.js
     3D Дизайн на Three.JS / #1 – Разработка веб 3Д Графики на основе WebGl и Three JS
     Гоша Дударь
 
+    https://threejs.org/manual/#en/creating-a-scene
+    https://threejs.org/manual/#en/fundamentals (есть на русском)
+
 Chart.js
     https://www.youtube.com/watch?v=apgyKUA7NpQ
     Графики и диаграммы на JavaScript для начинающих. Chart.js и plugin datalabels.
@@ -347,5 +350,32 @@ Chart.js
     https://www.youtube.com/watch?v=xtB0GBuAcEQ
     JavaScript решает 21. Графики Chart.js
     WebDev с нуля. Канал Алекса Лущенко
+
+Курс по HTML & CSS
+    https://www.youtube.com/playlist?list=PLMB6wLyKp7lV9YoWTMCztq-KXYhYPB09K
+    Курс HTML & CSS
+    Andrievskii Andreii
+
+Курс по JS
+    https://www.youtube.com/playlist?list=PL0MUAHwery4qn4Y27iUxmzC-JiauX7vSL
+    JavaScript курс 2025
+    Александр Ламков — Friendly Frontend
+
+    https://www.youtube.com/watch?v=yUvwxuXhFd4
+    JavaScript - Полный Курс по JS для начинающих, с Нуля по шагам. 1/2
+    IT Introvert | Дмитрий Колотильщиков
+
+    https://www.youtube.com/watch?v=co-YS6fYcyU
+    JavaScript - Полный Курс по JS для начинающих, с Нуля по шагам. 2/2
+    IT Introvert | Дмитрий Колотильщиков
+
+CSS переменные
+    https://www.youtube.com/watch?v=OgPY8FccBkI
+    CSS Переменные | CSS Variables | функция var()
+    Александр Ламков — Friendly Frontend
+
+    https://www.youtube.com/watch?v=Bm49QEsYgJ4
+    CSS Переменные: как работают + реальный пример (кастомные свойства)
+    Евгений Ращупкин
 
 ***
