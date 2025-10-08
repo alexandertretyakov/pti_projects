@@ -58,8 +58,8 @@ const Table = ({ transactions }) => {
                 </div>
             </div>
 
-            {transactions.map((transaction) => (
-                <div className={style.tableTransaction}>
+            {transactions.map((transaction, idx) => (
+                <div className={style.tableTransaction} key={idx}>
                     <div className={style.dataItem}>
                         <a href="#">{trimHash(transaction.transactionHash)}</a>
                         <span className={style.copyIcon}>{copyIcon}</span>
