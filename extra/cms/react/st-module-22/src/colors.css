@@ -1,0 +1,73 @@
+body {
+    --page-bg: #ffffff;
+
+    --header-bg: #f6f5f5;
+    --header-btn-theme-color: #ff6347;
+    --header-btn-theme-bg: var(--header-bg);
+
+    --main-color: #000;
+
+    --table-description-color: #374151;
+
+    --table-title-color: var(--main-color);
+    --table-title-borderLeftColor: #e7e7e7;
+    --table-title-borderRightColor: #e7e7e7;
+    --table-title-borderTopColor: #e7e7e7;
+    --table-title-borderBottomColor: #e7e7e7;
+    --table-title-bg: var(--header-bg);
+
+    --table-transaction-borderLeftColor: #e7e7e7;
+    --table-transaction-borderRightColor: #e7e7e7;
+    --table-transaction-borderBottomColor: #e7e7e7;
+
+    --table-cell-status-accepted-color: #166534;
+    --table-cell-status-accepted-bg: #dcfce7;
+    --table-cell-status-reverted-color: #991b1b;
+    --table-cell-status-reverted-bg: #fee2e2;
+
+    --table-cell-type-function-color: #3730a3;
+    --table-cell-type-function-bg: #e0e7ff;
+    --table-cell-type-deploy-color: var(--table-cell-status-accepted-color);
+    --table-cell-type-deploy-bg: var(--table-cell-status-accepted-bg);
+
+    --table-cell-calls-color: #9333ea;
+
+    --table-cell-anchor-color: #1e40af;
+}
+
+body.dark {
+    --page-bg: #0E141B;
+
+    --header-bg: var(--page-bg);
+    --header-btn-theme-color: #617bff;
+    --header-btn-theme-bg: #182635;
+
+    --main-color: #ffffff;
+
+    --table-description-color: #617bff;
+
+    --table-title-color: var(--main-color);
+    --table-title-borderLeftColor: transparent;
+    --table-title-borderRightColor: transparent;
+    --table-title-borderTopColor: transparent;
+    --table-title-borderBottomColor: #4B5563;
+    --table-title-bg: #182635;
+
+    --table-transaction-borderLeftColor: transparent;
+    --table-transaction-borderRightColor: transparent;
+    --table-transaction-borderBottomColor: #4B5563;
+
+    --table-cell-status-accepted-color: #dcfce7;
+    --table-cell-status-accepted-bg: #166534;
+    --table-cell-status-reverted-color: #fee2e2;
+    --table-cell-status-reverted-bg: #991b1b;
+
+    --table-cell-type-function-color: #e0e7ff;
+    --table-cell-type-function-bg: #3730a3;
+    --table-cell-type-deploy-color: var(--table-cell-status-accepted-color);
+    --table-cell-type-deploy-bg: var(--table-cell-status-accepted-bg);
+
+    --table-cell-calls-color: #c084fc;
+
+    --table-cell-anchor-color: #60a5fa;
+}
