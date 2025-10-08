@@ -23,7 +23,7 @@ const trimHash = (hash) => {
 
     return `${start}…${end}`;
 };
-const trimCall = (call) => string.length <= 20
+const trimCall = (call) => call.length <= 20
     ? call
     : call.slice(0, 20) + '&hellip;';
 
