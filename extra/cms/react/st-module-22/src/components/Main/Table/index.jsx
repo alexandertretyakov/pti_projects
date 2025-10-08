@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {useTranslations} from '../../../helpers';
+import { useTranslations } from '../../../helpers';
 
 import style from '../../../index.module.scss';
 
