@@ -29,9 +29,8 @@ const trimCall = (call) => call.length <= 20
 const formatTime = (dateString) => {
     const pastDate = new Date(dateString);
     const now = new Date();
-    const timeUTSDiffMls = 10800000;
 
-    const diffMs = now - pastDate + timeUTSDiffMls; // разница в миллисекундах + разница часового пояса (3 часа)
+    const diffMs = now - pastDate;
 
     if (diffMs <= 0) {
         return 0;
