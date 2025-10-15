@@ -32,6 +32,8 @@ body {
 
     --table-cell-calls-color: #9333ea;
 
+    --table-cell-age-color: #6b7280;
+
     --table-cell-anchor-color: #1e40af;
 }
 
@@ -68,6 +70,8 @@ body.dark {
     --table-cell-type-deploy-bg: var(--table-cell-status-accepted-bg);
 
     --table-cell-calls-color: #c084fc;
+
+    --table-cell-age-color: #ffffff;
 
     --table-cell-anchor-color: #60a5fa;
 }

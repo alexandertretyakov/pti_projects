@@ -58,7 +58,7 @@ body {
         background: var(--table-title-bg);
         padding-left: 24px;
         display: grid;
-        grid-template-columns: repeat(6, 1fr);
+        grid-template-columns: repeat(7, 1fr);
         border-left: 1px solid var(--table-title-borderLeftColor);
         border-right: 1px solid var(--table-title-borderRightColor);
         border-top: 1px solid var(--table-title-borderTopColor);
@@ -83,7 +83,7 @@ body {
         background: var(--table-title-bg);
         padding-left: 24px;
         display: grid;
-        grid-template-columns: repeat(6, 1fr);
+        grid-template-columns: repeat(7, 1fr);
         align-items: center;
         border-left: 1px solid var(--table-transaction-borderLeftColor);
         border-right: 1px solid var(--table-transaction-borderRightColor);
@@ -123,6 +123,10 @@ body {
 
             .wrapperCalls {
                 color: var(--table-cell-calls-color);
+            }
+
+            .age {
+                color: var(--table-cell-age-color);
             }
 
             a {

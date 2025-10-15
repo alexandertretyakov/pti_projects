@@ -26,6 +26,47 @@ const trimHash = (hash) => {
 const trimCall = (call) => call.length <= 20
     ? call
     : call.slice(0, 20) + '&hellip;';
+const formatTime = (dateString) => {
+    const pastDate = new Date(dateString);
+    const now = new Date();
+    const timeUTSDiffMls = 10800000;
+
+    const diffMs = now - pastDate + timeUTSDiffMls; // разница в миллисекундах + разница часового пояса (3 часа)
+
+    if (diffMs <= 0) {
+        return 0;
+    }
+
+    const diffSeconds = Math.floor(diffMs / 1000);
+    const diffMinutes = Math.floor(diffSeconds / 60);
+    const diffHours = Math.floor(diffMinutes / 60);
+    const diffDays = Math.floor(diffHours / 24);
+
+    if (diffDays) {
+        return `${diffDays}d`;
+    }
+
+    if (diffHours) {
+        return `${diffHours}h`;
+    }
+
+    if (diffMinutes) {
+        return `${diffMinutes}m`;
+    }
+
+    if (diffSeconds) {
+        return `${diffSeconds}s`;
+    }
+};
+const copyToClipboard = (text) => {
+    navigator.clipboard.writeText(text)
+        .then(() => {
+            alert(`Хэш скопирован! ${text}`);
+        })
+        .catch((err) => {
+            console.error('Ошибка копирования:', err);
+        });
+};
 
 const Table = ({ transactions }) => {
     const t = useTranslations();
@@ -56,13 +97,17 @@ const Table = ({ transactions }) => {
                 <div className={style.titleItem}>
                     {t('Address')} <span className={style.helpIcon}>{helpIcon}</span>
                 </div>
+
+                <div className={style.titleItem}>
+                    {t('Age')} <span className={style.helpIcon}>{helpIcon}</span>
+                </div>
             </div>
 
             {transactions.map((transaction, idx) => (
                 <div className={style.tableTransaction} key={idx}>
                     <div className={style.dataItem}>
                         <a href="#">{trimHash(transaction.transactionHash)}</a>
-                        <span className={style.copyIcon}>{copyIcon}</span>
+                        <span className={style.copyIcon} onClick={() => copyToClipboard(transaction.transactionHash)}>{copyIcon}</span>
                     </div>
 
                     <div className={style.dataItem}>
@@ -87,7 +132,11 @@ const Table = ({ transactions }) => {
 
                     <div className={style.dataItem}>
                         <a href="#">{trimHash(transaction.address)}</a>
-                        <span className={style.copyIcon}>{copyIcon}</span>
+                        <span className={style.copyIcon} onClick={() => copyToClipboard(transaction.address)}>{copyIcon}</span>
+                    </div>
+
+                    <div className={style.dataItem}>
+                        <span className={style.age}>{formatTime(transaction.timestamp)}</span>
                     </div>
                 </div>
             ))}
