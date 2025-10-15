@@ -378,4 +378,9 @@ CSS переменные
     CSS Переменные: как работают + реальный пример (кастомные свойства)
     Евгений Ращупкин
 
+React.lazy и React.Suspense
+    https://www.youtube.com/watch?v=ANQYKGUcLMg
+    Что такое Suspense и lazy в React. Ленивая загрузка (lazy load)
+    Дмитрий Герасимов - о разработке в сфере IT просто
+
 ***
