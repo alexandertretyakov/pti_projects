@@ -27,16 +27,19 @@ const App = () => {
             </div>
 
             <div className={style.content}>
-                <div className={style.container}>
+                <div>
                     { isBearOpen && <Suspense fallback={<Loader />}><Bear /></Suspense> }
                 </div>
-                <div className={style.container}>
+
+                <div>
                     { isFoxOpen && <Suspense fallback={<Loader />}><Fox /></Suspense> }
                 </div>
-                <div className={style.container}>
+
+                <div>
                     { isHedgehogOpen && <Suspense fallback={<Loader />}><Hedgehog /></Suspense> }
                 </div>
-                <div className={style.container}>
+
+                <div>
                     { isCamelOpen && <Suspense fallback={<Loader />}><Camel /></Suspense> }
                 </div>
             </div>
